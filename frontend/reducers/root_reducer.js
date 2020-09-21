@@ -8,7 +8,7 @@ import errors from "./session_errors_reducer";
 const rootReducer = combineReducers({
     entities,
     session,
-    errors
-})
+    errors,
+});
 
 export default rootReducer;
