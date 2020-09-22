@@ -60,6 +60,7 @@ header{
     background-color: black;
     color:white;
     border-radius: 5px;
+    z-index: 1;
 }
 .login-form-box label{
     display: flex;
@@ -71,8 +72,11 @@ header{
 .login-form-box input{
     position: relative;
     padding: 15px;
+    width: 300px;
+    box-sizing: border-box;
     
 }
+
 
 .session-submit{
     width: 100%;
@@ -86,4 +90,18 @@ header{
     background-color: aquamarine;
      transition-timing-function: ease-in-out;
 
+}
+
+.activities-container{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.activity-link-image{
+    width: 375px;
+    height: 600px;
+    background-color: bisque;
+    border: 1px black solid;
+    box-shadow: black;
 }

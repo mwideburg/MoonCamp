@@ -68,7 +68,7 @@ class SignUpForm extends React.Component {
                         <br />
                         <input className="session-submit" type="submit" value={this.props.formType} />
                         <br/>
-                        <p>Have an Account? <Link to="/login" className="user-button">Sign Up</Link></p>
+                        <p>Have an Account? <Link to="/login" className="user-button">Log in</Link></p>
                     </div>
                 </form>
             </div>

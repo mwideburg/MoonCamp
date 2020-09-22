@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class SessionForm extends React.Component {
     constructor(props) {
@@ -30,7 +31,7 @@ class SessionForm extends React.Component {
           
                     <div className="login-form">
                         <label>Email:</label>
-              <input type="text"
+                            <input type="text"
                                 value={this.state.email}
                                 onChange={this.update('email')}
                                 className="login-input"
@@ -38,7 +39,7 @@ class SessionForm extends React.Component {
                         
                         <br />
                         <label>Password: </label>
-              <input type="password"
+                            <input type="password"
                                 value={this.state.password}
                                 onChange={this.update('password')}
                                 className="login-input"
@@ -47,6 +48,10 @@ class SessionForm extends React.Component {
                         <br />
                         <input className="session-submit" type="submit" value={this.props.formType} />
                     </div>
+                    <br/>
+                <p>Don't have a Hipcamp account?  <b><Link to="/signup" >Sign Up</Link></b>
+                    
+                </p> 
                 </form>
             </div>
         );

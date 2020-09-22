@@ -1,0 +1,16 @@
+.elevator-pitch{
+    width: 700px;
+}
+.elevator-pitch h1{
+    font-size: 50px;
+    font-weight: bold;
+}
+.elevator-pitch h3{
+    font-size: 30px;
+    font-weight: bold;
+}
+.elevator-container{
+    width:1000px;
+    display: inline;
+   
+}

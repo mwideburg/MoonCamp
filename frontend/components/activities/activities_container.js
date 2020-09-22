@@ -2,7 +2,7 @@
 
 import { connect } from 'react-redux';
 
-import Search from './search';
+import Activities from './activities';
 
 const mapStateToProps = state => ({
 
@@ -12,4 +12,4 @@ const mapDispatchToProps = dispatch => {
     return () => dispatch();
 };
 
-export default connect(null, null)(Search);
+export default connect(null, null)(Activities);
