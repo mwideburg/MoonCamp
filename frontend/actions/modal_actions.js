@@ -3,7 +3,7 @@ export const HIDE_MODAL = 'HIDE_MODAL'
 
 
 export const showModal = (modalType) => dispatch => {
-    debugger
+    // debugger
     return{
     type: SHOW_MODAL,
     modalType
