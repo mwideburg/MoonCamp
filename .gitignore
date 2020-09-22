@@ -35,7 +35,10 @@
 yarn-debug.log*
 .yarn-integrity
 
-/node_modules
+node_modules/
 
-/bundle.js
-/bundle.js*
+bundle.js
+bundle.js.map
+.byebug_history
+.DS_Store
+npm-debug.log
