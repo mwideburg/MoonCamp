@@ -21,6 +21,8 @@ const App = () => (
         <h1 className="nav-bar-logo">Moon Camp</h1>
         
         <GreetingContainer />
+
+      
     </header>
 
     <div className="splash-container">
@@ -47,17 +49,22 @@ const App = () => (
         <div className="search">
             <SearchContainer />
         </div>
-        <div>
+        
 
+
+        <div>
             {/* RECENET VIEWS */}
-            
             <div className="recent-views">
-                
                     <RecentViewConatiner />
-                
             </div>
-            
         </div>
+
+        <div className="space-container">
+             <div className="space-image">
+                    <p>EXPLORE YOUR DESTINY</p> 
+            </div>
+        </div>
+
         <div>
             <section className="discover-planets">
 

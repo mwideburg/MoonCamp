@@ -19,9 +19,29 @@ const Greeting = ({ currentUser, logout }) => {
     }
     const hello = () => {
         // debugger
-        return (<nav className="links">
+        return (<nav className="links logged-in-dropdown">
             {/* <p>Hello {currentUser.firstname}</p> */}
-            <button onClick={logout} className="user-button logout">Log Out</button>
+            <img className="moon" src="https://pngimg.com/uploads/moon/moon_PNG20.png" alt=""/>
+            <div className="dropdown-user">
+                <ul>
+                    <li>
+                        <a href="">PROFILE</a>
+                    </li>
+                    <li>
+                        <a href="">REVIEWS</a>
+                    </li>
+                    <li>
+                        <a href="">ACCOUNT</a>
+                    </li>
+                    <li>
+                        <a href="">HEY</a>
+                    </li>
+                    <li>
+                        <button onClick={logout} className="user-button logout">Log Out</button>
+                    </li>
+                </ul>
+            </div>
+            
         </nav>
         )
     }

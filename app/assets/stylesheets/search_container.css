@@ -8,16 +8,17 @@
 .btn-search{
     font-size: 20px;
     width: 200px;
-    background-color: lightpink;
+    background-color: aquamarine;
+    border: none;
     border-radius: 5px;
     transition: 0.25s;
 }
 .btn-search:hover{
-    background-color: aquamarine;
+    background-color: lightpink;
      transition-timing-function: ease-in-out;
 }
 .search-form-container{
-    width: 1100px;
+    width: 1300px;
     
     padding: 20px;
     display: flex;
