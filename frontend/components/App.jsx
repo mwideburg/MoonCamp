@@ -11,16 +11,25 @@ import { AuthRoute } from '../util/route_util'
 import GreetingContainer from './greeting/greeting_container'
 import SignUpFormContainer from './session_form/signup_form_container';
 import LogInFormContainer from './session_form/login_form_container';
+import SearchContainer from './search/search_container';
 const App = () => (
-    <div>
+    <>
+    <header className="navbar">
         
-        <h1>Moon Camp</h1>
+        <h1 className="nav-bar-logo">Moon Camp</h1>
+
+        
+        
         <GreetingContainer />
-        <AuthRoute exact path="/login" component={LogInFormContainer} />
-        <AuthRoute exact path="/signup" component={SignUpFormContainer} />
-            
-        
+    </header>
+    <div className="modal-container">
+    <Switch>
+    <AuthRoute exact path="/signup" component={SignUpFormContainer} />
+    <AuthRoute exact path="/login" component={LogInFormContainer} />
+    <Route exact path="/" component={SearchContainer} />
+    </Switch>
     </div>
+    </>
 );
 
 export default App;

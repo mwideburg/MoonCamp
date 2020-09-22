@@ -10,8 +10,10 @@ import Root from './components/root'
 
 document.addEventListener("DOMContentLoaded", () => {
     // attach current user to window for preloadedstate to not loose info
+    // debugger
     let store;
     if (window.currentUser) {
+        debugger
         const preloadedState = {
             entities: {
                 users: { [window.currentUser.id]: window.currentUser }
@@ -23,16 +25,13 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
         store = configureStore();
     }
-
-
     // grab the root element
     const root = document.getElementById('root');
-    
-    // window.store = store;
-    // window.getState = store.getState;
-    // window.dispatch = store.dispatch;
+    // const store = configureStore()
+    window.getState = store.getState
    
-    window.login = login;
+    // window.login = login;
     // window.logout = logout;
+    // debugger
     ReactDOM.render(<Root store={store}/>, root);
 });

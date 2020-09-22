@@ -5,19 +5,17 @@ const Greeting = ({ currentUser, logout }) => {
     const loginOrSignup = () => {
         // debugger
         return (
-            <nav>
-                <Link to="/login">Log In</Link>
-                <br />
-                <Link to="/signup">Sign Up</Link>
-
+            <nav className="links">
+                <Link to="/login" className="user-button" >Log In</Link>
+                <Link to="/signup" className="user-button">Sign Up</Link>
             </nav>
         )
     }
     const hello = () => {
-        debugger
+        // debugger
         return (<nav>
-            <p>Hello {currentUser.firstname}</p>
-            <button onClick={logout}>Log Out</button>
+            {/* <p>Hello {currentUser.firstname}</p> */}
+            <button onClick={logout} className="user-button">Log Out</button>
         </nav>
         )
     }

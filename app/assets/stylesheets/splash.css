@@ -1,0 +1,57 @@
+body, main{
+    padding: 0;
+    margin: 0;
+}
+
+header{
+    display: flex;
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width:100%;
+    background-color: aquamarine;
+    padding: 0;
+    margin: 0;
+
+}
+.user-button{
+    padding: 10px;
+    text-decoration: none;
+    border: 1px, red, solid;
+    font-size: 20px;
+}
+.user-button:hover{
+    padding: 10px;
+    border-bottom: 5px red solid;
+    color: white;
+}
+
+.login-form-container{
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 200px;
+    width: 300px;
+    padding: 20px;
+    background-color: lavender;
+    border-radius: 3px;
+}
+.login-form-box label{
+    display: flex;
+    justify-content: center;
+    
+
+}
+
+.login-form-box input{
+    position: relative;
+
+    padding: 15px;
+}
+
+.session-submit{
+    width: 100%;
+}
