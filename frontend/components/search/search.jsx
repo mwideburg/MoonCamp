@@ -4,8 +4,9 @@ import React from 'react';
 const Search = () => {
     // debugger
     return(
-        <div key="search">
+        <div key="search" className="search">
             <h1>WELCOME TO MOONCAMP</h1>
+            
             <br/>
             
         </div>

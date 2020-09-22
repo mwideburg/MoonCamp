@@ -2,10 +2,14 @@ body, main{
     padding: 0;
     margin: 0;
     font-family: Quicksand, sans-serif;
+    background-color:white;
 }
 
 header{
     display: flex;
+}
+.search{
+    font-size: 30px;
 }
 
 .navbar{
@@ -17,17 +21,28 @@ header{
     padding: 0;
     margin: 0;
 
+
+}
+.logo{
+    color: white;
+}
+.logout{
+    background-color: aquamarine;
+    border: 0px;
 }
 .user-button{
     padding: 10px;
     text-decoration: none;
     border: 1px, red, solid;
+
     font-size: 20px;
     transition: 0.25s;
 }
 .user-button:hover{
     padding: 10px;
-    border-bottom: 5px red solid;
+    border-bottom: 5px lightpink solid;
+
+    /* box-shadow: 0px 5px 0px -2px red; */
     color: white;
     transition-timing-function: ease-in-out;
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class SignUpForm extends React.Component {
     constructor(props) {
@@ -66,6 +67,8 @@ class SignUpForm extends React.Component {
                         
                         <br />
                         <input className="session-submit" type="submit" value={this.props.formType} />
+                        <br/>
+                        <p>Have an Account? <Link to="/login" className="user-button">Sign Up</Link></p>
                     </div>
                 </form>
             </div>

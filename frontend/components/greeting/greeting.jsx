@@ -15,7 +15,7 @@ const Greeting = ({ currentUser, logout }) => {
         // debugger
         return (<nav>
             {/* <p>Hello {currentUser.firstname}</p> */}
-            <button onClick={logout} className="user-button">Log Out</button>
+            <button onClick={logout} className="user-button logout">Log Out</button>
         </nav>
         )
     }
