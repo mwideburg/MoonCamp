@@ -10,7 +10,7 @@ class Modal extends React.Component{
             <div>
                 <div className="modal-overlay">
                     <div className="modal-content" onClick={this.overlayOnClick().bind(this)}>
-                        
+                        <h1>This is a Modal</h1>
                     </div>
 
                 </div>

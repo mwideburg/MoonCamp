@@ -13,6 +13,7 @@ import SignUpFormContainer from './session_form/signup_form_container';
 import LogInFormContainer from './session_form/login_form_container';
 import SearchContainer from './search/search_container';
 import ActivitiesContainer from './activities/activities_container';
+import RecentViewConatiner from './recent_views/recent_view_container';
 const App = () => (
     <>
     <header className="navbar">
@@ -39,11 +40,28 @@ const App = () => (
             <Switch>
             <AuthRoute exact path="/signup" component={SignUpFormContainer} />
             <AuthRoute exact path="/login" component={LogInFormContainer} />
-            
+            {/* <AuthRoute exact path="/recent_views" component={LogInFormContainer} /> */}
+                   
             </Switch>
             </div>
         <div className="search">
             <SearchContainer />
+        </div>
+        <div>
+
+            {/* RECENET VIEWS */}
+            
+            <div className="recent-views">
+                
+                    <RecentViewConatiner />
+                
+            </div>
+            
+        </div>
+        <div>
+            <section className="discover-planets">
+
+            </section>
         </div>
         <h1>EXPERIENCE SPACE</h1>
         <div className="activities-container">

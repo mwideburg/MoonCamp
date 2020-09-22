@@ -6,9 +6,11 @@ const _nullModalState = {
 
 
 const modalReducer = (state = _nullModalState, action) =>{
+    // debugger
     Object.freeze(state)
     switch (action.type) {
         case SHOW_MODAL:
+            debugger
             return Object.assign({}, action.modalType)
         case HIDE_MODAL:
             return Object.assign({}, action.modalType)

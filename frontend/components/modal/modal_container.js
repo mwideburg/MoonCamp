@@ -3,7 +3,7 @@ import React from 'react';
 import SignUpFormContainer from './signup_form_container';
 import LogInFormContainer from './login_form_container';
 
-import {LOGIN_MODAL, SIGNUP_MODAL} from './modal_types'
+import {LOGIN_MODAL, SIGNUP_MODAL} from '../../actions/modal_actions'
 
 const ModalContainer = props =>{
     const ModalType = props.modalType
