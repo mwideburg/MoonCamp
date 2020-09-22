@@ -17,15 +17,19 @@ class SessionForm extends React.Component {
         });
     }
 
+
     handleSubmit(e) {
         e.preventDefault();
         const user = Object.assign({}, this.state);
         this.props.processForm(user);
+     
+        
     }
 
 
     render() {
         return (
+        
             <div className="login-form-container">
                 <form onSubmit={this.handleSubmit} className="login-form-box">
           
@@ -54,6 +58,8 @@ class SessionForm extends React.Component {
                 </p> 
                 </form>
             </div>
+         
+            
         );
     }
 }

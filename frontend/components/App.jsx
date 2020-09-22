@@ -18,8 +18,6 @@ const App = () => (
     <header className="navbar">
         
         <h1 className="nav-bar-logo">Moon Camp</h1>
-
-        
         
         <GreetingContainer />
     </header>
@@ -36,10 +34,12 @@ const App = () => (
         </div>
                 
             </div>
+                
+            
             <Switch>
             <AuthRoute exact path="/signup" component={SignUpFormContainer} />
             <AuthRoute exact path="/login" component={LogInFormContainer} />
-            {/* <Route exact path="/" component={SearchContainer} /> */}
+            
             </Switch>
             </div>
         <div className="search">
@@ -51,7 +51,8 @@ const App = () => (
             <ActivitiesContainer/>
         </div>
     </div>
-
+    <section id="overlay" className="overlay hidden"></section>
+    
     </>
 );
 
