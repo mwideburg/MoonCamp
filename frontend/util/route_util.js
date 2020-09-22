@@ -5,12 +5,12 @@ import { Redirect, Route, withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state) => {
 
-    debugger
+    // debugger
     return {loggedIn: Boolean(state.session.id)}
 }
 
 const Auth = ({ loggedIn, path, component: Component }) => {
-    debugger
+    // debugger
     return (
         <Route
             path={path}

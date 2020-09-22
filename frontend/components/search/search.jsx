@@ -5,7 +5,9 @@ const Search = () => {
     // debugger
     return(
         <div key="search">
-                HELLO
+            <h1>WELCOME TO MOONCAMP</h1>
+            <br/>
+            
         </div>
     )
 }

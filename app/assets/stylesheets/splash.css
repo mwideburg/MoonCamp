@@ -1,6 +1,7 @@
 body, main{
     padding: 0;
     margin: 0;
+    font-family: Quicksand, sans-serif;
 }
 
 header{
@@ -22,11 +23,13 @@ header{
     text-decoration: none;
     border: 1px, red, solid;
     font-size: 20px;
+    transition: 0.25s;
 }
 .user-button:hover{
     padding: 10px;
     border-bottom: 5px red solid;
     color: white;
+    transition-timing-function: ease-in-out;
 }
 
 .login-form-container{
@@ -35,9 +38,13 @@ header{
     position: absolute;
     top: 200px;
     width: 300px;
-    padding: 20px;
-    background-color: lavender;
-    border-radius: 3px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom:50px;
+    padding-top:30px;
+    background-color: black;
+    color:white;
+    border-radius: 5px;
 }
 .login-form-box label{
     display: flex;
@@ -48,10 +55,20 @@ header{
 
 .login-form-box input{
     position: relative;
-
     padding: 15px;
+    
 }
 
 .session-submit{
     width: 100%;
+    font-size: 20px;
+    margin-top: 20px;
+    background-color: lightpink;
+    border-radius: 5px;
+    transition: 0.25s;
+}
+.session-submit:hover{
+    background-color: aquamarine;
+     transition-timing-function: ease-in-out;
+
 }

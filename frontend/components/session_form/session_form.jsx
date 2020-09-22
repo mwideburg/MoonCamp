@@ -29,7 +29,6 @@ class SessionForm extends React.Component {
                 <form onSubmit={this.handleSubmit} className="login-form-box">
           
                     <div className="login-form">
-                        <br />
                         <label>Email:</label>
               <input type="text"
                                 value={this.state.email}

@@ -32,7 +32,6 @@ class SignUpForm extends React.Component {
         return (
             <div className="login-form-container" >
                 <form onSubmit={this.handleSubmit} className="login-form-box">
-
                     <div className="login-form">
                         <label>FirstName: </label>
                         <input type="text"
