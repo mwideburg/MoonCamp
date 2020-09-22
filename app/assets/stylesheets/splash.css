@@ -8,23 +8,32 @@ body, main{
 header{
     display: flex;
 }
+
+.splash-container{
+    width: 1200px;
+    margin: 0 auto;
+}
 .search{
     font-size: 30px;
 }
 
 .navbar{
     display: flex;
-    justify-content: space-around;
+    
     align-items: center;
     width:100%;
     background-color: aquamarine;
     padding: 0;
     margin: 0;
-
-
 }
-.logo{
-    color: white;
+.links{
+    padding-right: 10px;
+    position: absolute;
+    right: 0;
+    
+}
+.nav-bar-logo{
+    padding-left: 100px;
 }
 .logout{
     background-color: aquamarine;
@@ -101,7 +110,7 @@ header{
 .activity-link-image{
     width: 375px;
     height: 600px;
-    background-color: bisque;
+    background-color: black;
     border: 1px black solid;
     box-shadow: black;
 }

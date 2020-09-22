@@ -24,8 +24,7 @@ const App = () => (
         <GreetingContainer />
     </header>
 
-
-
+    <div className="splash-container">
         <div className="modal-container">
             <div className="elevator-container">
 
@@ -51,6 +50,8 @@ const App = () => (
             
             <ActivitiesContainer/>
         </div>
+    </div>
+
     </>
 );
 
