@@ -118,7 +118,7 @@ const App = () => (
                         </div>
                     <div className="detail-container">
                         <h3>MEET THE BEST HOST... WORF</h3>
-                        <p>"I am known to be a fierce warrior, but a dosile hose. Come stay with me and enjoy Gagh: A Klingon delicacy, live serpent worms."</p>
+                        <p>"I am known to be a fierce warrior, but a dosile host. Come stay with me and enjoy Gagh: A Klingon delicacy, live serpent worms."</p>
                         <br />
                         <center><button className=""> CAMP OUT WITH WORF</button></center>
                     </div>
