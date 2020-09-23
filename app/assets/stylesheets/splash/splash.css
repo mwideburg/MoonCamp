@@ -9,6 +9,12 @@ header{
     display: flex;
     height: 60px;
 }
+.logout{
+    border-bottom: none;
+}
+.logout:hover{
+    border: none;
+}
 
 .splash-container{
     width: 1100px;
@@ -78,10 +84,14 @@ header{
     padding-top: 10px;
     color: lightgray;
     height: 30px;
+
+}
+.dropdown-user li:not(:last-child){
+
     border-bottom: lightgray solid 1px;
 }
 
-.dropdown-user li:hover {
+.dropdown-user li:hover:not(:last-child) {
     /* padding-top: 10px; */
     /* height: 50px; */
     /* background-color: lightgray; */
@@ -200,6 +210,7 @@ header{
 
    
 }
+
 .img-links:hover > .activity-link-image {
     opacity: .8;
     
@@ -208,11 +219,29 @@ header{
     opacity: .8;
     
 }
-
+.worf{
+    width: 300px;
+    height: 400px;
+    border-radius: 25px;
+    background-image: url('https://cnet4.cbsistatic.com/img/r-p-OqNgNZMOl62QZqWFWkgaQa0=/940x0/2016/09/02/41f02b67-d8ff-4179-8c32-a0f0c5bdfd7f/tng-worf00000993d.jpg');
+    background-size: cover;
+    background-position: center;
+}
 .space-image{
     display: flex;
     justify-content: center;
     padding-top: 50px;
+    font-size: 50px;
+    height: 500px;
+    color:white;
+    width: 900;
+    box-sizing: border-box;
+}
+.worf-container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /* padding-top: 50px; */
     font-size: 50px;
     height: 500px;
     color:white;
@@ -230,10 +259,32 @@ header{
     border-radius: 25px;
 }
 
+.host-review-container{
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: black 1px solid;
+    /* background-image: url('https://cdn.arstechnica.net/wp-content/uploads/2012/08/bridge.replica.replica.jpg'); */
+    background-size: cover;
+    background-position: center;
+    border-radius: 25px;
+}
+
 .detail-container{
     margin-left: 50px;
     padding:10px;
+    
     font-size: 20px;
+    color: black;
+}
+.detail-container-worf{
+    margin-left: 50px;
+    padding:10px;
+    background-image: url('https://d.newsweek.com/en/full/1574814/star-trek-picard-season-3-worf.jpg?w=1600&h=1600&l=51&t=34&q=88&f=9776e93300c68c7078ed98f45b2c2ae4');
+    font-size: 20px;
+    border-radius: 7px;
+    background-size: cover;
     color: black;
 }
 .detail-container h3{
@@ -251,4 +302,8 @@ header{
 .detail-container button:hover{
     background-color: white;
     cursor: pointer;
+}
+.detail-container button:focus{
+    outline: none;
+    
 }

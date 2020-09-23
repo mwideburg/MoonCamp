@@ -7,6 +7,7 @@ import {
     Link,
     HashRouter
 } from 'react-router-dom';
+import Spot from './recent_views/spots_placeholder'
 import { AuthRoute } from '../util/route_util'
 import GreetingContainer from './greeting/greeting_container'
 import SignUpFormContainer from './session_form/signup_form_container';
@@ -17,6 +18,7 @@ import ActivitiesContainer from './activities/activities_container';
 import PlanetContainer from './planets/planet_container'
 import RecentViewConatiner from './recent_views/recent_view_container';
 import Modal from './modal/modal'
+import SpotPlaceHolder from "./recent_views/spots_placeholder";
 const App = () => (
     <>
     
@@ -82,6 +84,8 @@ const App = () => (
             
             <PlanetContainer/>
         </div>
+
+
         <div className="moon-highlight">
             <div className="space-image">
                 <div className="detail-container">
@@ -92,6 +96,35 @@ const App = () => (
                 </div>
             </div>
         </div>
+        <br/>  
+            <h1>AVAILABLE NEXT WEEK</h1>
+            <div className="activities-container">
+
+                <Spot />
+                <Spot />
+                <Spot />
+            </div>
+            <br/>
+            <div className="activities-container">
+
+                <Spot />
+                <Spot />
+                <Spot />
+            </div>
+            <div className="host-review-container">
+                <div className="worf-container">
+                        <div className="worf">
+                            
+                        </div>
+                    <div className="detail-container">
+                        <h3>MEET THE BEST HOST... WORF</h3>
+                        <p>"I am known to be a fierce warrior, but a dosile hose. Come stay with me and enjoy Gagh: A Klingon delicacy, live serpent worms."</p>
+                        <br />
+                        <center><button className=""> CAMP OUT WITH WORF</button></center>
+                    </div>
+                </div>
+            </div>
+         
     </div>
     <footer  className="">
         
