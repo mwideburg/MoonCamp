@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 class Activities extends React.Component {
     render(){
 
@@ -11,16 +11,31 @@ class Activities extends React.Component {
             and link to the specific search content page */}
             {/* place inside a ul */}
 
-            
+                <Link to={'/'} className="img-links">
             <div className="activity-link-image">
-
+                    <img src="https://i.pinimg.com/originals/65/67/07/656707ea1e9fad2b5b9111a06045fcb8.jpg" alt="" />
+                    <h2>EARL GRAY WITH PICARD</h2>
+                    <h3>and it's always hot</h3>
             </div>
-            <div className="activity-link-image">
-
+            </Link>
+                <Link to={'/'} className="img-links">
+            <div className="activity-link-image" src="">
+                    <img src="https://i.pinimg.com/originals/65/67/07/656707ea1e9fad2b5b9111a06045fcb8.jpg"  alt=""/>
+                    <h2>ROVERING ON EUROPA</h2>
+                    <h3>the only way to travel</h3>
             </div>
-            <div className="activity-link-image">
-
+            </Link>
+            <Link to={'/'} className="img-links">
+            <div className="activity-link-image" >
+                        
+                    {/* <img className="link-bg"src="https://i.pinimg.com/originals/65/67/07/656707ea1e9fad2b5b9111a06045fcb8.jpg"  alt=""/> */}
+                    <h2>GOLFING ON THE MOON</h2>
+                    <h3>what a way to golf</h3>
+                    
+                    
+                    
             </div>
+            </Link>
         </div>
         )
     }

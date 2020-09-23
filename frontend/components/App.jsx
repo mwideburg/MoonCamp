@@ -14,6 +14,7 @@ import DemoContainer from './session_form/demo_form_container';
 import LogInFormContainer from './session_form/login_form_container';
 import SearchContainer from './search/search_container';
 import ActivitiesContainer from './activities/activities_container';
+import PlanetContainer from './planets/planet_container'
 import RecentViewConatiner from './recent_views/recent_view_container';
 import Modal from './modal/modal'
 const App = () => (
@@ -70,18 +71,33 @@ const App = () => (
             </div>
         </div>
 
-        <div>
-            <section className="discover-planets">
-
-            </section>
-        </div>
+        
         <h1>EXPERIENCE SPACE</h1>
         <div className="activities-container">
             
             <ActivitiesContainer/>
         </div>
+        <h1>FIND YOUR MOON</h1>
+        <div className="activities-container">
+            
+            <PlanetContainer/>
+        </div>
+        <div className="moon-highlight">
+            <div className="space-image">
+                <div className="detail-container">
+                    <h3>MEET THE PEQUENINOS ON TITAN</h3>
+                    <p>Ender gives tours of the tree creatures</p>
+                    <br/>
+                    <center><button className=""> ENDERS GAME</button></center> 
+                </div>
+            </div>
+        </div>
     </div>
-    <section id="overlay" className="overlay hidden"></section>
+    <footer  className="">
+        
+            made by michael wideburg with a lot of love and guidance from app academy
+        <button className="help-button"> HELP </button>
+    </footer>
     
     </>
 );
