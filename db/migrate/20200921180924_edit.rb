@@ -1,4 +1,4 @@
-class Edit < ActiveRecord::Migration[6.0]
+class Edit < ActiveRecord::Migration[5.2]
   def change
     remove_column :users, :zip
   end

@@ -1,4 +1,4 @@
-class Edit2 < ActiveRecord::Migration[6.0]
+class Edit2 < ActiveRecord::Migration[5.2]
   def change
     remove_column :users, :fistname
     add_column :users, :firstname, :string
