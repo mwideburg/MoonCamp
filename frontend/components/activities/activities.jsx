@@ -13,14 +13,14 @@ class Activities extends React.Component {
 
                 <Link to={'/'} className="img-links">
             <div className="activity-link-image">
-                    <img src="https://i.pinimg.com/originals/65/67/07/656707ea1e9fad2b5b9111a06045fcb8.jpg" alt="" />
+                    {/* <img src="https://i.pinimg.com/originals/65/67/07/656707ea1e9fad2b5b9111a06045fcb8.jpg" alt="" /> */}
                     <h2>EARL GRAY WITH PICARD</h2>
                     <h3>and it's always hot</h3>
             </div>
             </Link>
                 <Link to={'/'} className="img-links">
             <div className="activity-link-image" src="">
-                    <img src="https://i.pinimg.com/originals/65/67/07/656707ea1e9fad2b5b9111a06045fcb8.jpg"  alt=""/>
+                    {/* <img src="https://i.pinimg.com/originals/65/67/07/656707ea1e9fad2b5b9111a06045fcb8.jpg"  alt=""/> */}
                     <h2>ROVERING ON EUROPA</h2>
                     <h3>the only way to travel</h3>
             </div>

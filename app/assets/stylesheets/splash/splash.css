@@ -4,6 +4,9 @@ body, main{
     font-family: Quicksand, sans-serif;
     background-color:white;
 }
+button:focus{
+    outline: none;
+}
 
 header{
     display: flex;
