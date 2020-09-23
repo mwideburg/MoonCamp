@@ -20,9 +20,9 @@ class SignUpForm extends React.Component {
             [field]: e.currentTarget.value
         });
     }
-    openLogin(){
-        this.props.closeModal('login')
-    }
+    // openLogin(){
+    //     this.props.closeModal('login')
+    // }
 
     handleSubmit(e) {
         
@@ -34,10 +34,13 @@ class SignUpForm extends React.Component {
 
 
     render() {
-        debugger
+        // debugger
         return (
+            <div>
             <div className="login-form-container" >
                 <form onSubmit={this.handleSubmit} className="login-form-box">
+                <button onClick={this.props.closeModal} className="user-button modal-close">X</button>
+                <br/>
                     <div className="login-form">
                         <label>FirstName: </label>
                         <input type="text"
@@ -88,6 +91,7 @@ class SignUpForm extends React.Component {
                     </div>
                         <p>Have an Account?{this.props.otherForm}</p>
                 </form>
+            </div>
             </div>
         );
     }

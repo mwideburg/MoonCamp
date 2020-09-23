@@ -27,7 +27,7 @@
   bottom: 0;
   right: 0;
   left: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.5);
   z-index: 10;
 }
 
@@ -37,7 +37,6 @@
   left: 41%;
   transform: translate(-50%, -50%);
 }
-
 
 .login-form-box input{
     position: relative;
@@ -70,7 +69,7 @@
     padding-left: 30px;
     padding-right: 30px;
     padding-bottom:50px;
-    padding-top:30px;
+    /* padding-top:30px; */
     background-color: black;
     color:white;
     border-radius: 5px;
@@ -81,6 +80,18 @@
     justify-content: center;
     
 
+}
+.login-form-container input{
+    padding: 0;
+    height: 50px;
+}
+.login-form-container input[type="text"]{
+    font-size: 15px;
+    text-align: center;
+}
+.login-form-container input[type="password"]{
+    font-size: 15px;
+    text-align: center;
 }
 
 .session-submit{
@@ -105,3 +116,14 @@
     color: rgb(255, 107, 107);
 }
 
+.modal-close{
+    color: white; 
+    position: relative;
+    display: absolute;
+    width: 100%;
+    right: 0;
+    /* float: right; */
+    margin-bottom: 10px;
+    margin-top: 10px;
+    
+}

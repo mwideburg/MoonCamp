@@ -7,14 +7,14 @@ body, main{
 
 header{
     display: flex;
-    height: 80px;
+    height: 60px;
 }
 
 .splash-container{
-    width: 1300px;
+    width: 1100px;
     margin: 0 auto;
     position: relative;
-    top: 100px;
+    top: 50px;
 }
 .search{
     font-size: 30px;
@@ -39,8 +39,9 @@ header{
     
 }
 .moon{
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 30px;
+    opacity: 1;
 }
 .moon:hover{
 
@@ -56,7 +57,7 @@ header{
     margin: 0;
     
     right:10px;
-    top: 50px;
+    top: 30px;
     background-color: white;
     border-radius: 4px;
     border: 1px solid lightgray;
@@ -73,9 +74,9 @@ header{
     text-align: center;
 }
 .dropdown-user li{
-    padding-top: 20px;
+    padding-top: 10px;
     color: lightgray;
-    height: 50px;
+    height: 30px;
     border-bottom: lightgray solid 1px;
 }
 
@@ -85,15 +86,21 @@ header{
     /* background-color: lightgray; */
     border-bottom: gray solid 1px;
 }
+.dropdown-user ul:hover > .moon{
+    /* padding-top: 10px; */
+    /* height: 50px; */
+    /* background-color: lightgray; */
+    opacity: .3;
+}
 .dropdown-user a{
     text-decoration: none;
     color: gray;
-    font-size: 20px;
+    font-size: 15px;
 }
 .dropdown-user a:hover{
     text-decoration: none;
     color: black;
-    font-size: 20px;
+    font-size: 15px;
 }
 
 .logged-in-dropdown:hover > .dropdown-user{
@@ -103,6 +110,7 @@ header{
 
 .nav-bar-logo{
     padding-left: 100px;
+    font-size: 25px;
 }
 
 .user-button{
@@ -110,11 +118,11 @@ header{
     text-decoration: none;
     border: none;
     background-color: transparent;
-    font-size: 20px;
+    font-size: 15px;
     transition: 0.25s;
 }
 .user-button:hover{
-    padding: 10px;
+    /* padding: 10px; */
     border-bottom: 5px lightpink solid;
 
     /* box-shadow: 0px 5px 0px -2px red; */
@@ -141,7 +149,7 @@ header{
 }
 
 .space-container{
-    margin-top: 50px;
+    margin-top: 20px;
     display: flex;
     justify-content: center;
     background-image: url('https://moonburyrings.co.uk/wp-content/uploads/2019/06/astronaut-with-mobile-phone-on-moon-vector-18479312.jpg');
@@ -157,9 +165,9 @@ header{
     justify-content: center;
     padding-top: 50px;
     font-size: 50px;
-    height: 700px;
+    height: 500px;
     color:white;
-    width: 1300;
+    width: 900;
     box-sizing: border-box;
 }
 

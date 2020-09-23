@@ -22,7 +22,7 @@ const App = () => (
     
     <header className="navbar">
             <Modal />
-        <h1 className="nav-bar-logo">Moon Camp</h1>
+        <h2 className="nav-bar-logo">Moon Camp</h2>
         
         <GreetingContainer />
 

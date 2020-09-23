@@ -2,15 +2,15 @@
     width: 700px;
 }
 .elevator-pitch h1{
-    font-size: 50px;
+    font-size: 35px;
     font-weight: bold;
 }
 .elevator-pitch h3{
-    font-size: 30px;
+    font-size: 25px;
     font-weight: bold;
 }
 .elevator-container{
-    width:1200px;
+    width:1000px;
     display: inline;
    
 }

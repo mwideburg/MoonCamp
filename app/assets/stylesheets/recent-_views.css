@@ -1,5 +1,5 @@
 .recent-views{
-    margin-top: 200px;
+    margin-top: 20px;
     
 }
 .recent-views-wrapper{
@@ -8,11 +8,12 @@
     display: relative;
     padding:0;
     margin:0;
-    
     /* box-sizing: border-box; */
     
 }
-
+.recent-view-space{
+    margin-top: 200px;
+}
 
 .recent-views-container{
 

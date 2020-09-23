@@ -23,12 +23,15 @@ const Greeting = ({ currentUser, logout, openModal }) => {
     const hello = () => {
         // debugger
         return (<nav className="links logged-in-dropdown">
-            {/* <p>Hello {currentUser.firstname}</p> */}
             <img className="moon" src="https://pngimg.com/uploads/moon/moon_PNG20.png" alt=""/>
             <div className="dropdown-user">
+           
                 <ul>
                     <li>
                         <a href="">PROFILE</a>
+                    </li>
+                    <li>
+                        <a href="">{currentUser.firstname}</a>
                     </li>
                     <li>
                         <a href="">REVIEWS</a>

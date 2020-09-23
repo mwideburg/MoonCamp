@@ -1,12 +1,13 @@
 .search{
     width: 100%;
+    padding-top: 30px;
     display: flex;
     justify-content: space-around;
     align-items: center;
     
 }
 .btn-search{
-    font-size: 20px;
+    font-size: 15px;
     width: 200px;
     background-color: aquamarine;
     border: none;
@@ -18,9 +19,9 @@
      transition-timing-function: ease-in-out;
 }
 .search-form-container{
-    width: 1300px;
+    width: 900px;
     
-    padding: 20px;
+    padding: 10px;
     display: flex;
     justify-content: space-around;
 }
@@ -28,13 +29,13 @@
     width:100%;
     border: black solid 1px;
     border-radius: 5px;
-    padding: 20px;
+    padding: 10px;
     display: flex;
     justify-content: space-around;
 }
 .search-form-container input{
     display: inline;
-    height: 80px;
+    height: 60px;
     
 
 }
@@ -48,9 +49,9 @@
 
 .search input{
     position: relative;
-    padding: 15px;
-    width: 300px;
+    padding: 10px;
+    width: 210px;
     box-sizing: border-box;
-    font-size: 22px;
+    font-size: 15px;
     
 }
