@@ -2,12 +2,14 @@ class Api::UsersController < ApplicationController
     def create 
         # debugger
         @user = User.new(user_params) 
-        
-        if @user.save 
+        # debugger
+        if @user.save!
             login(@user)
             render "api/users/show"
         else 
-            render json: @user.errors.full_messages, status: 422
+            debugger
+            # flash.now[:error] = @user.errors.full_messages
+            render json: ["YOU DONE DID A BAD THING"], status: 402
         end
     end
 
@@ -16,6 +18,7 @@ class Api::UsersController < ApplicationController
          if @user
             render "api/users/show"
         else
+            # flash.now[:error] = @user.errors.full_messages
             render json: @user.errors.full_messages, status: 402
         end
     end

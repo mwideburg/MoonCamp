@@ -9,6 +9,7 @@ class Api::SessionsController < ApplicationController
             login(@user)
             render "api/users/show"
         else
+            # debugger
              render json: ["Invalid Credentials"], status: 404
         end
     end
