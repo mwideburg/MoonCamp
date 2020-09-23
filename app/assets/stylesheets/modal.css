@@ -27,8 +27,10 @@
   bottom: 0;
   right: 0;
   left: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.8);
   z-index: 10;
+  transition: 0.25s;
+  transition-timing-function: ease-in-out;
 }
 
 .modal-child {
@@ -36,6 +38,8 @@
     margin: 0;
   left: 41%;
   transform: translate(-50%, -50%);
+  transition: 0.25s;
+  transition-timing-function: ease-in-out
 }
 
 .login-form-box input{
@@ -43,6 +47,7 @@
     padding: 20px;
     width: 300px;
     box-sizing: border-box;
+    
     
 }
 .other-form{
@@ -69,7 +74,7 @@
     padding-left: 30px;
     padding-right: 30px;
     padding-bottom:50px;
-    /* padding-top:30px; */
+    padding-top:30px;
     background-color: black;
     color:white;
     border-radius: 5px;
@@ -83,7 +88,15 @@
 }
 .login-form-container input{
     padding: 0;
-    height: 50px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+}
+.login-form-container input:focus{
+    border: none;
+    outline: none ! important;
 }
 .login-form-container input[type="text"]{
     font-size: 15px;
@@ -96,8 +109,9 @@
 
 .session-submit{
     width: 100%;
-    font-size: 20px;
-    margin-top: 20px;
+    font-size: 15px;
+    margin-top: 15px;
+    padding-top:50px;
     background-color: lightpink;
     border-radius: 5px;
     transition: 0.25s;
@@ -118,12 +132,17 @@
 
 .modal-close{
     color: white; 
-    position: relative;
-    display: absolute;
+    
     width: 100%;
     right: 0;
+    padding-top: 20px;
+    margin-top: 30px;
+    height: 200px;
     /* float: right; */
-    margin-bottom: 10px;
-    margin-top: 10px;
+
     
+}
+.modal-close:hover{
+    color:gray;
+    cursor: pointer;
 }

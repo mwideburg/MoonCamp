@@ -129,6 +129,10 @@ header{
     color: white;
     transition-timing-function: ease-in-out;
 }
+
+.user-button:focus{
+    outline: none;
+}
 .logout{
     /* background-color: aquamarine; */
    

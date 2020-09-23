@@ -33,7 +33,7 @@ class SessionForm extends React.Component {
             
             <div className="login-form-container">
                 <form onSubmit={this.handleSubmit} className="login-form-box">
-                    <button onClick={this.props.closeModal} className="user-button modal-close">X</button>
+                    <a onClick={this.props.closeModal} className="modal-close">X</a>
                     <br/>
                     <div className="login-form">
                         <label>Email:</label>
@@ -50,6 +50,7 @@ class SessionForm extends React.Component {
                                 value={this.state.password}
                                 onChange={this.update('password')}
                                 className="login-input"
+                                placeholder="Engage!"
                                 
                             />
                        

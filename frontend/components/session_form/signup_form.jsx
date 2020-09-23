@@ -39,7 +39,7 @@ class SignUpForm extends React.Component {
             <div>
             <div className="login-form-container" >
                 <form onSubmit={this.handleSubmit} className="login-form-box">
-                <button onClick={this.props.closeModal} className="user-button modal-close">X</button>
+                <a onClick={this.props.closeModal} className="modal-close">X</a>
                 <br/>
                     <div className="login-form">
                         <label>FirstName: </label>
