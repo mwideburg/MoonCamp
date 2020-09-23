@@ -17,7 +17,11 @@ class SessionForm extends React.Component {
             [field]: e.currentTarget.value
         });
     }
-
+    componentWillUnmount() {
+        if (this.props.errors) {
+            this.props.removeErrors()
+        }
+    }
 
     handleSubmit(e) {
         e.preventDefault();
@@ -29,6 +33,7 @@ class SessionForm extends React.Component {
 
 
     render() {
+        const errors = this.props.errors
         return (
             
             <div className="login-form-container">
@@ -58,7 +63,7 @@ class SessionForm extends React.Component {
                         <input className="session-submit" type="submit" value={this.props.formType} />
                     </div>
                     <br/>
-                    <p className="errors">{this.props.errors}</p> 
+                    <p className="errors">{errors}</p> 
                     <br/>
                 <p>Don't have an account?  {this.props.otherForm}
                 

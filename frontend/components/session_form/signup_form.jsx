@@ -23,7 +23,11 @@ class SignUpForm extends React.Component {
     // openLogin(){
     //     this.props.closeModal('login')
     // }
-
+    componentWillUnmount(){
+        if(this.props.errors){
+            this.props.removeErrors()
+        }
+    }
     handleSubmit(e) {
         
         e.preventDefault();
@@ -82,7 +86,7 @@ class SignUpForm extends React.Component {
                         <br/>
                         <ul>
                         {this.props.errors.map(error => (
-                            <li className="signupError">
+                            <li key={error} className="signupError">
                                 {error}
                             </li>
                         ))}
