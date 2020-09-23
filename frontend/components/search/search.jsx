@@ -7,7 +7,7 @@ class Search extends React.Component{
             <div key="search" className="search-form-container">
                 <form action="" className="search-form">
                     <label htmlFor="search"></label>
-                    <input type="text" className=""/>
+                    <input type="text" className="" placeholder="Try Jupiter or Europa"/>
                     <label htmlFor="date"></label>
                     <input type="date" name="date" id="date-btn"  />
   

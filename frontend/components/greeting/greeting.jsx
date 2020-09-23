@@ -3,16 +3,19 @@ import { Link } from 'react-router-dom';
 import { showModal } from '../../actions/modal_actions';
 // import { SHOW_MODAL, HIDE_MODAL } from '../../actions/modal_actions'
 
+
 const Greeting = ({ currentUser, logout }) => {
        
         const loginOrSignup = () => {
         // debugger
         
-        
+        const showModalLogin = () =>{
+            showModal('LOGIN_USER')
+        }
         return (
             <nav className="links">
                 {/* <button onClick={showLoginModal} className="user-button logout">MODAL</button> */}
-                <Link to="/login" className="user-button" >Log In</Link>
+                <Link to="/login" className="user-button" onClick={showModalLogin}>Log In</Link>
                 <Link to="/signup" className="user-button">Sign Up</Link>
             </nav>
         )

@@ -34,7 +34,7 @@
 .login-form-container{
     display: flex;
     justify-content: center;
-    position: absolute;
+    position: fixed;
     top: 200px;
     width: 300px;
     padding-left: 30px;
