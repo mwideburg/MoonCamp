@@ -20,6 +20,8 @@
     /* width: 1100px; */
     /* justify-content: space-around; */
     border: 1px black solid;
+    border-radius: 5px;
+    
     box-shadow: 2px 4px 10px 5px rgb(197, 197, 197);
 
 

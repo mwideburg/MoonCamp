@@ -16,7 +16,7 @@
 class User < ApplicationRecord
     validates :password_digest, presence: true
     validates :session_token, presence: true
-    validates :lastname, presence: {messages: "Must have a last name"}
+    validates :lastname, presence: true
     validates :firstname, presence: true
     validates :email, presence: true, uniqueness: true
     validates :password, length: {minimum: 6, allow_nil: true}

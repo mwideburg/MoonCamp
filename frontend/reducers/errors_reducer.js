@@ -5,7 +5,6 @@ import userErrorsReducer from "./user_errors_reducer";
 
 const errorsReducer = combineReducers({
     session: sessionErrorsReducer,
-    user: userErrorsReducer
 });
 
 export default errorsReducer;

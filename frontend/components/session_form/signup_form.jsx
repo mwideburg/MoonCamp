@@ -10,6 +10,7 @@ class SignUpForm extends React.Component {
             email: '',
             password: ''
         };
+        
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
@@ -19,17 +20,21 @@ class SignUpForm extends React.Component {
             [field]: e.currentTarget.value
         });
     }
+    openLogin(){
+        this.props.closeModal('login')
+    }
 
     handleSubmit(e) {
         
         e.preventDefault();
         
         const user = Object.assign({}, this.state);
-        this.props.processForm(user);
+        this.props.processForm(user).then(this.props.closeModal);
     }
 
 
     render() {
+        debugger
         return (
             <div className="login-form-container" >
                 <form onSubmit={this.handleSubmit} className="login-form-box">
@@ -72,8 +77,16 @@ class SignUpForm extends React.Component {
                         <br />
                         <input className="session-submit" type="submit" value={this.props.formType} />
                         <br/>
-                        <p>Have an Account? <Link to="/login" className="user-button">Log in</Link></p>
+                        <ul>
+                        {this.props.errors.map(error => (
+                            <li className="signupError">
+                                {error}
+                            </li>
+                        ))}
+                        </ul>
+                        <br/>
                     </div>
+                        <p>Have an Account?{this.props.otherForm}</p>
                 </form>
             </div>
         );

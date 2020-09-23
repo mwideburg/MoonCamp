@@ -3,13 +3,15 @@ class Api::UsersController < ApplicationController
         # debugger
         @user = User.new(user_params) 
         # debugger
-        if @user.save!
+        if @user.save
             login(@user)
             render "api/users/show"
         else 
-            debugger
+            # debugger
             # flash.now[:error] = @user.errors.full_messages
-            render json: ["YOU DONE DID A BAD THING"], status: 402
+            render json: @user.errors.full_messages, status: 422
+            # render json: ["Invalid Credentials"], status: 404
+            # render json: ["ERRORS"], status: 422
         end
     end
 

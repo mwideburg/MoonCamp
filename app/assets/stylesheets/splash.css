@@ -77,9 +77,6 @@ header{
     color: lightgray;
     height: 50px;
     border-bottom: lightgray solid 1px;
-   
-    
-
 }
 
 .dropdown-user li:hover {
@@ -107,15 +104,12 @@ header{
 .nav-bar-logo{
     padding-left: 100px;
 }
-.logout{
-    background-color: aquamarine;
-    border: 0px;
-}
-.user-button{
-    padding: 10px;
-    text-decoration: none;
-    border: 1px, red, solid;
 
+.user-button{
+    padding: 15px;
+    text-decoration: none;
+    border: none;
+    background-color: transparent;
     font-size: 20px;
     transition: 0.25s;
 }
@@ -127,7 +121,10 @@ header{
     color: white;
     transition-timing-function: ease-in-out;
 }
-
+.logout{
+    /* background-color: aquamarine; */
+   
+}
 
 .activities-container{
     width: 100%;
@@ -165,3 +162,4 @@ header{
     width: 1300;
     box-sizing: border-box;
 }
+

@@ -1,23 +1,20 @@
 import modalReducer from "../reducers/modal_reducer"
 
-export const SHOW_MODAL = 'SHOW_MODAL'
-export const HIDE_MODAL = 'HIDE_MODAL'
+export const OPEN_MODAL = 'OPEN_MODAL'
+export const CLOSE_MODAL = 'CLOSE_MODAL'
 
 
-export const showModal = (modalType) => {
-    debugger
+export const openModal = (modalType) => {
+    // debugger
     return{
-    type: SHOW_MODAL,
+    type: OPEN_MODAL,
     modalType
     }
 }
 
-export const changeModal = modalType => dispatch => (
-    dispatch(showModal(modalType))
-)
+export const closeModal = () => {
+    return {
+        type: CLOSE_MODAL
+    };
+};
 
-export const hideModal = () => {
-    return{
-    type: HIDE_MODAL,
-    }
-}

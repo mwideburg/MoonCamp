@@ -1,22 +1,22 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { showModal } from '../../actions/modal_actions';
+import { openModal } from '../../actions/modal_actions';
 // import { SHOW_MODAL, HIDE_MODAL } from '../../actions/modal_actions'
 
 
-const Greeting = ({ currentUser, logout }) => {
+const Greeting = ({ currentUser, logout, openModal }) => {
        
         const loginOrSignup = () => {
-        // debugger
         
-        const showModalLogin = () =>{
-            showModal('LOGIN_USER')
-        }
         return (
             <nav className="links">
-                {/* <button onClick={showLoginModal} className="user-button logout">MODAL</button> */}
-                <Link to="/login" className="user-button" onClick={showModalLogin}>Log In</Link>
-                <Link to="/signup" className="user-button">Sign Up</Link>
+                {/* <button onClick={demoUser({email: "michael", password:"michael"})} className="user-button logout">MODAL</button> */}
+                <button onClick={() => openModal('signup')} className="user-button">signup</button>
+           
+                <button onClick={() => openModal('login')} className="user-button">login</button>
+                {/* <Link to="/login" className="user-button" onClick={() =>openModal}>Log In</Link>
+                <Link to="/signup" className="user-button">Sign Up</Link> */}
+                <Link to="/demo" className="user-button"> DEMO</Link>
             </nav>
         )
     }
@@ -39,8 +39,8 @@ const Greeting = ({ currentUser, logout }) => {
                     <li>
                         <a href="">HEY</a>
                     </li>
-                    <li>
-                        <button onClick={logout} className="user-button logout">Log Out</button>
+                    <li >
+                        <a href="" onClick={logout}>Log Out</a>
                     </li>
                 </ul>
             </div>

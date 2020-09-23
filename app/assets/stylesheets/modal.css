@@ -1,4 +1,4 @@
-.modal-container{
+/* .modal-container{
     width: 100%;
     display: flex;
     justify-content: center;
@@ -19,19 +19,49 @@
 }
 .show{
     display: flex;
+} */
+
+.modal-background {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 10;
 }
 
+.modal-child {
+  position: absolute;
+    margin: 0;
+  left: 41%;
+  transform: translate(-50%, -50%);
+}
 
 
 .login-form-box input{
     position: relative;
-    padding: 15px;
+    padding: 20px;
     width: 300px;
     box-sizing: border-box;
     
 }
+.other-form{
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 20px;
+    padding-left: 10px;
+    font-weight: bold;
+    transition: 0.25s;
+}
+.other-form:hover{
+    color: gray;
+    transition-timing-function: ease-in-out;
+}
 
 .login-form-container{
+    font-size: 15px;
     display: flex;
     justify-content: center;
     position: fixed;
@@ -65,5 +95,13 @@
     background-color: aquamarine;
      transition-timing-function: ease-in-out;
 
+}
+.errors{
+    color: rgb(255, 107, 107);
+    font-weight: bold;
+    font-size: 20px;
+}
+.signupError{
+    color: rgb(255, 107, 107);
 }
 

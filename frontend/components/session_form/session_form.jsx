@@ -8,6 +8,7 @@ class SessionForm extends React.Component {
             email: '',
             password: ''
         };
+        
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
@@ -21,7 +22,7 @@ class SessionForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const user = Object.assign({}, this.state);
-        this.props.processForm(user);
+        this.props.processForm(user).then(this.props.closeModal);
      
         
     }
@@ -29,16 +30,17 @@ class SessionForm extends React.Component {
 
     render() {
         return (
-        
+            
             <div className="login-form-container">
                 <form onSubmit={this.handleSubmit} className="login-form-box">
-          
+
                     <div className="login-form">
                         <label>Email:</label>
                             <input type="text"
                                 value={this.state.email}
                                 onChange={this.update('email')}
                                 className="login-input"
+                                placeholder="CaptainPicard@theenterprise.tng"
                             />
                         
                         <br />
@@ -47,13 +49,17 @@ class SessionForm extends React.Component {
                                 value={this.state.password}
                                 onChange={this.update('password')}
                                 className="login-input"
+                                
                             />
                        
                         <br />
                         <input className="session-submit" type="submit" value={this.props.formType} />
                     </div>
                     <br/>
-                <p>Don't have a Hipcamp account?  <b><Link to="/signup" >Sign Up</Link></b>
+                    <p className="errors">{this.props.errors}</p> 
+                    <br/>
+                <p>Don't have an account?  {this.props.otherForm}
+                
                     
                 </p> 
                 </form>

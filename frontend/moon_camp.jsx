@@ -3,10 +3,10 @@ import ReactDOM from "react-dom";
 import configureStore from "./store/store";
 // import { login, logout, signup} from './util/session_api_util';
 import { login, logout } from './actions/session_actions';
-import { showModal } from './actions/modal_actions'
+import { openModal } from './actions/modal_actions'
 import Root from './components/root'
 
-import SHOW_MODAL from './actions/modal_actions'
+import OPEN_MODAL from './actions/modal_actions'
 
 document.addEventListener("DOMContentLoaded", () => {
     // attach current user to window for preloadedstate to not loose info
@@ -28,9 +28,9 @@ document.addEventListener("DOMContentLoaded", () => {
     // grab the root element
     const root = document.getElementById('root');
     // const store = configureStore()
-    window.getState = store.getState
-    window.dispatch = store.dispatch;
-    window.showModal = showModal;
+    // window.getState = store.getState
+    // window.dispatch = store.dispatch;
+    // window.openModal = openModal;
     // window.logout = logout;
     // debugger
     ReactDOM.render(<Root store={store}/>, root);

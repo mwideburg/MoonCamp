@@ -10,14 +10,18 @@ import {
 import { AuthRoute } from '../util/route_util'
 import GreetingContainer from './greeting/greeting_container'
 import SignUpFormContainer from './session_form/signup_form_container';
+import DemoContainer from './session_form/demo_form_container';
 import LogInFormContainer from './session_form/login_form_container';
 import SearchContainer from './search/search_container';
 import ActivitiesContainer from './activities/activities_container';
 import RecentViewConatiner from './recent_views/recent_view_container';
+import Modal from './modal/modal'
 const App = () => (
     <>
+    
+    
     <header className="navbar">
-        
+            <Modal />
         <h1 className="nav-bar-logo">Moon Camp</h1>
         
         <GreetingContainer />
@@ -42,6 +46,7 @@ const App = () => (
             <Switch>
             <AuthRoute exact path="/signup" component={SignUpFormContainer} />
             <AuthRoute exact path="/login" component={LogInFormContainer} />
+            <AuthRoute exact path="/demo" component={DemoContainer} />
             {/* <AuthRoute exact path="/recent_views" component={LogInFormContainer} /> */}
                    
             </Switch>

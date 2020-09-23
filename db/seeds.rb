@@ -9,5 +9,5 @@
 
 User.create({firstname: "michael", lastname: "wideburg", email: "michael", password: "michael"})
 User.create({firstname: "michael", lastname: "wideburg", email: "michael2", password: "michael"})
-User.create({firstname: "picard", lastname: "picard", email: "picard", password: "picard1"})
+User.create({firstname: "Jean-luc", lastname: "Picard", email: "enterprise@startrek.com", password: "earlgrayhot"})
 User.create({firstname: "picard", lastname: "picard", email: "picard2", password: "picard2"})
