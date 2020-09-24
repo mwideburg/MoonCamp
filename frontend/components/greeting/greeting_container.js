@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { openModal, switchLogin, switchSignup} from '../../actions/modal_actions'
-import { logout } from '../../actions/session_actions';
+import { logout, login } from '../../actions/session_actions';
 import Greeting from './greeting';
 
 const mapStateToProps = ({ session, entities: { users } }) => {
@@ -17,6 +17,7 @@ const mapStateToProps = ({ session, entities: { users } }) => {
 // }
 
 const mapDispatchToProps = dispatch => ({
+    demo: () => dispatch(login({ email: "michael", password: "michael" })),
     logout: () => dispatch(logout()),
     openModal: modalType => dispatch(openModal(modalType)) ,
     switchLogin: modalType => dispatch(switchLogin(modalType)),

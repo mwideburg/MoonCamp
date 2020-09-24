@@ -2,21 +2,22 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { openModal } from '../../actions/modal_actions';
 // import { SHOW_MODAL, HIDE_MODAL } from '../../actions/modal_actions'
+// import { login } from '../../actions/session_actions'
 
-
-const Greeting = ({ currentUser, logout, openModal }) => {
+const Greeting = ({ currentUser, logout, demo , openModal }) => {
        
         const loginOrSignup = () => {
         debugger
         return (
             <nav className="links">
-                {/* <button onClick={demoUser({email: "michael", password:"michael"})} className="user-button logout">MODAL</button> */}
+
                 <button onClick={() => openModal('signup')} className="user-button">signup</button>
            
                 <button onClick={() => openModal('login')} className="user-button">login</button>
                 {/* <Link to="/login" className="user-button" onClick={() =>openModal}>Log In</Link>
                 <Link to="/signup" className="user-button">Sign Up</Link> */}
-                <Link to="/" className="user-button"> DEMO</Link>
+                {/* <Link to="/demo" className="user-button"> DEMO</Link> */}
+                <button onClick={demo} className="user-button logout">DEMO</button>
             </nav>
         )
     }

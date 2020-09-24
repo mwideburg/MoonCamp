@@ -429,10 +429,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
  // import { SHOW_MODAL, HIDE_MODAL } from '../../actions/modal_actions'
+// import { login } from '../../actions/session_actions'
 
 var Greeting = function Greeting(_ref) {
   var currentUser = _ref.currentUser,
       logout = _ref.logout,
+      demo = _ref.demo,
       openModal = _ref.openModal;
 
   var loginOrSignup = function loginOrSignup() {
@@ -449,10 +451,10 @@ var Greeting = function Greeting(_ref) {
         return openModal('login');
       },
       className: "user-button"
-    }, "login"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-      to: "/",
-      className: "user-button"
-    }, " DEMO"));
+    }, "login"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      onClick: demo,
+      className: "user-button logout"
+    }, "DEMO"));
   };
 
   var hello = function hello() {
@@ -521,6 +523,12 @@ var mapStateToProps = function mapStateToProps(_ref) {
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
+    demo: function demo() {
+      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_2__["login"])({
+        email: "michael",
+        password: "michael"
+      }));
+    },
     logout: function logout() {
       return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_2__["logout"])());
     },
@@ -690,7 +698,7 @@ var navContainer = function navContainer(_ref) {
     },
     className: "user-button"
   }, "login"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-    to: "/",
+    to: "/demo",
     className: "user-button"
   }, " DEMO")));
 };
