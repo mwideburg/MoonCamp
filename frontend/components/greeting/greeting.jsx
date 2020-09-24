@@ -16,7 +16,7 @@ const Greeting = ({ currentUser, logout, openModal }) => {
                 <button onClick={() => openModal('login')} className="user-button">login</button>
                 {/* <Link to="/login" className="user-button" onClick={() =>openModal}>Log In</Link>
                 <Link to="/signup" className="user-button">Sign Up</Link> */}
-                <Link to="/demo" className="user-button"> DEMO</Link>
+                <Link to="/" className="user-button"> DEMO</Link>
             </nav>
         )
     }
@@ -43,7 +43,7 @@ const Greeting = ({ currentUser, logout, openModal }) => {
                         <a href="">HEY</a>
                     </li>
                     <li >
-                        <a href="" onClick={logout}>Log Out</a>
+                        <a href="/" onClick={logout}>Log Out</a>
                     </li>
                 </ul>
             </div>

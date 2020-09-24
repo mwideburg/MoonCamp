@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { login, removeErrors } from '../../actions/session_actions';
 
-import { openModal, closeModal } from '../../actions/modal_actions';
+import { openModal, closeModal, switchLogin, switchSignup } from '../../actions/modal_actions';
 import SessionForm from './session_form';
 
 const mapStateToProps = ({ errors }) => {
@@ -20,10 +20,18 @@ const mapDispatchToProps = dispatch => {
     return {
         processForm: (user) => dispatch(login(user)),
         removeErrors: () => dispatch(removeErrors()),
+        // otherForm: (
+        //     <button onClick={() => dispatch(openModal('signup'))} className="other-form">
+        //         Sign Up
+        //     </button>
+        // ),
+        
         otherForm: (
-            <button onClick={() => dispatch(openModal('signup'))} className="other-form">
+            <Link to="/signup">
+            <button onClick={() => dispatch(switchSignup('switch_signup'))} className="other-form">
                 Sign Up
             </button>
+            </Link>
         ),
         closeModal: () => dispatch(closeModal())
     };

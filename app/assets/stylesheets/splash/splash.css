@@ -206,6 +206,7 @@ header{
     margin-top: 20px;
     display: flex;
     justify-content: center;
+   
     background-image: url('https://moonburyrings.co.uk/wp-content/uploads/2019/06/astronaut-with-mobile-phone-on-moon-vector-18479312.jpg');
     background-size: cover;
     background-position: center;
@@ -254,10 +255,13 @@ header{
 .moon-highlight{
     margin-top: 50px;
     display: flex;
+    /* opacity: 0.7; */
     justify-content: flex-start;
-    
+    /* background-image: url('https://sophyanempire.files.wordpress.com/2013/07/orson_scott_cards_speaker_for_the_dead_vol_1_3.jpg'); */
     background-image: url('https://www.syfy.com/sites/syfy/files/styles/1200x680_hero/public/wire/legacy/adlunbase.jpg');
+
     background-size: cover;
+    
     background-position: center;
     border-radius: 25px;
 }
@@ -268,6 +272,7 @@ header{
     justify-content: center;
     align-items: center;
     border: black 1px solid;
+    
     /* background-image: url('https://cdn.arstechnica.net/wp-content/uploads/2012/08/bridge.replica.replica.jpg'); */
     background-size: cover;
     background-position: center;

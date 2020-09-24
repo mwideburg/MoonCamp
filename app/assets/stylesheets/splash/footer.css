@@ -1,10 +1,12 @@
 footer{
+
+    width: 100%;
     display:flex;
     justify-content: space-between;
     align-items: center;
     font-size: 10px;
-    padding-left: 40px;
-    padding-right: 40px;
+    /* padding-left: 40px;
+    padding-right: 40px; */
     height: 70px;
     background-color: black;
     color: white;
@@ -12,12 +14,14 @@ footer{
 
 .help-button{
     padding: 13px;
+    margin-right: 25px;
     width: 75px;
     background-color: aquamarine;
     border-radius: 5px;
     border: none;
     transition: 0.25s;
     transition-timing-function: ease-in-out;
+    z-index: 100;
 }
 
 .help-button:hover{

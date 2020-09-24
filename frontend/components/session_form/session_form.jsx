@@ -36,7 +36,8 @@ class SessionForm extends React.Component {
         const errors = this.props.errors
         return (
             
-            <div className="login-form-container">
+            
+                <>
                 <form onSubmit={this.handleSubmit} className="login-form-box">
                     <a onClick={this.props.closeModal} className="modal-close">X</a>
                     <br/>
@@ -70,8 +71,8 @@ class SessionForm extends React.Component {
                     
                 </p> 
                 </form>
-            </div>
-         
+                </>
+            
             
         );
     }

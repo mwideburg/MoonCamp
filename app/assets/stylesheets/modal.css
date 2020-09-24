@@ -20,6 +20,19 @@
 .show{
     display: flex;
 } */
+.switch-background{
+    position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: black;
+  z-index: 10;
+  /* color: white; */
+  transition: 0.25s;
+  transition-timing-function: ease-in-out;
+
+}
 
 .modal-background {
   position: fixed;
@@ -35,12 +48,21 @@
 }
 
 .modal-child {
-  position: absolute;
+    width: 100%;
+    display: flex;
+    position: absolute;
+    margin: 0;
+    /* left: 41%; */
+    /* transform: translate(-50%, -50%); */
+    transition: 0.25s;
+    transition-timing-function: ease-in-out;
+    justify-content: center;
+  /* position: absolute;
     margin: 0;
   left: 41%;
   transform: translate(-50%, -50%);
   transition: 0.25s;
-  transition-timing-function: ease-in-out
+  transition-timing-function: ease-in-out */
 }
 
 .login-form-box input{
@@ -107,6 +129,10 @@
     font-size: 15px;
     text-align: center;
 }
+.login-splash{
+    padding-top: 100px;
+    padding-bottom: 200px;
+}
 
 .session-submit{
     width: 100%;
@@ -146,4 +172,32 @@
 .modal-close:hover{
     color:gray;
     cursor: pointer;
+}
+.logout-button-fix{
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin: 10px;
+    height: 40px;
+    width: 100px;
+    border: none;
+    border-radius: 3px;
+    
+    /* box-shadow: 4px 4px 4px 0px gray; */
+    transition-timing-function: ease-in-out;
+    transition: 0.25s;
+    z-index: 100;
+}
+
+.hover-btn{
+    
+}
+.hover-btn:hover{
+    background-color: aquamarine;
+}
+
+
+.log-splash-form{
+    display: flex;
+    justify-content: center;
 }

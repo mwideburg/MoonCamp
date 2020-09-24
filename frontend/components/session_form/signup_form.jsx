@@ -39,11 +39,15 @@ class SignUpForm extends React.Component {
 
     render() {
         // debugger
+        let buttonType = (this.props.modalType === 'switch_signup') ? this.props.otherButton: (<a onClick={this.props.closeModal} className="modal-close">X</a>)
         return (
             <div>
-            <div className="login-form-container" >
+                {buttonType}
+                
+            <div>
+                {/* <button className='user-button logout-button-fix'> LOG OUT</button> */}
                 <form onSubmit={this.handleSubmit} className="login-form-box">
-                <a onClick={this.props.closeModal} className="modal-close">X</a>
+                {/* <a onClick={this.props.closeModal} className="modal-close">X</a> */}
                 <br/>
                     <div className="login-form">
                         <label>FirstName: </label>
@@ -82,7 +86,9 @@ class SignUpForm extends React.Component {
                             />
                         
                         <br />
+                        
                         <input className="session-submit" type="submit" value={this.props.formType} />
+                        
                         <br/>
                         <ul>
                         {this.props.errors.map(error => (
@@ -97,6 +103,7 @@ class SignUpForm extends React.Component {
                 </form>
             </div>
             </div>
+            
         );
     }
 }
