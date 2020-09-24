@@ -32,7 +32,7 @@ const App = () => (
             <h2 className="nav-bar-logo">Moon Camp</h2>
             </Link>
             <Switch>
-                <AuthRoute exact path="/" component={GreetingContainer} />
+                <Route exact path="/" component={GreetingContainer} />
                 <AuthRoute exact path="/login" component={LoginNavContainer} />
             </Switch>
       

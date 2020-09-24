@@ -7,7 +7,7 @@ import { openModal } from '../../actions/modal_actions';
 const Greeting = ({ currentUser, logout, openModal }) => {
        
         const loginOrSignup = () => {
-        
+        debugger
         return (
             <nav className="links">
                 {/* <button onClick={demoUser({email: "michael", password:"michael"})} className="user-button logout">MODAL</button> */}
