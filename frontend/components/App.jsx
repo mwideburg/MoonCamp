@@ -10,6 +10,7 @@ import {
 import Spot from './recent_views/spots_placeholder'
 import { AuthRoute } from '../util/route_util'
 import GreetingContainer from './greeting/greeting_container'
+import LoginNavContainer from './nav/login_nav_container'
 import SignUpFormContainer from './session_form/signup_form_container';
 import DemoContainer from './session_form/demo_form_container';
 import LogInFormContainer from './session_form/login_form_container';
@@ -30,9 +31,10 @@ const App = () => (
             <Link to="/">
             <h2 className="nav-bar-logo">Moon Camp</h2>
             </Link>
-        
-        <GreetingContainer />
-
+            <Switch>
+                <AuthRoute exact path="/" component={GreetingContainer} />
+                <AuthRoute exact path="/login" component={LoginNavContainer} />
+            </Switch>
       
     </header>
 
