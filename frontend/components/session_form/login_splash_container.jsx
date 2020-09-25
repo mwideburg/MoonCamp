@@ -5,6 +5,7 @@ import LoginContainer from './login_form_container'
 class LoginSplash extends React.Component{
     render(){
         return(
+            <>
             <div className="splash-container">
                 <div className="modal-container login-splash">
                     <div>
@@ -36,24 +37,39 @@ class LoginSplash extends React.Component{
                         </div>
 
                         <div className="worf-container">
-                            <div className="detail-container">
+                            <div className="detail-container " id="login-picard">
                                 
                                     <h3>“Things are only impossible until they are not.”</h3>
                                     <br/>
                                 <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pulvinar elementum integer
+                                    “I once was on a moon, it was a sweet little moon, with a bunch of crators, that's where I got the idea, why can't we just camp
+                                    out on these things, `Ensign Crusher, grab my bags and set up the tent... were moon camping tonight.`”
                                     </p>
                                     <br />
 
                                 
                                 
-                                <a href="http://www.michaelwideburg.com" id="links"> - Michael Wideburg</a>
+                                <a href="http://www.michaelwideburg.com" id="links"> - Captian Picard</a>
                             </div>
                         </div>
 
                     </div>
                 </div>
+                
             </div>
+            <footer >
+
+                    <div className="footer-container">
+
+
+                    made by michael wideburg with a lot of love and guidance from app academy
+                    <button className="help-button"> ? Help </button>
+
+                    </div>
+
+
+                </footer>
+                </>
         )
     }
 }

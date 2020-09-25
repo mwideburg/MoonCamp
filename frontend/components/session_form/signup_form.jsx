@@ -108,17 +108,18 @@ class SignUpForm extends React.Component {
                                 <p className="font-small-gray"> I'm curious about how we can camp out in space?</p>
 
                         </div>
-                            
+                            <ul className="signupError">
+                                {this.props.errors.map(error => (
+                                    <li key={error} className="list-padding">
+                                        {error}
+                                          
+                                    </li>
+                                ))}
+                            </ul>
                         
                             <button className="btn-submit" type="submit"> {this.props.formType}</button>
                         <br/>
-                        <ul>
-                        {this.props.errors.map(error => (
-                            <li key={error} className="signupError">
-                                {error}
-                            </li>
-                        ))}
-                        </ul>
+                        
                         <br/>
                         <center>
                                 <p className="font-small-gray"> By signing up, I agree to MoonCamps

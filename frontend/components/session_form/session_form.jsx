@@ -66,9 +66,6 @@ class SessionForm extends React.Component {
                             />
                        
                         <br />
-                        <button className="btn-submit" type="submit"> {this.props.formType}</button>
-                    </div>
-                   
                     <ul>
                         {this.props.errors.map(error => (
                             <li key={error} className="errors">
@@ -76,6 +73,9 @@ class SessionForm extends React.Component {
                             </li>
                         ))}
                     </ul> 
+                        <button className="btn-submit" type="submit"> {this.props.formType}</button>
+                    </div>
+                   
                 
                     <div className="text-anchor-bottom">
 

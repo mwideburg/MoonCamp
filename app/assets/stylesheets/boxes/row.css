@@ -12,7 +12,9 @@
 }
 
 .text-anchor-bottom{
+    margin-top: 40px;
     position: flex;
+    justify-content: center;
     align-items: baseline;
     /* bottom: 10px; */
     height: 100%;

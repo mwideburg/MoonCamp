@@ -10,7 +10,7 @@ class Api::SessionsController < ApplicationController
             render "api/users/show"
         else
             # debugger
-             render json: ["** Invalid Credentials **"], status: 404
+             render json: [" Invalid Credentials "], status: 404
         end
     end
 

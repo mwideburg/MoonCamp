@@ -45,3 +45,10 @@
 .picard-img:hover{
 
 }
+#login-picard{
+    width: 500px;
+    background-color: transparent;
+}
+#login-picard p{
+    font-size: 18px;
+}
