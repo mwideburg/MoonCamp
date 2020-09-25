@@ -69,7 +69,7 @@ class Splash extends React.Component {
                             <h3>MEET THE PEQUENINOS ON TITAN</h3>
                             <p>Ender gives tours of the tree creatures</p>
                             <br />
-                            <center><button className=""> ENDERS GAME</button></center>
+                            <><button className=""> ENDERS GAME</button></>
                         </div>
                     </div>
                 </div>
@@ -88,16 +88,22 @@ class Splash extends React.Component {
                     <Available />
                 </div> */}
                 <div className="host-review-container">
-                    <div className="worf-container">
+
+                    <div className="offset-frame">
+
                         <div className="worf">
                             <img className="worf" src="https://cnet4.cbsistatic.com/img/r-p-OqNgNZMOl62QZqWFWkgaQa0=/940x0/2016/09/02/41f02b67-d8ff-4179-8c32-a0f0c5bdfd7f/tng-worf00000993d.jpg" alt=""/>
                         </div>
-                        <div className="detail-container">
+
+                    <div className="worf-container">
+                        <div className="detail-container offset">
                             <h3>MEET THE BEST HOST... WORF</h3>
                             <p>"I am known to be a fierce warrior, but a dosile host. Come stay with me and enjoy Gagh: A Klingon delicacy, live serpent worms."</p>
                             <br />
-                            <center><button className=""> CAMP OUT WITH WORF</button></center>
+                            <button id="offset-btn"> CAMP OUT WITH WORF</button>
                         </div>
+                    </div>
+
                     </div>
                 </div>
 

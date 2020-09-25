@@ -1,0 +1,15 @@
+.offset-frame{
+    width: 800px;
+    height: 350px;
+    border: black solid 1px;
+}
+
+
+.picard{
+    border-color: aquamarine;
+    border: 3px  aquamarine solid;
+}
+
+.picard img{
+    box-shadow: 1px 1px 2px 1px lightgray;
+}

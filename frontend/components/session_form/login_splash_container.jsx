@@ -27,16 +27,25 @@ class LoginSplash extends React.Component{
                 </div>
 
                 <hr/>
-                <div>
-                    <div className="resume">
-                        
-                        <div className="space-image ">
+                <div className="host-review-container">
 
+                    <div className="offset-frame picard">
+
+                        <div className="worf">
+                            <img className="worf" src="https://img1.grunge.com/img/gallery/the-worst-things-captain-picard-has-ever-done/intro-1570819077.jpg" alt="" />
                         </div>
-                        
+
+                        <div className="worf-container">
+                            <div className="detail-container offset">
+                                <h3>“Things are only impossible until they are not.”</h3>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pulvinar elementum integer 
+                                <p></p>
+                                <br />
+                                <a href="http://www.michaelwideburg.com" id="links"> - Michael Wideburg</a>
+                            </div>
+                        </div>
 
                     </div>
-
                 </div>
             </div>
         )
