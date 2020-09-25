@@ -9,7 +9,7 @@ class LoginSplash extends React.Component{
             <div className="splash-container">
                 <div className="modal-container login-splash">
                     <div>
-                        <center>
+                        {/* <center>
                             <h1>WELCOME BACK</h1>
                             <h3>
                                 Space... the final frontier... time to explore
@@ -17,7 +17,7 @@ class LoginSplash extends React.Component{
                             <br />
 
 
-                        </center>
+                        </center> */}
                         
                     </div>
                     <div className="log-splash-form">
