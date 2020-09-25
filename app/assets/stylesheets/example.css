@@ -1,0 +1,83 @@
+/* .modal {
+
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 10;
+  opacity: 1;
+  color: white;
+  transition: 0.25s;
+  transition-timing-function: ease-in-out;
+} */
+
+.modal-child {
+    width: 100%;
+    display: flex;
+    position: absolute;
+    margin: 0;
+
+    z-index: 100;
+    /* left: 41%; */
+    /* transform: translate(-50%, -50%); */
+    justify-content: center;
+  transition: 0.25s;
+  transition-timing-function: ease-in-out;
+
+}
+
+
+
+
+/* .modal-leave {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.8);
+  opacity: 1;
+} 
+.modal-leave.modal-leave-active {
+  opacity: 0.01;
+  transition: opacity 500ms ease-out;
+}  */
+
+.can-he-do-it{
+    position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 10;
+
+  color: white;
+}
+
+.modal-appear {
+  opacity: 0.01;
+  background-color: white;
+}
+
+.modal-appear.modal-appear-active {
+  opacity: .8;
+  transition: opacity .25s ease-in;
+
+}
+
+.modal-child-appear {
+  opacity: 0.01;
+  background-color: white;
+}
+
+.modal-child-appear.modal-appear-active {
+  opacity: 1;
+  transition: opacity .25s ease-in;
+
+}
+
+
+

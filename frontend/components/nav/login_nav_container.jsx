@@ -4,7 +4,7 @@ import { openModal } from '../../actions/modal_actions';
 // import { SHOW_MODAL, HIDE_MODAL } from '../../actions/modal_actions'
 
 
-const navContainer = ({ currentUser, logout, openModal }) => {
+const navContainer = ({ currentUser, demo, logout, openModal }) => {
 
     
 
@@ -24,7 +24,7 @@ const navContainer = ({ currentUser, logout, openModal }) => {
                 <button onClick={() => openModal('login')} className="user-button">login</button>
                 {/* <Link to="/login" className="user-button" onClick={() =>openModal}>Log In</Link>
                 <Link to="/signup" className="user-button">Sign Up</Link> */}
-                <Link to="/demo" className="user-button"> DEMO</Link>
+                    <button onClick={demo} className="user-button demo-btn">DEMO</button>
             </nav>
             </>
         )
@@ -34,7 +34,7 @@ const navContainer = ({ currentUser, logout, openModal }) => {
 
 import { connect } from 'react-redux';
 
-import { logout } from '../../actions/session_actions';
+import { logout, login } from '../../actions/session_actions';
 
 
 const mapStateToProps = ({ session, entities: { users } }) => {
@@ -51,6 +51,7 @@ const mapStateToProps = ({ session, entities: { users } }) => {
 // }
 
 const mapDispatchToProps = dispatch => ({
+    demo: () => dispatch(login({ email: "michael", password: "michael" })),
     logout: () => dispatch(logout()),
     openModal: modalType => dispatch(openModal(modalType)),
     switchLogin: modalType => dispatch(switchLogin(modalType)),

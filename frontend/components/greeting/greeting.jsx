@@ -7,17 +7,17 @@ import { openModal } from '../../actions/modal_actions';
 const Greeting = ({ currentUser, logout, demo , openModal }) => {
        
         const loginOrSignup = () => {
-        debugger
+        // debugger
         return (
             <nav className="links">
 
-                <button onClick={() => openModal('signup')} className="user-button">signup</button>
+                <button onClick={() => openModal('signup')} className="user-button">Sign up</button>
            
-                <button onClick={() => openModal('login')} className="user-button">login</button>
+                <button onClick={() => openModal('login')} className="user-button">Log in</button>
                 {/* <Link to="/login" className="user-button" onClick={() =>openModal}>Log In</Link>
                 <Link to="/signup" className="user-button">Sign Up</Link> */}
                 {/* <Link to="/demo" className="user-button"> DEMO</Link> */}
-                <button onClick={demo} className="user-button logout">DEMO</button>
+                <button onClick={demo} className="user-button demo-btn">DEMO</button>
             </nav>
         )
     }

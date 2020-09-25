@@ -6,6 +6,7 @@ import LogInFormContainer from '../session_form/login_form_container';
 import SearchContainer from '../search/search_container';
 import ActivitiesContainer from '../activities/activities_container';
 import PlanetContainer from '../planets/planet_container'
+import AvailableContainer from '../available/available_container'
 import RecentViewConatiner from '../recent_views/recent_view_container';
 import Spot from '../recent_views/spots_placeholder'
 class Splash extends React.Component {
@@ -34,25 +35,29 @@ class Splash extends React.Component {
 
                 <div>
                     {/* RECENET VIEWS */}
-                    <div className="recent-views">
+                    {/* <div className="recent-views">
                         <RecentViewConatiner />
-                    </div>
+                    </div> */}
                 </div>
 
                 <div className="space-container">
                     <div className="space-image">
                         <p>EXPLORE YOUR DESTINY</p>
+                        {/* <img src="" alt=""/> */}
                     </div>
                 </div>
 
 
                 <h1>EXPERIENCE SPACE</h1>
-                <div className="activities-container">
-
+                <div className="activities-wrapper">
                     <ActivitiesContainer />
                 </div>
+                <br/>
+                <p></p>
+                <br/>
                 <h1>FIND YOUR MOON</h1>
-                <div className="activities-container">
+                <div className="planets-wrapper">
+                
 
                     <PlanetContainer />
                 </div>
@@ -70,23 +75,22 @@ class Splash extends React.Component {
                 </div>
                 <br />
                 <h1>AVAILABLE NEXT WEEK</h1>
-                <div className="activities-container">
+                <div className="available-container">
 
-                    <Spot />
-                    <Spot />
-                    <Spot />
+                    <AvailableContainer />
+                    
                 </div>
                 <br />
-                <div className="activities-container">
+                {/* <div className="available-container">
 
-                    <Spot />
-                    <Spot />
-                    <Spot />
-                </div>
+                    <Available />
+                    <Available />
+                    <Available />
+                </div> */}
                 <div className="host-review-container">
                     <div className="worf-container">
                         <div className="worf">
-
+                            <img className="worf" src="https://cnet4.cbsistatic.com/img/r-p-OqNgNZMOl62QZqWFWkgaQa0=/940x0/2016/09/02/41f02b67-d8ff-4179-8c32-a0f0c5bdfd7f/tng-worf00000993d.jpg" alt=""/>
                         </div>
                         <div className="detail-container">
                             <h3>MEET THE BEST HOST... WORF</h3>

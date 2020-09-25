@@ -1,5 +1,6 @@
 .elevator-pitch{
     width: 700px;
+    padding-top:150px;
 }
 .elevator-pitch h1{
     font-size: 35px;
@@ -11,6 +12,7 @@
 }
 .elevator-container{
     width:1000px;
+    /* margin-top: 200px; */
     display: inline;
    
 }

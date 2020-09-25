@@ -25,6 +25,19 @@ class LoginSplash extends React.Component{
                         <LoginContainer/>
                     </div>
                 </div>
+
+                <hr/>
+                <div>
+                    <div className="resume">
+                        
+                        <div className="space-image ">
+
+                        </div>
+                        
+
+                    </div>
+
+                </div>
             </div>
         )
     }

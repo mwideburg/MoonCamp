@@ -1,4 +1,5 @@
 import React from "react";
+
 import { Provider } from 'react-redux';
 import {
     Route,
@@ -16,26 +17,33 @@ import DemoContainer from './session_form/demo_form_container';
 import LogInFormContainer from './session_form/login_form_container';
 import SearchContainer from './search/search_container';
 import ActivitiesContainer from './activities/activities_container';
+import Example from './exmaple_transsition/example';
+import { CSSTransitionGroup } from 'react-transition-group'// ES6
 import PlanetContainer from './planets/planet_container'
 import RecentViewConatiner from './recent_views/recent_view_container';
 import Splash from './splash/spash_conatiner';
 import Modal from './modal/modal'
+import ReactCSSTransitionGroup from 'react-transition-group';
 import SpotPlaceHolder from "./recent_views/spots_placeholder";
 import LoginSplash from "./session_form/login_splash_container";
 const App = () => (
     <>
     
-    
     <header className="navbar">
+        
+            
+
+                    
             <Modal />
-            <Link to="/">
-            <h2 className="nav-bar-logo">Moon Camp</h2>
+                
+            <Link to="/" className="nav-bar-logo">
+            <h2 >Moon Camp</h2>
             </Link>
             <Switch>
                 <Route exact path="/" component={GreetingContainer} />
                 <AuthRoute exact path="/login" component={LoginNavContainer} />
             </Switch>
-      
+            
     </header>
 
             <Switch>
@@ -46,8 +54,9 @@ const App = () => (
             <AuthRoute exact path="/login" component={LoginSplash} />
             <AuthRoute exact path="/signup" component={LoginSplash} />
             <Route exact path="/" component={Splash} />
+            
             </Switch>
-    
+        
     <footer  className="">
         
             made by michael wideburg with a lot of love and guidance from app academy

@@ -1,6 +1,8 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
-class Planets extends React.Component {
+
+class Availablemod extends React.Component {
     render(){
 
         return(
@@ -42,4 +44,4 @@ class Planets extends React.Component {
     }
 }
 
-export default Planets;
+export default Availablemod;

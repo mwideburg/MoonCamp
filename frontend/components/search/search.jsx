@@ -7,17 +7,17 @@ class Search extends React.Component{
             <div key="search" className="search-form-container">
                 <form action="" className="search-form">
                     <label htmlFor="search"></label>
-                    <input type="text" className="" placeholder="Try Jupiter or Europa"/>
+                    <input type="search" id="search" className="search-input" placeholder="Try Jupiter or Europa"/>
                     <label htmlFor="date"></label>
                     <input type="date" name="date" id="date-btn"  />
   
-                    <select className="btn-search">
+                    <select className="btn-search btn-dropdown">
                         <option value="planets">Planets</option>
                         <option value="jupiter">jupiter</option>
                         <option value="earth">earth</option>
                         <option value="saturn">saturn</option>
                     </select>
-                    <button className="btn-search"> SEARCH</button>
+                    <button className="btn-search submit"> SEARCH</button>
                 </form>
                 
             </div>

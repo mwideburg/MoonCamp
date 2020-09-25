@@ -11,21 +11,21 @@ class Activities extends React.Component {
             and link to the specific search content page */}
             {/* place inside a ul */}
 
-                <Link to={'/'} className="img-links">
+                <Link to={'/'} className="img-links" id="img-1">
             <div className="activity-link-image">
-                    {/* <img src="https://i.pinimg.com/originals/65/67/07/656707ea1e9fad2b5b9111a06045fcb8.jpg" alt="" /> */}
+                    {/* <img className="img-contain" src="https://i.pinimg.com/originals/65/67/07/656707ea1e9fad2b5b9111a06045fcb8.jpg" alt="" /> */}
                     <h2>EARL GRAY WITH PICARD</h2>
                     <h3>and it's always hot</h3>
             </div>
             </Link>
-                <Link to={'/'} className="img-links">
+                <Link to={'/'} className="img-links" id="img-2">
             <div className="activity-link-image" src="">
                     {/* <img src="https://i.pinimg.com/originals/65/67/07/656707ea1e9fad2b5b9111a06045fcb8.jpg"  alt=""/> */}
                     <h2>ROVERING ON EUROPA</h2>
                     <h3>the only way to travel</h3>
             </div>
             </Link>
-            <Link to={'/'} className="img-links">
+                <Link to={'/'} className="img-links" id="img-3">
             <div className="activity-link-image" >
                         
                     {/* <img className="link-bg"src="https://i.pinimg.com/originals/65/67/07/656707ea1e9fad2b5b9111a06045fcb8.jpg"  alt=""/> */}

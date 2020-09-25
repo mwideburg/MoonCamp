@@ -1,0 +1,25 @@
+.available-wrapper{
+    width: 100%;
+    height: 300px;
+   
+    padding-bottom: 0px;
+    /* padding-top: 0px; */
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+}
+.available-container{
+    width: 100%;
+    height: 300px;
+     /* margin-top: 150px; */
+    padding-bottom: 0px;
+    /* padding-top: 0px; */
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+}
+
+
+.img-links .available-link-image:hover{
+    margin-bottom: 10px;
+}
