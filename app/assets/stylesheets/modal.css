@@ -184,3 +184,11 @@
     justify-content: center;
 }
 
+.i-fix-you{
+    position: fixed;
+    top: 0px;
+    z-index: 100;
+    color: white;
+    padding-left: 30px;
+    font-size: 50px;
+}
