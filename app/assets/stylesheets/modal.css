@@ -34,7 +34,9 @@
    
 }
 
-
+.signup-child{
+    z-index:200;
+}
 /* 
 .modal.modal-enter-active{
   background: rgba(121, 48, 48, 0.8);
@@ -56,14 +58,14 @@
 .other-form{
     background-color: transparent;
     border: none;
-    color: white;
-    font-size: 20px;
+    color: gray;
+    font-size: 15px;
     padding-left: 10px;
-    font-weight: bold;
+    /* font-weight: bold; */
 
 }
 .other-form:hover{
-    color: gray;
+    color: lightgray;
     transition-timing-function: ease-in-out;
 }
 
@@ -164,22 +166,22 @@
     right: 0;
     margin: 10px;
     height: 40px;
-    width: 100px;
+    width: 80px;
     border: none;
-    border-radius: 3px;
-    
+    /* border-radius: 3px; */
+    background-color: white;
     /* box-shadow: 4px 4px 4px 0px gray; */
-    /* transition-timing-function: ease-in-out;
-    transition: 0.25s; */
+    transition-timing-function: ease-in-out;
+    transition: 0.25s;
     z-index: 100;
 }
 
 .hover-btn{
     
 }
-.hover-btn:hover{
+/* .hover-btn:hover{
     background-color: aquamarine;
-}
+} */
 
 
 .log-splash-form{

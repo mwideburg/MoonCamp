@@ -6,8 +6,10 @@
   left: 0;
   color: white;
   background: black;
-  /* z-index: 10; */
-  /* animation: fadein 1s linear  backwards ; */
+  z-index: 10;
+  animation: fadein .75s linear 10ms backwards ;
+  transition: .25s;
+  transition-timing-function: ease-out;
 
 }
 

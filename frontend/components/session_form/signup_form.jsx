@@ -27,6 +27,7 @@ class SignUpForm extends React.Component {
         if(this.props.errors){
             this.props.removeErrors()
         }
+        
     }
     componentDidMount() {
         if (this.props.errors) {
@@ -103,8 +104,11 @@ class SignUpForm extends React.Component {
                         ))}
                         </ul>
                         <br/>
-                    </div>
+                        <center>
+
                         <p>Have an Account?{this.props.otherForm}</p>
+                        </center>
+                    </div>
                 </form>
             </div>
             </div>

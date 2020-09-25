@@ -12,6 +12,7 @@ import Spot from '../recent_views/spots_placeholder'
 class Splash extends React.Component {
     render(){
         return(
+            <div>
             <div className="splash-container">
                 <div className="modal-container">
                     <div className="elevator-container">
@@ -106,8 +107,16 @@ class Splash extends React.Component {
 
                     </div>
                 </div>
-
             </div>
+                <footer >
+
+
+                    made by michael wideburg with a lot of love and guidance from app academy
+        <button className="help-button"> HELP </button>
+
+
+                </footer>
+                </div>
         )
     }
 

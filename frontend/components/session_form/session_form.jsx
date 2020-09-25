@@ -71,16 +71,15 @@ class SessionForm extends React.Component {
                     <br/>
                     <ul>
                         {this.props.errors.map(error => (
-                            <li key={error} className="signupError">
+                            <li key={error} className="errors">
                                 {error}
                             </li>
                         ))}
                     </ul> 
                     <br/>
-                <p>Don't have an account?  {this.props.otherForm}
-                
-                    
-                </p> 
+                    <center>         
+                <p>Don't have an account?  {this.props.otherForm}</p> 
+                    </center>
                 </form>
                 </>
             

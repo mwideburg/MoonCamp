@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { CSSTransitionGroup } from 'react-transition-group'// ES6
 import LoginFormContainer from '../session_form/login_form_container';
 import SignupFormContainer from '../session_form/signup_form_container';
+import SignupSplashContainer from '../session_form/signup_page_container';
 
 function Modal(modalType, closeModal){
     // if(!modalType.modalType){
@@ -41,8 +42,9 @@ function Modal(modalType, closeModal){
         case 'switch_signup':
             // debugger
             noClick = ""
-            component = <SignupFormContainer />
-            background = "switch-background"
+            component = <SignupFormContainer/>
+            // background = "switch-background"
+
             // noClick = modalType.closeModal
             // modalChild = "modal-child"
             // button = "show-logout-button"

@@ -59,14 +59,7 @@ const App = () => (
             
             </Switch>
         
-    <footer >
-
-
-            made by michael wideburg with a lot of love and guidance from app academy
-        <button className="help-button"> HELP </button>
-
-     
-    </footer>
+    
     
     </>
 );

@@ -13,7 +13,7 @@
   transition-timing-function: ease-in-out;
 } */
 
-.modal-child {
+.modal-child, .signup-child {
     width: 100%;
     display: flex;
     position: absolute;
