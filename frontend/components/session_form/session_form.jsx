@@ -22,6 +22,11 @@ class SessionForm extends React.Component {
             this.props.removeErrors()
         }
     }
+    componentDidMount(){
+        if (this.props.errors) {
+            this.props.removeErrors()
+        }
+    }
 
     handleSubmit(e) {
         e.preventDefault();
@@ -64,7 +69,13 @@ class SessionForm extends React.Component {
                         <input className="session-submit" type="submit" value={this.props.formType} />
                     </div>
                     <br/>
-                    <p className="errors">{errors}</p> 
+                    <ul>
+                        {this.props.errors.map(error => (
+                            <li key={error} className="signupError">
+                                {error}
+                            </li>
+                        ))}
+                    </ul> 
                     <br/>
                 <p>Don't have an account?  {this.props.otherForm}
                 

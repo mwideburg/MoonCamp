@@ -32,7 +32,7 @@ class LoginSplash extends React.Component{
                     <div className="offset-frame picard">
 
                         <div className="worf">
-                            <img className="worf" src="https://img1.grunge.com/img/gallery/the-worst-things-captain-picard-has-ever-done/intro-1570819077.jpg" alt="" />
+                            <img className="worf picard-img" src="https://img1.grunge.com/img/gallery/the-worst-things-captain-picard-has-ever-done/intro-1570819077.jpg" alt="" />
                         </div>
 
                         <div className="worf-container">

@@ -28,6 +28,11 @@ class SignUpForm extends React.Component {
             this.props.removeErrors()
         }
     }
+    componentDidMount() {
+        if (this.props.errors) {
+            this.props.removeErrors()
+        }
+    }
     handleSubmit(e) {
         
         e.preventDefault();

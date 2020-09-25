@@ -31,7 +31,7 @@
   /* color: white; */
   transition: 0.25s;
   transition-timing-function: ease-in-out;
-
+   
 }
 
 
@@ -133,7 +133,10 @@
     color: rgb(255, 107, 107);
     font-weight: bold;
     font-size: 15px;
+    /* animation: fadeout 3s linear 3s 1 forwards; */
 }
+
+
 .signupError{
     color: rgb(255, 107, 107);
 }
@@ -191,4 +194,19 @@
     color: white;
     padding-left: 30px;
     font-size: 50px;
+}
+
+@keyframes fadein{
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+@keyframes fadeout{
+    0% {opacity: 1;}
+    100% {opacity: 0;}
+}
+
+@keyframes fadeinout{
+    0% {opacity: 1;}
+    50% {opacity: 1;}
+    0% {opacity: 1;}
 }
