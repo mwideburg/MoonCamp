@@ -352,3 +352,6 @@ header{
     object-fit:cover;
 }
 
+.unfixed{
+    position: relative;
+}

@@ -27,7 +27,7 @@ const mapDispatchToProps = dispatch => {
         // ),
         
         otherForm: (
-            <Link to="/">
+            <Link to="/signup" className="other-form">
             <button onClick={() => dispatch(switchSignup('switch_signup'))} className="other-form">
                 Sign Up
             </button>

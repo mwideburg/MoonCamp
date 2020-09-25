@@ -10,7 +10,12 @@ const navContainer = ({ currentUser, demo, logout, openModal }) => {
 
         return (
             <>
-            <div className="search-nav-bar">
+            <header className="navbar unfixed">
+
+                <Link to="/" className="nav-bar-logo">
+                    <h2 >Moon Camp</h2>
+                </Link>
+            <div className="search-nav-bar unfixed">
                 <form action="">
                         
                         <i className="fa fa-search"></i>
@@ -24,8 +29,12 @@ const navContainer = ({ currentUser, demo, logout, openModal }) => {
                 <button onClick={() => openModal('login')} className="user-button">login</button>
                 {/* <Link to="/login" className="user-button" onClick={() =>openModal}>Log In</Link>
                 <Link to="/signup" className="user-button">Sign Up</Link> */}
+                <Link to="/">
                     <button onClick={demo} className="user-button demo-btn">DEMO</button>
+                    </Link>
             </nav>
+
+            </header>
             </>
         )
     

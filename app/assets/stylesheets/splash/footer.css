@@ -1,5 +1,9 @@
-footer{
 
+
+footer{
+    display: flex;
+    /* position: absolute; */
+    /* bottom: 0px;; */
     width: 100%;
     display:flex;
     justify-content: space-between;
@@ -21,7 +25,7 @@ footer{
     border: none;
     transition: 0.25s;
     transition-timing-function: ease-in-out;
-    z-index: 100;
+    z-index: 0;
 }
 
 .help-button:hover{
