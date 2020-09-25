@@ -1,10 +1,17 @@
 
 
 footer{
+    display:flex;
+    justify-content: center;
+    background-color: black;
+    
+}
+.footer-container{
     display: flex;
     /* position: absolute; */
     /* bottom: 0px;; */
-    width: 100%;
+    width: 1000px;
+    padding-left:100px;
     display:flex;
     justify-content: space-between;
     align-items: center;
@@ -18,14 +25,17 @@ footer{
 
 .help-button{
     padding: 13px;
-    margin-right: 25px;
-    width: 75px;
+    /* margin-right: 100px; */
+    width: 80px;
+    position: fixed;
+    right:100px;
+    bottom: 10px;
     background-color: aquamarine;
-    border-radius: 5px;
+    border-radius: 20px;
     border: none;
     transition: 0.25s;
     transition-timing-function: ease-in-out;
-    z-index: -1;
+   
 }
 
 .help-button:hover{

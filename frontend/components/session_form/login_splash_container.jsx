@@ -22,7 +22,7 @@ class LoginSplash extends React.Component{
                     <div className="log-splash-form">
                         
                             
-                        <LoginContainer/>
+                        <LoginContainer />
                     </div>
                 </div>
 
@@ -36,11 +36,17 @@ class LoginSplash extends React.Component{
                         </div>
 
                         <div className="worf-container">
-                            <div className="detail-container offset">
-                                <h3>“Things are only impossible until they are not.”</h3>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pulvinar elementum integer 
-                                <p></p>
-                                <br />
+                            <div className="detail-container">
+                                
+                                    <h3>“Things are only impossible until they are not.”</h3>
+                                    <br/>
+                                <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pulvinar elementum integer
+                                    </p>
+                                    <br />
+
+                                
+                                
                                 <a href="http://www.michaelwideburg.com" id="links"> - Michael Wideburg</a>
                             </div>
                         </div>

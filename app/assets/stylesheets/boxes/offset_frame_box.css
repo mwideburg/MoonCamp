@@ -1,10 +1,39 @@
 .offset-frame{
     width: 800px;
     height: 350px;
-    border: black solid 1px;
+    border: lightgray solid 1px;
 }
 
-
+.offset-text{
+    text-align: center;
+}
+.offset-text p{
+    color: gray;
+}
+#offset-btn{
+    position: absolute;
+    bottom: 45px;
+    color: white;
+    border: aquamarine 2px solid;
+}
+#offset-btn:hover{
+    position: absolute;
+    bottom: 45px;
+    background-color: white;
+    border: aquamarine 2px solid;
+    color: aquamarine;
+}
+#offset-btn-2{
+    right: 200px;
+    position: absolute;
+    bottom: 45px;
+    border-radius: 2px;
+    border: lightgray 1px solid;
+}
+#offset-btn-2:hover{
+    color: aquamarine;
+    border: aquamarine 1px solid;
+}
 .picard{
     border-color: aquamarine;
     border: 3px  aquamarine solid;

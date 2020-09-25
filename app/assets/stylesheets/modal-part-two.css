@@ -17,7 +17,7 @@
     width: 100%;
     display: flex;
     position: absolute;
-    margin: 0;
+    margin-bottom: 200px;
      
     z-index: 100;
     /* left: 41%; */

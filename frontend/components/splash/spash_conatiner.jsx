@@ -98,10 +98,15 @@ class Splash extends React.Component {
 
                     <div className="worf-container">
                         <div className="detail-container offset">
+                            <div className="offset-text">
                             <h3>MEET THE BEST HOST... WORF</h3>
-                            <p>"I am known to be a fierce warrior, but a dosile host. Come stay with me and enjoy Gagh: A Klingon delicacy, live serpent worms."</p>
+                            <p>"I am known to be a fierce warrior, but a dosile host. 
+                                Come stay with me and enjoy Gagh: A Klingon delicacy, live serpent worms.
+                                Or maybe you would like to battle it out in my cutomized holodeck..."</p>
                             <br />
+                            </div>
                             <button id="offset-btn"> CAMP OUT WITH WORF</button>
+                            <button id="offset-btn-2"> INITE FRIENDS</button>
                         </div>
                     </div>
 
@@ -110,9 +115,13 @@ class Splash extends React.Component {
             </div>
                 <footer >
 
+                    <div className="footer-container">
 
-                    made by michael wideburg with a lot of love and guidance from app academy
-        <button className="help-button"> HELP </button>
+
+                        made by michael wideburg with a lot of love and guidance from app academy
+                    <button className="help-button"> HELP </button>
+
+                    </div>
 
 
                 </footer>

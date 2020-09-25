@@ -7,7 +7,7 @@ import DemoUser from './demo_user_login';
 const mapStateToProps = ({ errors }) => {
     return {
         errors: errors.session,
-        formType: 'LOGIN',
+        formType: 'Log In',
     };
 };
 

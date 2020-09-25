@@ -10,7 +10,7 @@ const mapStateToProps = ({ errors }) => {
     // debugger
     return {
         errors: errors.session,
-        formType: 'LOGIN',
+        formType: 'Log in',
         // navLink: <Link to="/signup">sign up instead</Link>,
     };
 };
@@ -28,7 +28,7 @@ const mapDispatchToProps = dispatch => {
         
         otherForm: (
             <Link to="/signup" className="other-form">
-            <button onClick={() => dispatch(switchSignup('switch_signup'))} className="other-form">
+            <button onClick={() => dispatch(closeModal())} className="other-form">
                 Sign Up
             </button>
             </Link>

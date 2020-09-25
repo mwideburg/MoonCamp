@@ -13,6 +13,18 @@
 
 }
 
+.form-top-container{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+.form-top-container input[type="text"]{
+    display: flex;
+    justify-content: space-between;
+    width: 120px;
+    text-align: left;
+}
+
 @keyframes fadein{
     0% {opacity: 0;}
     100% {opacity: 1;}

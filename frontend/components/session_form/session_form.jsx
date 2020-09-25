@@ -44,7 +44,7 @@ class SessionForm extends React.Component {
             
                 <>
                 <form onSubmit={this.handleSubmit} className="login-form-box">
-                    <a onClick={this.props.closeModal} className="modal-close">X</a>
+                   
                     <br/>
                     <div className="login-form">
                         <label>Email:</label>
@@ -52,7 +52,7 @@ class SessionForm extends React.Component {
                                 value={this.state.email}
                                 onChange={this.update('email')}
                                 className="login-input"
-                                placeholder="CaptainPicard@space.com"
+                                placeholder="captainpicard@space.com"
                             />
                         
                         <br />
@@ -61,12 +61,12 @@ class SessionForm extends React.Component {
                                 value={this.state.password}
                                 onChange={this.update('password')}
                                 className="login-input"
-                                placeholder="Engage!"
+                                placeholder="3ngage!"
                                 
                             />
                        
                         <br />
-                        <input className="session-submit" type="submit" value={this.props.formType} />
+                        <button className="btn-submit" type="submit"> {this.props.formType}</button>
                     </div>
                     <br/>
                     <ul>

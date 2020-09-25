@@ -24,9 +24,9 @@ const navContainer = ({ currentUser, demo, logout, openModal }) => {
             </div>
             <nav className="links">
                 {/* <button onClick={demoUser({email: "michael", password:"michael"})} className="user-button logout">MODAL</button> */}
-                <button onClick={() => openModal('signup')} className="user-button">signup</button>
+                <button onClick={() => openModal('signup')} className="user-button">Sign Up</button>
 
-                <button onClick={() => openModal('login')} className="user-button">login</button>
+                <button onClick={() => openModal('login')} className="user-button">Log in</button>
                 {/* <Link to="/login" className="user-button" onClick={() =>openModal}>Log In</Link>
                 <Link to="/signup" className="user-button">Sign Up</Link> */}
                 <Link to="/">

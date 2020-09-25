@@ -48,7 +48,7 @@ class SignUpForm extends React.Component {
         let buttonType = (this.props.modalType === 'switch_signup') ? this.props.otherButton: (<a onClick={this.props.closeModal} className="modal-close">X</a>)
         return (
             <div>
-                {buttonType}
+                {/* {buttonType} */}
                 
             <div>
                 {/* <button className='user-button logout-button-fix'> LOG OUT</button> */}
@@ -56,7 +56,9 @@ class SignUpForm extends React.Component {
                 {/* <a onClick={this.props.closeModal} className="modal-close">X</a> */}
                 <br/>
                     <div className="login-form">
-                        <label>FirstName: </label>
+                        <div className="form-top-container">
+                        {/* <label>FirstName: </label> */}
+                        
                         <input type="text"
                                 value={this.state.firstname}
                                 onChange={this.update('firstname')}
@@ -65,7 +67,7 @@ class SignUpForm extends React.Component {
                             />
                         
                         <br />
-                        <label>Lastname:  </label>
+                        {/* <label>Lastname:  </label> */}
                         <input type="text"
                                 value={this.state.lastname}
                                 onChange={this.update('lastname')}
@@ -73,6 +75,9 @@ class SignUpForm extends React.Component {
                                 placeholder="Last Name"
                             />
                         
+
+
+                        </div>
                         <br />
                         <label>Email:  </label>
                         <input type="text"
@@ -93,8 +98,8 @@ class SignUpForm extends React.Component {
                         
                         <br />
                         
-                        <input className="session-submit" type="submit" value={this.props.formType} />
                         
+                            <button className="btn-submit" type="submit"> {this.props.formType}</button>
                         <br/>
                         <ul>
                         {this.props.errors.map(error => (

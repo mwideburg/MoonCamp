@@ -12,6 +12,8 @@
     width: 100px;
     background-color: aquamarine;
     border: none;
+    color: white;
+    border: aquamarine 2px solid;
     /* border-radius: 5px; */
     transition: 0.25s;
 }
@@ -24,6 +26,7 @@
 .submit:hover{
     background-color: white;
     border: 2px solid aquamarine;
+    color: aquamarine;
      transition-timing-function: ease-in-out;
      cursor: pointer;
 }
@@ -34,7 +37,7 @@
  
 }
 .search-form-container{
-    box-shadow: 1px 1px 2px 1px lightgray;
+    box-shadow: 0px 4px 4px 0px rgb(209, 209, 209);
     width: 1000px;
     margin: 0;
     padding: 0px;
@@ -73,8 +76,10 @@
     /* border: 1px lightgray solid; */
     /* border-radius: 0; */
     display: inline;
-    height: 30px;
-    
+    width: 250px;
+    height: 44px;
+    border-radius: 3px;
+    border: 1px solid lightgray;    
 }
 
 #date-btn{

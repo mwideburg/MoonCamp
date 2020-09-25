@@ -39,7 +39,7 @@ header{
     top:0;
     align-items: center;
     width:100%;
-    background-color: aquamarine;
+    background-color: white;
     padding: 0;
     margin: 0;
     z-index: 1;
@@ -126,7 +126,7 @@ header{
 }
 
 .nav-bar-logo{
-    padding-left: 10px;
+    padding-left: 30px;
     font-size: 18px;
     text-decoration: none;
 }
@@ -141,7 +141,7 @@ header{
     text-decoration: none;
     border: none;
     color: rgb(75, 75, 75);
-    border-bottom: 2px aquamarine solid;
+    border-bottom: 2px white solid;
     background-color: transparent;
     font-size: 15px;
     transition: 0.25s;
@@ -152,7 +152,7 @@ header{
     border-bottom: 2px lightpink solid;
 
     /* box-shadow: 0px 5px 0px -2px red; */
-    color: white;
+    /* color: white; */
     transition-timing-function: ease-in-out;
 }
 
@@ -171,7 +171,7 @@ header{
     padding-bottom: 20px;
     /* padding-top: 0px; */
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: flex-end;
 }
 
@@ -282,6 +282,7 @@ header{
 }
 .moon-highlight{
     margin-top: 50px;
+    margin-bottom: 50px;
     display: flex;
     /* opacity: 0.7; */
     justify-content: flex-start;
@@ -310,8 +311,8 @@ header{
 }
 
 .detail-container{
-    margin-left: 50px;
-    padding-left:20px;
+    margin-left: 60px;
+    padding-left:30px;
     width: 364px;
     height: 365px;
     display: inline;

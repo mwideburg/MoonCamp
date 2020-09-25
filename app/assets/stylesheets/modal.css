@@ -74,7 +74,7 @@
     display: flex;
     justify-content: center;
     position: fixed;
-    top: 200px;
+    top: 50px;
     width: 300px;
     padding-left: 30px;
     padding-right: 30px;
@@ -93,12 +93,19 @@
 
 }
 .login-form-container input{
-    padding: 0;
+    padding-left: 10px;
     margin-top: 5px;
     margin-bottom: 5px;
-    height: 40px;
+    height: 60px;
     border: none;
-    border-radius: 5px;
+    
+   
+}
+.login-form-container input::placeholder{
+    font-weight: bold;
+    text-align: left;
+    color: black;
+    
 }
 .login-form-container input:focus{
     border: none;
@@ -117,20 +124,7 @@
     padding-bottom: 200px;
 }
 
-.session-submit{
-    width: 100%;
-    font-size: 15px;
-    margin-top: 15px;
-    padding-top:50px;
-    background-color: lightpink;
-    border-radius: 5px;
-  
-}
-.session-submit:hover{
-    background-color: aquamarine;
-     transition-timing-function: ease-in-out;
 
-}
 .errors{
     color: rgb(255, 107, 107);
     font-weight: bold;
@@ -196,6 +190,46 @@
     color: white;
     padding-left: 30px;
     font-size: 50px;
+}
+
+
+.session-submit{
+    width: 100%;
+    font-size: 15px;
+    margin-top: 15px;
+    padding-top:50px;
+    color: white;
+    background-color: aquamarine;
+    border-radius: 5px;
+  
+}
+.session-submit
+.session-submit:hover{
+    background-color: aquamarine;
+     transition-timing-function: ease-in-out;
+
+}
+
+.btn-submit{
+     width: 100%;
+    font-size: 16px;
+    margin-top: 50px;
+    /* padding-top:50px; */
+    color: white;
+    background-color: aquamarine;
+    border: 1px solid aquamarine;
+    height: 60px;
+    border-radius: 25px;
+    transition-timing-function: ease-in-out;
+    transition: 0.25s;
+    letter-spacing: 5px;
+    /* height: 500px; */
+}
+.btn-submit:hover{
+    background-color: white;
+    color: aquamarine;
+     border: 2px solid aquamarine;
+     cursor: pointer;
 }
 
 @keyframes fadein{
