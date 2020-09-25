@@ -46,6 +46,12 @@ class SessionForm extends React.Component {
                 <form onSubmit={this.handleSubmit} className="login-form-box signup-placeholder">
                    
                     <br/>
+                    <div className="form-title-container">
+                        <center>
+                            <h2>Welcome back!</h2>
+                            <p>Lets get you to space!</p>
+                        </center>
+                    </div>
                     <div className="login-form">
                         <label>Email:</label>
                             <input type="text"
