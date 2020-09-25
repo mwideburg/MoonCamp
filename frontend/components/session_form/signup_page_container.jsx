@@ -12,14 +12,14 @@ class SignupSplashContainer extends React.Component {
 
             
             <div className="signup-page-container">
-                <h1 className="i-fix-you"> SPACE... 
+                    <h1 className="i-fix-you"> SPACE... </h1>
                 <br/>
-                it's empty without you</h1>
+                    <h1 className="i-fix-you-later">it's empty without you</h1>
                 <div className="signup-child">
                         <div className="login-form-container ">
                     <Link to="/login">
                         <button className="other-form logout-button-fix">
-                            LOG IN
+                            Log in
                     </button>
                     </Link>
                             <SignUpContainer  noButton={true}/>

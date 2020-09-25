@@ -54,8 +54,14 @@ class SignUpForm extends React.Component {
                 {/* <button className='user-button logout-button-fix'> LOG OUT</button> */}
                 <form onSubmit={this.handleSubmit} className="login-form-box">
                 {/* <a onClick={this.props.closeModal} className="modal-close">X</a> */}
-                <br/>
+                       
                     <div className="login-form">
+                        <div className="form-title-container">
+                                <center>
+                                    <h2>Join MoonCamp</h2>
+                                    <p>Discover the best moon bases near me</p>
+                                </center>
+                        </div>
                         <div className="form-top-container">
                         {/* <label>FirstName: </label> */}
                         
@@ -97,7 +103,12 @@ class SignUpForm extends React.Component {
                             />
                         
                         <br />
-                        
+                        <div className="row">
+                                <input type="checkbox" name="email" id="email-subscribe" />
+                                <p className="font-small-gray"> I'm curious about how we can camp out in space?</p>
+
+                        </div>
+                            
                         
                             <button className="btn-submit" type="submit"> {this.props.formType}</button>
                         <br/>
@@ -110,7 +121,9 @@ class SignUpForm extends React.Component {
                         </ul>
                         <br/>
                         <center>
-
+                                <p className="font-small-gray"> By signing up, I agree to MoonCamps
+                                don't eat out in space policy.</p>
+                                <br/>
                         <p>Have an Account?{this.props.otherForm}</p>
                         </center>
                     </div>

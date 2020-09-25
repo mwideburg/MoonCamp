@@ -119,7 +119,7 @@ class Splash extends React.Component {
 
 
                         made by michael wideburg with a lot of love and guidance from app academy
-                    <button className="help-button"> HELP </button>
+                    <button className="help-button"> ? Help </button>
 
                     </div>
 

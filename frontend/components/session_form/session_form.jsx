@@ -43,7 +43,7 @@ class SessionForm extends React.Component {
             
             
                 <>
-                <form onSubmit={this.handleSubmit} className="login-form-box">
+                <form onSubmit={this.handleSubmit} className="login-form-box signup-placeholder">
                    
                     <br/>
                     <div className="login-form">
@@ -68,7 +68,7 @@ class SessionForm extends React.Component {
                         <br />
                         <button className="btn-submit" type="submit"> {this.props.formType}</button>
                     </div>
-                    <br/>
+                   
                     <ul>
                         {this.props.errors.map(error => (
                             <li key={error} className="errors">
@@ -76,10 +76,12 @@ class SessionForm extends React.Component {
                             </li>
                         ))}
                     </ul> 
-                    <br/>
-                    <center>         
-                <p>Don't have an account?  {this.props.otherForm}</p> 
-                    </center>
+                
+                    <div className="text-anchor-bottom">
+
+                    <p className="text-anchor-bottom">Don't have an account?  {this.props.otherForm}</p> 
+                    </div>       
+                    
                 </form>
                 </>
             

@@ -15,16 +15,50 @@
 
 .form-top-container{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     width: 100%;
+    
+    
+}
+.form-top-container p{
+    
+    
 }
 .form-top-container input[type="text"]{
     display: flex;
     justify-content: space-between;
-    width: 120px;
+    width: 130px;
     text-align: left;
 }
 
+.form-title-container{
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.signup-placeholder input[type="text"]{
+    text-align: left;
+    font-weight: normal;
+    
+}
+.signup-placeholder input[type="password"]{
+    text-align: left;
+    font-weight: normal;
+    
+}
+
+.signup-placeholder input[type="text"]::placeholder{
+    color: lightgray;
+   font-weight: normal;;
+
+}
+.signup-placeholder input[type="password"]::placeholder{
+    color: lightgray;
+    font-weight: normal;
+
+}
 @keyframes fadein{
     0% {opacity: 0;}
     100% {opacity: 1;}

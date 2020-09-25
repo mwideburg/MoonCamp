@@ -46,7 +46,9 @@
     
 } */
 
-
+.login-form-box{
+    height: 100%;
+}
 .login-form-box input{
     position: relative;
     padding: 20px;
@@ -60,12 +62,14 @@
     border: none;
     color: gray;
     font-size: 15px;
+    font-weight: none;
     padding-left: 10px;
     /* font-weight: bold; */
 
 }
 .other-form:hover{
     color: lightgray;
+    cursor: pointer;
     transition-timing-function: ease-in-out;
 }
 
@@ -79,7 +83,6 @@
     padding-left: 30px;
     padding-right: 30px;
     padding-bottom:50px;
-    padding-top:30px;
     background-color: black;
     color:white;
     border-radius: 5px;
@@ -162,6 +165,8 @@
     height: 40px;
     width: 80px;
     border: none;
+    color: black;
+    font-size: 14px;
     /* border-radius: 3px; */
     background-color: white;
     /* box-shadow: 4px 4px 4px 0px gray; */
@@ -183,13 +188,28 @@
     justify-content: center;
 }
 
+
 .i-fix-you{
     position: fixed;
-    top: 0px;
+    bottom: 80px;
     z-index: 100;
+    opacity: 0;
     color: white;
     padding-left: 30px;
     font-size: 50px;
+    animation: fadein 1s linear .75s 1 forwards;
+  
+}
+.i-fix-you-later{
+   
+     position: fixed;
+    bottom: 0px;
+    z-index: 100;
+    opacity: 0;
+    color: white;
+    padding-left: 30px;
+    font-size: 50px;
+    animation: fadein 1s linear 2s 1 forwards;
 }
 
 
@@ -213,7 +233,7 @@
 .btn-submit{
      width: 100%;
     font-size: 16px;
-    margin-top: 50px;
+    margin-top: 25px;
     /* padding-top:50px; */
     color: white;
     background-color: aquamarine;

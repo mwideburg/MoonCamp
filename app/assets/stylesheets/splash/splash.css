@@ -373,3 +373,9 @@ header{
     background-color: aquamarine;
     border-radius: 0px;
 }
+
+
+.font-small-gray{
+    font-size: 12px;
+    color: lightgray;
+}

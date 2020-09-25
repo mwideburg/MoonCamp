@@ -24,7 +24,7 @@ const mapDispatchToProps = dispatch => {
             <>
                 <Link to="/login">
             <button onClick={() => dispatch(closeModal())} className="other-form">
-                LOG IN
+                Log in
             </button>
                 </Link>
             </>
@@ -33,7 +33,7 @@ const mapDispatchToProps = dispatch => {
             <>
                 <Link to="/login">
                     <button onClick={() => dispatch(closeModal())} className="other-form logout-button-fix hover-btn">
-                        LOG IN
+                        Log in
             </button>
                 </Link>
             </>
