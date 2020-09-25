@@ -116,11 +116,11 @@
 }
 .login-form-container input[type="text"]{
     font-size: 15px;
-    text-align: center;
+    text-align: left;
 }
 .login-form-container input[type="password"]{
     font-size: 15px;
-    text-align: center;
+    text-align: left;
 }
 .login-splash{
     padding-top: 100px;
