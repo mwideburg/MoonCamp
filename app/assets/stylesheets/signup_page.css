@@ -5,12 +5,21 @@
   right: 0;
   left: 0;
   color: white;
+  min-height: 720px;
   background: black;
   z-index: 10;
   animation: fadein .75s linear 10ms backwards ;
   transition: .25s;
   transition-timing-function: ease-out;
 
+}
+
+.min-height{
+    position: relative;
+    height: 720px;
+}
+.no-margin{
+    margin:0;
 }
 
 .form-top-container{

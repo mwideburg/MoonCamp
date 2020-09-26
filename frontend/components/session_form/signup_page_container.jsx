@@ -8,15 +8,15 @@ class SignupSplashContainer extends React.Component {
     
     render() {
         return (
-            <div>
+            <div className="min-height">
 
             
             <div className="signup-page-container">
                     <h1 className="i-fix-you"> SPACE... </h1>
                 <br/>
                     <h1 className="i-fix-you-later">it's empty without you</h1>
-                <div className="signup-child">
-                        <div className="login-form-container ">
+                <div className="signup-child" >
+                        <div className="login-form-container " >
                     <Link to="/login">
                         <button className="other-form logout-button-fix">
                             Log in

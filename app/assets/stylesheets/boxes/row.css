@@ -1,13 +1,17 @@
 .row{
     display: flex;
     align-items: center;
-
+    padding:10px
 }
+
+
 #email-subscribe{
     font-size: 10px;
     padding: 0;
     width: 10px;
-    margin: 0;
+    
+    height: 10px;
+
     margin-right: 10px;
 }
 

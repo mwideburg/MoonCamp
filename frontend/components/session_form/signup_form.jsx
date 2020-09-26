@@ -50,12 +50,12 @@ class SignUpForm extends React.Component {
             <div>
                 {/* {buttonType} */}
                 
-            <div>
+                <div >
                 {/* <button className='user-button logout-button-fix'> LOG OUT</button> */}
                 <form onSubmit={this.handleSubmit} className="login-form-box">
                 {/* <a onClick={this.props.closeModal} className="modal-close">X</a> */}
                        
-                    <div className="login-form">
+                    <div  className="login-form" >
                         <div className="form-title-container">
                                 <center>
                                     <h2>Join MoonCamp</h2>
@@ -84,7 +84,7 @@ class SignUpForm extends React.Component {
 
 
                         </div>
-                        <br />
+                    
                         <label>Email:  </label>
                         <input type="text"
                                 value={this.state.email}
@@ -102,13 +102,13 @@ class SignUpForm extends React.Component {
                                 placeholder="minimum 6 characters"
                             />
                         
-                        <br />
+                 
                         <div className="row">
                                 <input type="checkbox" name="email" id="email-subscribe" />
                                 <p className="font-small-gray"> I'm curious about how we can camp out in space?</p>
 
                         </div>
-                            <ul className="signupError">
+                            <ul className="no-margin">
                                 {this.props.errors.map(error => (
                                     <li key={error} className="list-padding">
                                         {error}
