@@ -5,10 +5,61 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+User.destroy_all
+Spot.destroy_all
+michael = User.create({firstname: "michael", lastname: "wideburg", email: "michael", password: "michael"})
+picard = User.create({firstname: "michael", lastname: "wideburg", email: "michael2", password: "michael"})
+picard2 = User.create({firstname: "Jean-luc", lastname: "Picard", email: "enterprise@startrek.com", password: "earlgrayhot"})
+worf = User.create({firstname: "picard", lastname: "picard", email: "picard2", password: "picard2"})
 
 
-User.create({firstname: "michael", lastname: "wideburg", email: "michael", password: "michael"})
-User.create({firstname: "michael", lastname: "wideburg", email: "michael2", password: "michael"})
-User.create({firstname: "Jean-luc", lastname: "Picard", email: "enterprise@startrek.com", password: "earlgrayhot"})
-User.create({firstname: "picard", lastname: "picard", email: "picard2", password: "picard2"})
-Post.create({})
+
+# == Schema Information
+#
+# Table name: spots
+#
+#  id          :bigint           not null, primary key
+#  host_id     :integer          not null
+#  price       :integer          not null
+#  title       :string           not null
+#  moon        :string           not null
+#  planet      :string           not null
+#  description :string           not null
+#  lng         :float            not null
+#  lat         :float            not null
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+
+
+
+Spot.create!({
+    host_id: michael.id, 
+    price: 20, title: "Sirens of Titan", 
+    moon: "Titan", 
+    planet: "Jupiter", 
+    description:"Want to camp with Rutherfords son? This is the place for you, with little to worry about, you'll have fun gazing into Jupiters Red Dot",
+    lng: -72.059170, 
+    lat: -63.895548
+
+})
+Spot.create!({
+    host_id: picard2.id, 
+    price: 20, title: "Sirens of Titan", 
+    moon: "Titan", 
+    planet: "Jupiter", 
+    description:"Want to camp with Rutherfords son? This is the place for you, with little to worry about, you'll have fun gazing into Jupiters Red Dot",
+    lng: -72.059170, 
+    lat: -63.895548
+
+})
+Spot.create!({
+    host_id: picard2.id, 
+    price: 20, title: "Sirens of Titan", 
+    moon: "Titan", 
+    planet: "Jupiter", 
+    description:"Want to camp with Rutherfords son? This is the place for you, with little to worry about, you'll have fun gazing into Jupiters Red Dot",
+    lng: -72.059170, 
+    lat: -63.895548
+
+})
+

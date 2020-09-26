@@ -15,5 +15,31 @@
 #  updated_at  :datetime         not null
 #
 class Spot < ApplicationRecord
-    has_one_attached :photo
+    validates :host_id, presence: true
+    validates :price, presence: true
+    validates :title, presence: true
+    validates :description, presence: true
+    validates :moon, presence: true
+    validates :planet, presence: true
+    validates :lng, presence: true
+    validates :lat, presence: true
+    has_many_attached :photos
+
+    belongs_to :host,
+        class_name: :User,
+        foreign_key: :host_id
+    
+    # has_many :booking_requests,
+    #     class_name: :booking,
+    #     foreign_key: :host_id
+    
+     def in_bounds(bounds)
+         # google map bounds will be in the following format:
+  # {
+  #   "northEast"=> {"lat"=>"37.80971", "lng"=>"-122.39208"},
+  #   "southWest"=> {"lat"=>"37.74187", "lng"=>"-122.47791"}
+  # }
+        self.lat.to_f >= bounds[:lat].to_f
+    end
+    
 end
