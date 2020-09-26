@@ -11,3 +11,4 @@ User.create({firstname: "michael", lastname: "wideburg", email: "michael", passw
 User.create({firstname: "michael", lastname: "wideburg", email: "michael2", password: "michael"})
 User.create({firstname: "Jean-luc", lastname: "Picard", email: "enterprise@startrek.com", password: "earlgrayhot"})
 User.create({firstname: "picard", lastname: "picard", email: "picard2", password: "picard2"})
+Post.create({})
