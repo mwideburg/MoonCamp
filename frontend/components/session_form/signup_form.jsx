@@ -85,7 +85,7 @@ class SignUpForm extends React.Component {
 
                         </div>
                     
-                        <label>Email:  </label>
+                        {/* <label>Email:  </label> */}
                         <input type="text"
                                 value={this.state.email}
                                 onChange={this.update('email')}
@@ -94,7 +94,7 @@ class SignUpForm extends React.Component {
                             />
                         
                         <br />
-                        <label>Password:</label>
+                        {/* <label>Password:</label> */}
                         <input type="password"
                                 value={this.state.password}
                                 onChange={this.update('password')}
