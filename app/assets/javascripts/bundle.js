@@ -1825,10 +1825,12 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
         onChange: this.update('password'),
         className: "login-input",
         placeholder: "3ngage!"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.props.errors.map(function (error) {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+        className: ""
+      }, this.props.errors.map(function (error) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           key: error,
-          className: "errors"
+          className: "list-padding"
         }, error);
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "btn-submit",
@@ -2288,7 +2290,7 @@ var Splash = /*#__PURE__*/function (_React$Component) {
         id: "offset-btn"
       }, " CAMP OUT WITH WORF"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         id: "offset-btn-2"
-      }, " INITE FRIENDS")))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("footer", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, " IGNITE FRIENDS")))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("footer", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "footer-container"
       }, "made by michael wideburg with a lot of love and guidance from app academy", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "help-button"

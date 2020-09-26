@@ -72,9 +72,9 @@ class SessionForm extends React.Component {
                             />
                        
                         <br />
-                    <ul>
+                    <ul className="">
                         {this.props.errors.map(error => (
-                            <li key={error} className="errors">
+                            <li key={error} className="list-padding">
                                 {error}
                             </li>
                         ))}
