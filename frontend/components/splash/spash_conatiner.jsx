@@ -102,7 +102,7 @@ class Splash extends React.Component {
                             <h3>MEET THE BEST HOST... WORF</h3>
                             <p>"I am known to be a fierce warrior, but a dosile host. 
                                 Come stay with me and enjoy Gagh: A Klingon delicacy, live serpent worms.
-                                Or maybe you would like to battle it out in my cutomized holodeck..."</p>
+                                Or maybe you would like to battle it out in my customized holodeck..."</p>
                             <br />
                             </div>
                             <button id="offset-btn"> CAMP OUT WITH WORF</button>
