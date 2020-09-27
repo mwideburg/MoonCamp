@@ -93,6 +93,7 @@ class SignUpForm extends React.Component {
                                 placeholder="Email"
                             />
                         
+                        
                         <br />
                         {/* <label>Password:</label> */}
                         <input type="password"
@@ -100,6 +101,12 @@ class SignUpForm extends React.Component {
                                 onChange={this.update('password')}
                                 className="login-input"
                                 placeholder="minimum 6 characters"
+                            />
+                            <input type="text"
+                                value={this.state.zipcode}
+                                onChange={this.update('zipcode')}
+                                className="login-input"
+                                placeholder="Zip code"
                             />
                         
                  

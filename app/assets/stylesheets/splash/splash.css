@@ -337,9 +337,9 @@ header{
     height: 365px;
     display: inline;
     text-align: left;
-    background-color: aquamarine;
+    background-color: rgb(138, 115, 177);
     font-size: 20px;
-    color: black;
+    color: white;
     box-sizing: border-box;
     padding-right:24px;
 }
@@ -390,7 +390,7 @@ header{
     /* justify-content: right; */
 }
 #offset-btn{
-    background-color: aquamarine;
+    background-color: rgb(43, 206, 152);
     border-radius: 0px;
 }
 
@@ -402,15 +402,15 @@ header{
 
 .demo-btn{
     color: white;
-    background-color: aquamarine;
+    background-color: rgb(43, 206, 152);
     height: 38px;
     border-radius: 3px;
     width: 80px;
-    border: 2px aquamarine solid;
+    border: 2px rgb(43, 206, 152) solid;
 }
 .demo-btn:hover{
-    color: aquamarine;
+    color: rgb(43, 206, 152);
     height: 38px;
     background-color: white;
-    border: 2px aquamarine solid;
+    border: 2px rgb(43, 206, 152) solid;
 }

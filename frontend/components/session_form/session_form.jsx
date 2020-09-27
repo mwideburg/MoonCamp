@@ -58,7 +58,7 @@ class SessionForm extends React.Component {
                                 value={this.state.email}
                                 onChange={this.update('email')}
                                 className="login-input"
-                                placeholder="captainpicard@space.com"
+                                placeholder="email: captainpicard@space.com"
                             />
                         
                         <br />
@@ -67,7 +67,7 @@ class SessionForm extends React.Component {
                                 value={this.state.password}
                                 onChange={this.update('password')}
                                 className="login-input"
-                                placeholder="3ngage!"
+                                placeholder="password: EarlGrayHot!"
                                 
                             />
                        

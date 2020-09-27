@@ -14,14 +14,14 @@
     position: absolute;
     bottom: 45px;
     color: white;
-    border: aquamarine 2px solid;
+    border: rgb(43, 206, 152) 2px solid;
 }
 #offset-btn:hover{
     position: absolute;
     bottom: 45px;
     background-color: white;
-    border: aquamarine 2px solid;
-    color: aquamarine;
+    border: rgb(43, 206, 152) 2px solid;
+    color: rgb(43, 206, 152);
 }
 #offset-btn-2{
     right: 200px;
@@ -31,12 +31,12 @@
     border: lightgray 1px solid;
 }
 #offset-btn-2:hover{
-    color: aquamarine;
-    border: aquamarine 1px solid;
+    color: rgb(43, 206, 152);
+    border: rgb(43, 206, 152) 1px solid;
 }
 .picard{
-    border-color: aquamarine;
-    border: 3px  aquamarine solid;
+    border-color: rgb(43, 206, 152);
+    border: 3px  rgb(43, 206, 152) solid;
 }
 
 .picard img{

@@ -106,7 +106,7 @@ class Splash extends React.Component {
                             <br />
                             </div>
                             <button id="offset-btn"> CAMP OUT WITH WORF</button>
-                            <button id="offset-btn-2"> IGNITE FRIENDS</button>
+                            <button id="offset-btn-2"> START SEARCHING </button>
                         </div>
                     </div>
 

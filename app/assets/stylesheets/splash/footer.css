@@ -32,7 +32,7 @@ footer{
     color: rgb(45, 95, 79);
     right: 10px;
     bottom: -80px;
-    background-color: aquamarine;
+    background-color: rgb(43, 206, 152);
     border-radius: 20px;
     border: none;
     animation: flyin-bottom .4s linear 3s 1 forwards ;

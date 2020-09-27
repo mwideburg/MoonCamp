@@ -238,13 +238,13 @@
     margin-top: 15px;
     padding-top:50px;
     color: white;
-    background-color: aquamarine;
+    background-color: rgb(43, 206, 152);
     border-radius: 5px;
   
 }
 .session-submit
 .session-submit:hover{
-    background-color: aquamarine;
+    background-color: rgb(43, 206, 152);
      transition-timing-function: ease-in-out;
 
 }
@@ -255,8 +255,8 @@
     margin-top: 15px;
     /* padding-top:50px; */
     color: white;
-    background-color: aquamarine;
-    border: 1px solid aquamarine;
+    background-color: rgb(43, 206, 152);
+    border: 1px solid rgb(43, 206, 152);
     height: 60px;
     border-radius: 25px;
     transition-timing-function: ease-in-out;
@@ -266,8 +266,8 @@
 }
 .btn-submit:hover{
     background-color: white;
-    color: aquamarine;
-     border: 2px solid aquamarine;
+    color: rgb(43, 206, 152);
+     border: 2px solid rgb(43, 206, 152);
      cursor: pointer;
 }
 
