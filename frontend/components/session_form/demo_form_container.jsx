@@ -13,7 +13,7 @@ const mapStateToProps = ({ errors }) => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        demo: () => dispatch(login({ email: "michael", password: "michael" })),
+        demo: () => dispatch(login({ email: "michael@mooncamp.com", password: "michael" })),
         processForm: (user) => dispatch(login(user)),
     };
 };

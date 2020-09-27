@@ -17,18 +17,25 @@ class User < ApplicationRecord
     validates :session_token, presence: true
     validates :lastname, presence: true
     validates :firstname, presence: true
-    validates :zipcode, length: {minimum: 5}
+    
     validates :email, uniqueness: true
     validates :password, length: {minimum: 6, allow_nil: true}
     after_initialize :ensure_session_token
     before_validation :checkEmail
+    before_validation :checkZip
     attr_reader :password
   
+
+    def checkZip
+        if self.zipcode.to_s.length != 5
+            errors.add(:zipcode, 'must be valid')
+        end
+    end
 
     def checkEmail
         # debugger
        
-        if self.email.split('@').length != 2 && self.email.split('.').length <= 2
+        if self.email.split('@').length != 2
         # debugger
             errors.add(:email, 'must be valid')
         end

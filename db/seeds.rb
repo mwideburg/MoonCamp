@@ -8,10 +8,10 @@
 User.destroy_all
 Spot.destroy_all
 
-michael = User.create({firstname: "michael", lastname: "wideburg", email: "michael", password: "michael", zipcode: 11206})
-picard = User.create({firstname: "michael", lastname: "wideburg", email: "michael2", password: "michael", zipcode: 11206})
+michael = User.create({firstname: "michael", lastname: "wideburg", email: "michael@mooncamp.com", password: "michael", zipcode: 11206})
+picard = User.create({firstname: "michael", lastname: "wideburg", email: "michael2@mooncamp.com", password: "michael", zipcode: 11206})
 picard2 = User.create({firstname: "Jean-luc", lastname: "Picard", email: "enterprise@startrek.com", password: "earlgrayhot", zipcode: 11206})
-worf = User.create({firstname: "picard", lastname: "picard", email: "picard2", password: "picard2", zipcode: 11206})
+worf = User.create({firstname: "picard", lastname: "picard", email: "picard2@mooncamp.com", password: "picard2", zipcode: 11206})
 
 
 

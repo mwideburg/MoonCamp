@@ -812,7 +812,7 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     demo: function demo() {
       return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_2__["login"])({
-        email: "michael",
+        email: "michael@mooncamp.com",
         password: "michael"
       }));
     },
@@ -1074,7 +1074,7 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     demo: function demo() {
       return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_4__["login"])({
-        email: "michael",
+        email: "michael@mooncamp.com",
         password: "michael"
       }));
     },
@@ -1587,7 +1587,7 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     demo: function demo() {
       return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_3__["login"])({
-        email: "michael",
+        email: "michael@mooncamp.com",
         password: "michael"
       }));
     },

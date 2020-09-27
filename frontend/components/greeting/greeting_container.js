@@ -17,7 +17,7 @@ const mapStateToProps = ({ session, entities: { users } }) => {
 // }
 
 const mapDispatchToProps = dispatch => ({
-    demo: () => dispatch(login({ email: "michael", password: "michael" })),
+    demo: () => dispatch(login({ email: "michael@mooncamp.com", password: "michael" })),
     logout: () => dispatch(logout()),
     openModal: modalType => dispatch(openModal(modalType)) ,
     switchLogin: modalType => dispatch(switchLogin(modalType)),
