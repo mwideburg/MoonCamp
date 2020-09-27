@@ -1,13 +1,13 @@
 class Api::UsersController < ApplicationController
     def create 
-        # debugger
+      
         @user = User.new(user_params) 
-        # debugger
+   
         if @user.save
             login(@user)
             render "api/users/show"
         else 
-            # debugger
+           
             # flash.now[:error] = @user.errors.full_messages
             render json: @user.errors.full_messages, status: 422
             # render json: ["Invalid Credentials"], status: 404

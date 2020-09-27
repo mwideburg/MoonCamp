@@ -33,10 +33,10 @@ class User < ApplicationRecord
     end
 
     def checkEmail
-        # debugger
+  
        
         if self.email.split('@').length != 2
-        # debugger
+      
             errors.add(:email, 'must be valid')
         end
 

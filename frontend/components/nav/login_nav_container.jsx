@@ -21,6 +21,7 @@ const navContainer = ({ currentUser, demo, logout, openModal }) => {
             )
         }else{
             navbar = (
+                <div className="header-links">
                 <nav className="links">
                     <button className="user-button">Trips</button>
 
@@ -55,6 +56,7 @@ const navContainer = ({ currentUser, demo, logout, openModal }) => {
                     </div>
 
                 </nav>
+                </div>
             )
         }
     
@@ -62,7 +64,8 @@ const navContainer = ({ currentUser, demo, logout, openModal }) => {
         return (
             <>
             <header className="navbar unfixed">
-
+                <div className="header-wrapper">
+                    <div className="title-search-container">
                 <Link to="/" className="nav-bar-logo">
                     <h2 >Moon Camp</h2>
                 </Link>
@@ -73,7 +76,9 @@ const navContainer = ({ currentUser, demo, logout, openModal }) => {
                         <input type="search" className="search-nav-form" placeholder="Moon, jups..."/>
                 </form>
             </div>
+            </div>
             {navbar}
+            </div>
 
             </header>
             </>
@@ -81,6 +86,11 @@ const navContainer = ({ currentUser, demo, logout, openModal }) => {
     
 
 }
+
+
+
+
+
 
 import { connect } from 'react-redux';
 
