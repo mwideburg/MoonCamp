@@ -39,7 +39,9 @@ const Greeting = ({ currentUser, logout, demo, openModal }) => {
                 <Link to="/" className="nav-bar-logo">
                     <h2 >Moon Camp</h2>
                 </Link>
-                <nav className="links logged-in-dropdown">
+                <nav className="links">
+                    <div className="logged-in-dropdown">
+
                     <img className="moon" src="https://pngimg.com/uploads/moon/moon_PNG20.png" alt="" />
                     <div className="dropdown-user">
 
@@ -64,7 +66,7 @@ const Greeting = ({ currentUser, logout, demo, openModal }) => {
                             </li>
                         </ul>
                     </div>
-
+                </div>
                 </nav>
 
             </header>

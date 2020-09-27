@@ -739,7 +739,15 @@ var Greeting = function Greeting(_ref) {
       to: "/",
       className: "nav-bar-logo"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Moon Camp")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
-      className: "links logged-in-dropdown"
+      className: "links "
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      className: "user-button"
+    }, "Trips"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      className: "user-button"
+    }, "Saves"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      className: "user-button"
+    }, "Messages"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "logged-in-dropdown"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
       className: "moon",
       src: "https://pngimg.com/uploads/moon/moon_PNG20.png",
@@ -759,7 +767,7 @@ var Greeting = function Greeting(_ref) {
     }, "HEY")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
       href: "",
       onClick: logout
-    }, "Log Out"))))));
+    }, "Log Out")))))));
   };
 
   return currentUser ? hello() : loginOrSignup();
@@ -997,7 +1005,15 @@ var navContainer = function navContainer(_ref) {
     }, "DEMO"));
   } else {
     navbar = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
-      className: "links logged-in-dropdown"
+      className: "links"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      className: "user-button"
+    }, "Trips"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      className: "user-button"
+    }, "Saves"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      className: "user-button"
+    }, "Messages"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "logged-in-dropdown"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
       className: "moon",
       src: "https://pngimg.com/uploads/moon/moon_PNG20.png",
@@ -1017,7 +1033,7 @@ var navContainer = function navContainer(_ref) {
     }, "HEY")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
       href: "/",
       onClick: logout
-    }, "Log Out")))));
+    }, "Log Out"))))));
   }
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {

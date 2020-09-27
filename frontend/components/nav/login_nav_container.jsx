@@ -21,7 +21,13 @@ const navContainer = ({ currentUser, demo, logout, openModal }) => {
             )
         }else{
             navbar = (
-                <nav className="links logged-in-dropdown">
+                <nav className="links">
+                    <button className="user-button">Trips</button>
+
+                    <button className="user-button">Saves</button>
+                    <button className="user-button">Messages</button>
+                    <div className="logged-in-dropdown">
+
                     <img className="moon" src="https://pngimg.com/uploads/moon/moon_PNG20.png" alt="" />
                     <div className="dropdown-user">
 
@@ -45,6 +51,7 @@ const navContainer = ({ currentUser, demo, logout, openModal }) => {
                                 <a href="/" onClick={logout}>Log Out</a>
                             </li>
                         </ul>
+                    </div>
                     </div>
 
                 </nav>
