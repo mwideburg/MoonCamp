@@ -3,7 +3,7 @@ import { getSpots, getSpot } from '../../actions/spot_actions'
 import SpotIndex from "./spots_index.jsx";
 
 const mapStateToProps = ({entities}) => {
-    debugger
+    // debugger
     return {
         spots: Object.values(entities.spots)
     }

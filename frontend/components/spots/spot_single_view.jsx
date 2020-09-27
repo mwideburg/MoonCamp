@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 class Spot extends React.Component {
     render(){
-        debugger
+        // debugger
         const spot = this.props.spot
         return(
             <div className="recent-views-container">

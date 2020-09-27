@@ -1,5 +1,5 @@
 export const getSpots = () => {
-    debugger
+    // debugger
     return $.ajax({
         method: 'get',
         url: '/api/spots',

@@ -6,17 +6,17 @@ import Spot from './spot_single_view'
 class SpotsIndexContainer extends React.Component{
     constructor(props) {
         super(props)
-        debugger
+        // debugger
         // this.state = this.props.spots
         
 
     }
     componentDidMount() {
-        debugger
+        // debugger
         this.props.getSpots();
     }
     componentDidMount() {
-        debugger
+        // debugger
         this.props.getSpots();
     }
 

@@ -241,7 +241,7 @@ __webpack_require__.r(__webpack_exports__);
 var RECEIVE_SPOTS = 'RECEIVE_SPOTS';
 var RECEIVE_SPOT = 'RECEIVE_SPOT';
 var recieveSpots = function recieveSpots(spots) {
-  debugger;
+  // debugger
   return {
     type: RECEIVE_SPOTS,
     spots: spots
@@ -2483,7 +2483,7 @@ var Spot = /*#__PURE__*/function (_React$Component) {
   _createClass(Spot, [{
     key: "render",
     value: function render() {
-      debugger;
+      // debugger
       var spot = this.props.spot;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "recent-views-container"
@@ -2532,7 +2532,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var mapStateToProps = function mapStateToProps(_ref) {
   var entities = _ref.entities;
-  debugger;
+  // debugger
   return {
     spots: Object.values(entities.spots)
   };
@@ -2601,26 +2601,22 @@ var SpotsIndexContainer = /*#__PURE__*/function (_React$Component) {
   var _super = _createSuper(SpotsIndexContainer);
 
   function SpotsIndexContainer(props) {
-    var _this;
-
     _classCallCheck(this, SpotsIndexContainer);
 
-    _this = _super.call(this, props);
-    debugger; // this.state = this.props.spots
-
-    return _this;
+    return _super.call(this, props); // debugger
+    // this.state = this.props.spots
   }
 
   _createClass(SpotsIndexContainer, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      debugger;
+      // debugger
       this.props.getSpots();
     }
   }, {
     key: "componentDidMount",
     value: function componentDidMount() {
-      debugger;
+      // debugger
       this.props.getSpots();
     }
   }, {
@@ -2936,7 +2932,7 @@ var spotsReducer = function spotsReducer() {
 
   switch (action.type) {
     case _actions_spot_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_SPOTS"]:
-      debugger;
+      // debugger
       return Object.assign({}, action.spots);
 
     case _actions_spot_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_SPOT"]:
@@ -3167,7 +3163,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getSpots", function() { return getSpots; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getSpot", function() { return getSpot; });
 var getSpots = function getSpots() {
-  debugger;
+  // debugger
   return $.ajax({
     method: 'get',
     url: '/api/spots',
