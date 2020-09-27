@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Spot from './spots_search_view'
+import Spot from './spot_single_view'
 
 
 class SpotsIndexContainer extends React.Component{

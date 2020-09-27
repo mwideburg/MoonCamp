@@ -56,7 +56,7 @@ const App = () => (
             </Switch>
 {/*             
     </header> */}
-
+        <Route exact path="/spots" component={SpotsIndexContainer} />
             <Switch>
             {/* <AuthRoute exact path="/signup" component={SignUpFormContainer} />
             <AuthRoute exact path="/login" component={LogInFormContainer} />
@@ -65,7 +65,7 @@ const App = () => (
             <AuthRoute exact path="/login" component={LoginSplash} />
             <Route exact path="/" component={Splash} />
             </Switch>
-            <Route exact path="/spots" component={SpotsIndexContainer}/>
+            
 
         
     
