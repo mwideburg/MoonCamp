@@ -7,7 +7,7 @@ const spotsReducer = (state = {}, action) => {
     switch (action.type) {
         case RECEIVE_SPOTS:
             debugger
-            return Object.assign({}, state, action.spots);
+            return Object.assign({}, action.spots);
         case RECEIVE_SPOT:
             // debugger
             return Object.assign({}, state, { [action.id]: action.spot });

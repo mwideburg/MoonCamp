@@ -2612,6 +2612,12 @@ var SpotsIndexContainer = /*#__PURE__*/function (_React$Component) {
       this.props.getSpots();
     }
   }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      debugger;
+      this.props.getSpots();
+    }
+  }, {
     key: "render",
     value: function render() {
       // debugger
@@ -2925,7 +2931,7 @@ var spotsReducer = function spotsReducer() {
   switch (action.type) {
     case _actions_spot_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_SPOTS"]:
       debugger;
-      return Object.assign({}, state, action.spots);
+      return Object.assign({}, action.spots);
 
     case _actions_spot_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_SPOT"]:
       // debugger

@@ -15,6 +15,10 @@ class SpotsIndexContainer extends React.Component{
         debugger
         this.props.getSpots();
     }
+    componentDidMount() {
+        debugger
+        this.props.getSpots();
+    }
 
     render(){
         // debugger
