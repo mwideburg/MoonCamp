@@ -1,5 +1,7 @@
 import React from 'react';
 
+import {Link} from 'react-router-dom'
+
 // import { updateBounds } from '../../actions/filter_actions';
 class Search extends React.Component{
     render(){
@@ -17,7 +19,12 @@ class Search extends React.Component{
                         <option value="earth">earth</option>
                         <option value="saturn">saturn</option>
                     </select>
-                    <button className="btn-search submit"> SEARCH</button>
+                    <Link to="/spots" className="">
+                    <button className="btn-search submit"> 
+                        SEARCH
+                    
+                    </button>
+                    </Link>
                 </form>
                 
             </div>

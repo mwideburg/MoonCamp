@@ -60,7 +60,7 @@ const Greeting = ({ currentUser, logout, demo , openModal }) => {
                         <a href="">HEY</a>
                     </li>
                     <li >
-                        <a href="/" onClick={logout}>Log Out</a>
+                        <a href="" onClick={logout}>Log Out</a>
                     </li>
                 </ul>
             </div>

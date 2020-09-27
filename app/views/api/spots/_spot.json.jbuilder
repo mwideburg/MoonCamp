@@ -1,1 +1,3 @@
-json.extract! spot, :id, :desciption, :title, host_id, :lat, :lng
+# debugger
+
+json.extract! spot, :id, :description, :title, :lng, :lat, :price, :moon, :planet

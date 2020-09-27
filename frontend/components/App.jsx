@@ -27,6 +27,13 @@ import Modal from './modal/modal'
 import ReactCSSTransitionGroup from 'react-transition-group';
 import SpotPlaceHolder from "./recent_views/spots_placeholder";
 import LoginSplash from "./session_form/login_splash_container";
+import SpotsIndex from "./spots/spots_container";
+import SpotsIndexContainer from "./spots/spots_container";
+
+
+
+
+
 const App = () => (
     <>
     
@@ -40,9 +47,11 @@ const App = () => (
             {/* <Link to="/" className="nav-bar-logo">
             <h2 >Moon Camp</h2>
             </Link> */}
+        <Route exact path="/spots" component={LoginNavContainer} />       
             <Switch>
                 <Route exact path="/" component={GreetingContainer} />
                 <AuthRoute exact path="/login" component={LoginNavContainer} />
+                
                 <AuthRoute exact path="/signup" component={SignupSplashContainer} />
             </Switch>
 {/*             
@@ -54,10 +63,10 @@ const App = () => (
             <AuthRoute exact path="/demo" component={DemoContainer} /> */}
             {/* <AuthRoute exact path="/recent_views" component={LogInFormContainer} /> */}
             <AuthRoute exact path="/login" component={LoginSplash} />
-            
             <Route exact path="/" component={Splash} />
-            
             </Switch>
+            <Route exact path="/spots" component={SpotsIndexContainer}/>
+
         
     
     

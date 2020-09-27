@@ -5,7 +5,51 @@ import { openModal } from '../../actions/modal_actions';
 
 
 const navContainer = ({ currentUser, demo, logout, openModal }) => {
+        let navbar
+        if(!currentUser){
+            navbar = (
+            <nav className="links">
 
+                <button onClick={() => openModal('signup')} className="user-button">Sign up</button>
+
+                <button onClick={() => openModal('login')} className="user-button">Log in</button>
+                {/* <Link to="/login" className="user-button" onClick={() =>openModal}>Log In</Link>
+                <Link to="/signup" className="user-button">Sign Up</Link> */}
+                {/* <Link to="/demo" className="user-button"> DEMO</Link> */}
+                <button onClick={demo} className="user-button demo-btn">DEMO</button>
+            </nav>
+            )
+        }else{
+            navbar = (
+                <nav className="links logged-in-dropdown">
+                    <img className="moon" src="https://pngimg.com/uploads/moon/moon_PNG20.png" alt="" />
+                    <div className="dropdown-user">
+
+                        <ul>
+                            <li>
+                                <a href="">PROFILE</a>
+                            </li>
+                            <li>
+                                <a href="">{currentUser.firstname}</a>
+                            </li>
+                            <li>
+                                <a href="">REVIEWS</a>
+                            </li>
+                            <li>
+                                <a href="">ACCOUNT</a>
+                            </li>
+                            <li>
+                                <a href="">HEY</a>
+                            </li>
+                            <li >
+                                <a href="/" onClick={logout}>Log Out</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </nav>
+            )
+        }
     
 
         return (
@@ -22,17 +66,7 @@ const navContainer = ({ currentUser, demo, logout, openModal }) => {
                         <input type="search" className="search-nav-form" placeholder="Moon, jups..."/>
                 </form>
             </div>
-            <nav className="links">
-                {/* <button onClick={demoUser({email: "michael", password:"michael"})} className="user-button logout">MODAL</button> */}
-                <button onClick={() => openModal('signup')} className="user-button">Sign Up</button>
-
-                <button onClick={() => openModal('login')} className="user-button">Log in</button>
-                {/* <Link to="/login" className="user-button" onClick={() =>openModal}>Log In</Link>
-                <Link to="/signup" className="user-button">Sign Up</Link> */}
-                <Link to="/">
-                    <button onClick={demo} className="user-button demo-btn">DEMO</button>
-                    </Link>
-            </nav>
+            {navbar}
 
             </header>
             </>
@@ -68,3 +102,16 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(navContainer);
+
+
+// <nav className="links">
+//     <button onClick={demoUser({email: "michael", password:"michael"})} className="user-button logout">MODAL</button>
+//     <button onClick={() => openModal('signup')} className="user-button">Sign Up</button>
+
+//     <button onClick={() => openModal('login')} className="user-button">Log in</button>
+//     {/* <Link to="/login" className="user-button" onClick={() =>openModal}>Log In</Link>
+//                 <Link to="/signup" className="user-button">Sign Up</Link> */}
+//     <Link to="/">
+//         <button onClick={demo} className="user-button demo-btn">DEMO</button>
+//     </Link>
+// </nav>

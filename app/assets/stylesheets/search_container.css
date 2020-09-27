@@ -10,6 +10,7 @@
 .btn-search{
     font-size: 15px;
     width: 100px;
+    height: 100%;
     background-color: aquamarine;
     border: none;
     color: white;
