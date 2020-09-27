@@ -2588,6 +2588,7 @@ var Spot = /*#__PURE__*/function (_React$Component) {
   _createClass(Spot, [{
     key: "render",
     value: function render() {
+      debugger;
       var spot = this.props.spot;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "recent-views-container"
