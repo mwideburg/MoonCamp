@@ -17,13 +17,23 @@ class User < ApplicationRecord
     validates :session_token, presence: true
     validates :lastname, presence: true
     validates :firstname, presence: true
-    validates :zipcode, presence: true
-    validates :email, presence: true, uniqueness: true
+    validates :zipcode, length: {minimum: 5}
+    validates :email, uniqueness: true
     validates :password, length: {minimum: 6, allow_nil: true}
     after_initialize :ensure_session_token
+    before_validation :checkEmail
     attr_reader :password
+  
 
+    def checkEmail
+        # debugger
+       
+        if self.email.split('@').length != 2 && self.email.split('.').length <= 2
+        # debugger
+            errors.add(:email, 'must be valid')
+        end
 
+    end
 
     has_many :spots,
         foreign_key: :host_id,

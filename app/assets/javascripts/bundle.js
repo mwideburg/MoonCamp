@@ -2025,7 +2025,8 @@ var SignUpForm = /*#__PURE__*/function (_React$Component) {
       firstname: '',
       lastname: '',
       email: '',
-      password: ''
+      password: '',
+      zipcode: ''
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     return _this;
