@@ -21,6 +21,7 @@
 
 .recent-views-container{
     /* border: 1px solid; */
+    width: 300px;
     overflow: hidden;
     border-radius: 10px;
     box-shadow: 2px 4px 10px 5px rgb(197, 197, 197);

@@ -2645,9 +2645,9 @@ var SpotMap = /*#__PURE__*/function (_React$Component) {
 
         var bounds = this.getBounds();
         var lat = bounds.getNorthEast().lat();
-        var lng2 = bounds.getNorthEast().lng();
-        var lng = bounds.getSouthWest().lng();
         var lat2 = bounds.getSouthWest().lat();
+        var lng = bounds.getNorthEast().lng();
+        var lng2 = bounds.getSouthWest().lng();
         var positions = {
           bounds: {
             lat: [lat, lat2],

@@ -28,9 +28,10 @@ class SpotMap extends React.Component {
             let bounds = this.getBounds()
 
             let lat = bounds.getNorthEast().lat();
-            let lng2 = bounds.getNorthEast().lng();
-            let lng = bounds.getSouthWest().lng();
             let lat2 = bounds.getSouthWest().lat();
+            let lng = bounds.getNorthEast().lng();
+            let lng2 = bounds.getSouthWest().lng();
+           
             let positions = { bounds: {lat: [lat, lat2], lng: [lng, lng2]} }
         
             // debugger

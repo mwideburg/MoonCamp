@@ -42,7 +42,11 @@ class Spot < ApplicationRecord
         lat = bounds['lat']
         lng = bounds['lng']
         # debugger
-        if( self.lat.to_f > lat[0].to_f || self.lat.to_f < lat[1].to_f) && ( self.lng.to_f < lng[0].to_f || self.lng.to_f > lng[1].to_f)
+        if( self.lat.to_f > lat[0].to_f || self.lat.to_f < lat[1].to_f)
+            # debugger
+            return false
+        end
+        if ( self.lng.to_f > lng[0].to_f || self.lng.to_f < lng[1].to_f)
             # debugger
             return false
         end
