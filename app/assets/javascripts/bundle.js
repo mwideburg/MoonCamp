@@ -717,15 +717,15 @@ var Greeting = function Greeting(_ref) {
       className: "links"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
       onClick: function onClick() {
-        return openModal('signup');
-      },
-      className: "user-button"
-    }, "Sign up"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-      onClick: function onClick() {
         return openModal('login');
       },
       className: "user-button"
     }, "Log in"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      onClick: function onClick() {
+        return openModal('signup');
+      },
+      className: "user-button"
+    }, "Sign up"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
       onClick: demo,
       className: "user-button demo-btn"
     }, "DEMO")));
@@ -991,15 +991,15 @@ var navContainer = function navContainer(_ref) {
       className: "links"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
       onClick: function onClick() {
-        return openModal('signup');
-      },
-      className: "user-button"
-    }, "Sign up"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-      onClick: function onClick() {
         return openModal('login');
       },
       className: "user-button"
     }, "Log in"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      onClick: function onClick() {
+        return openModal('signup');
+      },
+      className: "user-button"
+    }, "Sign up"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
       onClick: demo,
       className: "user-button demo-btn"
     }, "DEMO"));
