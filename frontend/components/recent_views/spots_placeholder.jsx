@@ -7,7 +7,7 @@ const SpotPlaceHolder = () => (
         {/* have a single acitivty-item that will render a list item with the picture
             and link to the specific search content page */}
         {/* place inside a ul */}
-        <div className="spots-img">
+        <div className="spots-img" >
             {/* <img src="https://media4.s-nbcnews.com/i/newscms/2018_11/2359311/180312-3d-printed-lunar_base-al-1133_48d6508c6ac9277f6a5cec9c152b1b8e.jpg" alt=""/> */}
         </div>
         <Link to="/" className="spot-details">
