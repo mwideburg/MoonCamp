@@ -11,3 +11,7 @@ end
   end
   
 end
+# json.array! @spots do |spot|
+#   json.extract! spot, :id, :title, :description, :planet, :moon, :price, :lng, :lat
+#   json.photoUrl url_for(spot.photo)
+# end

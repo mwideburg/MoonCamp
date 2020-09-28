@@ -2611,7 +2611,7 @@ var SpotsIndexContainer = /*#__PURE__*/function (_React$Component) {
   _createClass(SpotsIndexContainer, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      // debugger
+      debugger;
       this.props.getSpots();
     }
   }, {

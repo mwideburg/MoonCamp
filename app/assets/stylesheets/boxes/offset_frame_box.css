@@ -46,9 +46,15 @@
 
 }
 #login-picard{
+    color: black;
+    text-decoration: none;
     width: 500px;
     background-color: transparent;
 }
 #login-picard p{
     font-size: 18px;
+}
+
+.offset h3{
+    color:black;
 }
