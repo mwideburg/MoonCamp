@@ -33,34 +33,45 @@ worf = User.create({firstname: "picard", lastname: "picard", email: "picard2@moo
 
 
 
-Spot.create!({
+europa = Spot.create({
     host_id: michael.id, 
     price: 20, title: "Sirens of Titan", 
     moon: "Titan", 
     planet: "Jupiter", 
     description:"Want to camp with Rutherfords son? This is the place for you, with little to worry about, you'll have fun gazing into Jupiters Red Dot",
-    lng: -72.059170, 
-    lat: -63.895548
+    lat: 42.744099,
+    lng: -87.881492
+
+    
 
 })
-Spot.create!({
+jupiter = Spot.create({
     host_id: picard2.id, 
     price: 20, title: "Crators of Europa", 
     moon: "Europa", 
     planet: "Jupiter", 
     description:"Want to camp with Rutherfords son? This is the place for you, with little to worry about, you'll have fun gazing into Jupiters Red Dot",
-    lng: -72.059170, 
-    lat: -63.895548
+    lat: 42.740263, 
+    lng: -87.879155
 
 })
-Spot.create!({
+love = Spot.create({
     host_id: picard2.id, 
     price: 20, title: "Apollo Crator", 
     moon: "moon", 
     planet: "Earth", 
     description:"Want to camp with Rutherfords son? This is the place for you, with little to worry about, you'll have fun gazing into Jupiters Red Dot",
-    lng: -72.059170, 
-    lat: -63.895548
+    lat: 42.739990,
+    lng: -87.885452
+     
 
 })
 
+
+fileO = File.open('app/assets/images/dst-europa-base.jpg')
+fileT = File.open('app/assets/images/europa_moon.jpg')
+fileE = File.open('app/assets/images/space_base.jpg')
+
+europa.photos.attach(io: fileO, filename: 'dst-europa-base.jpg')
+jupiter.photos.attach(io: fileT, filename: 'europa_moon.jpg')
+love.photos.attach(io: fileE, filename: 'space_base.jpg')

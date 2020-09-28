@@ -2582,16 +2582,16 @@ var SpotMap = /*#__PURE__*/function (_React$Component) {
       // set the map to show SF
       var mapOptions = {
         center: {
-          lat: -63.895548,
-          lng: -72.05917
+          lat: 42.728119,
+          lng: -87.886997
         },
         // this is SF
-        zoom: 13
+        zoom: 12
       }; // wrap this.mapNode in a Google Map
 
       this.map = new google.maps.Map(this.mapNode, mapOptions);
-      this.MarkerManager = new _util_marker_manager__WEBPACK_IMPORTED_MODULE_3__["default"](this.map);
-      debugger; // this.props.getSpots()
+      this.MarkerManager = new _util_marker_manager__WEBPACK_IMPORTED_MODULE_3__["default"](this.map); // debugger
+      // this.props.getSpots()
 
       this.MarkerManager.updateMarker(this.props.spots);
     }

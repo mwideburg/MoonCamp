@@ -9,14 +9,14 @@ class SpotMap extends React.Component {
     componentDidMount() {
         // set the map to show SF
         const mapOptions = {
-            center: { lat: -63.895548, lng: -72.05917 }, // this is SF
-            zoom: 13
+            center: { lat: 42.728119, lng: -87.886997 }, // this is SF
+            zoom: 12
         };
 
         // wrap this.mapNode in a Google Map
         this.map = new google.maps.Map(this.mapNode, mapOptions);
         this.MarkerManager = new MarkerManager(this.map)
-        debugger
+        // debugger
         // this.props.getSpots()
         this.MarkerManager.updateMarker(this.props.spots)
     }
