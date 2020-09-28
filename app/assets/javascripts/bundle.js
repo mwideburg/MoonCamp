@@ -241,7 +241,7 @@ __webpack_require__.r(__webpack_exports__);
 var RECEIVE_SPOTS = 'RECEIVE_SPOTS';
 var RECEIVE_SPOT = 'RECEIVE_SPOT';
 var recieveSpots = function recieveSpots(spots) {
-  debugger;
+  // debugger
   return {
     type: RECEIVE_SPOTS,
     spots: spots
@@ -2484,13 +2484,18 @@ var Spot = /*#__PURE__*/function (_React$Component) {
   _createClass(Spot, [{
     key: "render",
     value: function render() {
-      // debugger
+      debugger;
       var spot = this.props.spot;
+      var photo = this.props.spot.photoUrls[0];
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "recent-views-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "spots-img"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: photo,
+        alt: "",
+        className: "spots-img"
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/",
         className: "spot-details"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
