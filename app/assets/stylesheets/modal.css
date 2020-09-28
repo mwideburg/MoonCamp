@@ -127,6 +127,10 @@
     padding-bottom: 200px;
 }
 
+.login-input{
+    margin-top: 10px;
+}
+
 
 .errors{
     list-style-type: none;
