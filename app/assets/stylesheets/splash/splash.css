@@ -146,6 +146,7 @@ header{
 }
 
 .nav-bar-logo{
+    color: rgb(113, 65, 158);
     padding-left: 30px;
     font-size: 18px;
     text-decoration: none;
