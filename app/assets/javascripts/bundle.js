@@ -241,7 +241,7 @@ __webpack_require__.r(__webpack_exports__);
 var RECEIVE_SPOTS = 'RECEIVE_SPOTS';
 var RECEIVE_SPOT = 'RECEIVE_SPOT';
 var recieveSpots = function recieveSpots(spots) {
-  debugger;
+  // debugger
   return {
     type: RECEIVE_SPOTS,
     spots: spots
