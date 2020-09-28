@@ -3,7 +3,7 @@ class Api::SpotsController < ApplicationController
         # debugger
         @spots = Spot.all
         # debugger
-        render "api/spots/index"
+        render :index
     end
 
 
