@@ -2630,7 +2630,7 @@ var SpotMap = /*#__PURE__*/function (_React$Component) {
           lng: -87.886997
         },
         // this is SF
-        zoom: 12
+        zoom: 11
       }; // wrap this.mapNode in a Google Map
 
       this.map = new google.maps.Map(this.mapNode, mapOptions);
@@ -2901,7 +2901,7 @@ var SpotsIndexContainer = /*#__PURE__*/function (_React$Component) {
           key: count
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_spot_single_view__WEBPACK_IMPORTED_MODULE_2__["default"], {
           spot: spot
-        }), count++);
+        }));
       });
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "spots-wrapper"

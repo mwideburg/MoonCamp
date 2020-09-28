@@ -51,8 +51,8 @@ jupiter = Spot.create({
     moon: "Europa", 
     planet: "Jupiter", 
     description:"Want to camp with Rutherfords son? This is the place for you, with little to worry about, you'll have fun gazing into Jupiters Red Dot",
-    lat: 42.740263, 
-    lng: -87.879155
+    lat: 42.781094, 
+    lng: -88.177995
 
 })
 love = Spot.create({
@@ -61,9 +61,19 @@ love = Spot.create({
     moon: "moon", 
     planet: "Earth", 
     description:"Want to camp with Rutherfords son? This is the place for you, with little to worry about, you'll have fun gazing into Jupiters Red Dot",
-    lat: 42.739990,
-    lng: -87.885452
-     
+    lat: 42.767074,
+    lng: -87.979488
+
+})
+yes = Spot.create({
+    host_id: picard2.id, 
+    price: 20, title: "Apollo Crator", 
+    moon: "moon", 
+    planet: "Earth", 
+    description:"Want to camp with Rutherfords son? This is the place for you, with little to worry about, you'll have fun gazing into Jupiters Red Dot",
+    lat: 42.737112,
+    lng: -87.832492
+
 
 })
 
@@ -71,7 +81,9 @@ love = Spot.create({
 fileO = File.open('app/assets/images/dst-europa-base.jpg')
 fileT = File.open('app/assets/images/europa_moon.jpg')
 fileE = File.open('app/assets/images/space_base.jpg')
+fileX = File.open('app/assets/images/space_base.jpg')
 
 europa.photos.attach(io: fileO, filename: 'dst-europa-base.jpg')
 jupiter.photos.attach(io: fileT, filename: 'europa_moon.jpg')
 love.photos.attach(io: fileE, filename: 'space_base.jpg')
+yes.photos.attach(io: fileX, filename: 'space_base.jpg')

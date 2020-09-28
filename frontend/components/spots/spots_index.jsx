@@ -25,7 +25,7 @@ class SpotsIndexContainer extends React.Component{
         const spots = Object.values(this.props.spots).map(spot =>
             <div key={count}>
                 <Spot spot={spot} />
-                {count ++}
+                
             </div>
                 
 

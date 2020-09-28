@@ -10,7 +10,7 @@ class SpotMap extends React.Component {
         // set the map to show SF
         const mapOptions = {
             center: { lat: 42.728119, lng: -87.886997 }, // this is SF
-            zoom: 12
+            zoom: 11
         };
 
         // wrap this.mapNode in a Google Map
