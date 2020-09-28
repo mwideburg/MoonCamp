@@ -6,25 +6,27 @@ import Spot from './spot_single_view'
 class SpotsIndexContainer extends React.Component{
     constructor(props) {
         super(props)
-        // debugger
+        debugger
         // this.state = this.props.spots
         
 
     }
     componentDidMount() {
-        debugger
-        this.props.getSpots();
-    }
-    componentDidMount() {
         // debugger
         this.props.getSpots();
     }
+    // componentDidMount() {
+    //     // debugger
+    //     this.props.getSpots();
+    // }
 
     render(){
-        // debugger
-        const spots = this.props.spots.map(spot =>
-            <div key={spot.id}>
+        debugger
+        let count = 0
+        const spots = Object.values(this.props.spots).map(spot =>
+            <div key={count}>
                 <Spot spot={spot} />
+                {count ++}
             </div>
                 
 
@@ -32,7 +34,7 @@ class SpotsIndexContainer extends React.Component{
             )
         return(
 
-                <div className="recent-views-wrapper">
+                <div className="spots-wrapper">
                     {spots}
 
                     

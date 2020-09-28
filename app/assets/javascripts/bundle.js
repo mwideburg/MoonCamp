@@ -306,6 +306,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modal_modal__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./modal/modal */ "./frontend/components/modal/modal.jsx");
 /* harmony import */ var _session_form_login_splash_container__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./session_form/login_splash_container */ "./frontend/components/session_form/login_splash_container.jsx");
 /* harmony import */ var _spots_spots_container__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./spots/spots_container */ "./frontend/components/spots/spots_container.js");
+/* harmony import */ var _spots_search_spots_container__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./spots/search_spots_container */ "./frontend/components/spots/search_spots_container.js");
 
 
 
@@ -321,6 +322,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
  // ES6
+
 
 
 
@@ -353,6 +355,10 @@ var App = function App() {
     exact: true,
     path: "/spots",
     component: _spots_spots_container__WEBPACK_IMPORTED_MODULE_20__["default"]
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+    exact: true,
+    path: "/spots",
+    component: _spots_search_spots_container__WEBPACK_IMPORTED_MODULE_21__["default"]
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Switch"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_4__["AuthRoute"], {
     exact: true,
     path: "/login",
@@ -2433,6 +2439,164 @@ var Splash = /*#__PURE__*/function (_React$Component) {
 
 /***/ }),
 
+/***/ "./frontend/components/spots/search_spots.jsx":
+/*!****************************************************!*\
+  !*** ./frontend/components/spots/search_spots.jsx ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _spot_map__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./spot_map */ "./frontend/components/spots/spot_map.jsx");
+/* harmony import */ var _spots_index__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./spots_index */ "./frontend/components/spots/spots_index.jsx");
+
+
+
+
+
+var SearchSpots = function SearchSpots(_ref) {
+  var spots = _ref.spots;
+  // debugger
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "spots-search-wrapper"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "spots-search-container"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "spots-index"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "maps-search-view"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_spot_map__WEBPACK_IMPORTED_MODULE_2__["default"], null)))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (SearchSpots);
+
+/***/ }),
+
+/***/ "./frontend/components/spots/search_spots_container.js":
+/*!*************************************************************!*\
+  !*** ./frontend/components/spots/search_spots_container.js ***!
+  \*************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _search_spots__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./search_spots */ "./frontend/components/spots/search_spots.jsx");
+
+
+
+var mapSTP = function mapSTP(state) {
+  // debugger
+  return {
+    spots: state.entities.spots
+  };
+};
+
+var mapDTP = function mapDTP(dispatch) {
+  return {// updateBounds : (bounds) => dispatch(updateBounds(bounds))
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapSTP, mapDTP)(_search_spots__WEBPACK_IMPORTED_MODULE_1__["default"]));
+
+/***/ }),
+
+/***/ "./frontend/components/spots/spot_map.jsx":
+/*!************************************************!*\
+  !*** ./frontend/components/spots/spot_map.jsx ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _spot_single_view__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./spot_single_view */ "./frontend/components/spots/spot_single_view.jsx");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+
+
+var SpotMap = /*#__PURE__*/function (_React$Component) {
+  _inherits(SpotMap, _React$Component);
+
+  var _super = _createSuper(SpotMap);
+
+  function SpotMap() {
+    _classCallCheck(this, SpotMap);
+
+    return _super.apply(this, arguments);
+  }
+
+  _createClass(SpotMap, [{
+    key: "componentDidMount",
+    //...
+    value: function componentDidMount() {
+      // set the map to show SF
+      var mapOptions = {
+        center: {
+          lat: 37.7758,
+          lng: -122.435
+        },
+        // this is SF
+        zoom: 13
+      }; // wrap this.mapNode in a Google Map
+
+      this.map = new google.maps.Map(this.mapNode, mapOptions);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this = this;
+
+      return (
+        /*#__PURE__*/
+        // ...
+        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          id: "map-container",
+          ref: function ref(map) {
+            return _this.mapNode = map;
+          }
+        })
+      );
+    }
+  }]);
+
+  return SpotMap;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (SpotMap);
+
+/***/ }),
+
 /***/ "./frontend/components/spots/spot_single_view.jsx":
 /*!********************************************************!*\
   !*** ./frontend/components/spots/spot_single_view.jsx ***!
@@ -2484,7 +2648,7 @@ var Spot = /*#__PURE__*/function (_React$Component) {
   _createClass(Spot, [{
     key: "render",
     value: function render() {
-      // debugger
+      debugger;
       var photo = this.props.spot.photoUrls[0];
       var spot = this.props.spot;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2531,16 +2695,15 @@ var Spot = /*#__PURE__*/function (_React$Component) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _actions_spot_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/spot_actions */ "./frontend/actions/spot_actions.js");
-/* harmony import */ var _spots_index_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./spots_index.jsx */ "./frontend/components/spots/spots_index.jsx");
+/* harmony import */ var _spots_index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./spots_index */ "./frontend/components/spots/spots_index.jsx");
 
 
 
 
-var mapStateToProps = function mapStateToProps(_ref) {
-  var entities = _ref.entities;
+var mapStateToProps = function mapStateToProps(state) {
   // debugger
   return {
-    spots: Object.values(entities.spots)
+    spots: state.entities.spots
   };
 }; // const mapDispatchToProps = dispatch => {
 //     return ({
@@ -2558,7 +2721,7 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_spots_index_jsx__WEBPACK_IMPORTED_MODULE_2__["default"]));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_spots_index__WEBPACK_IMPORTED_MODULE_2__["default"]));
 
 /***/ }),
 
@@ -2607,37 +2770,40 @@ var SpotsIndexContainer = /*#__PURE__*/function (_React$Component) {
   var _super = _createSuper(SpotsIndexContainer);
 
   function SpotsIndexContainer(props) {
+    var _this;
+
     _classCallCheck(this, SpotsIndexContainer);
 
-    return _super.call(this, props); // debugger
-    // this.state = this.props.spots
+    _this = _super.call(this, props);
+    debugger; // this.state = this.props.spots
+
+    return _this;
   }
 
   _createClass(SpotsIndexContainer, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      debugger;
-      this.props.getSpots();
-    }
-  }, {
-    key: "componentDidMount",
-    value: function componentDidMount() {
       // debugger
       this.props.getSpots();
-    }
+    } // componentDidMount() {
+    //     // debugger
+    //     this.props.getSpots();
+    // }
+
   }, {
     key: "render",
     value: function render() {
-      // debugger
-      var spots = this.props.spots.map(function (spot) {
+      debugger;
+      var count = 0;
+      var spots = Object.values(this.props.spots).map(function (spot) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          key: spot.id
+          key: count
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_spot_single_view__WEBPACK_IMPORTED_MODULE_2__["default"], {
           spot: spot
-        }));
+        }), count++);
       });
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "recent-views-wrapper"
+        className: "spots-wrapper"
       }, spots);
     }
   }]);

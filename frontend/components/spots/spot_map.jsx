@@ -18,13 +18,16 @@ class SpotMap extends React.Component {
 
     render() {
         return (
-           
-            <div ref={map => this.mapNode = map}/>
-         
+            // ...
+            <div id='map-container' ref={map => this.mapNode = map}> 
+
+            </div>
+
             )
         }
 
-      
-}
+
+    }
+
 
 export default SpotMap 

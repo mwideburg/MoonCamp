@@ -1,11 +1,11 @@
 import { connect } from 'react-redux';
 import { getSpots, getSpot } from '../../actions/spot_actions'
-import SpotIndex from "./spots_index.jsx";
+import SpotIndex from "./spots_index";
 
-const mapStateToProps = ({entities}) => {
+const mapStateToProps = (state) => {
     // debugger
     return {
-        spots: Object.values(entities.spots)
+        spots: state.entities.spots
     }
 }
 // const mapDispatchToProps = dispatch => {

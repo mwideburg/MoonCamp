@@ -29,6 +29,7 @@ import SpotPlaceHolder from "./recent_views/spots_placeholder";
 import LoginSplash from "./session_form/login_splash_container";
 import SpotsIndex from "./spots/spots_container";
 import SpotsIndexContainer from "./spots/spots_container";
+import SearchSpotsContainer from "./spots/search_spots_container";
 
 
 
@@ -57,6 +58,7 @@ const App = () => (
 {/*             
     </header> */}
         <Route exact path="/spots" component={SpotsIndexContainer} />
+        <Route exact path="/spots" component={SearchSpotsContainer} />
             <Switch>
             {/* <AuthRoute exact path="/signup" component={SignUpFormContainer} />
             <AuthRoute exact path="/login" component={LogInFormContainer} />

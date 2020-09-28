@@ -4,6 +4,7 @@
     <title>MoonCamp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV['MAPS_API_KEY']}" %>
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Quicksand">
     <%= stylesheet_link_tag 'application', media: 'all' %>

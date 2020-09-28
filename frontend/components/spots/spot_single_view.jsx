@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 class Spot extends React.Component {
     render(){
-        // debugger
+        debugger
         const photo = this.props.spot.photoUrls[0]
         const spot = this.props.spot
         return(
