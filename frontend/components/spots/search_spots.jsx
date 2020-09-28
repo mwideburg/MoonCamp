@@ -1,12 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SpotMap from './spot_map'
-import SpotIndex from './spots_index'
+import SpotsIndexContainer from "./spots_container";
+// import { updateBounds } from '../../actions/filter_actions';
 
 
-const SearchSpots = ( {spots} ) => {
+const SearchSpots = ( {spots, updateBounds, updateSpots} ) => {
     
-
+        
             // debugger
         return(
             <>
@@ -14,11 +15,11 @@ const SearchSpots = ( {spots} ) => {
 
                 <div className="spots-search-container">
                     <div className="spots-index">
-                            {/* <SpotIndex spots={spots}/> */}
+                            <SpotsIndexContainer />
                     </div>
                     
                     <div className="maps-search-view">
-                            <SpotMap spots={spots}/>
+                            <SpotMap spots={spots} updateBounds={updateBounds} updateSpots={updateSpots}/>
                     </div>
                 </div>
 
@@ -28,9 +29,5 @@ const SearchSpots = ( {spots} ) => {
             </>
             )
 }
-
-
-
-
 
 export default SearchSpots

@@ -38,8 +38,16 @@ class Spot < ApplicationRecord
   # {
   #   "northEast"=> {"lat"=>"37.80971", "lng"=>"-122.39208"},
   #   "southWest"=> {"lat"=>"37.74187", "lng"=>"-122.47791"}
-  # }
-        self.lat.to_f >= bounds[:lat].to_f
+  # }   
+        lat = bounds['lat']
+        lng = bounds['lng']
+        # debugger
+        if( self.lat.to_f > lat[0].to_f || self.lat.to_f < lat[1].to_f) && ( self.lng.to_f < lng[0].to_f || self.lng.to_f > lng[1].to_f)
+            # debugger
+            return false
+        end
+        return true
+        
     end
     
 end

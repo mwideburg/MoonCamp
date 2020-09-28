@@ -1,7 +1,23 @@
 class Api::SpotsController < ApplicationController
     def index
         # debugger
-        @spots = Spot.all
+        @allSpots = Spot.all
+        # @spots =  Spot.all
+        # debugger
+        bounds = params[:bounds]
+        @spots = []
+        if params[:bounds]
+            # debugger
+            @allSpots.each do |spot| 
+                if spot.in_bounds(bounds)
+                     @spots << spot
+                end
+            end
+        end
+
+        # debugger
+
+        
         # debugger
         render :index
     end
@@ -21,8 +37,10 @@ class Api::SpotsController < ApplicationController
 
 
     # private
-    # def spot_params
-    #     params.require(:spot).permit(:host_id, :title, :descri)
+    def spot_params 
+        params.require(:bench).permit(:id, :description, :lng, :lat, :bounds)
+        
+    end
 
  
 end

@@ -1,20 +1,34 @@
-export const getSpots = () => {
-    // debugger
-    return $.ajax({
-        method: 'get',
-        url: '/api/spots',
-        data_type: 'json'
-    })
-}
-export const filterSpots = () => {
-    // debugger
+// export const getSpots = () => {
+//     // debugger
+//     return $.ajax({
+//         method: 'get',
+//         url: '/api/spots',
+//         data_type: 'json'
+//     })
+// }
+export const getSpots = (bounds) => {
+    // let lat = bounds.getNorthEast().lat();
+    // let lng2 = bounds.getNorthEast().lng();
+    // let lng = bounds.getSouthWest().lng();
+    // let lat2 = bounds.getSouthWest().lat();
+    // let positions = {lat: [lat, lat2], lng: [lng, lng2]}
+    
     return $.ajax({
         method: 'get',
         url: '/api/spots',
         data_type: 'json',
-        data: {filters}
+        data: bounds
     })
 }
+// export const filterSpots = (filters) => {
+//     // debugger
+//     return $.ajax({
+//         method: 'get',
+//         url: '/api/spots',
+//         datatype: JSON,
+//         data: { filters }
+//     })
+// }
 export const getSpot = (spotId) => {
     return $.ajax({
         method: 'get',

@@ -3,12 +3,13 @@
 export default class MarkerManager{
     constructor(map){
         this.map = map;
-        this.markers = {}
+        // this.markers = {}
         this.state = {
             markers: {}
         }
         this.updateMarker = this.updateMarker.bind(this)
         this.createMarkerFromSpot = this.createMarkerFromSpot.bind(this)
+        this.removeMarker = this.removeMarker.bind(this)
     }
 
     updateMarker(spots){
@@ -16,21 +17,32 @@ export default class MarkerManager{
         const moonSpots = Object.values(spots);
         let markers = this.markers
         let createMarkerFromSpot = this.createMarkerFromSpot
-        debugger
-        moonSpots.forEach(spot =>
-            
+        // debugger
+        
+        moonSpots.forEach(spot =>{
             createMarkerFromSpot(spot)
-        )
+        })
+        let removeMarker = this.removeMarker
+        Object.values(this.state.markers).map(mark => {
+                spots[mark.id] ? "" : removeMarker(mark)
+            })
+            
     }
 
     createMarkerFromSpot(spot){
-        debugger
+        // debugger
+        
         let myLatLng = {lat: Number(spot.lat), lng: Number(spot.lng)}
         var marker = new google.maps.Marker({
             position: myLatLng,
             map: this.map,
             title: spot.title
         });
-        return marker.setMap(this.map)
+        return this.state.markers[spot.id] = spot
+        // return marker.setMap(this.map)
+    }
+
+    removeMarker(marker){
+       delete this.state.markers[marker.id]
     }
 }

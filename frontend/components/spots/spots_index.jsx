@@ -6,14 +6,13 @@ import Spot from './spot_single_view'
 class SpotsIndexContainer extends React.Component{
     constructor(props) {
         super(props)
-        debugger
         // this.state = this.props.spots
         
 
     }
     componentDidMount() {
         // debugger
-        this.props.getSpots();
+        // this.props.getSpots();
     }
     // componentDidMount() {
     //     // debugger
@@ -21,7 +20,7 @@ class SpotsIndexContainer extends React.Component{
     // }
 
     render(){
-        debugger
+        
         let count = 0
         const spots = Object.values(this.props.spots).map(spot =>
             <div key={count}>

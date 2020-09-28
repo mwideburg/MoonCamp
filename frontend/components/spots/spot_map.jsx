@@ -17,7 +17,30 @@ class SpotMap extends React.Component {
         this.map = new google.maps.Map(this.mapNode, mapOptions);
         this.MarkerManager = new MarkerManager(this.map)
         // debugger
-        // this.props.getSpots()
+        
+        // const updateBounds = this.props.updateBounds
+        const updateSpots = this.props.updateSpots
+        this.map.addListener('bounds_changed', function () {
+            // debugger
+            let northeast = this.getBounds().getNorthEast();
+            let southwest = this.getBounds().getSouthWest();
+            // debugger
+            let bounds = this.getBounds()
+
+            let lat = bounds.getNorthEast().lat();
+            let lng2 = bounds.getNorthEast().lng();
+            let lng = bounds.getSouthWest().lng();
+            let lat2 = bounds.getSouthWest().lat();
+            let positions = { bounds: {lat: [lat, lat2], lng: [lng, lng2]} }
+        
+            // debugger
+            console.log('updated')
+            // updateBounds(bounds)
+            updateSpots(positions)
+        })
+        
+     
+       
         this.MarkerManager.updateMarker(this.props.spots)
     }
 
@@ -43,7 +66,7 @@ import { connect } from 'react-redux';
 // import SearchSpots from "./search_spots";
 
 // const mapSTP = (state) => {
-//     // debugger
+//    
 //     return {
 //         spots: state.entities.spots
 //     }

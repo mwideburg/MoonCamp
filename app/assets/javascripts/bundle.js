@@ -86,6 +86,55 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./frontend/actions/filter_actions.js":
+/*!********************************************!*\
+  !*** ./frontend/actions/filter_actions.js ***!
+  \********************************************/
+/*! exports provided: UPDATE_BOUNDS, updateBounds, updateSpots */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UPDATE_BOUNDS", function() { return UPDATE_BOUNDS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateBounds", function() { return updateBounds; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateSpots", function() { return updateSpots; });
+/* harmony import */ var _util_spot_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/spot_api_util */ "./frontend/util/spot_api_util.js");
+/* harmony import */ var _spot_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./spot_actions */ "./frontend/actions/spot_actions.js");
+
+
+var UPDATE_BOUNDS = 'UPDATE_BOUNDS';
+var updateBounds = function updateBounds(bounds) {
+  // debugger
+  return {
+    type: UPDATE_BOUNDS,
+    bounds: bounds
+  };
+};
+var updateSpots = function updateSpots(bounds) {
+  return function (dispatch) {
+    // debugger
+    _util_spot_api_util__WEBPACK_IMPORTED_MODULE_0__["getSpots"](bounds).then(function (spots) {
+      return dispatch(Object(_spot_actions__WEBPACK_IMPORTED_MODULE_1__["recieveSpots"])(spots));
+    });
+  };
+}; // export const updateFilters = () => {
+//     return(dispatch, getState) => {
+//         return dispatch()
+//     }
+// }
+// export const updateFilters = bounds => dispatch => {
+//     return APIUtil.updateFilters(spots => dispatch())
+// }
+// export function updateFilters(filter) {
+//     return (dispatch, getState) => {
+//         dispatch(changeFilters(filter));
+//         return fetchBenches(getState().filters)(dispatch);
+//         // delicious curry!
+//     };
+// }
+
+/***/ }),
+
 /***/ "./frontend/actions/modal_actions.js":
 /*!*******************************************!*\
   !*** ./frontend/actions/modal_actions.js ***!
@@ -254,10 +303,10 @@ var recieveSpot = function recieveSpot(spot) {
     spot: spot
   };
 };
-var getSpots = function getSpots() {
+var getSpots = function getSpots(bounds) {
   return function (dispatch) {
-    // debugger
-    return _util_spot_api_util__WEBPACK_IMPORTED_MODULE_0__["getSpots"]().then(function (spots) {
+    debugger;
+    return _util_spot_api_util__WEBPACK_IMPORTED_MODULE_0__["filterSpots"](bounds).then(function (spots) {
       return dispatch(recieveSpots(spots));
     });
   };
@@ -352,10 +401,6 @@ var App = function App() {
     path: "/signup",
     component: _session_form_signup_page_container__WEBPACK_IMPORTED_MODULE_10__["default"]
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
-    exact: true,
-    path: "/spots",
-    component: _spots_spots_container__WEBPACK_IMPORTED_MODULE_20__["default"]
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
     exact: true,
     path: "/spots",
     component: _spots_search_spots_container__WEBPACK_IMPORTED_MODULE_21__["default"]
@@ -2452,14 +2497,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _spot_map__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./spot_map */ "./frontend/components/spots/spot_map.jsx");
-/* harmony import */ var _spots_index__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./spots_index */ "./frontend/components/spots/spots_index.jsx");
+/* harmony import */ var _spots_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./spots_container */ "./frontend/components/spots/spots_container.js");
 
 
 
-
+ // import { updateBounds } from '../../actions/filter_actions';
 
 var SearchSpots = function SearchSpots(_ref) {
-  var spots = _ref.spots;
+  var spots = _ref.spots,
+      updateBounds = _ref.updateBounds,
+      updateSpots = _ref.updateSpots;
   // debugger
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "spots-search-wrapper"
@@ -2467,10 +2514,12 @@ var SearchSpots = function SearchSpots(_ref) {
     className: "spots-search-container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "spots-index"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_spots_container__WEBPACK_IMPORTED_MODULE_3__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "maps-search-view"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_spot_map__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    spots: spots
+    spots: spots,
+    updateBounds: updateBounds,
+    updateSpots: updateSpots
   })))));
 };
 
@@ -2488,7 +2537,10 @@ var SearchSpots = function SearchSpots(_ref) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _search_spots__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./search_spots */ "./frontend/components/spots/search_spots.jsx");
+/* harmony import */ var _actions_filter_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/filter_actions */ "./frontend/actions/filter_actions.js");
+/* harmony import */ var _search_spots__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./search_spots */ "./frontend/components/spots/search_spots.jsx");
+
+ // import getSpots from '../../actions/spot_actions'
 
 
 
@@ -2500,25 +2552,17 @@ var mapSTP = function mapSTP(state) {
 };
 
 var mapDTP = function mapDTP(dispatch) {
+  // debugger
   return {
-    getSpots: function (_getSpots) {
-      function getSpots() {
-        return _getSpots.apply(this, arguments);
-      }
-
-      getSpots.toString = function () {
-        return _getSpots.toString();
-      };
-
-      return getSpots;
-    }(function () {
-      return dispatch(getSpots());
-    }) // updateBounds : (bounds) => dispatch(updateBounds(bounds))
-
+    // getSpots: () => dispatch(getSpots()),
+    // updateBounds : (bounds) => dispatch(updateBounds(bounds)),
+    updateSpots: function updateSpots(bounds) {
+      return dispatch(Object(_actions_filter_actions__WEBPACK_IMPORTED_MODULE_1__["updateSpots"])(bounds));
+    }
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapSTP, mapDTP)(_search_spots__WEBPACK_IMPORTED_MODULE_1__["default"]));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapSTP, mapDTP)(_search_spots__WEBPACK_IMPORTED_MODULE_2__["default"]));
 
 /***/ }),
 
@@ -2591,8 +2635,30 @@ var SpotMap = /*#__PURE__*/function (_React$Component) {
 
       this.map = new google.maps.Map(this.mapNode, mapOptions);
       this.MarkerManager = new _util_marker_manager__WEBPACK_IMPORTED_MODULE_3__["default"](this.map); // debugger
-      // this.props.getSpots()
+      // const updateBounds = this.props.updateBounds
 
+      var updateSpots = this.props.updateSpots;
+      this.map.addListener('bounds_changed', function () {
+        // debugger
+        var northeast = this.getBounds().getNorthEast();
+        var southwest = this.getBounds().getSouthWest(); // debugger
+
+        var bounds = this.getBounds();
+        var lat = bounds.getNorthEast().lat();
+        var lng2 = bounds.getNorthEast().lng();
+        var lng = bounds.getSouthWest().lng();
+        var lat2 = bounds.getSouthWest().lat();
+        var positions = {
+          bounds: {
+            lat: [lat, lat2],
+            lng: [lng, lng2]
+          }
+        }; // debugger
+
+        console.log('updated'); // updateBounds(bounds)
+
+        updateSpots(positions);
+      });
       this.MarkerManager.updateMarker(this.props.spots);
     }
   }, {
@@ -2623,7 +2689,7 @@ var SpotMap = /*#__PURE__*/function (_React$Component) {
 
  // import SearchSpots from "./search_spots";
 // const mapSTP = (state) => {
-//     // debugger
+//    
 //     return {
 //         spots: state.entities.spots
 //     }
@@ -2691,7 +2757,6 @@ var Spot = /*#__PURE__*/function (_React$Component) {
   _createClass(Spot, [{
     key: "render",
     value: function render() {
-      debugger;
       var photo = this.props.spot.photoUrls[0];
       var spot = this.props.spot;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2813,21 +2878,15 @@ var SpotsIndexContainer = /*#__PURE__*/function (_React$Component) {
   var _super = _createSuper(SpotsIndexContainer);
 
   function SpotsIndexContainer(props) {
-    var _this;
-
     _classCallCheck(this, SpotsIndexContainer);
 
-    _this = _super.call(this, props);
-    debugger; // this.state = this.props.spots
-
-    return _this;
+    return _super.call(this, props); // this.state = this.props.spots
   }
 
   _createClass(SpotsIndexContainer, [{
     key: "componentDidMount",
-    value: function componentDidMount() {
-      // debugger
-      this.props.getSpots();
+    value: function componentDidMount() {// debugger
+      // this.props.getSpots();
     } // componentDidMount() {
     //     // debugger
     //     this.props.getSpots();
@@ -2836,7 +2895,6 @@ var SpotsIndexContainer = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      debugger;
       var count = 0;
       var spots = Object.values(this.props.spots).map(function (spot) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2965,6 +3023,37 @@ var errorsReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"]
   session: _session_errors_reducer__WEBPACK_IMPORTED_MODULE_1__["default"]
 });
 /* harmony default export */ __webpack_exports__["default"] = (errorsReducer);
+
+/***/ }),
+
+/***/ "./frontend/reducers/filter_reducer.js":
+/*!*********************************************!*\
+  !*** ./frontend/reducers/filter_reducer.js ***!
+  \*********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _actions_filter_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/filter_actions */ "./frontend/actions/filter_actions.js");
+
+
+var filterReducer = function filterReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  Object.freeze(state); // debugger
+
+  switch (action.type) {
+    case _actions_filter_actions__WEBPACK_IMPORTED_MODULE_0__["UPDATE_BOUNDS"]:
+      // debugger
+      return Object.assign({}, state, action.bounds);
+
+    default:
+      return state;
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (filterReducer);
 
 /***/ }),
 
@@ -3175,9 +3264,12 @@ var spotsReducer = function spotsReducer() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 /* harmony import */ var _modal_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modal_reducer */ "./frontend/reducers/modal_reducer.js");
+/* harmony import */ var _filter_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./filter_reducer */ "./frontend/reducers/filter_reducer.js");
+
 
 
 var uiReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
+  filters: _filter_reducer__WEBPACK_IMPORTED_MODULE_2__["default"],
   modalType: _modal_reducer__WEBPACK_IMPORTED_MODULE_1__["default"]
 });
 /* harmony default export */ __webpack_exports__["default"] = (uiReducer);
@@ -3288,13 +3380,14 @@ var MarkerManager = /*#__PURE__*/function () {
   function MarkerManager(map) {
     _classCallCheck(this, MarkerManager);
 
-    this.map = map;
-    this.markers = {};
+    this.map = map; // this.markers = {}
+
     this.state = {
       markers: {}
     };
     this.updateMarker = this.updateMarker.bind(this);
     this.createMarkerFromSpot = this.createMarkerFromSpot.bind(this);
+    this.removeMarker = this.removeMarker.bind(this);
   }
 
   _createClass(MarkerManager, [{
@@ -3303,16 +3396,20 @@ var MarkerManager = /*#__PURE__*/function () {
       console.log("time to update");
       var moonSpots = Object.values(spots);
       var markers = this.markers;
-      var createMarkerFromSpot = this.createMarkerFromSpot;
-      debugger;
+      var createMarkerFromSpot = this.createMarkerFromSpot; // debugger
+
       moonSpots.forEach(function (spot) {
-        return createMarkerFromSpot(spot);
+        createMarkerFromSpot(spot);
+      });
+      var removeMarker = this.removeMarker;
+      Object.values(this.state.markers).map(function (mark) {
+        spots[mark.id] ? "" : removeMarker(mark);
       });
     }
   }, {
     key: "createMarkerFromSpot",
     value: function createMarkerFromSpot(spot) {
-      debugger;
+      // debugger
       var myLatLng = {
         lat: Number(spot.lat),
         lng: Number(spot.lng)
@@ -3322,7 +3419,12 @@ var MarkerManager = /*#__PURE__*/function () {
         map: this.map,
         title: spot.title
       });
-      return marker.setMap(this.map);
+      return this.state.markers[spot.id] = spot; // return marker.setMap(this.map)
+    }
+  }, {
+    key: "removeMarker",
+    value: function removeMarker(marker) {
+      delete this.state.markers[marker.id];
     }
   }]);
 
@@ -3436,33 +3538,43 @@ var logout = function logout() {
 /*!****************************************!*\
   !*** ./frontend/util/spot_api_util.js ***!
   \****************************************/
-/*! exports provided: getSpots, filterSpots, getSpot */
+/*! exports provided: getSpots, getSpot */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getSpots", function() { return getSpots; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "filterSpots", function() { return filterSpots; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getSpot", function() { return getSpot; });
-var getSpots = function getSpots() {
-  // debugger
-  return $.ajax({
-    method: 'get',
-    url: '/api/spots',
-    data_type: 'json'
-  });
-};
-var filterSpots = function filterSpots() {
-  // debugger
+// export const getSpots = () => {
+//     // debugger
+//     return $.ajax({
+//         method: 'get',
+//         url: '/api/spots',
+//         data_type: 'json'
+//     })
+// }
+var getSpots = function getSpots(bounds) {
+  // let lat = bounds.getNorthEast().lat();
+  // let lng2 = bounds.getNorthEast().lng();
+  // let lng = bounds.getSouthWest().lng();
+  // let lat2 = bounds.getSouthWest().lat();
+  // let positions = {lat: [lat, lat2], lng: [lng, lng2]}
   return $.ajax({
     method: 'get',
     url: '/api/spots',
     data_type: 'json',
-    data: {
-      filters: filters
-    }
+    data: bounds
   });
-};
+}; // export const filterSpots = (filters) => {
+//     // debugger
+//     return $.ajax({
+//         method: 'get',
+//         url: '/api/spots',
+//         datatype: JSON,
+//         data: { filters }
+//     })
+// }
+
 var getSpot = function getSpot(spotId) {
   return $.ajax({
     method: 'get',

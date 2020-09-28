@@ -19,11 +19,11 @@ export const recieveSpot = (spot) => {
 }
 
 
-export const getSpots = () => dispatch => {
-    // debugger
+export const getSpots = (bounds) => dispatch => {
+    debugger
     return (
         
-        APIUtil.getSpots().then(spots => (
+        APIUtil.filterSpots(bounds).then(spots => (
             dispatch(recieveSpots(spots))
         ))
     )
