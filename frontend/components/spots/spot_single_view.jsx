@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 class Spot extends React.Component {
     render(){
         // debugger
+        const photo = this.props.spot.photoUrls[0]
         const spot = this.props.spot
         return(
             <div className="recent-views-container">
@@ -12,7 +13,7 @@ class Spot extends React.Component {
             and link to the specific search content page */}
                 {/* place inside a ul */}
                 <div className="spots-img">
-                    {/* <img src="https://media4.s-nbcnews.com/i/newscms/2018_11/2359311/180312-3d-printed-lunar_base-al-1133_48d6508c6ac9277f6a5cec9c152b1b8e.jpg" alt=""/> */}
+                    <img src={photo} className="spots-img" alt=""/>
                 </div>
                 <Link to="/" className="spot-details">
                     <div className="spot-details">
