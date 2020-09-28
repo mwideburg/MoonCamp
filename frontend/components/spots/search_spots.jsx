@@ -5,6 +5,8 @@ import SpotIndex from './spots_index'
 
 
 const SearchSpots = ( {spots} ) => {
+    
+
             // debugger
         return(
             <>
@@ -16,7 +18,7 @@ const SearchSpots = ( {spots} ) => {
                     </div>
                     
                     <div className="maps-search-view">
-                            <SpotMap />
+                            <SpotMap spots={spots}/>
                     </div>
                 </div>
 
@@ -26,6 +28,9 @@ const SearchSpots = ( {spots} ) => {
             </>
             )
 }
+
+
+
 
 
 export default SearchSpots

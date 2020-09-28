@@ -10,6 +10,7 @@ const mapSTP = (state) => {
 }
 const mapDTP = dispatch => {
     return{
+        getSpots: () => dispatch(getSpots())
         // updateBounds : (bounds) => dispatch(updateBounds(bounds))
     }
 }

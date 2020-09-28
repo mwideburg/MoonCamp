@@ -2469,7 +2469,9 @@ var SearchSpots = function SearchSpots(_ref) {
     className: "spots-index"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "maps-search-view"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_spot_map__WEBPACK_IMPORTED_MODULE_2__["default"], null)))));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_spot_map__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    spots: spots
+  })))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (SearchSpots);
@@ -2498,7 +2500,21 @@ var mapSTP = function mapSTP(state) {
 };
 
 var mapDTP = function mapDTP(dispatch) {
-  return {// updateBounds : (bounds) => dispatch(updateBounds(bounds))
+  return {
+    getSpots: function (_getSpots) {
+      function getSpots() {
+        return _getSpots.apply(this, arguments);
+      }
+
+      getSpots.toString = function () {
+        return _getSpots.toString();
+      };
+
+      return getSpots;
+    }(function () {
+      return dispatch(getSpots());
+    }) // updateBounds : (bounds) => dispatch(updateBounds(bounds))
+
   };
 };
 
@@ -2519,6 +2535,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _spot_single_view__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./spot_single_view */ "./frontend/components/spots/spot_single_view.jsx");
+/* harmony import */ var _util_marker_manager__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../util/marker_manager */ "./frontend/util/marker_manager.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -2545,6 +2563,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
 var SpotMap = /*#__PURE__*/function (_React$Component) {
   _inherits(SpotMap, _React$Component);
 
@@ -2563,14 +2582,23 @@ var SpotMap = /*#__PURE__*/function (_React$Component) {
       // set the map to show SF
       var mapOptions = {
         center: {
-          lat: 37.7758,
-          lng: -122.435
+          lat: -63.895548,
+          lng: -72.05917
         },
         // this is SF
         zoom: 13
       }; // wrap this.mapNode in a Google Map
 
       this.map = new google.maps.Map(this.mapNode, mapOptions);
+      this.MarkerManager = new _util_marker_manager__WEBPACK_IMPORTED_MODULE_3__["default"](this.map);
+      debugger; // this.props.getSpots()
+
+      this.MarkerManager.updateMarker(this.props.spots);
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate() {
+      this.MarkerManager.updateMarker(this.props.spots);
     }
   }, {
     key: "render",
@@ -2592,6 +2620,21 @@ var SpotMap = /*#__PURE__*/function (_React$Component) {
 
   return SpotMap;
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+ // import SearchSpots from "./search_spots";
+// const mapSTP = (state) => {
+//     // debugger
+//     return {
+//         spots: state.entities.spots
+//     }
+// }
+// const mapDTP = () => dispatch => {
+//     return {
+//         getSpots: () => dispatch(getSpots())
+//         // updateBounds : (bounds) => dispatch(updateBounds(bounds))
+//     }
+// }
+// export default connect(mapSTP, mapDTP)(SpotMap)
 
 /* harmony default export */ __webpack_exports__["default"] = (SpotMap);
 
@@ -2869,7 +2912,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   window.getState = store.getState;
   window.dispatch = store.dispatch;
-  window.getSpots = Object(_actions_spot_actions__WEBPACK_IMPORTED_MODULE_4__["getSpots"])(); // debugger
+  window.getSpots = Object(_actions_spot_actions__WEBPACK_IMPORTED_MODULE_4__["getSpots"])();
+  dispatch(_actions_spot_actions__WEBPACK_IMPORTED_MODULE_4__["getSpots"]); // debugger
 
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_root__WEBPACK_IMPORTED_MODULE_5__["default"], {
     store: store
@@ -3224,6 +3268,71 @@ var configureStore = function configureStore() {
 
 /***/ }),
 
+/***/ "./frontend/util/marker_manager.js":
+/*!*****************************************!*\
+  !*** ./frontend/util/marker_manager.js ***!
+  \*****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return MarkerManager; });
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var MarkerManager = /*#__PURE__*/function () {
+  function MarkerManager(map) {
+    _classCallCheck(this, MarkerManager);
+
+    this.map = map;
+    this.markers = {};
+    this.state = {
+      markers: {}
+    };
+    this.updateMarker = this.updateMarker.bind(this);
+    this.createMarkerFromSpot = this.createMarkerFromSpot.bind(this);
+  }
+
+  _createClass(MarkerManager, [{
+    key: "updateMarker",
+    value: function updateMarker(spots) {
+      console.log("time to update");
+      var moonSpots = Object.values(spots);
+      var markers = this.markers;
+      var createMarkerFromSpot = this.createMarkerFromSpot;
+      debugger;
+      moonSpots.forEach(function (spot) {
+        return createMarkerFromSpot(spot);
+      });
+    }
+  }, {
+    key: "createMarkerFromSpot",
+    value: function createMarkerFromSpot(spot) {
+      debugger;
+      var myLatLng = {
+        lat: Number(spot.lat),
+        lng: Number(spot.lng)
+      };
+      var marker = new google.maps.Marker({
+        position: myLatLng,
+        map: this.map,
+        title: spot.title
+      });
+      return marker.setMap(this.map);
+    }
+  }]);
+
+  return MarkerManager;
+}();
+
+
+
+/***/ }),
+
 /***/ "./frontend/util/route_util.js":
 /*!*************************************!*\
   !*** ./frontend/util/route_util.js ***!
@@ -3327,12 +3436,13 @@ var logout = function logout() {
 /*!****************************************!*\
   !*** ./frontend/util/spot_api_util.js ***!
   \****************************************/
-/*! exports provided: getSpots, getSpot */
+/*! exports provided: getSpots, filterSpots, getSpot */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getSpots", function() { return getSpots; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "filterSpots", function() { return filterSpots; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getSpot", function() { return getSpot; });
 var getSpots = function getSpots() {
   // debugger
@@ -3340,6 +3450,17 @@ var getSpots = function getSpots() {
     method: 'get',
     url: '/api/spots',
     data_type: 'json'
+  });
+};
+var filterSpots = function filterSpots() {
+  // debugger
+  return $.ajax({
+    method: 'get',
+    url: '/api/spots',
+    data_type: 'json',
+    data: {
+      filters: filters
+    }
   });
 };
 var getSpot = function getSpot(spotId) {
