@@ -2,6 +2,7 @@ import * as APIUtil from '../util/spot_api_util'
 
 export const RECEIVE_SPOTS = 'RECEIVE_SPOTS';
 export const RECEIVE_SPOT = 'RECEIVE_SPOT';
+export const RECIEVE_HOST = 'RECIEVE_HOST';
 
 export const recieveSpots = (spots) => {
     // debugger
@@ -17,6 +18,13 @@ export const recieveSpot = (spot) => {
         spot
     }
 }
+export const recieveHost = (host) => {
+    // debugger
+    return {
+        type: RECIEVE_HOST,
+        host
+    }
+}
 
 
 export const getSpots = (bounds) => dispatch => {
@@ -25,6 +33,15 @@ export const getSpots = (bounds) => dispatch => {
         
         APIUtil.filterSpots(bounds).then(spots => (
             dispatch(recieveSpots(spots))
+        ))
+    )
+};
+export const getHost = (hostId) => dispatch => {
+    debugger
+    return (
+        
+        APIUtil.getHost(hostId).then(host => (
+            dispatch(recieveHost(host))
         ))
     )
 };

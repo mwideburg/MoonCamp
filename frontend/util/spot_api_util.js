@@ -20,19 +20,26 @@ export const getSpots = (bounds) => {
         data: bounds
     })
 }
-// export const filterSpots = (filters) => {
-//     // debugger
-//     return $.ajax({
-//         method: 'get',
-//         url: '/api/spots',
-//         datatype: JSON,
-//         data: { filters }
-//     })
-// }
+export const filterSpots = (filters) => {
+    // debugger
+    return $.ajax({
+        method: 'get',
+        url: '/api/spots',
+        datatype: JSON,
+        data: { filters }
+    })
+}
 export const getSpot = (spotId) => {
     return $.ajax({
         method: 'get',
         url: `/api/spots/${spotId}`,
+        data_type: 'json'
+    })
+}
+export const getHost = (hostId) => {
+    return $.ajax({
+        method: 'get',
+        url: `/api/users/${hostId}`,
         data_type: 'json'
     })
 }

@@ -1,6 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
 import Spot from './spot_single_view'
+import SpotShow from './spot_show_container'
 
 
 class SpotsIndexContainer extends React.Component{
@@ -23,7 +24,7 @@ class SpotsIndexContainer extends React.Component{
         
         let count = 0
         const spots = Object.values(this.props.spots).map(spot =>
-            <div key={count}>
+            <div key={spot.id}>
                 <Spot spot={spot} />
                 
             </div>
@@ -32,13 +33,14 @@ class SpotsIndexContainer extends React.Component{
             
             )
         return(
-
+                <>
+                
                 <div className="spots-wrapper">
                     {spots}
 
                     
                 </div>
-          
+                </>
 
         )
 

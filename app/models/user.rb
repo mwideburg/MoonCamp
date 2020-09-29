@@ -25,6 +25,8 @@ class User < ApplicationRecord
     before_validation :checkZip
     attr_reader :password
   
+    has_one_attached :photo
+
 
     def checkZip
         if self.zipcode.to_s.length != 5

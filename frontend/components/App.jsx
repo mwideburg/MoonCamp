@@ -31,6 +31,7 @@ import SpotsIndex from "./spots/spots_container";
 import SpotsIndexContainer from "./spots/spots_container";
 import SearchSpotsContainer from "./spots/search_spots_container";
 import MoonMap from "./spots/moon_map"
+import SpotShow from "./spots/spot_show_container"
 
 const App = () => (
     <>
@@ -41,17 +42,21 @@ const App = () => (
 
                     
             <Modal />
+        
         <Route path="/moonmap" component={MoonMap}/>
             {/* <Link to="/" className="nav-bar-logo">
             <h2 >Moon Camp</h2>
             </Link> */}
         <Route exact path="/spots" component={LoginNavContainer} />       
+        <Route path="/spots/:spotId" component={LoginNavContainer} />       
+        {/* <Route exact path="/spots/:spotsId" component={LoginNavContainer} />        */}
             <Switch>
                 <Route exact path="/" component={GreetingContainer} />
                 <AuthRoute exact path="/login" component={LoginNavContainer} />
                 
                 <AuthRoute exact path="/signup" component={SignupSplashContainer} />
             </Switch>
+        <Route path="/spots/:spotId" component={SpotShow} />
 {/*             
     </header> */}
         {/* <Route exact path="/spots" component={SpotsIndexContainer} /> */}
@@ -64,6 +69,8 @@ const App = () => (
             <AuthRoute exact path="/login" component={LoginSplash} />
             <Route exact path="/" component={Splash} />
             </Switch>
+
+        
             
 
         

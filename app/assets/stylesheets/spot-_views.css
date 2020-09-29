@@ -63,3 +63,12 @@ justify-content: space-around;
 align-items: flex-end;
 
 }
+
+
+.show-container{
+    width: 500px;
+    height: 500px;
+    z-index: 200;
+    background-color: black;
+    color:white;;
+}

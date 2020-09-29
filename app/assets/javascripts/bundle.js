@@ -274,21 +274,25 @@ var logout = function logout() {
 /*!******************************************!*\
   !*** ./frontend/actions/spot_actions.js ***!
   \******************************************/
-/*! exports provided: RECEIVE_SPOTS, RECEIVE_SPOT, recieveSpots, recieveSpot, getSpots, getSpot */
+/*! exports provided: RECEIVE_SPOTS, RECEIVE_SPOT, RECIEVE_HOST, recieveSpots, recieveSpot, recieveHost, getSpots, getHost, getSpot */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_SPOTS", function() { return RECEIVE_SPOTS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_SPOT", function() { return RECEIVE_SPOT; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECIEVE_HOST", function() { return RECIEVE_HOST; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "recieveSpots", function() { return recieveSpots; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "recieveSpot", function() { return recieveSpot; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "recieveHost", function() { return recieveHost; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getSpots", function() { return getSpots; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getHost", function() { return getHost; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getSpot", function() { return getSpot; });
 /* harmony import */ var _util_spot_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/spot_api_util */ "./frontend/util/spot_api_util.js");
 
 var RECEIVE_SPOTS = 'RECEIVE_SPOTS';
 var RECEIVE_SPOT = 'RECEIVE_SPOT';
+var RECIEVE_HOST = 'RECIEVE_HOST';
 var recieveSpots = function recieveSpots(spots) {
   // debugger
   return {
@@ -303,11 +307,26 @@ var recieveSpot = function recieveSpot(spot) {
     spot: spot
   };
 };
+var recieveHost = function recieveHost(host) {
+  // debugger
+  return {
+    type: RECIEVE_HOST,
+    host: host
+  };
+};
 var getSpots = function getSpots(bounds) {
   return function (dispatch) {
     debugger;
     return _util_spot_api_util__WEBPACK_IMPORTED_MODULE_0__["filterSpots"](bounds).then(function (spots) {
       return dispatch(recieveSpots(spots));
+    });
+  };
+};
+var getHost = function getHost(hostId) {
+  return function (dispatch) {
+    debugger;
+    return _util_spot_api_util__WEBPACK_IMPORTED_MODULE_0__["getHost"](hostId).then(function (host) {
+      return dispatch(recieveHost(host));
     });
   };
 };
@@ -357,6 +376,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _spots_spots_container__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./spots/spots_container */ "./frontend/components/spots/spots_container.js");
 /* harmony import */ var _spots_search_spots_container__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./spots/search_spots_container */ "./frontend/components/spots/search_spots_container.js");
 /* harmony import */ var _spots_moon_map__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./spots/moon_map */ "./frontend/components/spots/moon_map.jsx");
+/* harmony import */ var _spots_spot_show_container__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./spots/spot_show_container */ "./frontend/components/spots/spot_show_container.js");
 
 
 
@@ -385,6 +405,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var App = function App() {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_modal_modal__WEBPACK_IMPORTED_MODULE_18__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
     path: "/moonmap",
@@ -392,6 +413,9 @@ var App = function App() {
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
     exact: true,
     path: "/spots",
+    component: _nav_login_nav_container__WEBPACK_IMPORTED_MODULE_6__["default"]
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+    path: "/spots/:spotId",
     component: _nav_login_nav_container__WEBPACK_IMPORTED_MODULE_6__["default"]
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Switch"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
     exact: true,
@@ -406,6 +430,9 @@ var App = function App() {
     path: "/signup",
     component: _session_form_signup_page_container__WEBPACK_IMPORTED_MODULE_10__["default"]
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+    path: "/spots/:spotId",
+    component: _spots_spot_show_container__WEBPACK_IMPORTED_MODULE_23__["default"]
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
     exact: true,
     path: "/spots",
     component: _spots_search_spots_container__WEBPACK_IMPORTED_MODULE_21__["default"]
@@ -2489,6 +2516,71 @@ var Splash = /*#__PURE__*/function (_React$Component) {
 
 /***/ }),
 
+/***/ "./frontend/components/spots/campsite_info.jsx":
+/*!*****************************************************!*\
+  !*** ./frontend/components/spots/campsite_info.jsx ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var CampsiteInfo = function CampsiteInfo(_ref) {
+  var host = _ref.host,
+      spot = _ref.spot;
+  // debugger
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "spot-info"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "spot-info-list"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, " Amenities"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Oxygen Tanks"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Space Suits"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Telescope"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Jetpacks"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "spot-info-list"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, " Activities"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Golf"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Crator Tours"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Anti Gravity World"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Tea with Picard"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (CampsiteInfo);
+
+/***/ }),
+
+/***/ "./frontend/components/spots/host_details.jsx":
+/*!****************************************************!*\
+  !*** ./frontend/components/spots/host_details.jsx ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var HostDetail = function HostDetail(_ref) {
+  var host = _ref.host,
+      spot = _ref.spot;
+  debugger;
+  var photo = host.photoUrl;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "host-details"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "host-name-photo"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: photo,
+    alt: "",
+    className: "host-img"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), host.firstname, ", ", host.lastname), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "spot-description"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, " ", spot.description)));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (HostDetail);
+
+/***/ }),
+
 /***/ "./frontend/components/spots/moon_map.jsx":
 /*!************************************************!*\
   !*** ./frontend/components/spots/moon_map.jsx ***!
@@ -2850,6 +2942,209 @@ var SpotMap = /*#__PURE__*/function (_React$Component) {
 
 /***/ }),
 
+/***/ "./frontend/components/spots/spot_show.jsx":
+/*!*************************************************!*\
+  !*** ./frontend/components/spots/spot_show.jsx ***!
+  \*************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _host_details__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./host_details */ "./frontend/components/spots/host_details.jsx");
+/* harmony import */ var _campsite_info__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./campsite_info */ "./frontend/components/spots/campsite_info.jsx");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+
+
+
+var SpotShow = /*#__PURE__*/function (_React$Component) {
+  _inherits(SpotShow, _React$Component);
+
+  var _super = _createSuper(SpotShow);
+
+  function SpotShow(props) {
+    var _this;
+
+    _classCallCheck(this, SpotShow);
+
+    _this = _super.call(this, props);
+    _this.state = {
+      host: {}
+    };
+    debugger;
+    return _this;
+  }
+
+  _createClass(SpotShow, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      // debugger
+      this.props.getSpot(this.props.match.params.spotId).then(function (spot) {
+        debugger;
+
+        _this2.props.getHost(spot.spot.spot.host_id);
+      }); // this.setState({spot: this.props.getSpot(this.props.spotId)})
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps) {
+      // `prevProps` is passed in by React
+      if (this.props.match.params.spotId !== prevProps.match.params.spotId) {
+        this.props.getSpot(this.props.match.params.spotId);
+      }
+    } // getHost(){
+    //     const host = this.props.getHost(this.props.spot.host_id)
+    //     debugger
+    //     return host
+    // }
+
+  }, {
+    key: "render",
+    value: function render() {
+      // debugger
+      if (!this.props.spot) {
+        return null;
+      }
+
+      var spot = this.props.spot; // debugger
+
+      var photo = spot.photoUrls[0];
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "show-wrapper"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "show-img-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: photo,
+        alt: "",
+        className: "show-img-full"
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "showpage-columns"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "wrapper-1000"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "wrapper-600"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "show-page-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "show-details-contianer"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "showpage-spot-details"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "showpage-title"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, spot.planet, " -- ", spot.moon), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, " ", spot.title, "  "), "Nearby: ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: ""
+      }, "Jupiter's Europa")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "showpage-details-footer"
+      })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_host_details__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        host: this.props.host,
+        spot: this.props.spot
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_campsite_info__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        host: this.props.host,
+        spot: this.props.spot
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "price-show-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "price-title"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, " $", spot.price), "per night"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "instant-book"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "dates-guests"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "instant-book-btn"
+      }, " Check In"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "instant-book-btn"
+      }, " Check Out"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: " instant-book-btn"
+      }, " Guests"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "instant-book"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "dates-guests"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "btn-search instant"
+      }, " Instant Book")))))));
+    }
+  }]);
+
+  return SpotShow;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (SpotShow);
+
+/***/ }),
+
+/***/ "./frontend/components/spots/spot_show_container.js":
+/*!**********************************************************!*\
+  !*** ./frontend/components/spots/spot_show_container.js ***!
+  \**********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _actions_spot_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/spot_actions */ "./frontend/actions/spot_actions.js");
+/* harmony import */ var _spot_show__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./spot_show */ "./frontend/components/spots/spot_show.jsx");
+
+ // import getSpots from '../../actions/spot_actions'
+
+
+
+var mapSTP = function mapSTP(state, ownProps) {
+  // debugger
+  var spotId = ownProps.match.params.spotId;
+  var spot = state.entities.spots[spotId]; // debugger
+  // const host = state.entities.host[spot.host_id]
+
+  return {
+    spot: spot,
+    host: state.entities.host
+  };
+};
+
+var mapDTP = function mapDTP(dispatch) {
+  // debugger
+  return {
+    getSpot: function getSpot(spotId) {
+      return dispatch(Object(_actions_spot_actions__WEBPACK_IMPORTED_MODULE_1__["getSpot"])(spotId));
+    },
+    getHost: function getHost(hostId) {
+      return dispatch(Object(_actions_spot_actions__WEBPACK_IMPORTED_MODULE_1__["getHost"])(hostId));
+    }
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapSTP, mapDTP)(_spot_show__WEBPACK_IMPORTED_MODULE_2__["default"]));
+
+/***/ }),
+
 /***/ "./frontend/components/spots/spot_single_view.jsx":
 /*!********************************************************!*\
   !*** ./frontend/components/spots/spot_single_view.jsx ***!
@@ -2903,6 +3198,8 @@ var Spot = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var photo = this.props.spot.photoUrls[0];
       var spot = this.props.spot;
+      var id = this.props.spot.id;
+      var path = "/spots/".concat(id);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "recent-views-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2912,7 +3209,7 @@ var Spot = /*#__PURE__*/function (_React$Component) {
         className: "spots-img",
         alt: ""
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        to: "/",
+        to: path,
         className: "spot-details"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "spot-details"
@@ -2990,6 +3287,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _spot_single_view__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./spot_single_view */ "./frontend/components/spots/spot_single_view.jsx");
+/* harmony import */ var _spot_show_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./spot_show_container */ "./frontend/components/spots/spot_show_container.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -3011,6 +3309,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
 
 
 
@@ -3042,14 +3341,14 @@ var SpotsIndexContainer = /*#__PURE__*/function (_React$Component) {
       var count = 0;
       var spots = Object.values(this.props.spots).map(function (spot) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          key: count
+          key: spot.id
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_spot_single_view__WEBPACK_IMPORTED_MODULE_2__["default"], {
           spot: spot
         }));
       });
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "spots-wrapper"
-      }, spots);
+      }, spots));
     }
   }]);
 
@@ -3136,12 +3435,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 /* harmony import */ var _spots_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./spots_reducer */ "./frontend/reducers/spots_reducer.js");
 /* harmony import */ var _users_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./users_reducer */ "./frontend/reducers/users_reducer.js");
+/* harmony import */ var _host_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./host_reducer */ "./frontend/reducers/host_reducer.js");
+
 
 
 
 var entitiesReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
   users: _users_reducer__WEBPACK_IMPORTED_MODULE_2__["default"],
-  spots: _spots_reducer__WEBPACK_IMPORTED_MODULE_1__["default"]
+  spots: _spots_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
+  host: _host_reducer__WEBPACK_IMPORTED_MODULE_3__["default"]
 });
 /* harmony default export */ __webpack_exports__["default"] = (entitiesReducer);
 
@@ -3198,6 +3500,38 @@ var filterReducer = function filterReducer() {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (filterReducer);
+
+/***/ }),
+
+/***/ "./frontend/reducers/host_reducer.js":
+/*!*******************************************!*\
+  !*** ./frontend/reducers/host_reducer.js ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _actions_spot_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/spot_actions */ "./frontend/actions/spot_actions.js");
+
+
+var hostReducer = function hostReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  // debugger
+  Object.freeze(state);
+
+  switch (action.type) {
+    case _actions_spot_actions__WEBPACK_IMPORTED_MODULE_0__["RECIEVE_HOST"]:
+      // debugger
+      return Object.assign({}, action.host);
+
+    default:
+      return state;
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (hostReducer);
 
 /***/ }),
 
@@ -3386,7 +3720,7 @@ var spotsReducer = function spotsReducer() {
 
     case _actions_spot_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_SPOT"]:
       // debugger
-      return Object.assign({}, state, _defineProperty({}, action.id, action.spot));
+      return Object.assign({}, _defineProperty({}, action.spot.spot.id, action.spot.spot));
 
     default:
       return state;
@@ -3682,13 +4016,15 @@ var logout = function logout() {
 /*!****************************************!*\
   !*** ./frontend/util/spot_api_util.js ***!
   \****************************************/
-/*! exports provided: getSpots, getSpot */
+/*! exports provided: getSpots, filterSpots, getSpot, getHost */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getSpots", function() { return getSpots; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "filterSpots", function() { return filterSpots; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getSpot", function() { return getSpot; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getHost", function() { return getHost; });
 // export const getSpots = () => {
 //     // debugger
 //     return $.ajax({
@@ -3709,20 +4045,29 @@ var getSpots = function getSpots(bounds) {
     data_type: 'json',
     data: bounds
   });
-}; // export const filterSpots = (filters) => {
-//     // debugger
-//     return $.ajax({
-//         method: 'get',
-//         url: '/api/spots',
-//         datatype: JSON,
-//         data: { filters }
-//     })
-// }
-
+};
+var filterSpots = function filterSpots(filters) {
+  // debugger
+  return $.ajax({
+    method: 'get',
+    url: '/api/spots',
+    datatype: JSON,
+    data: {
+      filters: filters
+    }
+  });
+};
 var getSpot = function getSpot(spotId) {
   return $.ajax({
     method: 'get',
     url: "/api/spots/".concat(spotId),
+    data_type: 'json'
+  });
+};
+var getHost = function getHost(hostId) {
+  return $.ajax({
+    method: 'get',
+    url: "/api/users/".concat(hostId),
     data_type: 'json'
   });
 };

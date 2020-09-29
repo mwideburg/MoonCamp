@@ -5,7 +5,7 @@ if @spots.length == 0
     return
 end
 # debugger
-  json.set! spot do
+  json.set! spot.id do
     json.partial! 'spot', spot: spot
     
   end

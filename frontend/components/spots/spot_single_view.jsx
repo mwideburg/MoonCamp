@@ -5,8 +5,10 @@ class Spot extends React.Component {
     render(){
         const photo = this.props.spot.photoUrls[0]
         const spot = this.props.spot
+        const id =  this.props.spot.id
+        const path = `/spots/${id}`
         return(
-            <div className="recent-views-container">
+            <div className="recent-views-container" >
                 {/* map through activities to put them on the splash with a limit */}
                 {/* have a single acitivty-item that will render a list item with the picture
             and link to the specific search content page */}
@@ -14,7 +16,7 @@ class Spot extends React.Component {
                 <div className="spots-img">
                     <img src={photo} className="spots-img" alt=""/>
                 </div>
-                <Link to="/" className="spot-details">
+                <Link to={path} className="spot-details">
                     <div className="spot-details">
                         <h3 className="spot-title">{spot.title}</h3>
                         <p> {spot.planet}</p>
