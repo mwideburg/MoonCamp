@@ -3,9 +3,9 @@
     
 }
 .spots-wrapper{
-    display: flex;
-    justify-content: space-around;
+
     display: relative;
+    width: 620px;
     padding:0;
     margin:0;
     padding-bottom: 100px;
@@ -20,17 +20,16 @@
 }
 
 .recent-views-container{
-    /* border: 1px solid; */
-    width: 400px;
-    margin: 20px;
+    
+   
     overflow: hidden;
-    border-radius: 10px;
+  
     box-shadow: 2px 4px 10px 5px rgb(197, 197, 197);
 }   
 .spots-img{
     
-    width: 400px;
-    height: 250px;
+    width: 300px;
+    height: 150px;
     overflow: hidden;
     object-fit: fill;
     /* background-color: lightslategrey; */
@@ -38,7 +37,7 @@
 }
 
 .spot-details{
-    
+   
     height: 100px;
     background-color: white;
     text-decoration: none;
@@ -47,6 +46,7 @@
 }
 .spot-details h3,p{
     margin:0;
+   
     
 
 }
@@ -68,7 +68,43 @@ align-items: flex-end;
 .show-container{
     width: 500px;
     height: 500px;
-    z-index: 200;
+    
     background-color: black;
     color:white;;
+}
+
+.spot-search-index{
+    width: 1200px;
+}
+
+.filter-form{
+    width: 100%;
+    margin:20px;
+    justify-content: flex-start;
+    height: 70px;
+
+}
+.filter-form{
+    width: 100%;
+    margin:20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 70px;
+
+}
+
+.filter-btn{
+    color: gray;
+    align-items: center;
+    padding:10px;
+    background-color: white;
+    margin: 10px;
+    border: 1px lightgray solid;
+    height: 40px;
+}
+.filter-btn:hover{
+    border: 1px black solid;
+     color: black;
+     cursor: pointer;
 }

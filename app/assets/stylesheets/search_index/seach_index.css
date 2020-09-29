@@ -1,6 +1,7 @@
 .spots-search-container{
     display: flex;
     justify-content: center;
+    margin-top: 10px;
     width: 1100px;
 
 }
@@ -16,17 +17,28 @@
 }
 .spots-wrapper{
     display: flex;
-    flex-direction: column;
+   
+    /* flex-direction: column; */
     /* width: 600px; */
 }
 
 
 .spots-index{
-    width: 50%;
+    height: 100%;
+   width: 620px;
+   /* margin: 10px; */
 
 }
 
 .spots-wrapper{
     display: flex;
+     flex-wrap: wrap;
+}
+.single-spot-contain{
+    width: 280px;
+    padding: 5px;
+}
 
+.filter-top{
+    padding-top: 0px
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, Route } from 'react-router-dom';
 import Spot from './spot_single_view'
+import FiltersContainer from './filters_continer'
 import SpotShow from './spot_show_container'
 
 
@@ -24,7 +25,7 @@ class SpotsIndexContainer extends React.Component{
         
         let count = 0
         const spots = Object.values(this.props.spots).map(spot =>
-            <div key={spot.id}>
+            <div key={spot.id} className="single-spot-contain">
                 <Spot spot={spot} />
                 
             </div>
@@ -34,12 +35,24 @@ class SpotsIndexContainer extends React.Component{
             )
         return(
                 <>
-                
-                <div className="spots-wrapper">
-                    {spots}
+               
 
-                    
+
+                
+                
+                <div>
+                        <div className="spots-wrapper">
+                            {spots}
+
+
+                        </div>
+
+
+
                 </div>
+                
+
+                
                 </>
 
         )
