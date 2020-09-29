@@ -30,10 +30,7 @@ import LoginSplash from "./session_form/login_splash_container";
 import SpotsIndex from "./spots/spots_container";
 import SpotsIndexContainer from "./spots/spots_container";
 import SearchSpotsContainer from "./spots/search_spots_container";
-
-
-
-
+import MoonMap from "./spots/moon_map"
 
 const App = () => (
     <>
@@ -44,7 +41,7 @@ const App = () => (
 
                     
             <Modal />
-                
+        <Route path="/moonmap" component={MoonMap}/>
             {/* <Link to="/" className="nav-bar-logo">
             <h2 >Moon Camp</h2>
             </Link> */}

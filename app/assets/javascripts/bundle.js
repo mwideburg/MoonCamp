@@ -356,6 +356,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _session_form_login_splash_container__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./session_form/login_splash_container */ "./frontend/components/session_form/login_splash_container.jsx");
 /* harmony import */ var _spots_spots_container__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./spots/spots_container */ "./frontend/components/spots/spots_container.js");
 /* harmony import */ var _spots_search_spots_container__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./spots/search_spots_container */ "./frontend/components/spots/search_spots_container.js");
+/* harmony import */ var _spots_moon_map__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./spots/moon_map */ "./frontend/components/spots/moon_map.jsx");
 
 
 
@@ -383,8 +384,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var App = function App() {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_modal_modal__WEBPACK_IMPORTED_MODULE_18__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+    path: "/moonmap",
+    component: _spots_moon_map__WEBPACK_IMPORTED_MODULE_22__["default"]
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
     exact: true,
     path: "/spots",
     component: _nav_login_nav_container__WEBPACK_IMPORTED_MODULE_6__["default"]
@@ -2481,6 +2486,147 @@ var Splash = /*#__PURE__*/function (_React$Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["default"] = (Splash);
+
+/***/ }),
+
+/***/ "./frontend/components/spots/moon_map.jsx":
+/*!************************************************!*\
+  !*** ./frontend/components/spots/moon_map.jsx ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _spot_map__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./spot_map */ "./frontend/components/spots/spot_map.jsx");
+/* harmony import */ var _spots_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./spots_container */ "./frontend/components/spots/spots_container.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _search_spots__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./search_spots */ "./frontend/components/spots/search_spots.jsx");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+
+
+
+var MoonMap = /*#__PURE__*/function (_React$Component) {
+  _inherits(MoonMap, _React$Component);
+
+  var _super = _createSuper(MoonMap);
+
+  function MoonMap() {
+    _classCallCheck(this, MoonMap);
+
+    return _super.apply(this, arguments);
+  }
+
+  _createClass(MoonMap, [{
+    key: "componentDidMount",
+    //...
+    value: function componentDidMount() {
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: {
+          lat: 0,
+          lng: 0
+        },
+        zoom: 1,
+        streetViewControl: false,
+        mapTypeControlOptions: {
+          mapTypeIds: ['moon']
+        }
+      });
+      var moonMapType = new google.maps.ImageMapType({
+        getTileUrl: function getTileUrl(coord, zoom) {
+          var normalizedCoord = getNormalizedCoord(coord, zoom);
+
+          if (!normalizedCoord) {
+            return null;
+          }
+
+          var bound = Math.pow(2, zoom);
+          return '//mw1.google.com/mw-planetary/lunar/lunarmaps_v1/clem_bw' + '/' + zoom + '/' + normalizedCoord.x + '/' + (bound - normalizedCoord.y - 1) + '.jpg';
+        },
+        tileSize: new google.maps.Size(256, 256),
+        maxZoom: 9,
+        minZoom: 0,
+        radius: 1738000,
+        name: 'Moon'
+      });
+      map.mapTypes.set('moon', moonMapType);
+      map.setMapTypeId('moon');
+      this.map = map;
+    } // getNormalizedCoord(coord, zoom) {
+    //     var y = coord.y;
+    //     var x = coord.x;
+    //     // tile range in one direction range is dependent on zoom level
+    //     // 0 = 1 tile, 1 = 2 tiles, 2 = 4 tiles, 3 = 8 tiles, etc
+    //     var tileRange = 1 << zoom;
+    //     // don't repeat across y-axis (vertically)
+    //     if (y < 0 || y >= tileRange) {
+    //         return null;
+    //     }
+    //     // repeat across x-axis
+    //     if (x < 0 || x >= tileRange) {
+    //         x = (x % tileRange + tileRange) % tileRange;
+    //     }
+    //     return { x: x, y: y };
+    // }
+    // componentDidUpdate() {
+    //     // this.MarkerManager.updateMarker(this.props.spots);
+    // }
+
+  }, {
+    key: "render",
+    value: function render() {
+      debugger;
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "HELLO", this.map);
+    }
+  }]);
+
+  return MoonMap;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component); // export default MoonMap 
+
+
+
+
+
+var mapSTP = function mapSTP() {
+  return {// spots: state.entities.spots
+  };
+};
+
+var mapDTP = function mapDTP() {
+  return function (dispatch) {
+    return {// getSpots: () => dispatch(getSpots())
+      // updateBounds : (bounds) => dispatch(updateBounds(bounds))
+    };
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_4__["connect"])(null, null)(MoonMap));
 
 /***/ }),
 
