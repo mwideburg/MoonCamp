@@ -2817,16 +2817,14 @@ var SpotMap = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this = this;
 
-      return (
-        /*#__PURE__*/
-        // ...
-        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          id: "map-container",
-          ref: function ref(map) {
-            return _this.mapNode = map;
-          }
-        })
-      );
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "fix-to-screen"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "map-container",
+        ref: function ref(map) {
+          return _this.mapNode = map;
+        }
+      }));
     }
   }]);
 

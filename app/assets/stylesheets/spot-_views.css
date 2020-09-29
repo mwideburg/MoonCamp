@@ -21,15 +21,16 @@
 
 .recent-views-container{
     /* border: 1px solid; */
-    width: 300px;
+    width: 400px;
+    margin: 20px;
     overflow: hidden;
     border-radius: 10px;
     box-shadow: 2px 4px 10px 5px rgb(197, 197, 197);
 }   
 .spots-img{
     
-    width: 300px;
-    height: 200px;
+    width: 400px;
+    height: 250px;
     overflow: hidden;
     object-fit: fill;
     /* background-color: lightslategrey; */

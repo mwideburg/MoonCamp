@@ -1,12 +1,14 @@
 .spots-search-container{
     display: flex;
     justify-content: center;
-    width: 100%;
+    width: 1100px;
 
 }
 .spots-search-wrapper{
     display: flex;
     justify-content: center;
+
+   
 }
 .maps-search-view{
     display: flex;
@@ -20,12 +22,11 @@
 
 
 .spots-index{
-    width: 100%;
-    display: flex;
-    justify-content: center;
+    width: 50%;
+
 }
 
 .spots-wrapper{
-    /* display: inline; */
+    display: flex;
 
 }

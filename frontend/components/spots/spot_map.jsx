@@ -51,9 +51,10 @@ class SpotMap extends React.Component {
 
     render() {
         return (
-            // ...
+           <div className="fix-to-screen">
             <div id='map-container' ref={map => this.mapNode = map}> 
 
+            </div>
             </div>
 
             )
