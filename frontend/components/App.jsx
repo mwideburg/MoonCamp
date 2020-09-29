@@ -31,6 +31,7 @@ import SpotsIndex from "./spots/spots_container";
 import SpotsIndexContainer from "./spots/spots_container";
 import SearchSpotsContainer from "./spots/search_spots_container";
 import MoonMap from "./spots/moon_map"
+import MarsMap from "./spots/mars_map"
 import SpotShow from "./spots/spot_show_container"
 
 const App = () => (
@@ -44,6 +45,7 @@ const App = () => (
             <Modal />
         
         <Route path="/moonmap" component={MoonMap}/>
+        <Route path="/marsmap" component={MarsMap}/>
             {/* <Link to="/" className="nav-bar-logo">
             <h2 >Moon Camp</h2>
             </Link> */}

@@ -12,6 +12,18 @@
     width: 400px;
 }
 #map-container2{
+   z-index: 200;
+    /* position: fixed; */
+    height: 650px;
+    width: 400px;
+}
+#map-container3{
+   z-index: 200;
+    /* position: fixed; */
+    height: 650px;
+    width: 400px;
+}
+.moon2{
     background-color: black;
     height: 600px;
     width: 500px;
