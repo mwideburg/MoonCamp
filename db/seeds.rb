@@ -265,3 +265,72 @@ jupiter.photo.attach(io: host_img3, filename: 'jupiter.jpg')
 mars.photo.attach(io: host_img4, filename: 'mars.jpg')
 ender.photo.attach(io: host_img5, filename: 'ender_speaker.jpg')
 robot.photo.attach(io: host_img7, filename: 'robot.png.jpg')
+
+
+moonGolf = Activity.create(name: "Moon Golf")
+jetPacks = Activity.create(name: "Jet Packs")
+roverRides = Activity.create(name: "Rover Rides")
+astro = Activity.create(name: "Astro Baseball")
+starWatch = Activity.create(name: "Star Watches")
+spelunking = Activity.create(name: "Spelunking")
+floating = Activity.create(name: "Floating")
+holodeck = Activity.create(name: "Holodeck")
+tea = Activity.create(name: "Tea with Picard")
+food = Activity.create(name: "Klingon Meal")
+
+holo = Amenity.create(name: "Holodeck")
+phasers = Amenity.create(name: "Phasers")
+spacesuits = Amenity.create(name: "Space suits")
+oxygen = Amenity.create(name: "Oxygen")
+water = Amenity.create(name: "Water")
+telescope = Amenity.create(name: "Telescope")
+spaceship = Amenity.create(name: "Spaceship")
+toothpaste = Amenity.create(name: "Toothpaste")
+hotdogs = Amenity.create(name: "Hot Dogs")
+bed = Amenity.create(name: "Bed")
+
+
+moon1.amenities = [holo, spacesuits, oxygen, hotdogs]
+moon1.activities = [moonGolf, jetPacks, starWatch, floating]
+
+moon2.amenities = [oxygen.id, spacesuits.id, water.id, spaceship.id, bed.id]
+moon2.activities = [moonGolf.id, jetPacks.id, starWatch.id, floating.id, tea.id]
+
+
+moon3.activities = [tea.id, jetPacks.id, astro.id]
+moon3.amenities = [spacesuits.id, bed.id, toothpaste.id]
+
+
+moon4.activities = [holodeck.id, jetPacks.id, food.id, floating.id]
+moon4.amenities = [spacesuits.id, phasers.id, water.id, holo.id]
+
+moon5.activities = [holodeck.id, jetPacks.id, food.id, floating.id]
+moon5.amenities = [spacesuits.id, phasers.id, water.id, holo.id]
+
+
+moon6.activities = [holodeck.id, jetPacks.id, food.id, floating.id]
+moon6.amenities = [spacesuits.id, phasers.id, water.id, holo.id, spaceship.id]
+
+moon7.activities = [holodeck.id, jetPacks.id, floating.id]
+moon7.amenities = [spacesuits.id, phasers.id, water.id, holo.id]
+
+moon8.activities = [holodeck.id, jetPacks.id, floating.id]
+moon8.amenities = [spacesuits.id, phasers.id, water.id, holo.id]
+
+moon9.activities = [holodeck.id, jetPacks.id, food.id, floating.id]
+moon9.amenities = [spacesuits.id, phasers.id, water.id, holo.id, spaceship.id]
+
+moon10.activities = [holodeck.id, jetPacks.id, floating.id, astro.id]
+moon10.amenities = [spacesuits.id, phasers.id, water.id, holo.id, hotdogs.id]
+
+moon11.activities = [holodeck.id, jetPacks.id, floating.id, astro.id]
+moon11.amenities = [spacesuits.id, phasers.id, water.id, holo.id, spaceship.id, hotdog.id,toothpaste.id]
+
+moon12.activities = [holodeck.id, jetPacks.id, food.id, floating.id]
+moon12.amenities = [spacesuits.id, phasers.id, water.id, holo.id]
+
+moon13.activities = [tea.id, jetPacks.id, astro.id]
+moon13.amenities = [spacesuits.id, phasers.id, water.id, holo.id]
+
+moon14.activities = [holodeck.id, jetPacks.id, food.id, floating.id]
+moon14.amenities = [spacesuits.id, phasers.id, water.id, holo.id]

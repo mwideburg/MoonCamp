@@ -23,11 +23,19 @@ class Spot < ApplicationRecord
     validates :planet, presence: true
     validates :lng, presence: true
     validates :lat, presence: true
+
     has_many_attached :photos
 
     belongs_to :host,
         class_name: :User,
         foreign_key: :host_id
+
+    has_many :amenities,
+        class_name: :Amenity,
+        foreign_key: :spot_id
+    has_many :activities,
+        class_name: :Activity,
+        foreign_key: :spot_id
     
     # has_many :booking_requests,
     #     class_name: :booking,

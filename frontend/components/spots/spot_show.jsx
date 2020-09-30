@@ -48,8 +48,45 @@ class SpotShow extends React.Component {
         return (
             <div className="show-wrapper">
                    <div className="show-img-container">
+                       <div className="galery-container">
                     <img src={photo} alt="" className="show-img-full"/>
-                   </div>
+
+                       </div>
+
+                    </div>
+                    <div className="price-show-container">
+
+                        <div className="price-title">
+                            <h2> ${spot.price}</h2>
+                            
+                                per night
+                            </div>
+                        <div className="instant-book">
+                            <div className="dates-guests">
+                                <button className="instant-book-btn"> 
+                                <h3>
+                                Check In
+                                </h3>
+                                <br/>
+                                Select Dates
+                                </button>
+                                <button className="instant-book-btn"> Check Out</button>
+                                <button className=" instant-book-btn"> Guests</button>
+
+                            </div>
+                        </div>
+                        <div className="instant-book">
+                            <div className="dates-guests">
+                                <button className="btn-search instant"> Instant Book</button>
+
+
+                            </div>
+                        </div>
+                    </div>
+                   
+
+
+
                 <div className="showpage-columns">
                     <div className="wrapper-1000">
                         <div className="wrapper-600">
@@ -83,28 +120,10 @@ class SpotShow extends React.Component {
                     </div>  
                     
 
-                    <div className="price-show-container">
+                    <div className="column-filler">
 
-                            <div className="price-title">
-                               <h2> ${spot.price}</h2>
-                                per night
-                            </div>
-                            <div className="instant-book">
-                                <div className="dates-guests">
-                                    <button className="instant-book-btn"> Check In</button>
-                                <button className="instant-book-btn"> Check Out</button>
-                                <button className=" instant-book-btn"> Guests</button>
-                                    
-                                </div>
-                            </div>
-                            <div className="instant-book">
-                                <div className="dates-guests">
-                                <button className="btn-search instant"> Instant Book</button>
-                                
-                                    
-                                </div>
-                            </div>
-                        </div>
+                           
+                    </div>
                     </div>
 
                     

@@ -3,12 +3,18 @@
     display: flex;
     justify-content: center;
 }
+
+.galery-continer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
 .show-wrapper{
     
 }
 .show-img-full{
     height: 600px;
-    width: 80%;
+    
     min-width: 1000px;
     max-width: 1300px;
     object-fit: fill;
@@ -28,9 +34,21 @@
     width: 700px;
 }
 .price-show-container{
+    position: absolute;
+    background-color: white;
     
+    right: 300px;
+    bottom: 20px;
     width: 300px;
+    height: 215px;
     border: 1px lightgray solid;
+}
+
+.column-filler{
+    position: relative;
+    width: 300px;
+
+
 }
 
 .instant-book{
@@ -47,11 +65,14 @@
     border: 0px;
     border-top: 1px lightgray solid;
     border-bottom: 1px lightgray solid;
-    height: 50px;
+    height: 70px;
     width: 100%;
     background-color: transparent;
-    padding: 13px;
+
     
+}
+.instant-book-btn h3{
+    margin: 0;
 }
 .instant-book-btn:hover{
     background-color: lightgray;
@@ -69,9 +90,19 @@
     background-color: white;
     color: rgb(43, 206, 152);
 }
-
+.price-title{
+    display: flex;
+    padding: 10px;
+   
+    flex-direction: column;
+    width: 100%;
+    align-content: center;
+    justify-content: center;
+}
 .price-title h2{
-    margin-bottom: 0px;
+    margin: 0;
+
+
 }
 
 

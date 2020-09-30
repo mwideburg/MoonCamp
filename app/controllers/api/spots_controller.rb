@@ -25,6 +25,7 @@ class Api::SpotsController < ApplicationController
 
     def show
         @spot = Spot.find(params[:id])
+        Spot.find(params[:id]).includes(:amenities)
 
 
         # if @show
