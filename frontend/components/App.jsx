@@ -44,8 +44,8 @@ const App = () => (
                     
             <Modal />
         
-        <Route path="/moonmap" component={MoonMap}/>
-        <Route path="/marsmap" component={MarsMap}/>
+        <Route exact path="/moonmap" component={MoonMap}/>
+        <Route exact path="/marsmap" component={MarsMap}/>
             {/* <Link to="/" className="nav-bar-logo">
             <h2 >Moon Camp</h2>
             </Link> */}

@@ -55,7 +55,7 @@ moon2 = Spot.create({
     planet: "Jupiter", 
     description:"I would love to welcome you to my humble abode, the craters of Europa... Here you can enjoy the view of Jupiter while also exporing giezers of hot acid. Jetpakcs are always available, and I would love to have some Earl gray with my company",
     lat: 30.783094, 
-    lng: -80.176995
+    lng: -90.176995
 
 })
 moon3 = Spot.create({
@@ -136,7 +136,7 @@ moon9 = Spot.create({
     # lat: 42.717112,
     # lng: -87.892412
     lat: 60.717112,
-    lng: 70
+    lng: 102
 
 
 })
