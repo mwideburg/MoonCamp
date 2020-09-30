@@ -196,13 +196,14 @@ moon10.photos.attach(io: file10, filename: 'moon2_base.jpg')
 moon11.photos.attach(io: file11, filename: 'biodome.jpg')
 
 host_img1 = File.open('app/assets/images/hosts/patrick.jpg')
-host_img6 = File.open('app/assets/images/hosts/patrick.jpg')
+host_img6 = File.open('app/assets/images/hosts/worf.jpg')
 host_img2 = File.open('app/assets/images/hosts/worf.jpg')
 host_img3 = File.open('app/assets/images/hosts/jupier.jpg')
 host_img4 = File.open('app/assets/images/hosts/mars.jpg')
 host_img5 = File.open('app/assets/images/hosts/ender_speaker.jpg')
 
-michael.photo.attach(io: host_img6, filename: 'patrick.jpg')
+
+michael.photo.attach(io: host_img6, filename: 'worf.jpg')
 picard.photo.attach(io: host_img1, filename: 'patrick.jpg')
 worf.photo.attach(io: host_img2, filename: 'worf.jpg')
 jupiter.photo.attach(io: host_img3, filename: 'jupiter.jpg')
