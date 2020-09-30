@@ -50,10 +50,11 @@ const App = () => (
             <h2 >Moon Camp</h2>
             </Link> */}
         <Route exact path="/spots" component={LoginNavContainer} />       
-        <Route path="/spots/:spotId" component={LoginNavContainer} />       
+               
         {/* <Route exact path="/spots/:spotsId" component={LoginNavContainer} />        */}
             <Switch>
                 <Route exact path="/" component={GreetingContainer} />
+            <AuthRoute exact path="/spots/:spotId" component={LoginNavContainer} />
                 <AuthRoute exact path="/login" component={LoginNavContainer} />
                 
                 <AuthRoute exact path="/signup" component={SignupSplashContainer} />
