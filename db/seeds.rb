@@ -96,7 +96,7 @@ moon6 = Spot.create({
     moon: "Mimas", 
     planet: "Saturn", 
     description:"I am not the best host, but you can stay here if you want. I really do it just to get the free foot bonus that Moon Camp provides",
-    lat: 5.787112,
+    lat: -5.787112,
     lng: -2.822492
 
 
@@ -109,7 +109,7 @@ moon7 = Spot.create({
     description:"Afraid to travel the solar system? Want to stay in your own backyard, then I am here for you. Enjoy all things Earth, by staying at my little moon base",
     # lat: 42.717112,
     # lng: -87.892412
-    lat: 60.717112,
+    lat: -60.717112,
     lng: -50.892412
 
 
@@ -149,7 +149,7 @@ moon10 = Spot.create({
     # lat: 42.717112,
     # lng: -87.892412
     lat: 10,
-    lng: 20
+    lng: -20
 
 
 })
