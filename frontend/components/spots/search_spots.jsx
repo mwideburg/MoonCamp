@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SpotMap from './spot_map'
+import MoonMap from './moon_map'
 import FiltersContainer from './filters_continer'
 import SpotsIndexContainer from "./spots_container";
 // import { updateBounds } from '../../actions/filter_actions';
@@ -23,7 +24,8 @@ const SearchSpots = ( {spots, updateBounds, updateSpots} ) => {
                     </div>
                     
                     <div className="maps-search-view">
-                            <SpotMap spots={spots} updateBounds={updateBounds} updateSpots={updateSpots}/>
+                            {/* <SpotMap spots={spots} updateBounds={updateBounds} updateSpots={updateSpots}/> */}
+                            <MoonMap spots={spots} updateBounds={updateBounds} updateSpots={updateSpots}/>
                     </div>
                 </div>
 

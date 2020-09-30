@@ -12,14 +12,14 @@
     width: 400px;
 }
 #map-container2{
-   z-index: 200;
-    /* position: fixed; */
+   /* z-index: 200; */
+    position: fixed;
     height: 650px;
     width: 400px;
 }
 #map-container3{
-   z-index: 200;
-    /* position: fixed; */
+   /* z-index: 200; */
+    position: fixed;
     height: 650px;
     width: 400px;
 }

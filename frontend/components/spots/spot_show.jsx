@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { useParams, Links } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import HostDetail from './host_details'
 import CampsiteInfo from './campsite_info'
 
@@ -66,7 +66,7 @@ class SpotShow extends React.Component {
                                         {spot.planet} -- {spot.moon}
                                     </p>
                                     <h1> {spot.title}  </h1> 
-                                    Nearby: <a href="">Jupiter's Europa</a>
+                                    Nearby: <Link to="/spots/"> Jupiter's Europa  </Link>
                                 </div>
                                 <div className="showpage-details-footer">
                                     

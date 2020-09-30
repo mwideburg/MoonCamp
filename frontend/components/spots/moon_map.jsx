@@ -2,23 +2,23 @@ import React from 'react';
 import { Link, Route } from 'react-router-dom';
 import SpotMap from './spot_map'
 import SpotsIndexContainer from "./spots_container";
+import MarkerManager from '../../util/marker_manager'
 
 
 
 class MoonMap extends React.Component {
-    
-    //...
+
     
     componentDidMount(){
         const MOON_BOUNDS = {
             north: 80,
             south: -80.35,
-            west: -100,
-            east: 100,
+            west: -200,
+            east: 200,
         };
-        const map = new google.maps.Map(this.mapNode, {
+        this.map = new google.maps.Map(this.mapNode, {
             center: { lat: 0, lng: 0 },
-            zoom: 5,
+            zoom: 3,
             minZoom: 2,
             restriction: {
                 latLngBounds:MOON_BOUNDS,
@@ -29,6 +29,7 @@ class MoonMap extends React.Component {
                 mapTypeIds: ["moon"],
             },
         });
+        this.MarkerManager = new MarkerManager(this.map)
         const getNormalizedCoord = (coord, zoom) => {
             const y = coord.y;
             let x = coord.x;
@@ -71,11 +72,39 @@ class MoonMap extends React.Component {
             minZoom: 0,
 
             radius: 1738000,
-            name: "Moon",
+            name: "Europa",
         });
-        map.mapTypes.set("moon", moonMapType);
-        map.setMapTypeId("moon");
+        this.map.mapTypes.set("moon", moonMapType);
+        this.map.setMapTypeId("moon");
+
+        const updateSpots = this.props.updateSpots
+        this.map.addListener('bounds_changed', function () {
+            // debugger
+            let northeast = this.getBounds().getNorthEast();
+            let southwest = this.getBounds().getSouthWest();
+            // debugger
+            let bounds = this.getBounds()
+
+            let lat = bounds.getNorthEast().lat();
+            let lat2 = bounds.getSouthWest().lat();
+            let lng = bounds.getNorthEast().lng();
+            let lng2 = bounds.getSouthWest().lng();
+
+            let positions = { bounds: { lat: [lat, lat2], lng: [lng, lng2] } }
+
+            // debugger
+            console.log('updated')
+            // updateBounds(bounds)
+            updateSpots(positions)
+        })
+
+
+
+        this.MarkerManager.updateMarker(this.props.spots)
         
+    }
+    componentDidUpdate() {
+        this.MarkerManager.updateMarker(this.props.spots);
     }
     
     
@@ -85,7 +114,7 @@ class MoonMap extends React.Component {
         // debugger
         return (
             
-            <div >
+            <div className="fix-to-screen">
                 <div id='map-container2' ref={map => this.mapNode = map}>
                
                 </div>

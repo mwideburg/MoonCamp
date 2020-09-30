@@ -2845,6 +2845,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _spot_map__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./spot_map */ "./frontend/components/spots/spot_map.jsx");
 /* harmony import */ var _spots_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./spots_container */ "./frontend/components/spots/spots_container.js");
+/* harmony import */ var _util_marker_manager__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../util/marker_manager */ "./frontend/util/marker_manager.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -2872,6 +2873,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
 var MoonMap = /*#__PURE__*/function (_React$Component) {
   _inherits(MoonMap, _React$Component);
 
@@ -2885,20 +2887,19 @@ var MoonMap = /*#__PURE__*/function (_React$Component) {
 
   _createClass(MoonMap, [{
     key: "componentDidMount",
-    //...
     value: function componentDidMount() {
       var MOON_BOUNDS = {
         north: 80,
         south: -80.35,
-        west: -100,
-        east: 100
+        west: -200,
+        east: 200
       };
-      var map = new google.maps.Map(this.mapNode, {
+      this.map = new google.maps.Map(this.mapNode, {
         center: {
           lat: 0,
           lng: 0
         },
-        zoom: 5,
+        zoom: 3,
         minZoom: 2,
         restriction: {
           latLngBounds: MOON_BOUNDS,
@@ -2909,6 +2910,7 @@ var MoonMap = /*#__PURE__*/function (_React$Component) {
           mapTypeIds: ["moon"]
         }
       });
+      this.MarkerManager = new _util_marker_manager__WEBPACK_IMPORTED_MODULE_4__["default"](this.map);
 
       var getNormalizedCoord = function getNormalizedCoord(coord, zoom) {
         var y = coord.y;
@@ -2947,10 +2949,38 @@ var MoonMap = /*#__PURE__*/function (_React$Component) {
         maxZoom: 9,
         minZoom: 0,
         radius: 1738000,
-        name: "Moon"
+        name: "Europa"
       });
-      map.mapTypes.set("moon", moonMapType);
-      map.setMapTypeId("moon");
+      this.map.mapTypes.set("moon", moonMapType);
+      this.map.setMapTypeId("moon");
+      var updateSpots = this.props.updateSpots;
+      this.map.addListener('bounds_changed', function () {
+        // debugger
+        var northeast = this.getBounds().getNorthEast();
+        var southwest = this.getBounds().getSouthWest(); // debugger
+
+        var bounds = this.getBounds();
+        var lat = bounds.getNorthEast().lat();
+        var lat2 = bounds.getSouthWest().lat();
+        var lng = bounds.getNorthEast().lng();
+        var lng2 = bounds.getSouthWest().lng();
+        var positions = {
+          bounds: {
+            lat: [lat, lat2],
+            lng: [lng, lng2]
+          }
+        }; // debugger
+
+        console.log('updated'); // updateBounds(bounds)
+
+        updateSpots(positions);
+      });
+      this.MarkerManager.updateMarker(this.props.spots);
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate() {
+      this.MarkerManager.updateMarker(this.props.spots);
     }
   }, {
     key: "render",
@@ -2958,7 +2988,9 @@ var MoonMap = /*#__PURE__*/function (_React$Component) {
       var _this = this;
 
       // debugger
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "fix-to-screen"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "map-container2",
         ref: function ref(map) {
           return _this.mapNode = map;
@@ -2987,8 +3019,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _spot_map__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./spot_map */ "./frontend/components/spots/spot_map.jsx");
-/* harmony import */ var _filters_continer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./filters_continer */ "./frontend/components/spots/filters_continer.jsx");
-/* harmony import */ var _spots_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./spots_container */ "./frontend/components/spots/spots_container.js");
+/* harmony import */ var _moon_map__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./moon_map */ "./frontend/components/spots/moon_map.jsx");
+/* harmony import */ var _filters_continer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./filters_continer */ "./frontend/components/spots/filters_continer.jsx");
+/* harmony import */ var _spots_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./spots_container */ "./frontend/components/spots/spots_container.js");
+
 
 
 
@@ -3004,15 +3038,15 @@ var SearchSpots = function SearchSpots(_ref) {
     className: "splash-container spot-search-index"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "search filter-top"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filters_continer__WEBPACK_IMPORTED_MODULE_3__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filters_continer__WEBPACK_IMPORTED_MODULE_4__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "spots-search-wrapper"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "spots-search-container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "spots-index"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_spots_container__WEBPACK_IMPORTED_MODULE_4__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_spots_container__WEBPACK_IMPORTED_MODULE_5__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "maps-search-view"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_spot_map__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_moon_map__WEBPACK_IMPORTED_MODULE_3__["default"], {
     spots: spots,
     updateBounds: updateBounds,
     updateSpots: updateSpots
@@ -3317,9 +3351,9 @@ var SpotShow = /*#__PURE__*/function (_React$Component) {
         className: "showpage-spot-details"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "showpage-title"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, spot.planet, " -- ", spot.moon), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, " ", spot.title, "  "), "Nearby: ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: ""
-      }, "Jupiter's Europa")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, spot.planet, " -- ", spot.moon), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, " ", spot.title, "  "), "Nearby: ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/spots/"
+      }, " Jupiter's Europa  ")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "showpage-details-footer"
       })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_host_details__WEBPACK_IMPORTED_MODULE_2__["default"], {
         host: this.props.host,
@@ -4109,11 +4143,17 @@ var configureStore = function configureStore() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return MarkerManager; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_spots_spot_single_view__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/spots/spot_single_view */ "./frontend/components/spots/spot_single_view.jsx");
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+
+
 
 var MarkerManager = /*#__PURE__*/function () {
   function MarkerManager(map) {
@@ -4148,7 +4188,14 @@ var MarkerManager = /*#__PURE__*/function () {
   }, {
     key: "createMarkerFromSpot",
     value: function createMarkerFromSpot(spot) {
+      var _this = this;
+
       // debugger
+      var contentString = '<div id="content">' + '<div >' + "</div>" + spot.title;
+      "</div>" + "</div>";
+      var infowindow = new google.maps.InfoWindow({
+        content: contentString
+      });
       var myLatLng = {
         lat: Number(spot.lat),
         lng: Number(spot.lng)
@@ -4157,6 +4204,15 @@ var MarkerManager = /*#__PURE__*/function () {
         position: myLatLng,
         map: this.map,
         title: spot.title
+      });
+      marker.addListener("mouseover", function () {
+        infowindow.open(_this.map, marker);
+      });
+      marker.addListener("mouseout", function () {
+        infowindow.close(_this.map, marker);
+      });
+      marker.addListener("click", function () {
+        infowindow.close(_this.map, marker);
       });
       return this.state.markers[spot.id] = spot; // return marker.setMap(this.map)
     }
