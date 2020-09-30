@@ -14,6 +14,7 @@ worf = User.create({firstname: "Worf", lastname: "Manson", email: "enterprise@st
 ender = User.create({firstname: "Ender", lastname: "Rudulph", email: "ender@mooncamp.com", password: "picard2", zipcode: 11206})
 mars = User.create({firstname: "Mars", lastname: "Musk", email: "mars@mooncamp.com", password: "picard2", zipcode: 11206})
 jupiter = User.create({firstname: "Jupiter", lastname: "Doyle", email: "jupiter@mooncamp.com", password: "picard2", zipcode: 11206})
+robot = User.create({firstname: "100011011", lastname: "Boop", email: "robot@mooncamp.com", password: "picard2", zipcode: 11206})
 
 
 
@@ -32,7 +33,15 @@ jupiter = User.create({firstname: "Jupiter", lastname: "Doyle", email: "jupiter@
 #  lat         :float            not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+FILTERS = [
+    "Space Base",
+    "Ogygen Tanks",
+    "Space Suits",
+    "Vehicles",
+    "Instant Book",
 
+
+]
 
 
 moon1 = Spot.create({
@@ -95,7 +104,7 @@ moon6 = Spot.create({
     price: 20, title: "God of War's Tent", 
     moon: "Mimas", 
     planet: "Saturn", 
-    description:"I am not the best host, but you can stay here if you want. I really do it just to get the free foot bonus that Moon Camp provides",
+    description:"I am not the best host, but you can stay here if you want. I do it just to get the free food bonus that Moon Camp provides. It's suppose to be for the guests, but I usually eat it.",
     lat: -5.787112,
     lng: -2.822492
 
@@ -166,6 +175,45 @@ moon11 = Spot.create({
 
 
 })
+moon12 = Spot.create({
+    host_id: ender.id, 
+    price: 20, title: "Buggers Cave", 
+    moon: "Castillo", 
+    planet: "Jupiter", 
+    description:"They can read your mind with ease, and are not at all resentful of the humans destroying their entire society. I will show you the ways of the buggers, the ",
+    # lat: 42.717112,
+    # lng: -87.892412
+    lat: 45,
+    lng: 105
+
+
+})
+moon13 = Spot.create({
+    host_id: robot.id, 
+    price: 20, title: "Beep Boop", 
+    moon: "Enceladus", 
+    planet: "Saturn", 
+    description:"beep boop, 1010000111000100010100010111110001011, beeeeep, booooooooopppp, 11101000000101010000110101",
+    # lat: 42.717112,
+    # lng: -87.892412
+    lat: -77,
+    lng: 300
+
+
+})
+moon14 = Spot.create({
+    host_id: worf.id, 
+    price: 20, title: "Worf's Holodeck on Encleladus", 
+    moon: "Enceladus", 
+    planet: "Saturn", 
+    description:"Will you master the srt of war or will you fail like most. I have set up a whole story just you you campers to play out, with the comfort of not being harmed, but beware, it may not be physical pain you should worrry about.",
+    # lat: 42.717112,
+    # lng: -87.892412
+    lat: -70,
+    lng: -100
+
+
+})
 
 
 
@@ -182,6 +230,9 @@ file8 = File.open('app/assets/images/mars_base.jpg')
 file9 = File.open('app/assets/images/army_base.jpg')
 file10 = File.open('app/assets/images/moon2_base.jpg')
 file11 = File.open('app/assets/images/biodome.jpg')
+file12 = File.open('app/assets/images/moon_cave.jpg')
+file13 = File.open('app/assets/images/robot_man.jpg')
+file14 = File.open('app/assets/images/matrix_holodeck.jpg')
 
 moon1.photos.attach(io: file1, filename: 'dst-europa-base.jpg')
 moon2.photos.attach(io: file2, filename: 'europa_moon.jpg')
@@ -194,6 +245,9 @@ moon8.photos.attach(io: file8, filename: 'mars_base.jpg')
 moon9.photos.attach(io: file9, filename: 'army_base.jpg')
 moon10.photos.attach(io: file10, filename: 'moon2_base.jpg')
 moon11.photos.attach(io: file11, filename: 'biodome.jpg')
+moon12.photos.attach(io: file12, filename: 'moon_cave.jpg')
+moon13.photos.attach(io: file13, filename: 'robot_man.jpg')
+moon14.photos.attach(io: file14, filename: 'matrix_holodeck.jpg')
 
 host_img1 = File.open('app/assets/images/hosts/patrick.jpg')
 host_img6 = File.open('app/assets/images/hosts/worf.jpg')
@@ -201,6 +255,7 @@ host_img2 = File.open('app/assets/images/hosts/worf.jpg')
 host_img3 = File.open('app/assets/images/hosts/jupier.jpg')
 host_img4 = File.open('app/assets/images/hosts/mars.jpg')
 host_img5 = File.open('app/assets/images/hosts/ender_speaker.jpg')
+host_img7 = File.open('app/assets/images/hosts/robot.png')
 
 
 michael.photo.attach(io: host_img6, filename: 'worf.jpg')
@@ -209,3 +264,4 @@ worf.photo.attach(io: host_img2, filename: 'worf.jpg')
 jupiter.photo.attach(io: host_img3, filename: 'jupiter.jpg')
 mars.photo.attach(io: host_img4, filename: 'mars.jpg')
 ender.photo.attach(io: host_img5, filename: 'ender_speaker.jpg')
+robot.photo.attach(io: host_img7, filename: 'robot.png.jpg')
