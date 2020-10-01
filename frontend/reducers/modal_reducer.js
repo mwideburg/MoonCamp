@@ -11,7 +11,7 @@ const modalReducer = (state = _nullModalState, action) =>{
     switch (action.type) {
         case OPEN_MODAL:
             // debugger
-            return Object.assign({}, {modalType: action.modalType})
+            return Object.assign({}, {modalType: action.modalType, photos: action.photos})
         case SWITCH_SIGNUP:
             // debugger
             return Object.assign({}, {modalType: action.modalType})

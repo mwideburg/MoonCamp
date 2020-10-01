@@ -15,21 +15,22 @@ class Availablemod extends React.Component {
 
             
                 <Link to={'/'} className="img-links">
-                    <div className="planet-link-image">
-                        {/* <img src="https://i.pinimg.com/originals/65/67/07/656707ea1e9fad2b5b9111a06045fcb8.jpg" alt="" /> */}
+                    <div className="planet-link-image" id="jupiter">
                         <h2>TITAN</h2>
+                        {/* <img className="contain-img" src="https://www.universetoday.com/wp-content/uploads/2019/06/pia22949.jpg" alt="" /> */}
+                        
                         
                     </div>
                 </Link>
                 <Link to={'/'} className="img-links">
-                    <div className="planet-link-image">
+                    <div className="planet-link-image" id="europa">
                         {/* <img src="https://i.pinimg.com/originals/65/67/07/656707ea1e9fad2b5b9111a06045fcb8.jpg" alt="" /> */}
                         <h2>ERUOPA</h2>
                         
                     </div>
                 </Link>
                 <Link to={'/'} className="img-links">
-                    <div className="planet-link-image" >
+                    <div className="planet-link-image" id="earth">
 
                         {/* <img className="link-bg"src="https://i.pinimg.com/originals/65/67/07/656707ea1e9fad2b5b9111a06045fcb8.jpg"  alt=""/> */}
                         <h2>EARTH</h2>

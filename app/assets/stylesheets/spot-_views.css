@@ -75,6 +75,7 @@ align-items: flex-end;
 
 .spot-search-index{
     width: 1200px;
+    min-height: 100vh;
 }
 
 .filter-form{

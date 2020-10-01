@@ -9,6 +9,7 @@ import PlanetContainer from '../planets/planet_container'
 import AvailableContainer from '../available/available_container'
 import RecentViewConatiner from '../recent_views/recent_view_container';
 import Spot from '../recent_views/spots_placeholder'
+import PageFooter from '../footer/pages_footer'
 class Splash extends React.Component {
     render(){
         return(
@@ -66,6 +67,7 @@ class Splash extends React.Component {
 
                 <div className="moon-highlight">
                     <div className="space-image">
+                        <img src="" alt=""/>
                         <div className="detail-container">
                             <h3>MEET THE PEQUENINOS ON TITAN</h3>
                             <p>Ender gives tours of the tree creatures</p>
@@ -113,18 +115,7 @@ class Splash extends React.Component {
                     </div>
                 </div>
             </div>
-                <footer >
-
-                    <div className="footer-container">
-
-
-                        made by michael wideburg with a lot of love and guidance from app academy
-                    <button className="help-button"> ? Help </button>
-
-                    </div>
-
-
-                </footer>
+                <PageFooter />
                 </div>
         )
     }

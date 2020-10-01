@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 
 import { getSpot, getHost } from '../../actions/spot_actions'
+import { openModal, closeModal } from '../../actions/modal_actions'
 // import getSpots from '../../actions/spot_actions'
 import SpotShow from "./spot_show";
 
@@ -21,7 +22,9 @@ const mapDTP = dispatch => {
     // debugger
     return {
         getSpot: (spotId) => dispatch(getSpot(spotId)),
-        getHost: (hostId) => dispatch(getHost(hostId))
+        getHost: (hostId) => dispatch(getHost(hostId)),
+        openModal: (ModalType) => dispatch(openModal(ModalType)),
+        
     }
 }
 

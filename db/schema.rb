@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_30_160408) do
+ActiveRecord::Schema.define(version: 2020_10_01_125816) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,8 @@ ActiveRecord::Schema.define(version: 2020_09_30_160408) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "spot_id"
+    t.text "description"
+    t.string "icon"
     t.index ["spot_id"], name: "index_activities_on_spot_id"
   end
 
@@ -56,6 +58,18 @@ ActiveRecord::Schema.define(version: 2020_09_30_160408) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "title"
+  end
+
+  create_table "spot_activities", force: :cascade do |t|
+    t.integer "spot_id"
+    t.integer "activity_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "spot_amenities", force: :cascade do |t|
+    t.integer "amenity_id"
+    t.integer "spot_id"
   end
 
   create_table "spots", force: :cascade do |t|

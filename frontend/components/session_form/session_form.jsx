@@ -42,7 +42,7 @@ class SessionForm extends React.Component {
         return (
             
             
-                <>
+                <div className="login-form-container ">
                 <form onSubmit={this.handleSubmit} className="login-form-box signup-placeholder">
                    
                     <br/>
@@ -89,7 +89,7 @@ class SessionForm extends React.Component {
                     </div>       
                     
                 </form>
-                </>
+                </div>
             
             
         );

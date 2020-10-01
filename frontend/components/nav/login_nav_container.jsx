@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { openModal } from '../../actions/modal_actions';
 // import { SHOW_MODAL, HIDE_MODAL } from '../../actions/modal_actions'
 
@@ -57,8 +57,9 @@ const navContainer = ({ currentUser, demo, logout, openModal }) => {
                 </nav>
             )
         }
-    
-
+  
+      
+        
         return (
             <>
             <header className="navbar unfixed">
@@ -67,10 +68,11 @@ const navContainer = ({ currentUser, demo, logout, openModal }) => {
                     <h2 >Moon Camp</h2>
                 </Link>
             <div className="search-nav-bar unfixed">
-                <form action="">
+                    <form >
                         
                         <i className="fa fa-search"></i>
                         <input type="search" className="search-nav-form" placeholder="Moon, jups..."/>
+                        
                 </form>
             </div>
             {navbar}

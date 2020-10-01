@@ -3,6 +3,11 @@ import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import HostDetail from './host_details'
 import CampsiteInfo from './campsite_info'
+import TerrainContainer from './terrain_icons'
+import CategoryActivityContainer from './spot_instructions'
+import SpotActivityIcons from './spot_activity_icons'
+import PageFooter from '../footer/pages_footer'
+import ReviewsContinaer from './reviews_container'
 
 class SpotShow extends React.Component {
     constructor(props){
@@ -10,14 +15,14 @@ class SpotShow extends React.Component {
         this.state = {
             host:{}
         }
-        debugger
+        // debugger
         
     }
 
     componentDidMount(){
         // debugger
         this.props.getSpot(this.props.match.params.spotId).then(spot => {
-            debugger
+            // debugger
             this.props.getHost(spot.spot.spot.host_id)
         })
         
@@ -40,56 +45,29 @@ class SpotShow extends React.Component {
         if(!this.props.spot){
             return null
         }
-       
+        const photos = this.props.spot.photoUrls
         const spot = this.props.spot
-        
+        const openModal = (photos) => this.props.openModal('gallery', photos)
         // debugger
-        const photo = spot.photoUrls[0]
+        
         return (
             <div className="show-wrapper">
                    <div className="show-img-container">
-                       <div className="galery-container">
-                    <img src={photo} alt="" className="show-img-full"/>
+                       
+                        <div className="galery-container" onClick={() => openModal('gallery')}>
 
-                       </div>
+                            <img src={photos[0]} alt="" className="show-img-full" />
 
-                    </div>
-                    <div className="price-show-container">
-
-                        <div className="price-title">
-                            <h2> ${spot.price}</h2>
-                            
-                                per night
-                            </div>
-                        <div className="instant-book">
-                            <div className="dates-guests">
-                                <button className="instant-book-btn"> 
-                                <h3>
-                                Check In
-                                </h3>
-                                <br/>
-                                Select Dates
-                                </button>
-                                <button className="instant-book-btn"> Check Out</button>
-                                <button className=" instant-book-btn"> Guests</button>
-
-                            </div>
-                        </div>
-                        <div className="instant-book">
-                            <div className="dates-guests">
-                                <button className="btn-search instant"> Instant Book</button>
-
-
-                            </div>
                         </div>
                     </div>
+                  
                    
 
 
 
                 <div className="showpage-columns">
                     <div className="wrapper-1000">
-                        <div className="wrapper-600">
+                    <div className="wrapper-600">
                             
                             
                          
@@ -117,21 +95,66 @@ class SpotShow extends React.Component {
                     <HostDetail host={this.props.host} spot={this.props.spot}/>
                     <CampsiteInfo host={this.props.host} spot={this.props.spot}/>
                     
+                        
+                    <SpotActivityIcons spot={this.props.spot} />
+                      
+                    <TerrainContainer spot={this.props.spot} />
+                    <ReviewsContinaer spot={this.props.spot} />
+                    
+                    
                     </div>  
                     
 
-                    <div className="column-filler">
+                        <div className="column-filler">
+                            <div className="price-show-container">
 
+                                <div className="price-title">
+                                    <h2> ${spot.price}</h2>
+
+                                per night
+                            </div>
+                                <div className="instant-book">
+                                    <div className="dates-guests">
+                                        <button className="instant-book-btn">
+                                            <h3>
+                                                Check In
+                                </h3>
+                                            <br />
+                                Select Dates
+                                </button>
+                                        <button className="instant-book-btn">
+
+                                            <h3>  Check Out  </h3>
+                                            <br />
+                                Select Dates
+
+                                </button>
+                                        <button className=" instant-book-btn"> Guests
+                                <br />
+                                        </button>
+
+                                    </div>
+                                </div>
+                                <div className="instant-book">
+                                    <div className="dates-guests">
+                                        <button className="btn-search instant"> Instant Book</button>
+
+
+                                    </div>
+                                </div>
+                            </div>
                            
-                    </div>
+                        </div>
+
+                        
                     </div>
 
-                    
+                   
                     
                 </div>
                 
 
-                   
+                <PageFooter spot={this.props.spot} />
             </div>
         )
     }

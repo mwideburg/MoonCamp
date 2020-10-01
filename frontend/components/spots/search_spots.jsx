@@ -31,7 +31,21 @@ const SearchSpots = ( {spots, updateBounds, updateSpots} ) => {
 
 
             </div>
+                
             </div>
+                <footer className="stick-bottom">
+
+                    <div className="footer-container">
+
+
+                        made by michael wideburg with a lot of love and guidance from app academy
+                    <button className="help-button"> ? Help </button>
+
+                    </div>
+
+
+                </footer>
+
 
             </>
             )

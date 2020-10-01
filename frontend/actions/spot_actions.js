@@ -28,7 +28,7 @@ export const recieveHost = (host) => {
 
 
 export const getSpots = (bounds) => dispatch => {
-    debugger
+    // debugger
     return (
         
         APIUtil.filterSpots(bounds).then(spots => (
@@ -37,7 +37,7 @@ export const getSpots = (bounds) => dispatch => {
     )
 };
 export const getHost = (hostId) => dispatch => {
-    debugger
+    // debugger
     return (
         
         APIUtil.getHost(hostId).then(host => (

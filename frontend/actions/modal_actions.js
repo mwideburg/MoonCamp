@@ -6,11 +6,12 @@ export const SWITCH_LOGIN = 'SWITCH_LOGIN'
 export const SWITCH_SIGNUP = 'SWITCH_SIGNUP'
 
 
-export const openModal = (modalType) => {
-    // debugger
+export const openModal = (modalType, photos = []) => {
+    debugger
     return{
     type: OPEN_MODAL,
-    modalType
+    modalType,
+    photos: photos
     }
 }
 export const switchLogin = (modalType) => {
@@ -27,6 +28,7 @@ export const switchSignup = (modalType) => {
     modalType
     }
 }
+
 
 export const closeModal = () => {
     return {

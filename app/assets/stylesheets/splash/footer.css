@@ -49,3 +49,37 @@ footer{
     outline: none;
     
 }
+
+.covid{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 400px;
+    background-color: rgb(199, 175, 131);
+}
+
+.warning{
+    padding: 20px;
+    background-color: rgb(204, 204, 204);
+    border-radius: 5px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.warning button{
+    height: 30px;
+    border: black 1px solid;
+    margin: 20px;
+    border-radius: 25px;
+    width: 100px;
+    background-color: black;
+    color: white;
+    transition: .25s;
+    transition-timing-function: ease-in-out;
+}
+.warning button:hover{
+    color: black;
+    background-color: lightgray;
+    cursor: pointer;
+}

@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { CSSTransitionGroup } from 'react-transition-group'// ES6
 import LoginFormContainer from '../session_form/login_form_container';
 import SignupFormContainer from '../session_form/signup_form_container';
+import GalleryContainer from '../spots/gallery_show_container';
 import SignupSplashContainer from '../session_form/signup_page_container';
 
 function Modal(modalType, closeModal){
@@ -43,11 +44,19 @@ function Modal(modalType, closeModal){
             // debugger
             noClick = ""
             component = <SignupFormContainer/>
+            
             // background = "switch-background"
 
             // noClick = modalType.closeModal
             // modalChild = "modal-child"
             // button = "show-logout-button"
+            break;
+        case 'gallery':
+            // debugger
+            background = "can-he-do-it blackish-modal"
+            noClick = modalType.closeModal
+            modalChild = "gallery-modal-child"
+            component = <GalleryContainer />
             break;
         default:
             background = "modal"
@@ -75,11 +84,12 @@ function Modal(modalType, closeModal){
             transitionEnter={false}
             transitionLeave={true}
             transitionLeaveTimeout={500}>
+        
         <div className={modalChild} onClick={e => e.stopPropagation()}>
-            <div className="login-form-container ">
+            
             {component}
 
-            </div>
+            
         </div>
         </CSSTransitionGroup>
         </div>

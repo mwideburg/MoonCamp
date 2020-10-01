@@ -48,6 +48,7 @@ class SignUpForm extends React.Component {
         // debugger
         let buttonType = (this.props.modalType === 'switch_signup') ? this.props.otherButton: (<a onClick={this.props.closeModal} className="modal-close">X</a>)
         return (
+            <div className="login-form-container ">
             <div>
                 {/* {buttonType} */}
                 
@@ -139,7 +140,7 @@ class SignUpForm extends React.Component {
                 </form>
             </div>
             </div>
-            
+            </div>
         );
     }
 }

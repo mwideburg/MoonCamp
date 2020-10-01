@@ -378,7 +378,7 @@ header{
 }
 
 .img-contain{
-    object-fit:cover;
+    object-fit:contain;
 }
 
 .unfixed{
@@ -414,4 +414,37 @@ header{
     height: 38px;
     background-color: white;
     border: 2px rgb(43, 206, 152) solid;
+}
+
+
+#picard-img{
+    background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url('https://miro.medium.com/max/2262/1*ekbjEK4WrhaU5jCO-I9QTw.jpeg');
+    background-size: cover;
+    background-position-x: -200px;
+}
+
+#rover-img{
+    background:linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('https://upload.wikimedia.org/wikipedia/commons/e/ed/Apollo15LunarRover.jpg');
+    background-size: cover;
+    background-position-x: -200px;
+}
+#golf-img{
+    background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url('https://i.ytimg.com/vi/GtI9krmKQ7E/maxresdefault.jpg');
+    background-size: cover;
+    background-position-x: -400px;
+    
+}
+
+#jupiter{
+    background: url('https://www.universetoday.com/wp-content/uploads/2019/06/pia22949.jpg');
+    background-size: cover;
+}
+#europa{
+    background: url('https://upload.wikimedia.org/wikipedia/commons/e/e4/Europa-moon-with-margins.jpg');
+    background-size: cover;
+}
+#earth{
+    background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url('https://cdn.mos.cms.futurecdn.net/yyvvM9kwaVGySFE6aXXoJL.jpg');
+    background-size: cover;
+    background-position-x: -30px;
 }

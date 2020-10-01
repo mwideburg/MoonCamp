@@ -267,16 +267,45 @@ ender.photo.attach(io: host_img5, filename: 'ender_speaker.jpg')
 robot.photo.attach(io: host_img7, filename: 'robot.png.jpg')
 
 
-moonGolf = Activity.create(name: "Moon Golf")
-jetPacks = Activity.create(name: "Jet Packs")
-roverRides = Activity.create(name: "Rover Rides")
-astro = Activity.create(name: "Astro Baseball")
-starWatch = Activity.create(name: "Star Watches")
-spelunking = Activity.create(name: "Spelunking")
-floating = Activity.create(name: "Floating")
-holodeck = Activity.create(name: "Holodeck")
-tea = Activity.create(name: "Tea with Picard")
-food = Activity.create(name: "Klingon Meal")
+moonGolf = Activity.create(name: "Moon Golf", icon:"faUserAstronaut", description:"Wanna drive like tiger, well then you need to play golf on low gravity, like this here moon.")
+jetPacks = Activity.create(name: "Jet Packs", icon:"faUserAstronaut", description:"You thought they were a part of the future, well they aren't, don't be crazy")
+roverRides = Activity.create(name: "Rover Rides", icon:"faUserAstronaut", description:"Niel! Bring the rover over I wanna try and jump that crater")
+astro = Activity.create(name: "Astro Baseball", icon:"faUserAstronaut", description:"These guys are the AAA of earth, but they can hit further because, you know, were on a moon")
+starWatch = Activity.create(name: "Star Watches", icon:"faUserAstronaut", description:"These skies, these skies, are ours to behold, and ours to be held, they hold everything, and we can watch them")
+spelunking = Activity.create(name: "Spelunking", icon:"faUserAstronaut", description:"CAVES! ON! A! MOON! Are you kidding me, so many cool things down here.")
+floating = Activity.create(name: "Floating", icon:"faUserAstronaut", description: "Sick of standing, then just float... in space")
+holodeck = Activity.create(name: "Holodeck", icon:"faUserAstronaut", description:"Holodeck fun time, you choose you come you play you win, anything you want, only the best for you")
+tea = Activity.create(name: "Tea with Picard", icon:"faUserAstronaut", description:"Earl gray, hot! Take it easy with the on and only Captain Jean-luc Picard of the Starship Enterprise")
+food = Activity.create(name: "Klingon Meal", icon:"faUserAstronaut", description:"Are you gonna be a weakling or be like Riker and suck it up and just eat the worms to save face")
+
+
+
+icon1 = File.open('app/assets/images/icons/golf.png')
+icon2 = File.open('app/assets/images/icons/jetpack.png')
+icon3 = File.open('app/assets/images/icons/moon-rover.png')
+icon4 = File.open('app/assets/images/icons/telescope.png')
+icon5 = File.open('app/assets/images/icons/vr.png')
+icon6 = File.open('app/assets/images/icons/tea.png')
+icon7 = File.open('app/assets/images/icons/food.png')
+icon8 = File.open('app/assets/images/icons/launched-rocket.png')
+icon9 = File.open('app/assets/images/icons/launched-rocket.png')
+icon10 = File.open('app/assets/images/icons/launched-rocket.png')
+icon11 = File.open('app/assets/images/icons/launched-rocket.png')
+
+moonGolf.photo.attach(io: icon1, filename: 'golf.png')
+jetPacks.photo.attach(io: icon2, filename: 'jetpack.png')
+roverRides.photo.attach(io: icon3, filename: 'moon-rover.png')
+astro.photo.attach(io: icon8, filename: 'launched-rocket.png')
+starWatch.photo.attach(io: icon4, filename: 'telescope.png')
+spelunking.photo.attach(io: icon9, filename: 'launched-rocket.png')
+spelunking.photo.attach(io: icon10, filename: 'launched-rocket.png')
+floating.photo.attach(io: icon11, filename: 'launched-rocket.png')
+holodeck.photo.attach(io: icon5, filename: 'vr.png')
+tea.photo.attach(io: icon6, filename: 'tea.png')
+food.photo.attach(io: icon7, filename: 'food.png')
+
+
+
 
 holo = Amenity.create(name: "Holodeck")
 phasers = Amenity.create(name: "Phasers")
@@ -290,47 +319,279 @@ hotdogs = Amenity.create(name: "Hot Dogs")
 bed = Amenity.create(name: "Bed")
 
 
-moon1.amenities = [holo, spacesuits, oxygen, hotdogs]
-moon1.activities = [moonGolf, jetPacks, starWatch, floating]
+amen1 = File.open('app/assets/images/icons/vr.png')
+amen2 = File.open('app/assets/images/icons/phaser.ico')
+amen3 = File.open('app/assets/images/icons/astronaut.png')
+amen4 = File.open('app/assets/images/icons/02.png')
+amen5 = File.open('app/assets/images/icons/water.png')
+amen6 = File.open('app/assets/images/icons/telescope.png')
+amen7 = File.open('app/assets/images/icons/launched-rocket.png')
+amen8 = File.open('app/assets/images/icons/toothpaste.png')
+amen9 = File.open('app/assets/images/icons/hotdog.png')
+amen10 = File.open('app/assets/images/icons/bed.png')
 
-moon2.amenities = [oxygen.id, spacesuits.id, water.id, spaceship.id, bed.id]
-moon2.activities = [moonGolf.id, jetPacks.id, starWatch.id, floating.id, tea.id]
+holo.photo.attach(io: amen1, filename: 'vr.png')
+phasers.photo.attach(io: amen2, filename: 'phaser.png')
+spacesuits.photo.attach(io: amen3, filename: 'astronaut.png')
+oxygen.photo.attach(io: amen4, filename: '02.png')
+water.photo.attach(io: amen5, filename: 'water.png')
+telescope.photo.attach(io: amen6, filename: 'telescope.png')
+spaceship.photo.attach(io: amen7, filename: 'launched-rocket.png')
+toothpaste.photo.attach(io: amen8, filename: 'toothpaste.png')
+hotdogs.photo.attach(io: amen9, filename: 'hotdog.png')
+bed.photo.attach(io: amen10, filename: 'bed.png')
+
+SpotActivity.create(spot_id: moon2.id, activity_id: jetPacks.id)
+SpotActivity.create(spot_id: moon2.id, activity_id: roverRides.id)
+SpotActivity.create(spot_id: moon2.id, activity_id: tea.id)
+SpotActivity.create(spot_id: moon2.id, activity_id: holodeck.id)
+SpotActivity.create(spot_id: moon2.id, activity_id: astro.id)
+SpotActivity.create(spot_id: moon2.id, activity_id: starWatch.id)
+
+SpotActivity.create(spot_id: moon3.id, activity_id: jetPacks.id)
+SpotActivity.create(spot_id: moon3.id, activity_id: roverRides.id)
+SpotActivity.create(spot_id: moon3.id, activity_id: food.id)
+SpotActivity.create(spot_id: moon3.id, activity_id: holodeck.id)
+SpotActivity.create(spot_id: moon3.id, activity_id: moonGolf.id)
+SpotActivity.create(spot_id: moon3.id, activity_id: starWatch.id)
+
+SpotActivity.create(spot_id: moon4.id, activity_id: jetPacks.id)
+SpotActivity.create(spot_id: moon4.id, activity_id: spelunking.id)
+SpotActivity.create(spot_id: moon4.id, activity_id: food.id)
+SpotActivity.create(spot_id: moon4.id, activity_id: holodeck.id)
+SpotActivity.create(spot_id: moon4.id, activity_id: starWatch.id)
+
+SpotActivity.create(spot_id: moon5.id, activity_id: jetPacks.id)
+SpotActivity.create(spot_id: moon5.id, activity_id: roverRides.id)
+SpotActivity.create(spot_id: moon5.id, activity_id: moonGolf.id)
+SpotActivity.create(spot_id: moon5.id, activity_id: holodeck.id)
+SpotActivity.create(spot_id: moon5.id, activity_id: food.id)
+SpotActivity.create(spot_id: moon5.id, activity_id: starWatch.id)
+
+SpotActivity.create(spot_id: moon6.id, activity_id: jetPacks.id)
+SpotActivity.create(spot_id: moon6.id, activity_id: roverRides.id)
+SpotActivity.create(spot_id: moon6.id, activity_id: food.id)
+SpotActivity.create(spot_id: moon6.id, activity_id: moonGolf.id)
+SpotActivity.create(spot_id: moon6.id, activity_id: starWatch.id)
+
+SpotActivity.create(spot_id: moon7.id, activity_id: jetPacks.id)
+SpotActivity.create(spot_id: moon7.id, activity_id: moonGolf.id)
+SpotActivity.create(spot_id: moon7.id, activity_id: tea.id)
+SpotActivity.create(spot_id: moon7.id, activity_id: food.id)
+SpotActivity.create(spot_id: moon7.id, activity_id: starWatch.id)
+SpotActivity.create(spot_id: moon7.id, activity_id: spelunking.id)
 
 
-moon3.activities = [tea.id, jetPacks.id, astro.id]
-moon3.amenities = [spacesuits.id, bed.id, toothpaste.id]
+SpotActivity.create(spot_id: moon8.id, activity_id: jetPacks.id)
+SpotActivity.create(spot_id: moon8.id, activity_id: holodeck.id)
+SpotActivity.create(spot_id: moon8.id, activity_id: tea.id)
+SpotActivity.create(spot_id: moon8.id, activity_id: food.id)
+SpotActivity.create(spot_id: moon8.id, activity_id: roverRides.id)
+SpotActivity.create(spot_id: moon8.id, activity_id: astro.id)
+SpotActivity.create(spot_id: moon8.id, activity_id: floating.id)
+SpotActivity.create(spot_id: moon8.id, activity_id: spelunking.id)
+SpotActivity.create(spot_id: moon8.id, activity_id: starWatch.id)
+
+SpotActivity.create(spot_id: moon9.id, activity_id: jetPacks.id)
+SpotActivity.create(spot_id: moon9.id, activity_id: holodeck.id)
+SpotActivity.create(spot_id: moon9.id, activity_id: tea.id)
+SpotActivity.create(spot_id: moon9.id, activity_id: astro.id)
+SpotActivity.create(spot_id: moon9.id, activity_id: spelunking.id)
+SpotActivity.create(spot_id: moon9.id, activity_id: floating.id)
+
+SpotActivity.create(spot_id: moon10.id, activity_id: jetPacks.id)
+SpotActivity.create(spot_id: moon10.id, activity_id: starWatch.id)
+SpotActivity.create(spot_id: moon10.id, activity_id: tea.id)
+SpotActivity.create(spot_id: moon10.id, activity_id: astro.id)
+SpotActivity.create(spot_id: moon10.id, activity_id: floating.id)
+SpotActivity.create(spot_id: moon10.id, activity_id: spelunking.id)
+
+SpotActivity.create(spot_id: moon11.id, activity_id: spelunking.id)
+SpotActivity.create(spot_id: moon11.id, activity_id: food.id)
+SpotActivity.create(spot_id: moon11.id, activity_id: floating.id)
+SpotActivity.create(spot_id: moon11.id, activity_id: tea.id)
+SpotActivity.create(spot_id: moon11.id, activity_id: astro.id)
+SpotActivity.create(spot_id: moon11.id, activity_id: holo.id)
+
+SpotActivity.create(spot_id: moon12.id, activity_id: spelunking.id)
+SpotActivity.create(spot_id: moon12.id, activity_id: food.id)
+SpotActivity.create(spot_id: moon12.id, activity_id: tea.id)
+SpotActivity.create(spot_id: moon12.id, activity_id: starWatch.id)
+SpotActivity.create(spot_id: moon12.id, activity_id: holodeck.id)
+SpotActivity.create(spot_id: moon12.id, activity_id: floating.id)
+
+SpotActivity.create(spot_id: moon13.id, activity_id: spelunking.id)
+SpotActivity.create(spot_id: moon13.id, activity_id: food.id)
+SpotActivity.create(spot_id: moon13.id, activity_id: roverRides.id)
+SpotActivity.create(spot_id: moon13.id, activity_id: floating.id)
+SpotActivity.create(spot_id: moon13.id, activity_id: starWatch.id)
+
+SpotActivity.create(spot_id: moon14.id, activity_id: spelunking.id)
+SpotActivity.create(spot_id: moon14.id, activity_id: holodeck.id)
+SpotActivity.create(spot_id: moon14.id, activity_id: tea.id)
+SpotActivity.create(spot_id: moon14.id, activity_id: astro.id)
+SpotActivity.create(spot_id: moon14.id, activity_id: jetPacks.id)
 
 
-moon4.activities = [holodeck.id, jetPacks.id, food.id, floating.id]
-moon4.amenities = [spacesuits.id, phasers.id, water.id, holo.id]
+# AMENS --------
 
-moon5.activities = [holodeck.id, jetPacks.id, food.id, floating.id]
-moon5.amenities = [spacesuits.id, phasers.id, water.id, holo.id]
+SpotAmenity.create(spot_id: moon2.id, amenity_id: holo.id)
+SpotAmenity.create(spot_id: moon2.id, amenity_id: phasers.id)
+SpotAmenity.create(spot_id: moon2.id, amenity_id: water.id)
+SpotAmenity.create(spot_id: moon2.id, amenity_id: oxygen.id)
+SpotAmenity.create(spot_id: moon2.id, amenity_id: spaceship.id)
+SpotAmenity.create(spot_id: moon2.id, amenity_id: toothpaste.id)
+
+SpotAmenity.create(spot_id: moon3.id, amenity_id: holo.id)
+SpotAmenity.create(spot_id: moon3.id, amenity_id: phasers.id)
+SpotAmenity.create(spot_id: moon3.id, amenity_id: hotdogs.id)
+SpotAmenity.create(spot_id: moon3.id, amenity_id: oxygen.id)
+SpotAmenity.create(spot_id: moon3.id, amenity_id: bed.id)
+SpotAmenity.create(spot_id: moon3.id, amenity_id: toothpaste.id)
+
+SpotAmenity.create(spot_id: moon4.id, amenity_id: holo.id)
+SpotAmenity.create(spot_id: moon4.id, amenity_id: spelunking.id)
+SpotAmenity.create(spot_id: moon4.id, amenity_id: hotdogs.id)
+SpotAmenity.create(spot_id: moon4.id, amenity_id: oxygen.id)
+SpotAmenity.create(spot_id: moon4.id, amenity_id: toothpaste.id)
+
+SpotAmenity.create(spot_id: moon5.id, amenity_id: holo.id)
+SpotAmenity.create(spot_id: moon5.id, amenity_id: phasers.id)
+SpotAmenity.create(spot_id: moon5.id, amenity_id: bed.id)
+SpotAmenity.create(spot_id: moon5.id, amenity_id: oxygen.id)
+SpotAmenity.create(spot_id: moon5.id, amenity_id: hotdogs.id)
+SpotAmenity.create(spot_id: moon5.id, amenity_id: toothpaste.id)
+
+SpotAmenity.create(spot_id: moon6.id, amenity_id: holo.id)
+SpotAmenity.create(spot_id: moon6.id, amenity_id: phasers.id)
+SpotAmenity.create(spot_id: moon6.id, amenity_id: hotdogs.id)
+SpotAmenity.create(spot_id: moon6.id, amenity_id: bed.id)
+SpotAmenity.create(spot_id: moon6.id, amenity_id: toothpaste.id)
+
+SpotAmenity.create(spot_id: moon7.id, amenity_id: holo.id)
+SpotAmenity.create(spot_id: moon7.id, amenity_id: bed.id)
+SpotAmenity.create(spot_id: moon7.id, amenity_id: water.id)
+SpotAmenity.create(spot_id: moon7.id, amenity_id: hotdogs.id)
+SpotAmenity.create(spot_id: moon7.id, amenity_id: toothpaste.id)
+SpotAmenity.create(spot_id: moon7.id, amenity_id: spacesuits.id)
 
 
-moon6.activities = [holodeck.id, jetPacks.id, food.id, floating.id]
-moon6.amenities = [spacesuits.id, phasers.id, water.id, holo.id, spaceship.id]
+SpotAmenity.create(spot_id: moon8.id, amenity_id: holo.id)
+SpotAmenity.create(spot_id: moon8.id, amenity_id: oxygen.id)
+SpotAmenity.create(spot_id: moon8.id, amenity_id: water.id)
+SpotAmenity.create(spot_id: moon8.id, amenity_id: hotdogs.id)
+SpotAmenity.create(spot_id: moon8.id, amenity_id: spaceship.id)
+SpotAmenity.create(spot_id: moon8.id, amenity_id: telescope.id)
+SpotAmenity.create(spot_id: moon8.id, amenity_id: spacesuits.id)
+SpotAmenity.create(spot_id: moon8.id, amenity_id: toothpaste.id)
 
-moon7.activities = [holodeck.id, jetPacks.id, floating.id]
-moon7.amenities = [spacesuits.id, phasers.id, water.id, holo.id]
+SpotAmenity.create(spot_id: moon9.id, amenity_id: holo.id)
+SpotAmenity.create(spot_id: moon9.id, amenity_id: oxygen.id)
+SpotAmenity.create(spot_id: moon9.id, amenity_id: water.id)
+SpotAmenity.create(spot_id: moon9.id, amenity_id: spaceship.id)
+SpotAmenity.create(spot_id: moon9.id, amenity_id: spacesuits.id)
+SpotAmenity.create(spot_id: moon9.id, amenity_id: telescope.id)
 
-moon8.activities = [holodeck.id, jetPacks.id, floating.id]
-moon8.amenities = [spacesuits.id, phasers.id, water.id, holo.id]
+SpotAmenity.create(spot_id: moon10.id, amenity_id: holo.id)
+SpotAmenity.create(spot_id: moon10.id, amenity_id: toothpaste.id)
+SpotAmenity.create(spot_id: moon10.id, amenity_id: water.id)
+SpotAmenity.create(spot_id: moon10.id, amenity_id: spaceship.id)
+SpotAmenity.create(spot_id: moon10.id, amenity_id: telescope.id)
+SpotAmenity.create(spot_id: moon10.id, amenity_id: spacesuits.id)
 
-moon9.activities = [holodeck.id, jetPacks.id, food.id, floating.id]
-moon9.amenities = [spacesuits.id, phasers.id, water.id, holo.id, spaceship.id]
+SpotAmenity.create(spot_id: moon11.id, amenity_id: spacesuits.id)
+SpotAmenity.create(spot_id: moon11.id, amenity_id: hotdogs.id)
+SpotAmenity.create(spot_id: moon11.id, amenity_id: telescope.id)
+SpotAmenity.create(spot_id: moon11.id, amenity_id: water.id)
+SpotAmenity.create(spot_id: moon11.id, amenity_id: spaceship.id)
+SpotAmenity.create(spot_id: moon11.id, amenity_id: holo.id)
 
-moon10.activities = [holodeck.id, jetPacks.id, floating.id, astro.id]
-moon10.amenities = [spacesuits.id, phasers.id, water.id, holo.id, hotdogs.id]
+SpotAmenity.create(spot_id: moon12.id, amenity_id: spacesuits.id)
+SpotAmenity.create(spot_id: moon12.id, amenity_id: hotdogs.id)
+SpotAmenity.create(spot_id: moon12.id, amenity_id: water.id)
+SpotAmenity.create(spot_id: moon12.id, amenity_id: toothpaste.id)
+SpotAmenity.create(spot_id: moon12.id, amenity_id: oxygen.id)
+SpotAmenity.create(spot_id: moon12.id, amenity_id: telescope.id)
 
-moon11.activities = [holodeck.id, jetPacks.id, floating.id, astro.id]
-moon11.amenities = [spacesuits.id, phasers.id, water.id, holo.id, spaceship.id, hotdog.id,toothpaste.id]
+SpotAmenity.create(spot_id: moon13.id, amenity_id: spacesuits.id)
+SpotAmenity.create(spot_id: moon13.id, amenity_id: hotdogs.id)
+SpotAmenity.create(spot_id: moon13.id, amenity_id: phasers.id)
+SpotAmenity.create(spot_id: moon13.id, amenity_id: telescope.id)
+SpotAmenity.create(spot_id: moon13.id, amenity_id: toothpaste.id)
 
-moon12.activities = [holodeck.id, jetPacks.id, food.id, floating.id]
-moon12.amenities = [spacesuits.id, phasers.id, water.id, holo.id]
+SpotAmenity.create(spot_id: moon14.id, amenity_id: spacesuits.id)
+SpotAmenity.create(spot_id: moon14.id, amenity_id: oxygen.id)
+SpotAmenity.create(spot_id: moon14.id, amenity_id: water.id)
+SpotAmenity.create(spot_id: moon14.id, amenity_id: spaceship.id)
+SpotAmenity.create(spot_id: moon14.id, amenity_id: holo.id)
 
-moon13.activities = [tea.id, jetPacks.id, astro.id]
-moon13.amenities = [spacesuits.id, phasers.id, water.id, holo.id]
+# holo = Amenity.create(name: "Holodeck")
+# phasers = Amenity.create(name: "Phasers")
+# spacesuits = Amenity.create(name: "Space suits")
+# oxygen = Amenity.create(name: "Oxygen")
+# water = Amenity.create(name: "Water")
+# telescope = Amenity.create(name: "Telescope")
+# spaceship = Amenity.create(name: "Spaceship")
+# toothpaste = Amenity.create(name: "Toothpaste")
+# hotdogs = Amenity.create(name: "Hot Dogs")
+# bed = Amenity.create(name: "Bed")
 
-moon14.activities = [holodeck.id, jetPacks.id, food.id, floating.id]
-moon14.amenities = [spacesuits.id, phasers.id, water.id, holo.id]
+
+
+join1 = SpotActivity.create(spot_id: moon1.id, activity_id: moonGolf.id)
+join2 = SpotActivity.create(spot_id: moon1.id, activity_id: roverRides.id)
+join3 = SpotActivity.create(spot_id: moon1.id, activity_id: astro.id)
+join4 = SpotActivity.create(spot_id: moon1.id, activity_id: moonGolf.id)
+join5 = SpotActivity.create(spot_id: moon1.id, activity_id: holodeck.id)
+
+join6 = SpotAmenity.create(spot_id: moon1.id, amenity_id: holo.id)
+join7 = SpotAmenity.create(spot_id: moon1.id, amenity_id: phasers.id)
+join8 = SpotAmenity.create(spot_id: moon1.id, amenity_id: spacesuits.id)
+join9 = SpotAmenity.create(spot_id: moon1.id, amenity_id: telescope.id)
+join10 = SpotAmenity.create(spot_id: moon1.id, amenity_id: hotdogs.id)
+
+
+
+
+SpotActivity.create(spot_id: moon2.id, activity_id: moonGolf.id)
+# moon2.amenities = [oxygen.id, spacesuits.id, water.id, spaceship.id, bed.id]
+# moon2.activities = [moonGolf.id, jetPacks.id, starWatch.id, floating.id, water.id]
+
+
+# moon3.activities = [tea.id, jetPacks.id, astro.id]
+# moon3.amenities = [spacesuits.id, bed.id, toothpaste.id]
+
+
+# moon4.activities = [holodeck.id, jetPacks.id, hotdogs.id, floating.id]
+# moon4.amenities = [spacesuits.id, phasers.id, water.id, holo.id]
+
+# moon5.activities = [holodeck.id, jetPacks.id, food.id, floating.id]
+# moon5.amenities = [spacesuits.id, phasers.id, water.id, holo.id]
+
+
+# moon6.activities = [holodeck.id, jetPacks.id, food.id, floating.id]
+# moon6.amenities = [spacesuits.id, phasers.id, water.id, holo.id, spaceship.id]
+
+# moon7.activities = [holodeck.id, jetPacks.id, floating.id]
+# moon7.amenities = [spacesuits.id, phasers.id, water.id, holo.id]
+
+# moon8.activities = [holodeck.id, jetPacks.id, floating.id]
+# moon8.amenities = [spacesuits.id, phasers.id, water.id, holo.id]
+
+# moon9.activities = [holodeck.id, jetPacks.id, food.id, floating.id]
+# moon9.amenities = [spacesuits.id, phasers.id, water.id, holo.id, spaceship.id]
+
+# moon10.activities = [holodeck.id, jetPacks.id, floating.id, astro.id]
+# moon10.amenities = [spacesuits.id, phasers.id, water.id, holo.id, hotdogs.id]
+
+# moon11.activities = [holodeck.id, jetPacks.id, floating.id, astro.id]
+# moon11.amenities = [spacesuits.id, phasers.id, water.id, holo.id, spaceship.id, hotdog.id,toothpaste.id]
+
+# moon12.activities = [holodeck.id, jetPacks.id, food.id, floating.id]
+# moon12.amenities = [spacesuits.id, phasers.id, water.id, holo.id]
+
+# moon13.activities = [tea.id, jetPacks.id, astro.id]
+# moon13.amenities = [spacesuits.id, phasers.id, water.id, holo.id]
+
+# moon14.activities = [holodeck.id, jetPacks.id, food.id, floating.id]
+# moon14.amenities = [spacesuits.id, phasers.id, water.id, holo.id]
