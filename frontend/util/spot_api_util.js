@@ -30,7 +30,7 @@ export const filterSpots = (filters) => {
     })
 }
 export const filterAmenSpots = (filters) => {
-    debugger
+    // debugger
     return $.ajax({
         method: 'get',
         url: '/api/spots',

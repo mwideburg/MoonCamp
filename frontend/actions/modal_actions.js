@@ -7,7 +7,7 @@ export const SWITCH_SIGNUP = 'SWITCH_SIGNUP'
 
 
 export const openModal = (modalType, photos = []) => {
-    debugger
+    // debugger
     return{
     type: OPEN_MODAL,
     modalType,

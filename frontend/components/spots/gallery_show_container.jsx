@@ -19,7 +19,7 @@ class GalleryContainer extends React.Component {
         const photos = this.props.spot.photoUrls
         const spot = this.props.spot
 
-        debugger
+        // debugger
 
         return (
             <div className="gallery-img">

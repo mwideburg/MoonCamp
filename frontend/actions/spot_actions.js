@@ -5,7 +5,7 @@ export const RECEIVE_SPOT = 'RECEIVE_SPOT';
 export const RECIEVE_HOST = 'RECIEVE_HOST';
 
 export const recieveSpots = (spots) => {
-    debugger
+    // debugger
     return {
         type: RECEIVE_SPOTS,
         spots

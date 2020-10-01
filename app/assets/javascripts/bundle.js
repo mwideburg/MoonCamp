@@ -140,7 +140,7 @@ var updateSpots = function updateSpots(bounds) {
   };
 };
 function updateSpotsFilters(filter, bounds) {
-  debugger;
+  // debugger
   return function (dispatch, getState) {
     dispatch(updateFilters(filter, bounds));
     return Object(_spot_actions__WEBPACK_IMPORTED_MODULE_1__["filterSpots"])(getState().ui.filters)(dispatch); // delicious curry!
@@ -188,7 +188,7 @@ var SWITCH_LOGIN = 'SWITCH_LOGIN';
 var SWITCH_SIGNUP = 'SWITCH_SIGNUP';
 var openModal = function openModal(modalType) {
   var photos = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
-  debugger;
+  // debugger
   return {
     type: OPEN_MODAL,
     modalType: modalType,
@@ -325,7 +325,7 @@ var RECEIVE_SPOTS = 'RECEIVE_SPOTS';
 var RECEIVE_SPOT = 'RECEIVE_SPOT';
 var RECIEVE_HOST = 'RECIEVE_HOST';
 var recieveSpots = function recieveSpots(spots) {
-  debugger;
+  // debugger
   return {
     type: RECEIVE_SPOTS,
     spots: spots
@@ -2809,8 +2809,8 @@ var GalleryContainer = /*#__PURE__*/function (_React$Component) {
       }
 
       var photos = this.props.spot.photoUrls;
-      var spot = this.props.spot;
-      debugger;
+      var spot = this.props.spot; // debugger
+
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "gallery-img"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
@@ -4865,7 +4865,7 @@ var filterSpots = function filterSpots(filters) {
   });
 };
 var filterAmenSpots = function filterAmenSpots(filters) {
-  debugger;
+  // debugger
   return $.ajax({
     method: 'get',
     url: '/api/spots',

@@ -32,7 +32,7 @@ export const updateSpots = (bounds) => dispatch => {
 }
 
 export function updateSpotsFilters(filter, bounds) {
-    debugger
+    // debugger
     return (dispatch, getState) => {
         dispatch(updateFilters(filter, bounds));
         return filterSpots(getState().ui.filters)(dispatch)
