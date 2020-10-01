@@ -1,3 +1,4 @@
+
 # == Schema Information
 #
 # Table name: spots
@@ -45,7 +46,37 @@ class Spot < ApplicationRecord
         through: :spot_amenities,
         source: :amenity
     
+    def findByAmenities(name)
+        debugger
+        data = QuestionsDatabase.instance.execute(<<-SQL, name)
+        SELECT
+          *
+        FROM
+          spots
+        JOIN
+          amenities ON amenities.spot_id = spots.id
+        WHERE
+          amenities.name = ?
+        SQL
         
+        return data.map{|datum| Spot.new(datum)}
+    end
+
+
+    
+    # def self.find_by_name(fname, lname)
+    #     data=QuestionsDatabase.instance.execute(<<-SQL, fname, lname)
+    #     SELECT 
+    #         *
+    #     FROM
+    #         users
+    #     WHERE
+    #         fname = ? AND lname = ?
+    #     SQL
+    #     User.new(*data)
+    # end
+
+
     
     # has_many :booking_requests,
     #     class_name: :booking,

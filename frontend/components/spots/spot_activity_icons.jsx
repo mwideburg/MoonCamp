@@ -7,11 +7,11 @@ const SpotActivityIcons = (spot) => {
 
     
     let activities = Object.values(spot.spot.activities)
-    debugger
+    // debugger
     const actList = activities.map(act => {
        
         
-        debugger
+        // debugger
         return (
             <div key={act.id} className="activity-descrition">
                 <img src={act.photo} alt="" className="icon-activities"/>

@@ -90,24 +90,45 @@
 /*!********************************************!*\
   !*** ./frontend/actions/filter_actions.js ***!
   \********************************************/
-/*! exports provided: UPDATE_BOUNDS, updateBounds, updateSpots */
+/*! exports provided: UPDATE_BOUNDS, UPDATE_FILTERS, FILTER_SPOTS, updateBounds, updateFilters, recieveFilterSpots, updateSpots, updateSpotsFilters */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UPDATE_BOUNDS", function() { return UPDATE_BOUNDS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UPDATE_FILTERS", function() { return UPDATE_FILTERS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FILTER_SPOTS", function() { return FILTER_SPOTS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateBounds", function() { return updateBounds; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateFilters", function() { return updateFilters; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "recieveFilterSpots", function() { return recieveFilterSpots; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateSpots", function() { return updateSpots; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateSpotsFilters", function() { return updateSpotsFilters; });
 /* harmony import */ var _util_spot_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/spot_api_util */ "./frontend/util/spot_api_util.js");
 /* harmony import */ var _spot_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./spot_actions */ "./frontend/actions/spot_actions.js");
 
 
+
 var UPDATE_BOUNDS = 'UPDATE_BOUNDS';
+var UPDATE_FILTERS = 'UPDATE_FILTERS';
+var FILTER_SPOTS = 'FILTER_SPOTS';
 var updateBounds = function updateBounds(bounds) {
   // debugger
   return {
     type: UPDATE_BOUNDS,
     bounds: bounds
+  };
+};
+var updateFilters = function updateFilters(filter) {
+  // debugger
+  return {
+    type: UPDATE_FILTERS,
+    filter: filter
+  };
+};
+var recieveFilterSpots = function recieveFilterSpots(filter) {
+  return {
+    type: FILTER_SPOTS,
+    filter: filter
   };
 };
 var updateSpots = function updateSpots(bounds) {
@@ -117,7 +138,14 @@ var updateSpots = function updateSpots(bounds) {
       return dispatch(Object(_spot_actions__WEBPACK_IMPORTED_MODULE_1__["recieveSpots"])(spots));
     });
   };
-}; // export const updateFilters = () => {
+};
+function updateSpotsFilters(filter, bounds) {
+  debugger;
+  return function (dispatch, getState) {
+    dispatch(updateFilters(filter, bounds));
+    return Object(_spot_actions__WEBPACK_IMPORTED_MODULE_1__["filterSpots"])(getState().ui.filters)(dispatch); // delicious curry!
+  };
+} // export const updateFilters = () => {
 //     return(dispatch, getState) => {
 //         return dispatch()
 //     }
@@ -276,7 +304,7 @@ var logout = function logout() {
 /*!******************************************!*\
   !*** ./frontend/actions/spot_actions.js ***!
   \******************************************/
-/*! exports provided: RECEIVE_SPOTS, RECEIVE_SPOT, RECIEVE_HOST, recieveSpots, recieveSpot, recieveHost, getSpots, getHost, getSpot */
+/*! exports provided: RECEIVE_SPOTS, RECEIVE_SPOT, RECIEVE_HOST, recieveSpots, recieveSpot, recieveHost, getSpots, filterSpots, getHost, getSpot */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -288,6 +316,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "recieveSpot", function() { return recieveSpot; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "recieveHost", function() { return recieveHost; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getSpots", function() { return getSpots; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "filterSpots", function() { return filterSpots; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getHost", function() { return getHost; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getSpot", function() { return getSpot; });
 /* harmony import */ var _util_spot_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/spot_api_util */ "./frontend/util/spot_api_util.js");
@@ -296,7 +325,7 @@ var RECEIVE_SPOTS = 'RECEIVE_SPOTS';
 var RECEIVE_SPOT = 'RECEIVE_SPOT';
 var RECIEVE_HOST = 'RECIEVE_HOST';
 var recieveSpots = function recieveSpots(spots) {
-  // debugger
+  debugger;
   return {
     type: RECEIVE_SPOTS,
     spots: spots
@@ -320,6 +349,14 @@ var getSpots = function getSpots(bounds) {
   return function (dispatch) {
     // debugger
     return _util_spot_api_util__WEBPACK_IMPORTED_MODULE_0__["filterSpots"](bounds).then(function (spots) {
+      return dispatch(recieveSpots(spots));
+    });
+  };
+};
+var filterSpots = function filterSpots(filter) {
+  return function (dispatch) {
+    // debugger
+    return _util_spot_api_util__WEBPACK_IMPORTED_MODULE_0__["filterAmenSpots"](filter).then(function (spots) {
       return dispatch(recieveSpots(spots));
     });
   };
@@ -1584,13 +1621,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mapStateToProps = function mapStateToProps(state) {
-  return {};
+  return {
+    spots: state.entities.spots
+  };
 };
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-  return function () {
-    return dispatch();
-  };
+  return {};
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(null, null)(_search__WEBPACK_IMPORTED_MODULE_1__["default"]));
@@ -2501,7 +2538,7 @@ __webpack_require__.r(__webpack_exports__);
 var CampsiteInfo = function CampsiteInfo(_ref) {
   var host = _ref.host,
       spot = _ref.spot;
-  debugger;
+  // debugger
   var livePlush = Object.values(spot.amenities);
   var amenList = livePlush.map(function (amen) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
@@ -2512,8 +2549,8 @@ var CampsiteInfo = function CampsiteInfo(_ref) {
       className: "list-icon"
     }), amen.name);
   });
-  var activities = Object.values(spot.activities);
-  debugger;
+  var activities = Object.values(spot.activities); // debugger
+
   var actList = activities.map(function (act) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
       key: act.id
@@ -2550,10 +2587,10 @@ var CampsiteInfo = function CampsiteInfo(_ref) {
 
 /***/ }),
 
-/***/ "./frontend/components/spots/filters_continer.jsx":
-/*!********************************************************!*\
-  !*** ./frontend/components/spots/filters_continer.jsx ***!
-  \********************************************************/
+/***/ "./frontend/components/spots/filters.jsx":
+/*!***********************************************!*\
+  !*** ./frontend/components/spots/filters.jsx ***!
+  \***********************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -2599,22 +2636,62 @@ var FiltersContainer = /*#__PURE__*/function (_React$Component) {
   }
 
   _createClass(FiltersContainer, [{
+    key: "handleClick",
+    value: function handleClick(filter) {
+      var amenity = {
+        amenities: filter
+      };
+      this.props.updateSpotsFilters(amenity);
+    }
+  }, {
     key: "render",
     value: function render() {
+      var _this = this;
+
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         key: "search",
         className: "search-form-container filter-form"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "filter-btn"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        "class": "fab fa-free-code-camp"
-      }), " Dates "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "filter-btn"
-      }, " Earth "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "filter-btn"
-      }, " Lodging "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "filter-btn"
-      }, " Jetpacks "));
+        className: "filter-btn",
+        onClick: function onClick() {
+          return _this.handleClick(285);
+        }
+      }, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAdVBMVEX///8AAADe3t5ERER3d3fW1tYRERHm5ubMzMyqqqru7u4ICAi9vb21tbWcnJwhISFKSkpQUFD19fWDg4M1NTUcHBxVVVU7OzuZmZlcXFyQkJCioqIWFhb39/fw8PBoaGgoKCh/f39ubm4/Pz/Dw8MuLi6RkZGrZy+/AAAEhklEQVR4nO2ba3uyMAyGi6LIwQPgCRVF5/b/f+KL2JRSQmE2bte7q883F21uNE2TtmPMysrKargCP83icZylvoeZPWEO3uL9sHZqrQ9nvZmaIXBDp6nwJvkIbi2zS4pwPDltnY7CPMXMPpn7PEPGfyjLteZLTuM/GXc4cJxd+T2fPzrNH+f+0Qf433U6KKMtSdYa8y4hAIg1DhwnXunN5v4P8njTVeZmKyzkuPmimg+m/ifS/FpFz6jKI/Sx4+j5kXwumcORIUA91iaS/hwtVffLu2ze1NRm/mdioHUz/XpKaO6aecerQ3NmBLCFYQo1sZ0L2X+hTrhAfEWZif8zREA4adlGUnQgv7QIntAkGfjgwUWMbg1wRcw3MJqk5As8BbayiK8Hf8gAzBcDAAglPJRFisLTDUygtQEA5JQv1LoHgAVqhhQ2fd1/Dh7mqDkCc4Sa52B+fVEMYAh8Lk/A3J4iD4kc8npp4uk9jMCMp1vBh1aQFuD/AJjTAOBzqF8TsRIZAjhj/PN6NUp9Q4BmEzFI+aFRWJkClOnw8K10NFcKHnOAsqI6ou/CNGtV+hQA5ap0R9+nykMaHRqAclXtL1GTq9pmUgKU0dhTH+2xLpQQoIzGVBON8wL9TFnzjjHtBpoVFV2JaaK2G2sfHeDbmqtBPcaWd++ivKucNp5DIq81rZ2t+qslqdLwVT8VGQDL1eAK3UY0+gpheKlWMDoAZJNnsxfuo0/lE7B4UAKUk2ar/J1Ho6duANQJixaAsbu6mRGXJk/5ceSUTQ3A2HHTNG081ky8YSpvqgiAi4vpMtAsV0RJ2gyFjDWiP1N6cPg7ZUkW3GSPJya9aBUub6oJJ/K2Ww1QtLvYtxWl0rwTAFiH/caq+NoCwPq7NwJEFsACWIAWwNVva08DsEeGvrYAtCKsilVZgN8HwFuhHwM4MbUd+GGAG/NaZx8/CfA4Zwhuy2mXaAA6h1+6Pcd6v75NZwEEgNn+AAGAmSzA6wBB/+BDZHCZo/Oc/Ds6ve6fXSkAsJ5rsAYtVXqZnFuWmqVibyeWen+x2+KKA9ytZIZNl9BNzQ7PK0EgyN0znKWEjAGfvP0IG4wGZ5YWAAE4BrX8NoAvmY9vAcAkAWCyAH8EYKPxcNLzbUgA1D1mWbH+rpnRFR6hSfczPm73TLp/g+nrlUBDs64be59Vor+ru/2gNcE6wOXNMInnG+nNVn9F0X5en3nOFn7j1Gt0PNbtUeAvXrmxoNfoEeobfpoUPDb8p9LyXJVFcOHt6zEvt0RXekF5IU9sfsQqZln6fP28P8pLBcNSUBWs/1WFC1ektmDl2zzP+htaQtpZCKVndW8Oyo2CG0UDVfmEvIlfMDMFqO71LfiLJTc223SsRLMAFoAOIB4OQDsLYOa5/QBQPNDmgeRZGD4vMOsBOCtNNVZr9iDg99v1AKw6H49J/rlCVuKnC77X0gPARoeUNgBU9QG8XRYAzvw++OucT/2QuAjpVM6bNVES8XsoxDWIRvdp019QtSZr8pnXLc9dZXKuT77iGL+Bb2VlZdWrfzNbRNMAbujAAAAAAElFTkSuQmCC",
+        className: "button-icon"
+      }), "JetPacks "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "filter-btn",
+        onClick: function onClick() {
+          return _this.handleClick(287);
+        }
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTq3gQwuK1OSjedG1uPy8uZ3utVBU35voUFZg&usqp=CAU",
+        className: "button-icon"
+      }), " Holodeck  "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "filter-btn",
+        onClick: function onClick() {
+          return _this.handleClick(282);
+        }
+      }, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: "https://cdn.iconscout.com/icon/free/png-256/igloo-1479433-1252679.png",
+        className: "button-icon"
+      }), "Bio Dome "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "filter-btn",
+        onClick: function onClick() {
+          return _this.handleClick(284);
+        }
+      }, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: "https://cdn.iconscout.com/icon/free/png-256/mars-planet-astrology-solar-system-second-smallestterrestrial-4-20871.png",
+        className: "button-icon"
+      }), "Saturn "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "filter-btn",
+        onClick: function onClick() {
+          return _this.handleClick(288);
+        }
+      }, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: "https://www.shareicon.net/data/256x256/2015/08/25/90723_planet_512x512.png",
+        className: "button-icon"
+      }), "Earth "));
     }
   }]);
 
@@ -2622,6 +2699,48 @@ var FiltersContainer = /*#__PURE__*/function (_React$Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["default"] = (FiltersContainer);
+
+/***/ }),
+
+/***/ "./frontend/components/spots/filters_container.jsx":
+/*!*********************************************************!*\
+  !*** ./frontend/components/spots/filters_container.jsx ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _actions_filter_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/filter_actions */ "./frontend/actions/filter_actions.js");
+/* harmony import */ var _filters__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./filters */ "./frontend/components/spots/filters.jsx");
+
+ // import getSpots from '../../actions/spot_actions'
+
+
+
+var mapSTP = function mapSTP(state) {
+  // debugger
+  return {
+    spots: state.entities.spots
+  };
+};
+
+var mapDTP = function mapDTP(dispatch) {
+  // debugger
+  return {
+    // getSpots: () => dispatch(getSpots()),
+    // updateBounds : (bounds) => dispatch(updateBounds(bounds)),
+    updateSpots: function updateSpots(bounds) {
+      return dispatch(Object(_actions_filter_actions__WEBPACK_IMPORTED_MODULE_1__["updateSpots"])(bounds));
+    },
+    updateSpotsFilters: function updateSpotsFilters(filter) {
+      return dispatch(Object(_actions_filter_actions__WEBPACK_IMPORTED_MODULE_1__["updateSpotsFilters"])(filter));
+    }
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapSTP, mapDTP)(_filters__WEBPACK_IMPORTED_MODULE_2__["default"]));
 
 /***/ }),
 
@@ -3171,8 +3290,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _spot_map__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./spot_map */ "./frontend/components/spots/spot_map.jsx");
 /* harmony import */ var _moon_map__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./moon_map */ "./frontend/components/spots/moon_map.jsx");
-/* harmony import */ var _filters_continer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./filters_continer */ "./frontend/components/spots/filters_continer.jsx");
+/* harmony import */ var _filters_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./filters_container */ "./frontend/components/spots/filters_container.jsx");
 /* harmony import */ var _spots_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./spots_container */ "./frontend/components/spots/spots_container.js");
+/* harmony import */ var _actions_filter_actions__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../actions/filter_actions */ "./frontend/actions/filter_actions.js");
+
 
 
 
@@ -3182,6 +3303,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var SearchSpots = function SearchSpots(_ref) {
   var spots = _ref.spots,
+      updateSpotsFilters = _ref.updateSpotsFilters,
       updateBounds = _ref.updateBounds,
       updateSpots = _ref.updateSpots;
   // debugger
@@ -3189,7 +3311,9 @@ var SearchSpots = function SearchSpots(_ref) {
     className: "splash-container spot-search-index"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "search filter-top"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filters_continer__WEBPACK_IMPORTED_MODULE_4__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filters_container__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    updateSpotsFilter: updateSpotsFilters
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "spots-search-wrapper"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "spots-search-container"
@@ -3208,6 +3332,26 @@ var SearchSpots = function SearchSpots(_ref) {
   }, "made by michael wideburg with a lot of love and guidance from app academy", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     className: "help-button"
   }, " ? Help "))));
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    updateSpotsFilter: function (_updateSpotsFilter) {
+      function updateSpotsFilter(_x) {
+        return _updateSpotsFilter.apply(this, arguments);
+      }
+
+      updateSpotsFilter.toString = function () {
+        return _updateSpotsFilter.toString();
+      };
+
+      return updateSpotsFilter;
+    }(function (planet) {
+      return dispatch(updateSpotsFilter({
+        amenities: planet
+      }));
+    })
+  };
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (SearchSpots);
@@ -3245,6 +3389,11 @@ var mapDTP = function mapDTP(dispatch) {
     // updateBounds : (bounds) => dispatch(updateBounds(bounds)),
     updateSpots: function updateSpots(bounds) {
       return dispatch(Object(_actions_filter_actions__WEBPACK_IMPORTED_MODULE_1__["updateSpots"])(bounds));
+    },
+    updateSpotsFilters: function updateSpotsFilters(filter) {
+      return dispatch(Object(_actions_filter_actions__WEBPACK_IMPORTED_MODULE_1__["updateSpotsFilters"])({
+        filter: filter
+      }));
     }
   };
 };
@@ -3271,10 +3420,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var SpotActivityIcons = function SpotActivityIcons(spot) {
-  var activities = Object.values(spot.spot.activities);
-  debugger;
+  var activities = Object.values(spot.spot.activities); // debugger
+
   var actList = activities.map(function (act) {
-    debugger;
+    // debugger
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
       key: act.id,
       className: "activity-descrition"
@@ -3845,7 +3994,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _spot_single_view__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./spot_single_view */ "./frontend/components/spots/spot_single_view.jsx");
-/* harmony import */ var _filters_continer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./filters_continer */ "./frontend/components/spots/filters_continer.jsx");
+/* harmony import */ var _filters__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./filters */ "./frontend/components/spots/filters.jsx");
 /* harmony import */ var _spot_show_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./spot_show_container */ "./frontend/components/spots/spot_show_container.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -3895,6 +4044,11 @@ var SpotsIndexContainer = /*#__PURE__*/function (_React$Component) {
     //     this.props.getSpots();
     // }
 
+  }, {
+    key: "handleOnClick",
+    value: function handleOnClick() {
+      this.props.updateSpotsFilter(231);
+    }
   }, {
     key: "render",
     value: function render() {
@@ -3995,11 +4149,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_spot_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./actions/spot_actions */ "./frontend/actions/spot_actions.js");
 /* harmony import */ var _components_root__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/root */ "./frontend/components/root.jsx");
 /* harmony import */ var _actions_modal_actions__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./actions/modal_actions */ "./frontend/actions/modal_actions.js");
+/* harmony import */ var _actions_filter_actions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./actions/filter_actions */ "./frontend/actions/filter_actions.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
 
  // import { login, logout, signup} from './util/session_api_util';
+
 
 
 
@@ -4031,8 +4187,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   window.getState = store.getState;
   window.dispatch = store.dispatch;
-  window.getSpots = Object(_actions_spot_actions__WEBPACK_IMPORTED_MODULE_4__["getSpots"])();
-  dispatch(_actions_spot_actions__WEBPACK_IMPORTED_MODULE_4__["getSpots"]); // debugger
+  window.getSpots = Object(_actions_spot_actions__WEBPACK_IMPORTED_MODULE_4__["getSpots"])(); // debugger
 
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_root__WEBPACK_IMPORTED_MODULE_5__["default"], {
     store: store
@@ -4111,6 +4266,14 @@ var filterReducer = function filterReducer() {
     case _actions_filter_actions__WEBPACK_IMPORTED_MODULE_0__["UPDATE_BOUNDS"]:
       // debugger
       return Object.assign({}, state, action.bounds);
+
+    case _actions_filter_actions__WEBPACK_IMPORTED_MODULE_0__["UPDATE_FILTERS"]:
+      // debugger
+      return Object.assign({}, state, action.filter);
+
+    case _actions_filter_actions__WEBPACK_IMPORTED_MODULE_0__["FILTER_SPOTS"]:
+      // debugger
+      return Object.assign({}, state, action.filter);
 
     default:
       return state;
@@ -4294,7 +4457,7 @@ var sessionReducer = function sessionReducer() {
 
   switch (action.type) {
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CURRENT_USER"]:
-      debugger;
+      // debugger
       return {
         id: action.currentUser.id
       };
@@ -4322,7 +4485,9 @@ var sessionReducer = function sessionReducer() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_spot_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/spot_actions */ "./frontend/actions/spot_actions.js");
+/* harmony import */ var _actions_filter_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/filter_actions */ "./frontend/actions/filter_actions.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -4657,13 +4822,14 @@ var logout = function logout() {
 /*!****************************************!*\
   !*** ./frontend/util/spot_api_util.js ***!
   \****************************************/
-/*! exports provided: getSpots, filterSpots, getSpot, getHost */
+/*! exports provided: getSpots, filterSpots, filterAmenSpots, getSpot, getHost */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getSpots", function() { return getSpots; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "filterSpots", function() { return filterSpots; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "filterAmenSpots", function() { return filterAmenSpots; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getSpot", function() { return getSpot; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getHost", function() { return getHost; });
 // export const getSpots = () => {
@@ -4689,6 +4855,17 @@ var getSpots = function getSpots(bounds) {
 };
 var filterSpots = function filterSpots(filters) {
   // debugger
+  return $.ajax({
+    method: 'get',
+    url: '/api/spots',
+    datatype: JSON,
+    data: {
+      filters: filters
+    }
+  });
+};
+var filterAmenSpots = function filterAmenSpots(filters) {
+  debugger;
   return $.ajax({
     method: 'get',
     url: '/api/spots',

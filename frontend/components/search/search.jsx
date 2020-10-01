@@ -4,7 +4,10 @@ import {Link} from 'react-router-dom'
 
 // import { updateBounds } from '../../actions/filter_actions';
 class Search extends React.Component{
+   
+
     render(){
+
         return(
             <div key="search" className="search-form-container">
                 <form action="" className="search-form">

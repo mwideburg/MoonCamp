@@ -7,6 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 User.destroy_all
 Spot.destroy_all
+Amenity.destroy_all
+SpotAmenity.destroy_all
+Activity.destroy_all
+SpotActivity.destroy_all
 
 michael = User.create({firstname: "michael", lastname: "wideburg", email: "michael@mooncamp.com", password: "michael", zipcode: 11206})
 picard = User.create({firstname: "Jean-Luc", lastname: "Picard", email: "michael2@mooncamp.com", password: "michael", zipcode: 11206})
@@ -434,6 +438,13 @@ SpotActivity.create(spot_id: moon14.id, activity_id: jetPacks.id)
 
 
 # AMENS --------
+
+SpotAmenity.create(spot_id: moon1.id, amenity_id: holo.id)
+SpotAmenity.create(spot_id: moon1.id, amenity_id: phasers.id)
+SpotAmenity.create(spot_id: moon1.id, amenity_id: water.id)
+SpotAmenity.create(spot_id: moon1.id, amenity_id: oxygen.id)
+SpotAmenity.create(spot_id: moon1.id, amenity_id: spaceship.id)
+SpotAmenity.create(spot_id: moon1.id, amenity_id: toothpaste.id)
 
 SpotAmenity.create(spot_id: moon2.id, amenity_id: holo.id)
 SpotAmenity.create(spot_id: moon2.id, amenity_id: phasers.id)

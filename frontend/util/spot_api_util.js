@@ -29,6 +29,15 @@ export const filterSpots = (filters) => {
         data: { filters }
     })
 }
+export const filterAmenSpots = (filters) => {
+    debugger
+    return $.ajax({
+        method: 'get',
+        url: '/api/spots',
+        datatype: JSON,
+        data: {filters}
+    })
+}
 export const getSpot = (spotId) => {
     return $.ajax({
         method: 'get',

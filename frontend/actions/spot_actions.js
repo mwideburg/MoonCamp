@@ -5,7 +5,7 @@ export const RECEIVE_SPOT = 'RECEIVE_SPOT';
 export const RECIEVE_HOST = 'RECIEVE_HOST';
 
 export const recieveSpots = (spots) => {
-    // debugger
+    debugger
     return {
         type: RECEIVE_SPOTS,
         spots
@@ -32,6 +32,15 @@ export const getSpots = (bounds) => dispatch => {
     return (
         
         APIUtil.filterSpots(bounds).then(spots => (
+            dispatch(recieveSpots(spots))
+        ))
+    )
+};
+export const filterSpots = (filter) => dispatch => {
+    // debugger
+    return (
+        
+        APIUtil.filterAmenSpots(filter).then(spots => (
             dispatch(recieveSpots(spots))
         ))
     )

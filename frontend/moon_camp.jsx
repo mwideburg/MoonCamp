@@ -7,6 +7,7 @@ import { getSpots } from './actions/spot_actions'
 import Root from './components/root'
 
 import OPEN_MODAL from './actions/modal_actions'
+import { updateSpotsFilters, updateFilters } from "./actions/filter_actions";
 
 document.addEventListener("DOMContentLoaded", () => {
     // attach current user to window for preloadedstate to not loose info
@@ -33,7 +34,9 @@ document.addEventListener("DOMContentLoaded", () => {
     
     
     window.getSpots = getSpots();
-    dispatch(getSpots)
+
+    
+    
     // debugger
     ReactDOM.render(<Root store={store}/>, root);
 });

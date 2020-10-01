@@ -1,4 +1,4 @@
-import { UPDATE_BOUNDS } from '../actions/filter_actions'
+import { UPDATE_BOUNDS, UPDATE_FILTERS, FILTER_SPOTS } from '../actions/filter_actions'
 
 const filterReducer = (state = {}, action) => {
     Object.freeze(state)
@@ -7,6 +7,12 @@ const filterReducer = (state = {}, action) => {
         case UPDATE_BOUNDS:
             // debugger
             return Object.assign({}, state, action.bounds)
+        case UPDATE_FILTERS:
+            // debugger
+            return Object.assign({}, state, action.filter)
+        case FILTER_SPOTS:
+            // debugger
+            return Object.assign({}, state, action.filter)
         default:
             return state
     }

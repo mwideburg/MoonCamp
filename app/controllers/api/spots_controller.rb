@@ -6,6 +6,7 @@ class Api::SpotsController < ApplicationController
         # debugger
         bounds = params[:bounds]
         @spots = []
+        
         if params[:bounds]
             # debugger
             @allSpots.each do |spot| 
@@ -14,7 +15,19 @@ class Api::SpotsController < ApplicationController
                 end
             end
         end
+        
+        if params[:filters]
+            # Spot.findByAmenities(params[:filters][:amenities])
+            #  @spots =  Spot.includes(:amenities).where('amenities = ?' => params[:filters][:amenities])
+            # debugger
 
+            @spots = Spot.joins(:amenities).where(amenities: {id: params[:filters][:amenities]})
+
+            
+        end
+
+
+        
         # debugger
 
         
@@ -41,7 +54,7 @@ class Api::SpotsController < ApplicationController
 
     # private
     def spot_params 
-        params.require(:bench).permit(:id, :description, :lng, :lat, :bounds)
+        params.require(:spot).permit(:id, :description, :lng, :lat, :bounds, :filters, :filter, :amenities)
         
     end
 

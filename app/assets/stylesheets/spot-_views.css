@@ -97,8 +97,9 @@ align-items: flex-end;
 
 .filter-btn{
     color: gray;
+    display: flex;
     align-items: center;
-    padding:10px;
+    padding:15px;
     background-color: white;
     margin: 10px;
     border: 1px lightgray solid;
@@ -108,4 +109,17 @@ align-items: flex-end;
     border: 1px black solid;
      color: black;
      cursor: pointer;
+     
+}
+.filter-btn:active{
+    border: 1px aquamarine solid;
+     color: black;
+     cursor: pointer;
+     
+}
+.filter-btn:focus{
+    border: 1px aquamarine solid;
+     color: aquamarine;
+     cursor: pointer;
+     
 }

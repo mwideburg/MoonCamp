@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, Route } from 'react-router-dom';
 import Spot from './spot_single_view'
-import FiltersContainer from './filters_continer'
+import FiltersContainer from './filters'
 import SpotShow from './spot_show_container'
 
 
@@ -20,7 +20,9 @@ class SpotsIndexContainer extends React.Component{
     //     // debugger
     //     this.props.getSpots();
     // }
-
+    handleOnClick() {
+        this.props.updateSpotsFilter(231)
+    }
     render(){
         
         let count = 0

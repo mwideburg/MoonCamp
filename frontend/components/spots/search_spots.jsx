@@ -2,12 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import SpotMap from './spot_map'
 import MoonMap from './moon_map'
-import FiltersContainer from './filters_continer'
+import FiltersContainer from './filters_container'
 import SpotsIndexContainer from "./spots_container";
+import { updateFilters } from '../../actions/filter_actions';
 // import { updateBounds } from '../../actions/filter_actions';
 
 
-const SearchSpots = ( {spots, updateBounds, updateSpots} ) => {
+const SearchSpots = ( {spots, updateSpotsFilters, updateBounds, updateSpots} ) => {
     
         
             // debugger
@@ -15,7 +16,7 @@ const SearchSpots = ( {spots, updateBounds, updateSpots} ) => {
             <>
             <div className="splash-container spot-search-index">
                     <div className="search filter-top">
-                        <FiltersContainer />
+                        <FiltersContainer updateSpotsFilter={updateSpotsFilters}/>
                     </div>
             <div className="spots-search-wrapper">
                 <div className="spots-search-container">
@@ -51,4 +52,11 @@ const SearchSpots = ( {spots, updateBounds, updateSpots} ) => {
             )
 }
 
+
+
+const mapDispatchToProps = dispatch => {
+    return {
+        updateSpotsFilter: (planet) => dispatch(updateSpotsFilter({ amenities: planet }))
+    }
+};
 export default SearchSpots

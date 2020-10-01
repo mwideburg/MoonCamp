@@ -42,3 +42,9 @@
 .filter-top{
     padding-top: 0px
 }
+
+.button-icon{
+    width: 15px;
+    height: 15px;
+    padding-right:5px;
+}

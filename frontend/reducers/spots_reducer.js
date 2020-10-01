@@ -1,4 +1,5 @@
 import { RECEIVE_SPOTS, RECEIVE_SPOT} from '../actions/spot_actions'
+import {FILTER_SPOTS} from '../actions/filter_actions'
 
 
 const spotsReducer = (state = {}, action) => {
