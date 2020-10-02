@@ -26,7 +26,7 @@ class Api::SpotsController < ApplicationController
             end
             if params[:filters][:amenities] == "2"
                 
-            @spots = Spot.joins(:amenities).where(amenities: {name: "Jet Packs"})
+            @spots = Spot.joins(:amenities).where(amenities: {name: "Spaceship"})
             end
             if params[:filters][:amenities] == "3"
                 

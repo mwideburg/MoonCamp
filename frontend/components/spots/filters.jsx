@@ -26,10 +26,13 @@ class FiltersContainer extends React.Component{
                
                 
                 
-              
-                <button className="filter-btn" onClick={() => this.handleClick(4)}> <img src='https://cdn.iconscout.com/icon/free/png-256/mars-planet-astrology-solar-system-second-smallestterrestrial-4-20871.png' className="button-icon" />Saturn </button>
-                <button className="filter-btn" onClick={() => this.handleClick(5)}> <img src='https://www.shareicon.net/data/256x256/2015/08/25/90723_planet_512x512.png' className="button-icon" />Earth </button>
+                <Link to="/marsmap" className="planet-links-no">
                 
+                <button className="filter-btn" > <img src='https://cdn.iconscout.com/icon/free/png-256/mars-planet-astrology-solar-system-second-smallestterrestrial-4-20871.png' className="button-icon" />Saturn </button>
+                </Link>
+                <Link to="/spots" className="planet-links-no">
+                <button className="filter-btn" > <img src='https://www.shareicon.net/data/256x256/2015/08/25/90723_planet_512x512.png' className="button-icon" />Earth </button>
+                </Link>
                 
             </div>
         )

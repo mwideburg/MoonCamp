@@ -32,7 +32,7 @@ import LoginSplash from "./session_form/login_splash_container";
 // import SpotsIndexContainer from "./spots/spots_container";
 import SearchSpotsContainer from "./spots/search_spots_container";
 import MoonMap from "./spots/moon_map"
-import MarsMap from "./spots/mars_map"
+import SearchSpotsMars from "./spots/search_spots_container_mars"
 import SpotShow from "./spots/spot_show_container"
 
 // pass prop
@@ -52,7 +52,7 @@ const App = (props) => {
             <Modal />
         
         <Route exact path="/moonmap" component={MoonMap}/>
-        <Route exact path="/marsmap" component={MarsMap}/>
+        <Route exact path="/marsmap" component={SearchSpotsMars}/>
             {/* <Link to="/" className="nav-bar-logo">
             <h2 >Moon Camp</h2>
             </Link> */}

@@ -404,7 +404,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _session_form_login_splash_container__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./session_form/login_splash_container */ "./frontend/components/session_form/login_splash_container.jsx");
 /* harmony import */ var _spots_search_spots_container__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./spots/search_spots_container */ "./frontend/components/spots/search_spots_container.js");
 /* harmony import */ var _spots_moon_map__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./spots/moon_map */ "./frontend/components/spots/moon_map.jsx");
-/* harmony import */ var _spots_mars_map__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./spots/mars_map */ "./frontend/components/spots/mars_map.jsx");
+/* harmony import */ var _spots_search_spots_container_mars__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./spots/search_spots_container_mars */ "./frontend/components/spots/search_spots_container_mars.js");
 /* harmony import */ var _spots_spot_show_container__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./spots/spot_show_container */ "./frontend/components/spots/spot_show_container.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_15__);
@@ -448,7 +448,7 @@ var App = function App(props) {
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
     exact: true,
     path: "/marsmap",
-    component: _spots_mars_map__WEBPACK_IMPORTED_MODULE_13__["default"]
+    component: _spots_search_spots_container_mars__WEBPACK_IMPORTED_MODULE_13__["default"]
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
     exact: true,
     path: "/spots",
@@ -2678,23 +2678,23 @@ var FiltersContainer = /*#__PURE__*/function (_React$Component) {
       }, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: "https://cdn.iconscout.com/icon/free/png-256/igloo-1479433-1252679.png",
         className: "button-icon"
-      }), "Bio Dome "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "filter-btn",
-        onClick: function onClick() {
-          return _this.handleClick(4);
-        }
+      }), "Bio Dome "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/marsmap",
+        className: "planet-links-no"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "filter-btn"
       }, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: "https://cdn.iconscout.com/icon/free/png-256/mars-planet-astrology-solar-system-second-smallestterrestrial-4-20871.png",
         className: "button-icon"
-      }), "Saturn "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "filter-btn",
-        onClick: function onClick() {
-          return _this.handleClick(5);
-        }
+      }), "Saturn ")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/spots",
+        className: "planet-links-no"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "filter-btn"
       }, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: "https://www.shareicon.net/data/256x256/2015/08/25/90723_planet_512x512.png",
         className: "button-icon"
-      }), "Earth "));
+      }), "Earth ")));
     }
   }]);
 
@@ -3342,7 +3342,6 @@ var SearchSpots = function SearchSpots(_ref) {
       updateSpotsFilters = _ref.updateSpotsFilters,
       updateBounds = _ref.updateBounds,
       updateSpots = _ref.updateSpots;
-  // debugger
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "splash-container spot-search-index"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -3436,6 +3435,134 @@ var mapDTP = function mapDTP(dispatch) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapSTP, mapDTP)(_search_spots__WEBPACK_IMPORTED_MODULE_2__["default"]));
+
+/***/ }),
+
+/***/ "./frontend/components/spots/search_spots_container_mars.js":
+/*!******************************************************************!*\
+  !*** ./frontend/components/spots/search_spots_container_mars.js ***!
+  \******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _actions_filter_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/filter_actions */ "./frontend/actions/filter_actions.js");
+/* harmony import */ var _search_spots_mars__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./search_spots_mars */ "./frontend/components/spots/search_spots_mars.jsx");
+
+ // import getSpots from '../../actions/spot_actions'
+
+
+
+var mapSTP = function mapSTP(state) {
+  // debugger
+  return {
+    spots: state.entities.spots
+  };
+};
+
+var mapDTP = function mapDTP(dispatch) {
+  // debugger
+  return {
+    // getSpots: () => dispatch(getSpots()),
+    // updateBounds : (bounds) => dispatch(updateBounds(bounds)),
+    updateSpots: function updateSpots(bounds) {
+      return dispatch(Object(_actions_filter_actions__WEBPACK_IMPORTED_MODULE_1__["updateSpots"])(bounds));
+    },
+    updateSpotsFilters: function updateSpotsFilters(filter) {
+      return dispatch(Object(_actions_filter_actions__WEBPACK_IMPORTED_MODULE_1__["updateSpotsFilters"])({
+        filter: filter
+      }));
+    }
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapSTP, mapDTP)(_search_spots_mars__WEBPACK_IMPORTED_MODULE_2__["default"]));
+
+/***/ }),
+
+/***/ "./frontend/components/spots/search_spots_mars.jsx":
+/*!*********************************************************!*\
+  !*** ./frontend/components/spots/search_spots_mars.jsx ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _spot_map__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./spot_map */ "./frontend/components/spots/spot_map.jsx");
+/* harmony import */ var _moon_map__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./moon_map */ "./frontend/components/spots/moon_map.jsx");
+/* harmony import */ var _mars_map__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./mars_map */ "./frontend/components/spots/mars_map.jsx");
+/* harmony import */ var _filters_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./filters_container */ "./frontend/components/spots/filters_container.jsx");
+/* harmony import */ var _spots_container__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./spots_container */ "./frontend/components/spots/spots_container.js");
+/* harmony import */ var _actions_filter_actions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../actions/filter_actions */ "./frontend/actions/filter_actions.js");
+
+
+
+
+
+
+
+ // import { updateBounds } from '../../actions/filter_actions';
+
+var SearchSpotsMars = function SearchSpotsMars(_ref) {
+  var spots = _ref.spots,
+      updateSpotsFilters = _ref.updateSpotsFilters,
+      updateBounds = _ref.updateBounds,
+      updateSpots = _ref.updateSpots;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "splash-container spot-search-index"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "search filter-top"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filters_container__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    updateSpotsFilter: updateSpotsFilters,
+    spots: spots
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "spots-search-wrapper"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "spots-search-container"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "spots-index"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_spots_container__WEBPACK_IMPORTED_MODULE_6__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "maps-search-view"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_mars_map__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    spots: spots,
+    updateBounds: updateBounds,
+    updateSpots: updateSpots
+  }))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("footer", {
+    className: "stick-bottom"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "footer-container"
+  }, "made by michael wideburg with a lot of love and guidance from app academy", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: "help-button"
+  }, " ? Help "))));
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    updateSpotsFilter: function (_updateSpotsFilter) {
+      function updateSpotsFilter(_x) {
+        return _updateSpotsFilter.apply(this, arguments);
+      }
+
+      updateSpotsFilter.toString = function () {
+        return _updateSpotsFilter.toString();
+      };
+
+      return updateSpotsFilter;
+    }(function (planet) {
+      return dispatch(updateSpotsFilter({
+        amenities: planet
+      }));
+    })
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (SearchSpotsMars);
 
 /***/ }),
 

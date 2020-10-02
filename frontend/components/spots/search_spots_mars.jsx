@@ -9,7 +9,7 @@ import { updateFilters } from '../../actions/filter_actions';
 // import { updateBounds } from '../../actions/filter_actions';
 
 
-const SearchSpots = ( {spots, updateSpotsFilters, updateBounds, updateSpots} ) => {
+const SearchSpotsMars = ( {spots, updateSpotsFilters, updateBounds, updateSpots} ) => {
 
       
                 
@@ -28,8 +28,8 @@ const SearchSpots = ( {spots, updateSpotsFilters, updateBounds, updateSpots} ) =
                     
                     <div className="maps-search-view">
                             {/* <SpotMap spots={spots} updateBounds={updateBounds} updateSpots={updateSpots}/> */}
-                                {/* <MarsMap spots={spots} updateBounds={updateBounds} updateSpots={updateSpots} /> */}
-                            <MoonMap spots={spots} updateBounds={updateBounds} updateSpots={updateSpots} />
+                                <MarsMap spots={spots} updateBounds={updateBounds} updateSpots={updateSpots} />
+                            {/* <MoonMap spots={spots} updateBounds={updateBounds} updateSpots={updateSpots} /> */}
                            
                     </div>
                 </div>
@@ -63,4 +63,4 @@ const mapDispatchToProps = dispatch => {
         updateSpotsFilter: (planet) => dispatch(updateSpotsFilter({ amenities: planet }))
     }
 };
-export default SearchSpots
+export default SearchSpotsMars
