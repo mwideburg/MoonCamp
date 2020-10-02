@@ -9,7 +9,7 @@ const filterReducer = (state = {}, action) => {
             return Object.assign({}, state, action.bounds)
         case UPDATE_FILTERS:
             // debugger
-            return Object.assign({}, state, action.filter)
+            return Object.assign({}, action.filter)
         case FILTER_SPOTS:
             // debugger
             return Object.assign({}, state, action.filter)

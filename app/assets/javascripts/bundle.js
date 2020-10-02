@@ -2636,6 +2636,9 @@ var FiltersContainer = /*#__PURE__*/function (_React$Component) {
   }
 
   _createClass(FiltersContainer, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {}
+  }, {
     key: "handleClick",
     value: function handleClick(filter) {
       var amenity = {
@@ -2654,7 +2657,7 @@ var FiltersContainer = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "filter-btn",
         onClick: function onClick() {
-          return _this.handleClick(285);
+          return _this.handleClick(1);
         }
       }, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAdVBMVEX///8AAADe3t5ERER3d3fW1tYRERHm5ubMzMyqqqru7u4ICAi9vb21tbWcnJwhISFKSkpQUFD19fWDg4M1NTUcHBxVVVU7OzuZmZlcXFyQkJCioqIWFhb39/fw8PBoaGgoKCh/f39ubm4/Pz/Dw8MuLi6RkZGrZy+/AAAEhklEQVR4nO2ba3uyMAyGi6LIwQPgCRVF5/b/f+KL2JRSQmE2bte7q883F21uNE2TtmPMysrKargCP83icZylvoeZPWEO3uL9sHZqrQ9nvZmaIXBDp6nwJvkIbi2zS4pwPDltnY7CPMXMPpn7PEPGfyjLteZLTuM/GXc4cJxd+T2fPzrNH+f+0Qf433U6KKMtSdYa8y4hAIg1DhwnXunN5v4P8njTVeZmKyzkuPmimg+m/ifS/FpFz6jKI/Sx4+j5kXwumcORIUA91iaS/hwtVffLu2ze1NRm/mdioHUz/XpKaO6aecerQ3NmBLCFYQo1sZ0L2X+hTrhAfEWZif8zREA4adlGUnQgv7QIntAkGfjgwUWMbg1wRcw3MJqk5As8BbayiK8Hf8gAzBcDAAglPJRFisLTDUygtQEA5JQv1LoHgAVqhhQ2fd1/Dh7mqDkCc4Sa52B+fVEMYAh8Lk/A3J4iD4kc8npp4uk9jMCMp1vBh1aQFuD/AJjTAOBzqF8TsRIZAjhj/PN6NUp9Q4BmEzFI+aFRWJkClOnw8K10NFcKHnOAsqI6ou/CNGtV+hQA5ap0R9+nykMaHRqAclXtL1GTq9pmUgKU0dhTH+2xLpQQoIzGVBON8wL9TFnzjjHtBpoVFV2JaaK2G2sfHeDbmqtBPcaWd++ivKucNp5DIq81rZ2t+qslqdLwVT8VGQDL1eAK3UY0+gpheKlWMDoAZJNnsxfuo0/lE7B4UAKUk2ar/J1Ho6duANQJixaAsbu6mRGXJk/5ceSUTQ3A2HHTNG081ky8YSpvqgiAi4vpMtAsV0RJ2gyFjDWiP1N6cPg7ZUkW3GSPJya9aBUub6oJJ/K2Ww1QtLvYtxWl0rwTAFiH/caq+NoCwPq7NwJEFsACWIAWwNVva08DsEeGvrYAtCKsilVZgN8HwFuhHwM4MbUd+GGAG/NaZx8/CfA4Zwhuy2mXaAA6h1+6Pcd6v75NZwEEgNn+AAGAmSzA6wBB/+BDZHCZo/Oc/Ds6ve6fXSkAsJ5rsAYtVXqZnFuWmqVibyeWen+x2+KKA9ytZIZNl9BNzQ7PK0EgyN0znKWEjAGfvP0IG4wGZ5YWAAE4BrX8NoAvmY9vAcAkAWCyAH8EYKPxcNLzbUgA1D1mWbH+rpnRFR6hSfczPm73TLp/g+nrlUBDs64be59Vor+ru/2gNcE6wOXNMInnG+nNVn9F0X5en3nOFn7j1Gt0PNbtUeAvXrmxoNfoEeobfpoUPDb8p9LyXJVFcOHt6zEvt0RXekF5IU9sfsQqZln6fP28P8pLBcNSUBWs/1WFC1ektmDl2zzP+htaQtpZCKVndW8Oyo2CG0UDVfmEvIlfMDMFqO71LfiLJTc223SsRLMAFoAOIB4OQDsLYOa5/QBQPNDmgeRZGD4vMOsBOCtNNVZr9iDg99v1AKw6H49J/rlCVuKnC77X0gPARoeUNgBU9QG8XRYAzvw++OucT/2QuAjpVM6bNVES8XsoxDWIRvdp019QtSZr8pnXLc9dZXKuT77iGL+Bb2VlZdWrfzNbRNMAbujAAAAAAElFTkSuQmCC",
@@ -2662,7 +2665,7 @@ var FiltersContainer = /*#__PURE__*/function (_React$Component) {
       }), "JetPacks "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "filter-btn",
         onClick: function onClick() {
-          return _this.handleClick(287);
+          return _this.handleClick(2);
         }
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTq3gQwuK1OSjedG1uPy8uZ3utVBU35voUFZg&usqp=CAU",
@@ -2670,7 +2673,7 @@ var FiltersContainer = /*#__PURE__*/function (_React$Component) {
       }), " Holodeck  "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "filter-btn",
         onClick: function onClick() {
-          return _this.handleClick(282);
+          return _this.handleClick(3);
         }
       }, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: "https://cdn.iconscout.com/icon/free/png-256/igloo-1479433-1252679.png",
@@ -2678,7 +2681,7 @@ var FiltersContainer = /*#__PURE__*/function (_React$Component) {
       }), "Bio Dome "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "filter-btn",
         onClick: function onClick() {
-          return _this.handleClick(284);
+          return _this.handleClick(4);
         }
       }, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: "https://cdn.iconscout.com/icon/free/png-256/mars-planet-astrology-solar-system-second-smallestterrestrial-4-20871.png",
@@ -2686,7 +2689,7 @@ var FiltersContainer = /*#__PURE__*/function (_React$Component) {
       }), "Saturn "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "filter-btn",
         onClick: function onClick() {
-          return _this.handleClick(288);
+          return _this.handleClick(5);
         }
       }, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: "https://www.shareicon.net/data/256x256/2015/08/25/90723_planet_512x512.png",
@@ -2899,6 +2902,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _spot_map__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./spot_map */ "./frontend/components/spots/spot_map.jsx");
 /* harmony import */ var _spots_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./spots_container */ "./frontend/components/spots/spots_container.js");
+/* harmony import */ var _util_marker_manager__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../util/marker_manager */ "./frontend/util/marker_manager.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -2926,18 +2930,19 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
-var MoonMap = /*#__PURE__*/function (_React$Component) {
-  _inherits(MoonMap, _React$Component);
 
-  var _super = _createSuper(MoonMap);
+var MarsMap = /*#__PURE__*/function (_React$Component) {
+  _inherits(MarsMap, _React$Component);
 
-  function MoonMap() {
-    _classCallCheck(this, MoonMap);
+  var _super = _createSuper(MarsMap);
+
+  function MarsMap() {
+    _classCallCheck(this, MarsMap);
 
     return _super.apply(this, arguments);
   }
 
-  _createClass(MoonMap, [{
+  _createClass(MarsMap, [{
     key: "componentDidMount",
     //...
     value: function componentDidMount() {
@@ -2947,12 +2952,12 @@ var MoonMap = /*#__PURE__*/function (_React$Component) {
         west: -500,
         east: 500
       };
-      var map = new google.maps.Map(this.mapNode, {
+      this.map = new google.maps.Map(this.mapNode, {
         center: {
           lat: 0,
           lng: 0
         },
-        zoom: 7,
+        zoom: 6,
         minZoom: 2,
         restriction: {
           latLngBounds: MARS_BOUNDS,
@@ -2963,6 +2968,7 @@ var MoonMap = /*#__PURE__*/function (_React$Component) {
           mapTypeIds: ["mars_elevation"]
         }
       });
+      this.MarkerManager = new _util_marker_manager__WEBPACK_IMPORTED_MODULE_4__["default"](this.map);
 
       var getHorizontallyRepeatingTileUrl = function getHorizontallyRepeatingTileUrl(coord, zoom, urlfunc) {
         var y = coord.y;
@@ -3027,11 +3033,39 @@ var MoonMap = /*#__PURE__*/function (_React$Component) {
         isPng: false,
         maxZoom: 8,
         radius: 3396200,
-        name: 'Mars Elevation',
+        name: 'Titan',
         credit: 'Image Credit: NASA/JPL/GSFC'
       });
-      map.mapTypes.set("mars_elevation", moonMapType);
-      map.setMapTypeId("mars_elevation");
+      this.map.mapTypes.set("mars_elevation", moonMapType);
+      this.map.setMapTypeId("mars_elevation");
+      var updateSpots = this.props.updateSpots;
+      this.map.addListener('bounds_changed', function () {
+        // debugger
+        var northeast = this.getBounds().getNorthEast();
+        var southwest = this.getBounds().getSouthWest(); // debugger
+
+        var bounds = this.getBounds();
+        var lat = bounds.getNorthEast().lat();
+        var lat2 = bounds.getSouthWest().lat();
+        var lng = bounds.getNorthEast().lng();
+        var lng2 = bounds.getSouthWest().lng();
+        var positions = {
+          bounds: {
+            lat: [lat, lat2],
+            lng: [lng, lng2]
+          }
+        }; // debugger
+
+        console.log('updated'); // updateBounds(bounds)
+
+        updateSpots(positions);
+      });
+      this.MarkerManager.updateMarker(this.props.spots);
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate() {
+      this.MarkerManager.updateMarker(this.props.spots);
     }
   }, {
     key: "render",
@@ -3048,10 +3082,10 @@ var MoonMap = /*#__PURE__*/function (_React$Component) {
     }
   }]);
 
-  return MoonMap;
+  return MarsMap;
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
-/* harmony default export */ __webpack_exports__["default"] = (MoonMap);
+/* harmony default export */ __webpack_exports__["default"] = (MarsMap);
 
 /***/ }),
 
@@ -3290,9 +3324,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _spot_map__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./spot_map */ "./frontend/components/spots/spot_map.jsx");
 /* harmony import */ var _moon_map__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./moon_map */ "./frontend/components/spots/moon_map.jsx");
-/* harmony import */ var _filters_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./filters_container */ "./frontend/components/spots/filters_container.jsx");
-/* harmony import */ var _spots_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./spots_container */ "./frontend/components/spots/spots_container.js");
-/* harmony import */ var _actions_filter_actions__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../actions/filter_actions */ "./frontend/actions/filter_actions.js");
+/* harmony import */ var _mars_map__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./mars_map */ "./frontend/components/spots/mars_map.jsx");
+/* harmony import */ var _filters_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./filters_container */ "./frontend/components/spots/filters_container.jsx");
+/* harmony import */ var _spots_container__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./spots_container */ "./frontend/components/spots/spots_container.js");
+/* harmony import */ var _actions_filter_actions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../actions/filter_actions */ "./frontend/actions/filter_actions.js");
+
 
 
 
@@ -3311,15 +3347,16 @@ var SearchSpots = function SearchSpots(_ref) {
     className: "splash-container spot-search-index"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "search filter-top"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filters_container__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    updateSpotsFilter: updateSpotsFilters
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filters_container__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    updateSpotsFilter: updateSpotsFilters,
+    spots: spots
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "spots-search-wrapper"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "spots-search-container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "spots-index"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_spots_container__WEBPACK_IMPORTED_MODULE_5__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_spots_container__WEBPACK_IMPORTED_MODULE_6__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "maps-search-view"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_moon_map__WEBPACK_IMPORTED_MODULE_3__["default"], {
     spots: spots,
@@ -4269,7 +4306,7 @@ var filterReducer = function filterReducer() {
 
     case _actions_filter_actions__WEBPACK_IMPORTED_MODULE_0__["UPDATE_FILTERS"]:
       // debugger
-      return Object.assign({}, state, action.filter);
+      return Object.assign({}, action.filter);
 
     case _actions_filter_actions__WEBPACK_IMPORTED_MODULE_0__["FILTER_SPOTS"]:
       // debugger

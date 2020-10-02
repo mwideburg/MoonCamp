@@ -2,10 +2,10 @@ import React from 'react';
 import { Link, Route } from 'react-router-dom';
 import SpotMap from './spot_map'
 import SpotsIndexContainer from "./spots_container";
+import MarkerManager from '../../util/marker_manager'
 
 
-
-class MoonMap extends React.Component {
+class MarsMap extends React.Component {
     
     //...
     
@@ -16,9 +16,9 @@ class MoonMap extends React.Component {
             west: -500,
             east: 500,
         };
-        const map = new google.maps.Map(this.mapNode, {
+        this.map = new google.maps.Map(this.mapNode, {
             center: { lat: 0, lng: 0 },
-            zoom: 7,
+            zoom: 6,
             minZoom: 2,
             restriction: {
                 latLngBounds:MARS_BOUNDS,
@@ -29,6 +29,7 @@ class MoonMap extends React.Component {
                 mapTypeIds: ["mars_elevation"],
             },
         });
+        this.MarkerManager = new MarkerManager(this.map)
         const getHorizontallyRepeatingTileUrl = (coord, zoom, urlfunc) => {
             var y = coord.y;
             var x = coord.x;
@@ -89,13 +90,43 @@ class MoonMap extends React.Component {
             isPng: false,
             maxZoom: 8,
             radius: 3396200,
-            name: 'Mars Elevation',
+            name: 'Titan',
             credit: 'Image Credit: NASA/JPL/GSFC'
         });
-        map.mapTypes.set("mars_elevation", moonMapType);
-        map.setMapTypeId("mars_elevation");
+        this.map.mapTypes.set("mars_elevation", moonMapType);
+        this.map.setMapTypeId("mars_elevation");
+
+        const updateSpots = this.props.updateSpots
+        this.map.addListener('bounds_changed', function () {
+            // debugger
+            let northeast = this.getBounds().getNorthEast();
+            let southwest = this.getBounds().getSouthWest();
+            // debugger
+            let bounds = this.getBounds()
+
+            let lat = bounds.getNorthEast().lat();
+            let lat2 = bounds.getSouthWest().lat();
+            let lng = bounds.getNorthEast().lng();
+            let lng2 = bounds.getSouthWest().lng();
+
+            let positions = { bounds: { lat: [lat, lat2], lng: [lng, lng2] } }
+
+            // debugger
+            console.log('updated')
+            // updateBounds(bounds)
+            updateSpots(positions)
+        })
+
+
+
+        this.MarkerManager.updateMarker(this.props.spots)
         
     }
+    componentDidUpdate() {
+        this.MarkerManager.updateMarker(this.props.spots);
+    }
+
+    
     
     
 
@@ -116,6 +147,6 @@ class MoonMap extends React.Component {
 
 
 }
-export default MoonMap 
+export default MarsMap 
 
 

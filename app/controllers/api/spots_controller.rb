@@ -20,8 +20,26 @@ class Api::SpotsController < ApplicationController
             # Spot.findByAmenities(params[:filters][:amenities])
             #  @spots =  Spot.includes(:amenities).where('amenities = ?' => params[:filters][:amenities])
             # debugger
-
-            @spots = Spot.joins(:amenities).where(amenities: {id: params[:filters][:amenities]})
+            if params[:filters][:amenities] == "1"
+                
+            @spots = Spot.joins(:amenities).where(amenities: {name: "Holodeck"})
+            end
+            if params[:filters][:amenities] == "2"
+                
+            @spots = Spot.joins(:amenities).where(amenities: {name: "Jet Packs"})
+            end
+            if params[:filters][:amenities] == "3"
+                
+            @spots = Spot.joins(:amenities).where(amenities: {name: "Phasers"})
+            end
+            if params[:filters][:amenities] == "4"
+                
+            @spots = Spot.where(planet: "Jupiter")
+            end
+            if params[:filters][:amenities] == "5"
+                
+            @spots = Spot.where(planet: "Saturn")
+            end
 
             
         end
