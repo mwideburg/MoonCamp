@@ -4,7 +4,7 @@ import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { CSSTransitionGroup } from 'react-transition-group'// ES6
-import LoginFormContainer from '../session_form/login_form_container';
+import LoginFormContainer from '../session_form/login_fix_container';
 import SignupFormContainer from '../session_form/signup_form_container';
 import GalleryContainer from '../spots/gallery_show_container';
 import SignupSplashContainer from '../session_form/signup_page_container';
@@ -15,10 +15,10 @@ function Modal(modalType, closeModal){
     // }
     let component
     let background = "modal"
-    let noClick = ""
+    let noClick = modalType.closeModal
     let modalChild = "modal-child"
     let loginButton = ""
-    // debugger
+   
     switch (modalType.modalType.modalType) {
         case 'login':
             component = <LoginFormContainer/>
@@ -33,21 +33,21 @@ function Modal(modalType, closeModal){
             modalChild = "modal-child"
             break;
         case 'switch_login':
-            // debugger
-            // noClick = ""
-            // // component = <LoginFormContainer />
-            background = "can-he-do-it"
+            debugger
+            noClick = ""
+            component = <LoginFormContainer />
+            // background = "can-he-do-it"
             modalChild = "login-splash-cointainer"
-            // loginButton = <Link to="/login" className="logout-button-fix hover-btn"> LOG IN</Link>
+            loginButton = <Link to="/login" className="logout-button-fix hover-btn"> LOG IN</Link>
             break;
         case 'switch_signup':
             // debugger
             noClick = ""
             component = <SignupFormContainer/>
             
-            // background = "switch-background"
+            background = "switch-background"
 
-            // noClick = modalType.closeModal
+            noClick = modalType.closeModal
             // modalChild = "modal-child"
             // button = "show-logout-button"
             break;

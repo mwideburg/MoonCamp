@@ -43,29 +43,29 @@ const Greeting = ({ currentUser, logout, demo, openModal }) => {
                     <div className="logged-in-dropdown">
 
                     <img className="moon" src="https://pngimg.com/uploads/moon/moon_PNG20.png" alt="" />
-                    <div className="dropdown-user">
+                        <div className="dropdown-user">
 
-                        <ul>
-                            <li>
-                                <a href="">PROFILE</a>
-                            </li>
-                            <li>
-                                <a href="">{currentUser.firstname}</a>
-                            </li>
-                            <li>
-                                <a href="">REVIEWS</a>
-                            </li>
-                            <li>
-                                <a href="">ACCOUNT</a>
-                            </li>
-                            <li>
-                                <a href="">HEY</a>
-                            </li>
-                            <li >
-                                <a href="" onClick={logout}>Log Out</a>
-                            </li>
-                        </ul>
-                    </div>
+                            <ul>
+                                <li>
+                                    <a href="">Account</a>
+                                </li>
+                                <li>
+                                    <a href="">Earn MoonCash</a>
+                                </li>
+                                <li>
+                                    <a href="">Become A Host</a>
+                                </li>
+                                <li>
+                                    <a href="">Help FAQ</a>
+                                </li>
+                                <li>
+                                    <a href="">About</a>
+                                </li>
+                                <li >
+                                    <a href="" onClick={logout}>Log Out</a>
+                                </li>
+                            </ul>
+                        </div>
                 </div>
                 </nav>
 

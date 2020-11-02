@@ -10,6 +10,7 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  firstname       :string
+#  zipcode         :integer
 #
 require 'test_helper'
 

@@ -606,3 +606,6 @@ SpotActivity.create(spot_id: moon2.id, activity_id: moonGolf.id)
 
 # moon14.activities = [holodeck.id, jetPacks.id, food.id, floating.id]
 # moon14.amenities = [spacesuits.id, phasers.id, water.id, holo.id]
+
+
+newBook = Booking.create(spot_id: moon1.id, start_date: Date.new(2020, 11, 1), end_date: Date.new(2020, 11, 5), user_id: picard.id)

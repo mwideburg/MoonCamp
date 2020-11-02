@@ -45,7 +45,9 @@ class Spot < ApplicationRecord
     has_many :amenities,
         through: :spot_amenities,
         source: :amenity
-    
+        
+    has_many :bookings
+
     def findByAmenities(name)
         debugger
         data = QuestionsDatabase.instance.execute(<<-SQL, name)

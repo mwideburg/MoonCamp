@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: activities
+#
+#  id          :bigint           not null, primary key
+#  name        :string           not null
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  description :text
+#  icon        :string
+#
 class Activity < ApplicationRecord
     has_one_attached :photo
    has_many :spot_activities,

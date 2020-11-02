@@ -57,7 +57,7 @@ class Api::SpotsController < ApplicationController
     def show
         # debugger
         @spot = Spot.find(params[:id])
-        
+        @bookings = @spot.bookings
         # debugger
         
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import SignUpFormContainer from '../session_form/signup_form_container';
 import DemoContainer from '../session_form/demo_form_container';
-import LogInFormContainer from '../session_form/login_form_container';
+import LogInFormContainer from '../session_form/login_fix_container';
 import SearchContainer from '../search/search_container';
 import ActivitiesContainer from '../activities/activities_container';
 import PlanetContainer from '../planets/planet_container'

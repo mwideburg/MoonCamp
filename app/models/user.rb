@@ -10,6 +10,7 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  firstname       :string
+#  zipcode         :integer
 #
 
 class User < ApplicationRecord
@@ -26,6 +27,9 @@ class User < ApplicationRecord
     attr_reader :password
   
     has_one_attached :photo
+
+    has_many :bookings
+    
 
 
     def checkZip

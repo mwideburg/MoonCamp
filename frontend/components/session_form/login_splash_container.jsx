@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import LoginContainer from './login_form_container'
+import LoginContainer from './login_fix_container'
 
 class LoginSplash extends React.Component{
     render(){
         return(
             <>
             <div className="splash-container">
-                <div className="modal-container login-splash">
+                <div className="login-splash">
                     <div>
                         {/* <center>
                             <h1>WELCOME BACK</h1>

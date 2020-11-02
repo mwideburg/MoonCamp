@@ -21,5 +21,12 @@ json.activities do
             end
     end
 end
+json.bookings do 
+    @spot.bookings.each do |booking|
+            json.set! booking.id do
+                json.extract! booking, :id, :start_date, :end_date
+            end
+    end
+end
 
 end
