@@ -34,6 +34,7 @@ import SearchSpotsContainer from "./spots/search_spots_container";
 import MoonMap from "./spots/moon_map"
 import SearchSpotsMars from "./spots/search_spots_container_mars"
 import SpotShow from "./spots/spot_show_container"
+import BookingContainer from "./booking/booking_container"
 
 // pass prop
 import ReactDOM from 'react-dom'
@@ -61,7 +62,8 @@ const App = (props) => {
         {/* <Route exact path="/spots/:spotsId" component={LoginNavContainer} />        */}
             <Switch>
                 <Route exact path="/" component={GreetingContainer} />
-            <Route exact path="/spots/:spotId" component={LoginNavContainer} />
+                <Route exact path="/spots/:spotId" component={LoginNavContainer} />
+                <Route exact path="/bookings/:bookingId" component={BookingContainer} />
                 <AuthRoute exact path="/login" component={LoginNavContainer} />
                 
                 <AuthRoute exact path="/signup" component={SignupSplashContainer} />

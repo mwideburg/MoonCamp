@@ -220,7 +220,7 @@
     color: white;
     padding-left: 30px;
     font-size: 40px;
-    animation: fadein 1s linear .75s 1 forwards;
+    animation: fadein .75s linear .75s 1 forwards;
   
 }
 .i-fix-you-later{

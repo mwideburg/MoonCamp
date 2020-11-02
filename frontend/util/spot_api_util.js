@@ -52,3 +52,13 @@ export const getHost = (hostId) => {
         data_type: 'json'
     })
 }
+
+export const requestBooking = (booking) => {
+    return $.ajax({
+        method: "POST",
+        url: '/api/bookings',
+        data_type: 'json',
+        data: {booking}
+
+    })
+}

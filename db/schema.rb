@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_02_150626) do
+ActiveRecord::Schema.define(version: 2020_11_02_210113) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 2020_11_02_150626) do
     t.datetime "updated_at", null: false
     t.integer "user_id", null: false
     t.integer "host_id"
+    t.integer "total"
     t.index ["spot_id"], name: "index_bookings_on_spot_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
@@ -91,6 +92,7 @@ ActiveRecord::Schema.define(version: 2020_11_02_150626) do
     t.float "lat", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "max_guests"
     t.index ["host_id"], name: "index_spots_on_host_id"
   end
 

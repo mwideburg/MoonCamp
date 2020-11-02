@@ -1,3 +1,5 @@
+
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -11,6 +13,7 @@ Amenity.destroy_all
 SpotAmenity.destroy_all
 Activity.destroy_all
 SpotActivity.destroy_all
+Booking.destroy_all
 
 michael = User.create({firstname: "michael", lastname: "wideburg", email: "michael@mooncamp.com", password: "michael", zipcode: 11206})
 picard = User.create({firstname: "Jean-Luc", lastname: "Picard", email: "michael2@mooncamp.com", password: "michael", zipcode: 11206})
@@ -56,7 +59,8 @@ moon1 = Spot.create({
     description:"Here is the famous resting place of mister Rutherford who traveled with his dog Kazzak. He banished his only son to live here with his mother, they both died eventually. I hate stories like this, pain, no glory, what a dismal end.",
 
     lat: 42.744099,
-    lng: 90.881492
+    lng: 90.881492,
+    max_guests: rand(1..15)
 
     
 
@@ -68,7 +72,8 @@ moon2 = Spot.create({
     planet: "Jupiter", 
     description:"I would love to welcome you to my humble abode, the craters of Europa... Here you can enjoy the view of Jupiter while also exporing giezers of hot acid. Jetpakcs are always available, and I would love to have some Earl gray with my company",
     lat: 30.783094, 
-    lng: -90.176995
+    lng: -90.176995,
+    max_guests: rand(1..15)
 
 })
 moon3 = Spot.create({
@@ -78,7 +83,8 @@ moon3 = Spot.create({
     planet: "Jupiter", 
     description:"There are few places in this solar system that look as deadly as Apollo's Crator, explore your dark side. Let the darkness in and let the lightness dispate while staying in the demonic environment",
     lat: 20.067074,
-    lng: -28.979488
+    lng: -28.979488,
+    max_guests: rand(1..15)
 
 })
 moon4 = Spot.create({
@@ -88,7 +94,8 @@ moon4 = Spot.create({
     planet: "Jupiter", 
     description:"I have been heroicly hosting for 10 years now, and must say, I enjoy every minute of it, especially on my Battle Crator. Here you can enjoy fighting in my holodeck, sparing with the native aliens (don't worry they love it), and of course my culture and cuisine of Klingon",
     lat: 10.737122,
-    lng: 0.834492
+    lng: 0.834492,
+    max_guests: rand(1..15)
 
 
 })
@@ -99,7 +106,8 @@ moon5 = Spot.create({
     planet: "Trondheim", 
     description:"I have been speaker of the dead for over 3000s human years on this quant moon of Trondheim. Here you will enjoy the native Pequeninos. And always, the buggers, the queen awaits",
     lat: 30.747112,
-    lng: -10.812422
+    lng: -10.812422,
+    max_guests: rand(1..15)
 
 
 })
@@ -110,7 +118,8 @@ moon6 = Spot.create({
     planet: "Saturn", 
     description:"I am not the best host, but you can stay here if you want. I do it just to get the free food bonus that Moon Camp provides. It's suppose to be for the guests, but I usually eat it.",
     lat: -5.787112,
-    lng: -2.822492
+    lng: -2.822492,
+    max_guests: rand(1..15)
 
 
 })
@@ -123,7 +132,8 @@ moon7 = Spot.create({
     # lat: 42.717112,
     # lng: -87.892412
     lat: -60.717112,
-    lng: -50.892412
+    lng: -50.892412,
+    max_guests: rand(1..15)
 
 
 })
@@ -136,7 +146,8 @@ moon8 = Spot.create({
     # lat: 42.717112,
     # lng: -87.892412
     lat: 10.717112,
-    lng: -60.892412
+    lng: -60.892412,
+    max_guests: rand(1..15)
 
 
 })
@@ -149,7 +160,8 @@ moon9 = Spot.create({
     # lat: 42.717112,
     # lng: -87.892412
     lat: 60.717112,
-    lng: 102
+    lng: 102,
+    max_guests: rand(1..15)
 
 
 })
@@ -162,7 +174,8 @@ moon10 = Spot.create({
     # lat: 42.717112,
     # lng: -87.892412
     lat: 10,
-    lng: -20
+    lng: -20,
+    max_guests: rand(1..15)
 
 
 })
@@ -175,7 +188,8 @@ moon11 = Spot.create({
     # lat: 42.717112,
     # lng: -87.892412
     lat: 10,
-    lng: 50
+    lng: 50,
+    max_guests: rand(1..15)
 
 
 })
@@ -188,7 +202,8 @@ moon12 = Spot.create({
     # lat: 42.717112,
     # lng: -87.892412
     lat: 45,
-    lng: 105
+    lng: 105,
+    max_guests: rand(1..15)
 
 
 })
@@ -201,7 +216,8 @@ moon13 = Spot.create({
     # lat: 42.717112,
     # lng: -87.892412
     lat: -77,
-    lng: 300
+    lng: 300,
+    max_guests: rand(1..15)
 
 
 })
@@ -214,7 +230,8 @@ moon14 = Spot.create({
     # lat: 42.717112,
     # lng: -87.892412
     lat: -70,
-    lng: -100
+    lng: -100,
+    max_guests: rand(1..15)
 
 
 })

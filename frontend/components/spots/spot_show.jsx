@@ -13,10 +13,27 @@ class SpotShow extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-            host:{}
+            host:{},
+            bookings: {},
+            start: '',
+            end: '',
+            guests: 0,
+            bookContent: 'Instant Book',
+            showStart: "close",
+            showEnd: "close",
+            total: 0,
+            days: 0,
+            guests: 0,
+            submit: false,
+  
+            
         }
         // debugger
-        
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.updateState = this.updateState.bind(this);
+        this.checkDays = this.checkDays.bind(this);
+        this.checkTotal = this.checkTotal.bind(this);
+
     }
 
     componentDidMount(){
@@ -33,22 +50,118 @@ class SpotShow extends React.Component {
         // `prevProps` is passed in by React
         if (this.props.match.params.spotId !== prevProps.match.params.spotId) {
             this.props.getSpot(this.props.match.params.spotId);}
+            
     }
-    // getHost(){
-    //     const host = this.props.getHost(this.props.spot.host_id)
-    //     debugger
-    //     return host
-    // }
+    
+    updateState(field){
+            if(this.state.start != ''){
+               
+                document.getElementById("startDate").classList.remove("red")
+                
+            }
+            if(this.state.end != ''){
+               
+                document.getElementById("endDate").classList.remove("red")
+                
+            }
+            if(parseInt(this.state.guests) === parseInt(this.props.spot.max_guests)){
+                document.getElementById("max").classList.add("fade-inout")
+                setTimeout(() => {
+                    document.getElementById("max").classList.remove("fade-inout")
+                }, 4000)
+            } 
+            
+            return e => this.setState({
+        
+                [field]: e.currentTarget.value
+            })
+
+    }
+     checkDays(){
+         if (this.state.start != '' && this.state.end != '') {
+             const end = new Date(this.state.end)
+             const start = new Date(this.state.start)
+             const days = parseInt((end - start) / (24 * 3600 * 1000))
+
+             return days
+            }else{
+             return 0
+            }
+     }
+     checkTotal(){
+         if (this.state.start != '' && this.state.end != '') {
+             const end = new Date(this.state.end)
+             const start = new Date(this.state.start)
+             const days = parseInt((end - start) / (24 * 3600 * 1000))
+            
+
+             return (days * this.props.spot.price)
+            }else{
+            return 0
+            }
+     }
+
+    handleSubmit(e){
+        e.preventDefault();
+        if (this.state.start === ''){
+            document.getElementById("startDate").classList.add("red")
+            return null
+        }
+        if(this.state.end === ''){
+            document.getElementById("endDate").classList.add("red")
+            
+            return null
+        }
+        const end = new Date(this.state.end)
+        const start = new Date(this.state.start)
+        const days = parseInt((end - start) / (24 * 3600 * 1000))
+        const total = days * this.props.spot.price
+        const price = this.state.guests / 3 
+       const booking = {spot_id: this.props.spot.id, host_id: this.props.host.id, start_date: this.state.start, end_date: this.state.end, user_id: this.props.user_id, total: total}
+        const dateform = document.getElementById("date-form")
+        dateform.classList.add('close')
+        document.getElementById("max").classList.remove("fade-inout")
+        document.getElementById("quantity").classList.add("disable-inner")
+        // document.getElementById("booking-btn").classList.add("view-booking")
+        
+       this.props.requestBooking(booking).then(this.setState({bookContent: 'View Booking Details', submit: true}))
+
+    }
+    
+
 
     render() {
         // debugger
         if(!this.props.spot){
             return null
         }
+    
         const photos = this.props.spot.photoUrls
         const spot = this.props.spot
         const openModal = (photos) => this.props.openModal('gallery', photos)
+        let bookBtn
         // debugger
+        if(!this.state.submit){
+            bookBtn = <button type="submit" className="btn-search instant" id="booking-btn"> {this.state.bookContent}</button>
+        }else{
+            debugger
+            let path
+            let booking = Object.values(this.props.booking)
+            if (booking.length != 0){
+                let bookingId = Object.values(this.props.booking)[0].id
+                path = `/bookings/${bookingId}`
+
+            }else{
+                path ='/'
+            }
+            
+            bookBtn = (
+            <Link to={path}>
+                    <button type="submit" className="btn-search instant view-booking" id="booking-btn"> {this.state.bookContent}</button>
+            </Link>
+
+            )
+        }
         
         return (
             <div className="show-wrapper">
@@ -109,42 +222,76 @@ class SpotShow extends React.Component {
                             <div className="price-show-container">
 
                                 <div className="price-title">
-                                    <h2> ${spot.price}</h2>
+                                    <h2> ${(parseInt(this.state.guests) / 3 > 1) ? ((parseInt(this.state.guests / 3)) * 5) + spot.price : spot.price}</h2>
 
                                 per night
                             </div>
-                                <div className="instant-book">
-                                    <div className="dates-guests">
-                                        <button className="instant-book-btn">
-                                            <h3>
-                                                Check In
-                                </h3>
-                                            <br />
-                                Select Dates
-                                </button>
-                                        <button className="instant-book-btn">
+                                
+                                <form onSubmit={this.handleSubmit} className="">
+                                    <div className="num-guests">
+                                        <label htmlFor="quantity">Number of Guests </label>
+                                        <input type="number" id="quantity" 
+                                        name="quantity" 
+                                        min="1" 
+                                        max={this.props.spot.max_guests} 
+                                        placeholder="1" 
+                                        disabled={(this.state.submit) ? "disabled" : ""}
+                                        onChange={this.updateState('guests')}
+                                            ></input> 
+                                        <p id="max" className="opa-0">max</p>
+                                    
+                                    </div>
+                                    <div className="instant-book" id="date-form">
+                                        <div className="dates-guests" >
 
-                                            <h3>  Check Out  </h3>
+                                            <label htmlFor="startDate"></label>
                                             <br />
-                                Select Dates
 
-                                </button>
-                                        <button className=" instant-book-btn"> Guests
-                                <br />
-                                        </button>
+                                            <input type="date"
+                                                name="startDate"
+                                                id="startDate"
+                                                className="instant-book-btn"
+                                                placeholder="Check In"
+                                                onChange={this.updateState('start')}
+                                            />
+                                            <label htmlFor="endDate" ></label>
+                                            <br />
+
+                                            <input type="date" name="endDate"
+                                                id="endDate"
+                                                className="instant-book-btn"
+                                                placeholder="Check Out"
+                                                onChange={this.updateState('end')} />
+
+                                            
+
+                                        </div>
+                                    </div>
+                                    
+                                    <div className="sub-total">
+                                    <p>
+                                    Number of Days: {this.checkDays()}
+                                    </p>
+                                    <p>
+                                    Subtotal: ${this.checkTotal()}
+
+                                    </p>
+
+
 
                                     </div>
-                                </div>
-                                <div className="instant-book">
-                                    <div className="dates-guests">
-                                        <button className="btn-search instant"> Instant Book</button>
-
-
+                                    <div className="instant-book">
+                                        <div className="dates-guests" >
+                                            {bookBtn}
+                                        </div>
                                     </div>
-                                </div>
+                                </form>
                             </div>
-                           
+
                         </div>
+
+                        
+                        
 
                         
                     </div>

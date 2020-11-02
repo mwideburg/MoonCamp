@@ -33,6 +33,7 @@ class Booking < ApplicationRecord
 
 
   def start_must_come_before_end
+    
     errors[:start_date] << 'must specify a start date' unless start_date
     errors[:end_date] << 'must specify an end date' unless end_date
     errors[:start_date] << 'must come before end date' if start_date > end_date

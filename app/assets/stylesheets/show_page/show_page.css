@@ -39,9 +39,11 @@
     position: -webkit-sticky;
     position: sticky;
     top: 0;
-
+    display: flex;
+    flex-direction: column;
+    align-content: center;
     width: 300px;
-    height: 200px;
+    /* height: 230px; */
     border: 1px lightgray solid;
 }
 
@@ -53,19 +55,32 @@
 
 
 }
+.sub-total{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    height: 60px;
+
+    justify-content: space-around;
+}
 
 .instant-book{
     display: flex;
+
 }
 
 .dates-guests{
+    
     display: flex;
-    justify-content: space-between;
+    
+    justify-content: center;
+    align-items: center;
     width: 100%;
 }
 
 .instant-book-btn{
     border: 0px;
+    padding: 5px;
     border-top: 1px lightgray solid;
     border-bottom: 1px lightgray solid;
     height: 70px;
@@ -73,6 +88,65 @@
     background-color: transparent;
 
     
+}
+#startDate{
+    border-right: 1px lightgray solid;
+
+    
+}
+.pad-10{
+
+    padding:10px;
+}
+.opa-0{
+    opacity: 0;
+}
+
+.fade-inout{
+    opacity: 0;
+    font-weight: bold;
+    animation: fadeinout 3s linear 1s backwards ;
+}
+
+.num-guests{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    height: 40px;
+    border-top: 1px lightgray solid;
+}
+input[type=number]::-webkit-inner-spin-button {
+    opacity: 1
+}
+.disable-inner input[type=number]::-webkit-inner-spin-button {
+    opacity: 0
+}
+
+
+input[type=number]::-webkit-inner-spin-button:hover {
+    cursor: pointer;
+}
+input[type=number],
+textarea {
+    font-size: 24px;
+    padding: 10px;
+    
+    color: rgb(0,0,0,0);
+    text-shadow: 0px 0px 0px #000;
+    -webkit-text-fill-color: transparent;
+}
+#quantity{
+    font-family: inherit;
+    font-size: 15px;
+    margin-left: 10px;
+    border: 0px;
+
+}
+input:focus{
+    outline: none;
+}
+input:active{
+    outline: none;
 }
 .instant-book-btn h3{
     margin: 0;
@@ -85,6 +159,7 @@
 }
 .instant{
     margin: 5px;
+    margin-top: 15px;
     width: 100%;
     height: 50px;
     border: 1px solid rgb(43, 206, 152);;
@@ -92,6 +167,7 @@
 .instant:hover{
     background-color: white;
     color: rgb(43, 206, 152);
+    cursor: pointer;
 }
 .price-title{
     display: flex;
@@ -312,5 +388,28 @@ font-size: 15px;
   clear: both;
   display: table;
 }
+.view-booking{
+    background-color: rgb(187, 24, 187);
+    border: 2px rgb(187, 24, 187) solid;
+    width: 280px;
+}
+.view-booking:hover{
+    color: rgb(187, 24, 187);
+}
+.red{
+    color: red;
+    outline: 1px red, solid;
+}
 
+.close{
+    display: none;
+}
+.open{
+    display: flex;
+}
 
+@keyframes fadeinout{
+    0% {opacity: 0;}
+    50% {opacity: 1;}
+    0% {opacity: 0;}
+}

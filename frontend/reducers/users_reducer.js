@@ -1,4 +1,5 @@
 import { RECEIVE_CURRENT_USER } from '../actions/session_actions'
+import { RECIEVE_BOOKING } from '../actions/spot_actions'
 
 
 const usersReducer = (state = {}, action) => {

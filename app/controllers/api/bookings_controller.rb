@@ -2,9 +2,10 @@ class Api::BookingsController < ApplicationController
     before_action :require_logged_in
 
     def create
+        
         @booking_request = Booking.new(booking_params)
-        if @rental_request.save
-            render `api/spots/#{@booking_request.spot_id}`
+        if @booking_request.save
+            render "api/bookings/show"
         else
         render json: @booking_request.errors.full_messages, status: 422
         end
@@ -29,7 +30,7 @@ class Api::BookingsController < ApplicationController
 
     private
     def booking_params 
-        params.require(:booking).permit(:id, :start_date, :end_date, :spot_id, :user_id)
+        params.require(:booking).permit(:id, :start_date, :end_date, :spot_id, :user_id, :host_id, :total)
         
     end
 end

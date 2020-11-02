@@ -3,6 +3,7 @@ import * as APIUtil from '../util/spot_api_util'
 export const RECEIVE_SPOTS = 'RECEIVE_SPOTS';
 export const RECEIVE_SPOT = 'RECEIVE_SPOT';
 export const RECIEVE_HOST = 'RECIEVE_HOST';
+export const RECIEVE_BOOKING = 'RECIEVE_BOOKING';
 
 export const recieveSpots = (spots) => {
     // debugger
@@ -23,6 +24,13 @@ export const recieveHost = (host) => {
     return {
         type: RECIEVE_HOST,
         host
+    }
+}
+
+export const recieveBooking = (booking) => {
+    return{
+        type: RECIEVE_BOOKING,
+        booking
     }
 }
 
@@ -61,3 +69,9 @@ export const getSpot = (spotId) => dispatch => {
         return dispatch(recieveSpot(spot))
     })
 };
+
+export const requestBooking = (booking) => dispatch => {
+    return APIUtil.requestBooking(booking).then(booking => {
+        return dispatch(recieveBooking(booking))
+    })
+}
