@@ -18,7 +18,7 @@ One of the fun aspects of moon camp is using Google Maps imageType to map out di
 ![](map_update.gif)
 
 
-```
+```javascript
 this.map.addListener('bounds_changed', function () {
             // grab the bounds from map
             let northeast = this.getBounds().getNorthEast();
@@ -77,7 +77,7 @@ React Css Transitions:
 
 CSS:
 
-```
+```css
 
 .modal-appear {
   opacity: 0.01;
@@ -106,7 +106,7 @@ CSS:
 modal.jsx
 
 Using switch to change background and child:
-```
+```javascript
     let component
     let background = "modal"
     let noClick
@@ -122,7 +122,7 @@ Using switch to change background and child:
             break;
 ```
 
-```
+```javascript
 <div onClick={noClick} >
 
         
@@ -163,7 +163,7 @@ The filtering for the spots search page utilizes currying in order to update the
 
 
 Curry Action:
-```
+```javascript
 export function updateSpotsFilters(filter, bounds) {
     return (dispatch, getState) => {
         dispatch(updateFilters(filter, bounds));
