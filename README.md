@@ -23,7 +23,7 @@ this.map.addListener('bounds_changed', function () {
             // grab the bounds from map
             let northeast = this.getBounds().getNorthEast();
             let southwest = this.getBounds().getSouthWest();
-            // debugger
+
             let bounds = this.getBounds()
 
             let lat = bounds.getNorthEast().lat();
