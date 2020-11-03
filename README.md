@@ -42,7 +42,7 @@ this.map.addListener('bounds_changed', function () {
 ```
 
 
-```
+```javascript
 const moonMapType = new google.maps.ImageMapType({
             // retrieve the image to be mapped to tiles, and normalize the cordinates
             getTileUrl: function (coord, zoom) {
