@@ -152,7 +152,7 @@ Using switch to change background and child:
             
         </div>
         </CSSTransitionGroup>
-        </div>
+</div>
 
 ```
 
