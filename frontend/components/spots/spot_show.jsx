@@ -23,7 +23,7 @@ class SpotShow extends React.Component {
             showEnd: "close",
             total: 0,
             days: 0,
-            guests: 0,
+            guests: 1,
             submit: false,
   
             
@@ -66,10 +66,8 @@ class SpotShow extends React.Component {
             }
             if(parseInt(this.state.guests) === parseInt(this.props.spot.max_guests)){
                 document.getElementById("max").classList.add("fade-inout")
-                setTimeout(() => {
-                    document.getElementById("max").classList.remove("fade-inout")
-                }, 4000)
-            } 
+                
+            }
             
             return e => this.setState({
         
@@ -117,7 +115,7 @@ class SpotShow extends React.Component {
         const days = parseInt((end - start) / (24 * 3600 * 1000))
         const total = days * this.props.spot.price
         const price = this.state.guests / 3 
-       const booking = {spot_id: this.props.spot.id, host_id: this.props.host.id, start_date: this.state.start, end_date: this.state.end, user_id: this.props.user_id, total: total}
+       const booking = {spot_id: this.props.spot.id, host_id: this.props.host.id, start_date: this.state.start, end_date: this.state.end, user_id: this.props.user_id, total: total, guests: this.state.guests}
         const dateform = document.getElementById("date-form")
         dateform.classList.add('close')
         document.getElementById("max").classList.remove("fade-inout")
@@ -144,7 +142,7 @@ class SpotShow extends React.Component {
         if(!this.state.submit){
             bookBtn = <button type="submit" className="btn-search instant" id="booking-btn"> {this.state.bookContent}</button>
         }else{
-            debugger
+            
             let path
             let booking = Object.values(this.props.booking)
             if (booking.length != 0){

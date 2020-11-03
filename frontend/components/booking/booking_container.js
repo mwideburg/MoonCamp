@@ -8,10 +8,10 @@ import Booking from "./booking";
 const mapSTP = (state, ownProps) => {
     // debugger
     const spotId = ownProps.match.params.spotId
-    const spot = state.entities.spots[spotId]
-    const booking = state.entities.bookings
-    const user_id = state.session.id
-    // debugger
+    const spot = Object.values(state.entities.spots)[0]
+    const booking = Object.values(state.entities.bookings)[0]
+    const user_id = Object.values(state.session.id)[0]
+    
     // const host = state.entities.host[spot.host_id]
 
     return {

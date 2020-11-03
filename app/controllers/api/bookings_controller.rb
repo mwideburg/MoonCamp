@@ -13,7 +13,7 @@ class Api::BookingsController < ApplicationController
     end
 
     def index
-
+        
 
     end
 
@@ -30,7 +30,7 @@ class Api::BookingsController < ApplicationController
 
     private
     def booking_params 
-        params.require(:booking).permit(:id, :start_date, :end_date, :spot_id, :user_id, :host_id, :total)
+        params.require(:booking).permit(:id, :start_date, :end_date, :spot_id, :user_id, :host_id, :total, :guests)
         
     end
 end

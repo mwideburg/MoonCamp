@@ -54,6 +54,7 @@ const App = (props) => {
         
         <Route exact path="/moonmap" component={MoonMap}/>
         <Route exact path="/marsmap" component={SearchSpotsMars}/>
+        <Route exact path="/bookings/:bookingId" component={LoginNavContainer} />
             {/* <Link to="/" className="nav-bar-logo">
             <h2 >Moon Camp</h2>
             </Link> */}

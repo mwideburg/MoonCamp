@@ -470,6 +470,10 @@ var App = function App(props) {
     component: _spots_search_spots_container_mars__WEBPACK_IMPORTED_MODULE_13__["default"]
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
     exact: true,
+    path: "/bookings/:bookingId",
+    component: _nav_login_nav_container__WEBPACK_IMPORTED_MODULE_5__["default"]
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+    exact: true,
     path: "/spots",
     component: _nav_login_nav_container__WEBPACK_IMPORTED_MODULE_5__["default"]
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Switch"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
@@ -788,34 +792,41 @@ var Booking = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
     _this.state = {
-      spot: _this.props.spot
+      spot: _this.props.spot,
+      booking: _this.props.booking,
+      host: _this.props.host
     }; // debugger
 
     return _this;
-  }
+  } // componentDidMount() {
+  //     debugger
+  //     this.props.getBooking(this.props.match.params.bookingId).then(spot => {
+  //         // debugger
+  //         this.props.getHost(spot.spot.spot.host_id)
+  //     })
+  //     // this.setState({spot: this.props.getSpot(this.props.spotId)})
+  // }
+
 
   _createClass(Booking, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      var _this2 = this;
-
-      debugger;
-      this.props.getSpot(this.props.match.params.spotId).then(function (spot) {
-        // debugger
-        _this2.props.getHost(spot.spot.spot.host_id);
-      }); // this.setState({spot: this.props.getSpot(this.props.spotId)})
-    }
-  }, {
     key: "render",
     value: function render() {
       if (this.state.spot === undefined) {
         return null;
       }
 
-      debugger;
+      var start = new Date(this.state.booking.start_date).toString();
+      var end = new Date(this.state.booking.end_date).toString();
+      var photo = this.state.spot.photoUrls[0];
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "show-wrapper"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_footer_pages_footer__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "spots-img"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: photo,
+        className: "spots-img",
+        alt: ""
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, " Your trip to: "), this.state.spot.title, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "START DATE:"), start, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "END DATE:"), end, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Guests:"), this.state.booking.guests, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_footer_pages_footer__WEBPACK_IMPORTED_MODULE_2__["default"], {
         spot: this.props.spot
       }));
     }
@@ -850,10 +861,9 @@ __webpack_require__.r(__webpack_exports__);
 var mapSTP = function mapSTP(state, ownProps) {
   // debugger
   var spotId = ownProps.match.params.spotId;
-  var spot = state.entities.spots[spotId];
-  var booking = state.entities.bookings;
-  var user_id = state.session.id; // debugger
-  // const host = state.entities.host[spot.host_id]
+  var spot = Object.values(state.entities.spots)[0];
+  var booking = Object.values(state.entities.bookings)[0];
+  var user_id = Object.values(state.session.id)[0]; // const host = state.entities.host[spot.host_id]
 
   return {
     spot: spot,
@@ -4028,7 +4038,7 @@ var SpotShow = /*#__PURE__*/function (_React$Component) {
       showEnd: "close",
       total: 0,
       days: 0
-    }, _defineProperty(_this$state, "guests", 0), _defineProperty(_this$state, "submit", false), _this$state); // debugger
+    }, _defineProperty(_this$state, "guests", 1), _defineProperty(_this$state, "submit", false), _this$state); // debugger
 
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     _this.updateState = _this.updateState.bind(_assertThisInitialized(_this));
@@ -4071,9 +4081,6 @@ var SpotShow = /*#__PURE__*/function (_React$Component) {
 
       if (parseInt(this.state.guests) === parseInt(this.props.spot.max_guests)) {
         document.getElementById("max").classList.add("fade-inout");
-        setTimeout(function () {
-          document.getElementById("max").classList.remove("fade-inout");
-        }, 4000);
       }
 
       return function (e) {
@@ -4130,7 +4137,8 @@ var SpotShow = /*#__PURE__*/function (_React$Component) {
         start_date: this.state.start,
         end_date: this.state.end,
         user_id: this.props.user_id,
-        total: total
+        total: total,
+        guests: this.state.guests
       };
       var dateform = document.getElementById("date-form");
       dateform.classList.add('close');
@@ -4168,7 +4176,6 @@ var SpotShow = /*#__PURE__*/function (_React$Component) {
           id: "booking-btn"
         }, " ", this.state.bookContent);
       } else {
-        debugger;
         var path;
         var booking = Object.values(this.props.booking);
 
