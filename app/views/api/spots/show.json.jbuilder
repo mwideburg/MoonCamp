@@ -8,7 +8,7 @@ json.spot do
   json.amenities do 
     @spot.amenities.each do |amenity|
             json.set! amenity.id do
-                json.extract! amenity, :id, :name
+                json.extract! amenity, :id, :name, :description
                 json.photo url_for(amenity.photo)
             end
     end
@@ -24,7 +24,7 @@ end
 json.bookings do 
     @spot.bookings.each do |booking|
             json.set! booking.id do
-                json.extract! booking, :id, :start_date, :end_date
+                json.extract! booking, :id, :start_date, :end_date, :guests
             end
     end
 end

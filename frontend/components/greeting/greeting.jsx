@@ -5,7 +5,12 @@ import { openModal } from '../../actions/modal_actions';
 // import { login } from '../../actions/session_actions'
 
 const Greeting = ({ currentUser, logout, demo , openModal }) => {
-       
+        
+        let path
+        if(currentUser != undefined){
+
+            path = `users/${currentUser.id}`
+        }
         const loginOrSignup = () => {
         // debugger
         return (
@@ -40,10 +45,10 @@ const Greeting = ({ currentUser, logout, demo , openModal }) => {
             <h2 >Moon Camp</h2>
         </Link>
         <nav className="links ">
-            <button className="user-button">Trips</button>
+            <Link to={path}><button className="user-button">Trips</button></Link>
 
             <button className="user-button">Saves</button>
-            <button className="user-button">Messages</button>
+            {/* <button className="user-button">Messages</button> */}
 
 
             <div className="logged-in-dropdown">

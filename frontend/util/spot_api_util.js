@@ -7,11 +7,7 @@
 //     })
 // }
 export const getSpots = (bounds) => {
-    // let lat = bounds.getNorthEast().lat();
-    // let lng2 = bounds.getNorthEast().lng();
-    // let lng = bounds.getSouthWest().lng();
-    // let lat2 = bounds.getSouthWest().lat();
-    // let positions = {lat: [lat, lat2], lng: [lng, lng2]}
+
     
     return $.ajax({
         method: 'get',
@@ -20,8 +16,18 @@ export const getSpots = (bounds) => {
         data: bounds
     })
 }
+export const getUserSpots = (bookings) => {
+    
+    
+    return $.ajax({
+        method: 'get',
+        url: '/api/spots',
+        data_type: 'json',
+        data: {bookings: bookings}
+    })
+}
 export const filterSpots = (filters) => {
-    // debugger
+    
     return $.ajax({
         method: 'get',
         url: '/api/spots',
@@ -60,5 +66,19 @@ export const requestBooking = (booking) => {
         data_type: 'json',
         data: {booking}
 
+    })
+}
+export const getBookings = (userId) => {
+
+    return $.ajax({
+        method: 'GET',
+        url: `api/users/${userId.id}`,
+
+    })
+}
+export const cancelBooking = (booking) => {
+    return $.ajax({
+        method: "DELETE",
+        url: `/api/bookings/${booking.id}`
     })
 }

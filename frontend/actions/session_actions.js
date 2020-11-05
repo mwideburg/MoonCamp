@@ -1,4 +1,5 @@
 import * as APIUtil from '../util/session_api_util'
+import { recieveAmenities } from './amenities_actions';
 
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';
@@ -49,4 +50,6 @@ export const signup = user => dispatch => {
 };
 export const logout = () => dispatch => APIUtil.logout()
     .then(() => dispatch(logoutCurrentUser()));
+
+
 

@@ -16,12 +16,13 @@ class Api::SpotsController < ApplicationController
             end
         end
         
+        
         if params[:filters]
             # Spot.findByAmenities(params[:filters][:amenities])
             #  @spots =  Spot.includes(:amenities).where('amenities = ?' => params[:filters][:amenities])
             # debugger
             if params[:filters][:amenities] == "1"
-                
+            
             @spots = Spot.joins(:amenities).where(amenities: {name: "Holodeck"})
             end
             if params[:filters][:amenities] == "2"
@@ -40,6 +41,15 @@ class Api::SpotsController < ApplicationController
                 
             @spots = Spot.where(planet: "Saturn")
             end
+            if params[:filters][:bookings]
+                    @filtered = []
+                    params[:filters][:bookings].each do |id|
+                        spot = Spot.find(id.to_i)
+                        @filtered << spot
+                    end
+                    @spots = @filtered
+            end
+            
 
             
         end
@@ -49,7 +59,7 @@ class Api::SpotsController < ApplicationController
         # debugger
 
         
-        # debugger
+ 
         render :index
     end
 

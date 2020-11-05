@@ -2,7 +2,7 @@ import React from 'react';
 
 
 const HostDetail = ({host, spot}) => {
-    // debugger
+    
     const photo = host.photoUrl
     return(
         <div className="host-details">

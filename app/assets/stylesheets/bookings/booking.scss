@@ -1,0 +1,106 @@
+.flex {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+}
+.flex-col{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-content: space-between;
+    justify-content: center;
+    padding: 10px;
+    height: 100%;
+    
+
+}
+
+.booking-wrapper{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    height: 100%;
+    align-items: center;
+    justify-content: space-between;
+    .booking-title{
+        font-size: 50px;
+    }
+}
+.w-1000{
+    width: 100%;
+}
+
+
+.w-300{
+    height: 100%;
+    margin: 20px;
+    border: 1px lightgray solid;
+    width: 300px;
+    padding: 10px;
+}
+.booking-single{
+    display: flex;
+    width: 100%;
+    border: 1px lightgray solid;
+    padding: 10px;
+    justify-content: space-between;
+    width: 800px;
+    margin: 10px;
+}
+
+.amen-checklist{
+    margin: 10px;
+    align-items: center;
+    border: 1px lightgray solid;
+    padding: 10px;
+    box-sizing: border-box;
+    
+}
+.amen-icon{
+    width: 10%;
+    border-right: 1px solid lightgray;
+}
+.b-top{
+    border-top: 1px lightgray solid;
+}
+
+.amen-available{
+    width: 90%;
+}
+.h-200{
+    height: 200px;
+}
+.center{
+    align-items: center;
+}
+
+.profile-container{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    min-height: 900px;
+}
+.content-container{
+    text-align: center;
+}
+.sidebar-profile{
+    display: flex;
+    position: absolute;
+    left: 10px;
+    width: 200px;
+    height: 800px; 
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    margin: 10px;
+    
+}
+
+.sidebar-container{
+    border: lightgray 1px solid;
+    padding: 10px;
+    width: 100%;
+    height: 100%;
+    
+}

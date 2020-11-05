@@ -13,19 +13,25 @@ class Api::BookingsController < ApplicationController
     end
 
     def index
-        
+        debugger
+        @user = User.find(params[:user_id])
+        render 'api/users/show'
 
     end
 
     def show
         @booking_request = Booking.find(params[:id])
+        render 'api/bookings/show'
     end
 
-    def update
+    def destroy
+        @booking = Booking.find(params[:id])
+        @booking_request = @booking
+        @booking.destroy
+        render 'api/bookings/show'
         
-
+        
     end
-
     
 
     private

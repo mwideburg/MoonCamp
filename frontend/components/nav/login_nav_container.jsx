@@ -1,11 +1,17 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { Link, withRouter, Redirect } from 'react-router-dom';
 import { openModal } from '../../actions/modal_actions';
 // import { SHOW_MODAL, HIDE_MODAL } from '../../actions/modal_actions'
 
 
 const navContainer = ({ currentUser, demo, logout, openModal }) => {
         let navbar
+        let path
+        if (currentUser != undefined) {
+
+        path = `users/${currentUser.id}`
+        }
+        
         if(!currentUser){
             navbar = (
             <nav className="links">
@@ -22,7 +28,7 @@ const navContainer = ({ currentUser, demo, logout, openModal }) => {
         }else{
             navbar = (
                 <nav className="links">
-                    <button className="user-button">Trips</button>
+                    <Link to={path} ><button className="user-button">Trips</button></Link>
 
                     <button className="user-button">Saves</button>
                     <button className="user-button">Messages</button>

@@ -35,6 +35,7 @@ import MoonMap from "./spots/moon_map"
 import SearchSpotsMars from "./spots/search_spots_container_mars"
 import SpotShow from "./spots/spot_show_container"
 import BookingContainer from "./booking/booking_container"
+import Profile from "./profile/user_profil_container"
 
 // pass prop
 import ReactDOM from 'react-dom'
@@ -53,8 +54,11 @@ const App = (props) => {
             <Modal />
         
         <Route exact path="/moonmap" component={MoonMap}/>
+        <Route exact path="/marsmap" component={LoginNavContainer}/>
         <Route exact path="/marsmap" component={SearchSpotsMars}/>
         <Route exact path="/bookings/:bookingId" component={LoginNavContainer} />
+        <Route exact path="/users/:userId" component={LoginNavContainer} />
+        {/* <Route exact path="/users/:userId" component={LoginNavContainer} /> */}
             {/* <Link to="/" className="nav-bar-logo">
             <h2 >Moon Camp</h2>
             </Link> */}
@@ -70,6 +74,7 @@ const App = (props) => {
                 <AuthRoute exact path="/signup" component={SignupSplashContainer} />
             </Switch>
         <Route path="/spots/:spotId" component={SpotShow} />
+        <Route path="/users/:userId" component={Profile} />
 {/*             
     </header> */}
         {/* <Route exact path="/spots" component={SpotsIndexContainer} /> */}

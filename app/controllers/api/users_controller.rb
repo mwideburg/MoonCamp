@@ -19,6 +19,7 @@ class Api::UsersController < ApplicationController
         
         @user = User.find(params[:id])
         @bookings = @user.bookings
+        
          if @user
             render "api/users/show"
         else

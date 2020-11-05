@@ -8,5 +8,10 @@ class Api::AmenitiesController < ApplicationController
         end
         
     end
+    def index
+        @amenities = Amenity.all
+
+        render :index
+    end
  
 end

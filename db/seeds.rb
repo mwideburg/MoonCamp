@@ -328,16 +328,16 @@ food.photo.attach(io: icon7, filename: 'food.png')
 
 
 
-holo = Amenity.create(name: "Holodeck")
-phasers = Amenity.create(name: "Phasers")
-spacesuits = Amenity.create(name: "Space suits")
-oxygen = Amenity.create(name: "Oxygen")
-water = Amenity.create(name: "Water")
-telescope = Amenity.create(name: "Telescope")
-spaceship = Amenity.create(name: "Spaceship")
-toothpaste = Amenity.create(name: "Toothpaste")
-hotdogs = Amenity.create(name: "Hot Dogs")
-bed = Amenity.create(name: "Bed")
+holo = Amenity.create(name: "Holodeck", description: "Holodeck gives our campers the reprieve they need to escape the rough living conditions of space moons")
+phasers = Amenity.create(name: "Phasers", description: "There are many life forms in our solar system, some may not be too friendly. Phasers should help")
+spacesuits = Amenity.create(name: "Space suits", description: "Most humans can not withstand the lack of atmosphere and extreme temperatures, spacesuits!")
+oxygen = Amenity.create(name: "Oxygen", description: "Can't breathe without it")
+water = Amenity.create(name: "Water", description: "Water to drink, to shower in, and much more.")
+telescope = Amenity.create(name: "Telescope", description: "To gaze at the stars, where it all began")
+spaceship = Amenity.create(name: "Spaceship", description: "To infinity and beyound")
+toothpaste = Amenity.create(name: "Toothpaste", description: "No cavities out in space")
+hotdogs = Amenity.create(name: "Hot Dogs", description: "In the future all space programs are merging to a hot dog diet")
+bed = Amenity.create(name: "Bed", description: "Rest your head my friend")
 
 
 amen1 = File.open('app/assets/images/icons/vr.png')

@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { getSpots, getSpot } from '../../actions/spot_actions'
 import SpotIndex from "./spots_index";
-
+import { getAmenities } from '../../actions/amenities_actions'
 const mapStateToProps = (state) => {
     // debugger
     return {
@@ -21,6 +21,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = dispatch => {
     // debugger
     return {
+        getAmenities: () => dispatch(getAmenities()),
         getSpots: () => dispatch(getSpots())
     };
 };
