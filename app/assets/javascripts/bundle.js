@@ -1494,7 +1494,7 @@ var navContainer = function navContainer(_ref) {
   var path;
 
   if (currentUser != undefined) {
-    path = "users/".concat(currentUser.id);
+    path = "/users/".concat(currentUser.id);
   }
 
   if (!currentUser) {

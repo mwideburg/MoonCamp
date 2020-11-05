@@ -9,7 +9,7 @@ const navContainer = ({ currentUser, demo, logout, openModal }) => {
         let path
         if (currentUser != undefined) {
 
-        path = `users/${currentUser.id}`
+        path = `/users/${currentUser.id}`
         }
         
         if(!currentUser){
