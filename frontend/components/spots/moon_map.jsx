@@ -77,25 +77,30 @@ class MoonMap extends React.Component {
         this.map.mapTypes.set("moon", moonMapType);
         this.map.setMapTypeId("moon");
 
-        const updateSpots = this.props.updateSpots
+        const updateSpots = this.props.updateSpotsFilter
         this.map.addListener('bounds_changed', function () {
+            const { north, south, east, west } = this.getBounds().toJSON();
+            const bounds = {
+                northEast: { lat: north, lng: east },
+                southWest: { lat: south, lng: west }
+            };
             // debugger
-            let northeast = this.getBounds().getNorthEast();
-            let southwest = this.getBounds().getSouthWest();
-            // debugger
-            let bounds = this.getBounds()
+            // let northeast = this.getBounds().getNorthEast();
+            // let southwest = this.getBounds().getSouthWest();
+            // // debugger
+            // let bounds = this.getBounds()
 
-            let lat = bounds.getNorthEast().lat();
-            let lat2 = bounds.getSouthWest().lat();
-            let lng = bounds.getNorthEast().lng();
-            let lng2 = bounds.getSouthWest().lng();
+            // let lat = bounds.getNorthEast().lat();
+            // let lat2 = bounds.getSouthWest().lat();
+            // let lng = bounds.getNorthEast().lng();
+            // let lng2 = bounds.getSouthWest().lng();
 
-            let positions = { bounds: { lat: [lat, lat2], lng: [lng, lng2] } }
+            // let positions = { lat: [lat, lat2], lng: [lng, lng2] }
 
             // debugger
             console.log('updated')
             // updateBounds(bounds)
-            updateSpots(positions)
+            updateSpots('bounds', bounds)
         })
 
 
@@ -104,6 +109,7 @@ class MoonMap extends React.Component {
         
     }
     componentDidUpdate() {
+        
         this.MarkerManager.updateMarker(this.props.spots);
     }
     

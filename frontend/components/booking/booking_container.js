@@ -8,11 +8,14 @@ import Booking from "./booking";
 
 const mapSTP = (state, ownProps) => {
     
-    const spotId = ownProps.match.params.spotId
-    const spot = Object.values(state.entities.spots)[0]
-    const booking = Object.values(state.entities.bookings)[0]
-    const user_id = Object.values(state.session.id)[0]
-    const amenities = Object.values(state.entities.amenities)
+    
+    const user_id = state.session.id
+    const bookingId = ownProps.match.params.bookingId
+    const booking = state.entities.users[user_id].bookings[bookingId]
+    
+    const spot = state.entities.users[user_id].bookings[bookingId].spot
+    // const user_id = Object.values(state.session.id)[0]
+    // const amenities = Object.values(spot.amenities)
     const host = state.entities.host
     
     // const host = state.entities.host[spot.host_id]
@@ -22,7 +25,6 @@ const mapSTP = (state, ownProps) => {
         user_id: user_id,
         booking: booking,
         host: host,
-        amenities: amenities
 
     }
 }

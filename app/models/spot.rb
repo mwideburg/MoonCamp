@@ -14,6 +14,7 @@
 #  lat         :float            not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  max_guests  :integer
 #
 class Spot < ApplicationRecord
     validates :host_id, presence: true
@@ -47,6 +48,15 @@ class Spot < ApplicationRecord
         source: :amenity
         
     has_many :bookings
+
+    has_many :reviews,
+        class_name: :Review,
+        foreign_key: :spot_id
+        
+    has_many :saves
+    has_many :saved_users,
+        through: :saves,
+        source: :user
 
     def findByAmenities(name)
         debugger
@@ -84,25 +94,30 @@ class Spot < ApplicationRecord
     #     class_name: :booking,
     #     foreign_key: :host_id
     
-     def in_bounds(bounds)
+     def self.in_bounds(bounds)
          # google map bounds will be in the following format:
   # {
   #   "northEast"=> {"lat"=>"37.80971", "lng"=>"-122.39208"},
   #   "southWest"=> {"lat"=>"37.74187", "lng"=>"-122.47791"}
   # }   
+        
+        # lat = bounds['lat']
+        # lng = bounds['lng']
+
+         self.where("lat < ?", bounds[:northEast][:lat])
+            .where("lat > ?", bounds[:southWest][:lat])
+            .where("lng > ?", bounds[:southWest][:lng])
+            .where("lng < ?", bounds[:northEast][:lng])
         # debugger
-        lat = bounds['lat']
-        lng = bounds['lng']
-        # debugger
-        if( self.lat.to_f > lat[0].to_f || self.lat.to_f < lat[1].to_f)
-            # debugger
-            return false
-        end
-        if ( self.lng.to_f > lng[0].to_f || self.lng.to_f < lng[1].to_f)
-            # debugger
-            return false
-        end
-        return true
+        # if( self.lat.to_f > lat[0].to_f || self.lat.to_f < lat[1].to_f)
+        #     # debugger
+        #     return false
+        # end
+        # if ( self.lng.to_f > lng[0].to_f || self.lng.to_f < lng[1].to_f)
+        #     # debugger
+        #     return false
+        # end
+        # return true
         
     end
     

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { updateSpotsFilters, updateSpots } from '../../actions/filter_actions'
+import { updateSpotsFilters, updateSpots, removeFilter } from '../../actions/filter_actions'
 // import getSpots from '../../actions/spot_actions'
 import SearchSpots from "./search_spots";
 
@@ -19,7 +19,8 @@ const mapDTP = dispatch => {
         // getSpots: () => dispatch(getSpots()),
         // updateBounds : (bounds) => dispatch(updateBounds(bounds)),
         updateSpots : (bounds) => dispatch(updateSpots(bounds)),
-        updateSpotsFilters: (filter) => dispatch(updateSpotsFilters({filter}))
+        updateSpotsFilters: (filter, value) => dispatch(updateSpotsFilters(filter, value)),
+        removeFilter: (filter, value) => dispatch(removeFilter(filter, value))
     }
 }
 

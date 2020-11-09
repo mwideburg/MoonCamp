@@ -14,6 +14,8 @@ SpotAmenity.destroy_all
 Activity.destroy_all
 SpotActivity.destroy_all
 Booking.destroy_all
+Review.destroy_all
+Save.destroy_all
 
 michael = User.create({firstname: "michael", lastname: "wideburg", email: "michael@mooncamp.com", password: "michael", zipcode: 11206})
 picard = User.create({firstname: "Jean-Luc", lastname: "Picard", email: "michael2@mooncamp.com", password: "michael", zipcode: 11206})
@@ -236,9 +238,7 @@ moon14 = Spot.create({
 
 })
 
-
-
-
+review1 = Review.create({spot_id: moon1.id, user_id: picard.id, content: "This is a review"})
 
 file1 = File.open('app/assets/images/dst-europa-base.jpg')
 file2 = File.open('app/assets/images/europa_moon.jpg')

@@ -11,6 +11,7 @@ const BookingSingle = ({bookings, spots, cancelReservation}) => {
     const allSpots = spots
     const cancel = cancelReservation
     return Object.values(bookings).map(booking => {
+        
             const path = `spots/${booking.spot_id}`
             const spot = allSpots[booking.spot_id]
             const bookingId = booking.id
@@ -40,7 +41,7 @@ const BookingSingle = ({bookings, spots, cancelReservation}) => {
             </h4>
 
             <h4>Guests: {booking.guests}</h4>
-            <Link to={path}> View Spot</Link>
+            <Link to={{pathname: path, state: spot.id}} > View Spot</Link>
             <br />
             <button onClick={() => cancelReservation(booking)} className="btn-search instant view-booking"> Cancel Reservation</button>
 

@@ -7,12 +7,14 @@ import amenities from "./amenities_reducer.js";
 
 
 
+
 const entitiesReducer = combineReducers({
     users: users,
     spots: spots,
     host: host,
     bookings: bookings,
-    amenities: amenities
+    amenities: amenities,
+
     
 });
 

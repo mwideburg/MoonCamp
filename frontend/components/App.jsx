@@ -58,6 +58,8 @@ const App = (props) => {
         <Route exact path="/marsmap" component={SearchSpotsMars}/>
         <Route exact path="/bookings/:bookingId" component={LoginNavContainer} />
         <Route exact path="/users/:userId" component={LoginNavContainer} />
+        <Route exact path="/users/:userId/trips" component={LoginNavContainer} />
+        <Route exact path="/users/:userId/saves" component={LoginNavContainer} />
         {/* <Route exact path="/users/:userId" component={LoginNavContainer} /> */}
             {/* <Link to="/" className="nav-bar-logo">
             <h2 >Moon Camp</h2>

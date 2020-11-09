@@ -18,7 +18,9 @@ class Api::UsersController < ApplicationController
     def show
         
         @user = User.find(params[:id])
+       
         @bookings = @user.bookings
+        @save = @user.saved
         
          if @user
             render "api/users/show"

@@ -101,7 +101,7 @@ align-items: flex-end;
     align-items: center;
     padding:15px;
     background-color: white;
-    margin: 10px;
+   margin:10px;
     border: 1px lightgray solid;
     height: 40px;
 }
@@ -111,15 +111,30 @@ align-items: flex-end;
      cursor: pointer;
      
 }
-.filter-btn:active{
-    border: 1px aquamarine solid;
-     color: black;
-     cursor: pointer;
-     
-}
-.filter-btn:focus{
+
+
+.filter-btn-selected{
+    
+    display: flex;
+    align-items: center;
+    padding:15px;
+    background-color: white;
+   margin: 10px;
     border: 1px aquamarine solid;
      color: aquamarine;
      cursor: pointer;
-     
+    height: 40px;
+}
+.filter-btn-selected:hover{
+    
+    display: flex;
+    align-items: center;
+    padding:15px;
+    background-color:aquamarine solid;
+     color: aquamarine;
+   margin: 10px;
+    border: 1px aquamarine solid;
+     color: gray;
+     cursor: pointer;
+    height: 40px;
 }

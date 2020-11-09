@@ -4,6 +4,7 @@ import {filterSpots} from './spot_actions'
 export const UPDATE_BOUNDS = 'UPDATE_BOUNDS'
 export const UPDATE_FILTERS = 'UPDATE_FILTERS'
 export const FILTER_SPOTS = 'FILTER_SPOTS'
+export const REMOVE_FILTER = 'REMOVE_FILTER'
 
 export const updateBounds = (bounds) => {
     // debugger
@@ -12,11 +13,20 @@ export const updateBounds = (bounds) => {
         bounds
     }
 }
-export const updateFilters = (filter) => {
+export const updateFilters = (filter, value) => {
     // debugger
     return {
         type: UPDATE_FILTERS,
-        filter
+        filter,
+        value
+    }
+}
+export const removeAFilter = (filter, value) => {
+    // debugger
+    return {
+        type: REMOVE_FILTER,
+        filter,
+        value
     }
 }
 export const recieveFilterSpots = (filter) => {
@@ -26,15 +36,26 @@ export const recieveFilterSpots = (filter) => {
     }
 }
 
+
 export const updateSpots = (bounds) => dispatch => {
     // debugger
     APIUtil.getSpots(bounds).then(spots => dispatch(recieveSpots(spots)))
 }
 
-export function updateSpotsFilters(filter, bounds) {
-    // debugger
+export function updateSpotsFilters(filter, value) {
+    
+    
     return (dispatch, getState) => {
-        dispatch(updateFilters(filter, bounds));
+        dispatch(updateFilters(filter, value));
+        return filterSpots(getState().ui.filters)(dispatch)
+        // delicious curry!
+    };
+}
+export function removeFilter(filter, value) {
+    
+    
+    return (dispatch, getState) => {
+        dispatch(removeAFilter(filter, value));
         return filterSpots(getState().ui.filters)(dispatch)
         // delicious curry!
     };

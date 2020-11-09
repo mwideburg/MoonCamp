@@ -7,30 +7,32 @@ export default class MarkerManager{
         this.state = {
             markers: {}
         }
+        // this.handleClick = handleClick;
         this.updateMarker = this.updateMarker.bind(this)
         this.createMarkerFromSpot = this.createMarkerFromSpot.bind(this)
         this.removeMarker = this.removeMarker.bind(this)
     }
 
-    updateMarker(spots){
-        console.log("time to update");
-        const moonSpots = Object.values(spots);
-        let markers = this.markers
-        let createMarkerFromSpot = this.createMarkerFromSpot
-        // debugger
+    updateMarker(obj){
         
-        moonSpots.forEach(spot =>{
-            createMarkerFromSpot(spot)
-        })
-        let removeMarker = this.removeMarker
-        Object.values(this.state.markers).map(mark => {
-                spots[mark.id] ? "" : removeMarker(mark)
-            })
+        let spots = Object.values(obj);
+
+        const spotObj = {};
+        spots.forEach(spot => spotObj[spot.id] = spot);
+        
+
+        spots
+            .filter(spot => !this.state.markers[spot.id])
+            .forEach(newSpot => this.createMarkerFromSpot(newSpot))
+
+        Object.keys(this.state.markers)
+            .filter(spotId => !spotObj[spotId])
+            .forEach((spotId) => this.removeMarker(this.state.markers[spotId]))
             
     }
 
     createMarkerFromSpot(spot){
-        // debugger
+        
         const contentString =
             '<div id="content">' +
             '<div >' +
@@ -43,10 +45,11 @@ export default class MarkerManager{
             content: contentString,
         });
         let myLatLng = {lat: Number(spot.lat), lng: Number(spot.lng)}
-        var marker = new google.maps.Marker({
+        const marker = new google.maps.Marker({
             position: myLatLng,
             map: this.map,
-            title: spot.title
+            title: spot.title,
+            spotId: spot.id
         });
         marker.addListener("mouseover", () => {
             infowindow.open(this.map, marker);
@@ -58,11 +61,13 @@ export default class MarkerManager{
         marker.addListener("click", () => {
             infowindow.close(this.map, marker);
         });
-        return this.state.markers[spot.id] = spot
+        return this.state.markers[marker.spotId] = marker
         // return marker.setMap(this.map)
     }
 
     removeMarker(marker){
-       delete this.state.markers[marker.id]
+        
+        this.state.markers[marker.spotId].setMap(null);
+        delete this.state.markers[marker.spotId]
     }
 }

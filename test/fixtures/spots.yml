@@ -13,6 +13,7 @@
 #  lat         :float            not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  max_guests  :integer
 #
 
 # This model initially had no columns defined. If you add columns to the

@@ -33,7 +33,7 @@ function Modal(modalType, closeModal){
             modalChild = "modal-child"
             break;
         case 'switch_login':
-            debugger
+            
             noClick = ""
             component = <LoginFormContainer />
             // background = "can-he-do-it"

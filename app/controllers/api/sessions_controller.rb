@@ -4,12 +4,12 @@ class Api::SessionsController < ApplicationController
             params[:user][:email], 
             params[:user][:password]
         )
-
+        
         if @user 
             login(@user)
             render "api/users/show"
         else
-            # debugger
+            
              render json: [" Invalid Credentials "], status: 404
         end
     end

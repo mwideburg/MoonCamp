@@ -13,6 +13,7 @@
 #  lat         :float            not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  max_guests  :integer
 #
 require 'test_helper'
 

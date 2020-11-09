@@ -7,9 +7,11 @@ import { openModal } from '../../actions/modal_actions';
 const navContainer = ({ currentUser, demo, logout, openModal }) => {
         let navbar
         let path
+        let path2
         if (currentUser != undefined) {
 
-        path = `/users/${currentUser.id}`
+        path = `/users/${currentUser.id}/trips`
+        path2 = `/users/${currentUser.id}/saves`
         }
         
         if(!currentUser){
@@ -29,9 +31,10 @@ const navContainer = ({ currentUser, demo, logout, openModal }) => {
             navbar = (
                 <nav className="links">
                     <Link to={path} ><button className="user-button">Trips</button></Link>
+                    <Link to={path2} ><button className="user-button">Saves</button></Link>
 
-                    <button className="user-button">Saves</button>
-                    <button className="user-button">Messages</button>
+                    
+                    
                     <div className="logged-in-dropdown">
 
                     <img className="moon" src="https://pngimg.com/uploads/moon/moon_PNG20.png" alt="" />

@@ -1,10 +1,13 @@
 import * as APIUtil from '../util/spot_api_util'
+import { receiveCurrentUser } from './session_actions';
 
 export const RECEIVE_SPOTS = 'RECEIVE_SPOTS';
 export const RECEIVE_SPOT = 'RECEIVE_SPOT';
 export const RECIEVE_HOST = 'RECIEVE_HOST';
 export const RECIEVE_BOOKING = 'RECIEVE_BOOKING';
 export const RECIEVE_BOOKINGS = 'RECIEVE_BOOKINGS';
+export const RECIEVE_SAVE = 'RECIEVE_SAVE';
+export const REMOVE_SAVE = 'REMOVE_SAVE';
 export const REMOVE_BOOKING = 'REMOVE_BOOKING';
 
 export const recieveSpots = (spots) => {
@@ -15,7 +18,7 @@ export const recieveSpots = (spots) => {
     }
 }
 export const recieveSpot = (spot) => {
-    // debugger
+    
     return {
         type: RECEIVE_SPOT,
         spot
@@ -35,6 +38,19 @@ export const recieveBooking = (booking) => {
         booking
     }
 }
+export const recieveSave = (save) => {
+    return{
+        type: RECIEVE_SAVE,
+        save
+    }
+}
+export const deleteSave = (save) => {
+    return{
+        type: REMOVE_SAVE,
+        save
+    }
+}
+
 export const recieveBookings = (bookings) => {
     return{
         type: RECIEVE_BOOKINGS,
@@ -77,7 +93,7 @@ export const getHost = (hostId) => dispatch => {
     )
 };
 export const getSpot = (spotId) => dispatch => {
-    // debugger
+    
     return APIUtil.getSpot(spotId).then(spot => {
         // debugger
         return dispatch(recieveSpot(spot))
@@ -94,6 +110,18 @@ export const getUserSpots = (bookings) => dispatch => {
 export const requestBooking = (booking) => dispatch => {
     return APIUtil.requestBooking(booking).then(booking => {
         return dispatch(recieveBooking(booking))
+    })
+}
+export const saveSpot = (save) => dispatch => {
+    
+    return APIUtil.createSave(save).then(user => {
+        
+        return dispatch(recieveSave(user))
+    })
+}
+export const removeSave = (save) => dispatch => {
+    return APIUtil.deleteSave(save).then(save => {
+        return dispatch(deleteSave(save))
     })
 }
 

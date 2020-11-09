@@ -1,11 +1,4 @@
-// export const getSpots = () => {
-//     // debugger
-//     return $.ajax({
-//         method: 'get',
-//         url: '/api/spots',
-//         data_type: 'json'
-//     })
-// }
+
 export const getSpots = (bounds) => {
 
     
@@ -26,17 +19,16 @@ export const getUserSpots = (bookings) => {
         data: {bookings: bookings}
     })
 }
-export const filterSpots = (filters) => {
+export const filterSpots = (data) => {
     
     return $.ajax({
         method: 'get',
         url: '/api/spots',
-        datatype: JSON,
-        data: { filters }
+        data
     })
 }
 export const filterAmenSpots = (filters) => {
-    // debugger
+
     return $.ajax({
         method: 'get',
         url: '/api/spots',
@@ -72,7 +64,7 @@ export const getBookings = (userId) => {
 
     return $.ajax({
         method: 'GET',
-        url: `api/users/${userId.id}`,
+        url: `api/users/${userId}`,
 
     })
 }
@@ -80,5 +72,21 @@ export const cancelBooking = (booking) => {
     return $.ajax({
         method: "DELETE",
         url: `/api/bookings/${booking.id}`
+    })
+}
+export const createSave = (save) => {
+    return $.ajax({
+        method: 'POST',
+        url: '/api/saves',
+        data_type: 'json',
+        data: {save}
+    })
+}
+
+export const deleteSave = (save) => {
+    
+    return $.ajax({
+        method: 'DELETE',
+        url: `/api/saves/${save}`
     })
 }

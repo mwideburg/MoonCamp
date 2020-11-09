@@ -20,7 +20,7 @@ const mapDTP = dispatch => {
         // getSpots: () => dispatch(getSpots()),
         // updateBounds : (bounds) => dispatch(updateBounds(bounds)),
         updateSpots : (bounds) => dispatch(updateSpots(bounds)),
-        updateSpotsFilters: (filter) => dispatch(updateSpotsFilters({filter}))
+        updateSpotsFilters: (filter, value) => dispatch(updateSpotsFilters(filter, value))
     }
 }
 

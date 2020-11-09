@@ -1,58 +1,90 @@
 class Api::SpotsController < ApplicationController
     def index
         # debugger
-        @allSpots = Spot.all
+        # @allSpots = Spot.all
         # @spots =  Spot.all
         # debugger
-        bounds = params[:bounds]
-        @spots = []
         
-        if params[:bounds]
-            # debugger
-            @allSpots.each do |spot| 
-                if spot.in_bounds(bounds)
-                     @spots << spot
-                end
-            end
-        end
+        # @spots = []
         
+        # if params[:bounds]
+        #     # debugger
+        #     @allSpots.each do |spot| 
+        #         if spot.in_bounds(bounds)
+        #              @spots << spot
+        #         end
+        #     end
+        # end
+        bounds = params[:filters][:bounds]
+        spots = params[:filters][:bounds] ? Spot.in_bounds(bounds) : Spot.all
+        # spots = spots.includes(:amenities)
         
-        if params[:filters]
-            # Spot.findByAmenities(params[:filters][:amenities])
-            #  @spots =  Spot.includes(:amenities).where('amenities = ?' => params[:filters][:amenities])
-            # debugger
-            if params[:filters][:amenities] == "1"
+        if params[:filters][:holodeck]
+            # spots = spots.map(spot => spot.amenities)
+            name = params[:filters][:holodeck]
+            filter = spots.joins(:amenities).where(amenities: {name: name})
             
-            @spots = Spot.joins(:amenities).where(amenities: {name: "Holodeck"})
-            end
-            if params[:filters][:amenities] == "2"
+        end
+
+        
+        if params[:filters][:oxygen]
+            
+            name = params[:filters][:oxygen]
+            spots = spots.joins(:amenities).where(amenities: {name: name})
+        end
+        if params[:filters][:phasers]
+            
+            name = params[:filters][:phasers]
+            spots = spots.joins(:amenities).where(amenities: {name: name})
+        end
+         @spots = spots
+         @spots.includes(:saves)
+        # if params[:filters]
+        #     # Spot.findByAmenities(params[:filters][:amenities])
+        #     #  @spots =  Spot.includes(:amenities).where('amenities = ?' => params[:filters][:amenities])
+        #     # debugger
+        #     if params[:filters][:bounds]
+        #     # debugger
+        #     bounds = params[:filters][:bounds]
+        #     @allSpots.each do |spot| 
+        #             if spot.in_bounds(bounds)
+        #              @spots << spot
+        #             end
+        #         end
+        #     end
+            
+        #     if params[:filters][:amenities] == "1"
+            
+        #     @spots = Spot.joins(:amenities).where(amenities: {name: "Holodeck"})
+        #     end
+        #     if params[:filters][:amenities] == "2"
                 
-            @spots = Spot.joins(:amenities).where(amenities: {name: "Spaceship"})
-            end
-            if params[:filters][:amenities] == "3"
+        #     @spots = Spot.joins(:amenities).where(amenities: {name: "Spaceship"})
+        #     end
+        #     if params[:filters][:amenities] == "3"
                 
-            @spots = Spot.joins(:amenities).where(amenities: {name: "Phasers"})
-            end
-            if params[:filters][:amenities] == "4"
+        #     @spots = Spot.joins(:amenities).where(amenities: {name: "Phasers"})
+        #     end
+        #     if params[:filters][:amenities] == "4"
                 
-            @spots = Spot.where(planet: "Jupiter")
-            end
-            if params[:filters][:amenities] == "5"
+        #     @spots = Spot.where(planet: "Jupiter")
+        #     end
+        #     if params[:filters][:amenities] == "5"
                 
-            @spots = Spot.where(planet: "Saturn")
-            end
-            if params[:filters][:bookings]
-                    @filtered = []
-                    params[:filters][:bookings].each do |id|
-                        spot = Spot.find(id.to_i)
-                        @filtered << spot
-                    end
-                    @spots = @filtered
-            end
+        #     @spots = Spot.where(planet: "Saturn")
+        #     end
+        #     if params[:filters][:bookings]
+        #             @filtered = []
+        #             params[:filters][:bookings].each do |id|
+        #                 spot = Spot.find(id.to_i)
+        #                 @filtered << spot
+        #             end
+        #             @spots = @filtered
+        #     end
             
 
             
-        end
+        # end
 
 
         
@@ -67,7 +99,9 @@ class Api::SpotsController < ApplicationController
     def show
         # debugger
         @spot = Spot.find(params[:id])
+        
         @bookings = @spot.bookings
+        @reviews = @spot.reviews
         # debugger
         
 

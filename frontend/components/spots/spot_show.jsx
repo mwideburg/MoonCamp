@@ -8,9 +8,11 @@ import CategoryActivityContainer from './spot_instructions'
 import SpotActivityIcons from './spot_activity_icons'
 import PageFooter from '../footer/pages_footer'
 import ReviewsContinaer from './reviews_container'
+import { removeSave } from '../../actions/spot_actions';
 
 class SpotShow extends React.Component {
     constructor(props){
+        
         super(props)
         this.state = {
             host:{},
@@ -25,6 +27,7 @@ class SpotShow extends React.Component {
             days: 0,
             guests: 1,
             submit: false,
+            saved: '',
   
             
         }
@@ -33,6 +36,8 @@ class SpotShow extends React.Component {
         this.updateState = this.updateState.bind(this);
         this.checkDays = this.checkDays.bind(this);
         this.checkTotal = this.checkTotal.bind(this);
+        this.saveSpot = this.saveSpot.bind(this);
+        this.removeSave = this.removeSave.bind(this);
 
     }
 
@@ -41,8 +46,10 @@ class SpotShow extends React.Component {
         this.props.getSpot(this.props.match.params.spotId).then(spot => {
             // debugger
             this.props.getHost(spot.spot.spot.host_id)
+            let saved = Object.values(this.props.user.saved).map(save => save.spot_id).includes(spot.spot.spot.id)
+            
+            this.setState({saved: saved})
         })
-        
         // this.setState({spot: this.props.getSpot(this.props.spotId)})
         
     }
@@ -125,6 +132,20 @@ class SpotShow extends React.Component {
        this.props.requestBooking(booking).then(this.setState({bookContent: 'View Booking Details', submit: true}))
 
     }
+
+    saveSpot(e){
+        
+        this.props.saveSpot({spot_id: this.props.spot.id, user_id: this.props.user_id})
+        this.setState({ saved: true })
+    }
+    removeSave(e){
+        const spotId = this.props.spot.id
+        let saves = Object.values(this.props.user.saved).filter(save => save.spot_id === spotId)
+        
+        let save = saves[0].id
+        this.props.removeSave(save)
+        this.setState({saved: false})
+    }
     
 
 
@@ -146,6 +167,7 @@ class SpotShow extends React.Component {
             let path
             let booking = Object.values(this.props.booking)
             if (booking.length != 0){
+                
                 let bookingId = Object.values(this.props.booking)[0].id
                 path = `/bookings/${bookingId}`
 
@@ -160,6 +182,18 @@ class SpotShow extends React.Component {
 
             )
         }
+    
+    let saveBtn
+        if (this.state.saved){
+            
+          
+            saveBtn = <button id="save-btn" className='saved' onClick={() => this.removeSave()}> Spot Saved </button>
+        }else{
+
+            saveBtn = <button id="save-btn" className='' onClick={() => this.saveSpot()}> Save Spot </button>
+        }
+
+        
         
         return (
             <div className="show-wrapper">
@@ -195,7 +229,7 @@ class SpotShow extends React.Component {
                                     Nearby: <Link to="/spots/"> Jupiter's Europa  </Link>
                                 </div>
                                 <div className="showpage-details-footer">
-                                    
+                                    {saveBtn}
                                 </div>
                             </div>
                         </div>

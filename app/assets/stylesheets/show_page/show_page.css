@@ -409,6 +409,10 @@ font-size: 15px;
     display: flex;
 }
 
+.saved{
+    color: red;
+}
+
 @keyframes fadeinout{
     0% {opacity: 0;}
     50% {opacity: 1;}

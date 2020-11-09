@@ -18,6 +18,18 @@ class Booking extends React.Component {
 
         this.cancelReservation = this.cancelReservation.bind(this);
     }
+    componentDidMount(){
+        
+        
+        this.props.getSpot(this.props.booking.spot_id).then(spot => {
+            this.props.getHost(spot.spot.spot.host_id)
+            
+        })
+    //    this.props.getHost(this.state.host.id)
+        
+        
+
+    }
     cancelReservation(){
         
         
@@ -25,22 +37,24 @@ class Booking extends React.Component {
     }
     getBookings(){
         
-        
-        this.props.getBookings(this.state.booking.user_id).then(this.props.history.replace(`/users/${this.state.booking.user_id}`))
+        debugger
+        this.props.getBookings(this.state.booking.user_id).then(this.props.history.replace(`/users/${this.props.user_id}/trips`))
     }
     
 
 
     render() {
+        
 
-        if (this.state.spot === undefined){
+        if (this.props.spot === undefined){
+            
+            
             return null
         }
         
-
         const start = new Date(this.state.booking.start_date).toDateString()
         const end = new Date(this.state.booking.end_date).toDateString()
-        const photo = this.state.spot.photoUrls[0]
+        const photo = this.state.spot.photo[0]
         let path = `/spots/${this.state.spot.id}`
         
         return (
@@ -50,7 +64,7 @@ class Booking extends React.Component {
                     <div className="w-600 flex-col">
                 <h3> Amenities Available</h3>
 
-                <AmenityChecklist spot={this.state.spot}/>
+                <AmenityChecklist spot={this.props.spot}/>
                 <div className="b-top">
                     <h2> Meet Your Host {this.props.host.name}</h2>
                     

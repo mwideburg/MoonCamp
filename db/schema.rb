@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_03_164044) do
+ActiveRecord::Schema.define(version: 2020_11_06_220054) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,6 +71,27 @@ ActiveRecord::Schema.define(version: 2020_11_03_164044) do
     t.string "title"
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.integer "spot_id", null: false
+    t.integer "user_id", null: false
+    t.text "content", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "rating"
+    t.index ["spot_id"], name: "index_reviews_on_spot_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
+  create_table "saves", force: :cascade do |t|
+    t.integer "spot_id", null: false
+    t.integer "user_id", null: false
+    t.boolean "liked", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["spot_id"], name: "index_saves_on_spot_id"
+    t.index ["user_id"], name: "index_saves_on_user_id"
+  end
+
   create_table "spot_activities", force: :cascade do |t|
     t.integer "spot_id"
     t.integer "activity_id"
@@ -81,6 +102,8 @@ ActiveRecord::Schema.define(version: 2020_11_03_164044) do
   create_table "spot_amenities", force: :cascade do |t|
     t.integer "amenity_id"
     t.integer "spot_id"
+    t.index ["amenity_id"], name: "index_spot_amenities_on_amenity_id"
+    t.index ["spot_id"], name: "index_spot_amenities_on_spot_id"
   end
 
   create_table "spots", force: :cascade do |t|

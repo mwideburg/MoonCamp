@@ -8,7 +8,7 @@ const CampsiteInfo = ({host, spot}) => {
     let livePlush = Object.values(spot.amenities)
     const amenList = livePlush.map(amen => {
         return(
-            <li key={amen.id}>
+            <li key={amen.id} id={amen.id}>
 
                 <img src={amen.photo} alt="" className="list-icon"/>{amen.name}
                 

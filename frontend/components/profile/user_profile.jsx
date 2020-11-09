@@ -1,9 +1,10 @@
 import React from 'react';
 
-import { useParams, Link, } from 'react-router-dom';
+import { useParams, Link, NavLink, Switch, Route} from 'react-router-dom';
 import PageFooter from '../footer/pages_footer'
 import HostDetail from '../spots/host_details'
 import BookingSingle from '../booking/booking_single'
+import TripsContainer from './trips_container'
 class Profile extends React.Component {
     constructor(props) {
         super(props)
@@ -11,21 +12,40 @@ class Profile extends React.Component {
         this.state = {
             user: this.props.user,
             bookings: {},
-            spots: this.props.spots
+            spots: this.props.spots,
+            wait: true,
+            get: true
             
         }
 
 
         this.cancelReservation = this.cancelReservation.bind(this);
         this.linkTo = this.linkTo.bind(this);
+        this.removeSave = this.removeSave.bind(this);
     }
     componentDidMount(){
         
+        // this.props.getAmenities()
+        // this.props.getBookings(this.state.user).then((bookings) => 
+        // {   
+        //     const filters = Object.values(bookings.bookings.bookings).map(booking => booking.spot_id)
+        //     return (
+        //     this.props.filterSpots({ bookings: filters })
+        // )
+        // }
+        // ).then(spots => this.setState({get: false}))
+   
+        this.setState({wait: false})
         
-        this.props.getBookings(this.state.user)
- 
+        
     }
     componentDidUpdate(){
+        
+
+    }
+    removeSave(save) {
+        
+        this.props.removeSave(save.id)
         
     }
     cancelReservation(booking) {
@@ -45,51 +65,65 @@ class Profile extends React.Component {
     }
 
     linkTo(path){
-        debugger
+        
         // this.props.history.location.state = {replace: true}
         this.props.history.push(path)
     }
 
     render() {
 
-        if (this.state.user === undefined) {
-            
+        let trips
+        if (this.state.wait) {
+            // if (this.props.bookings) {
+
+            //     const bookings = Object.values(this.props.bookings).map(booking => booking.spot_id)
+            //     if (this.state.get) {
+            //         this.props.filterSpots({ bookings: bookings })
+
+            //         return null
+            //     }
+
+
+
+
+            // } else {
+            //     trips = <center>No current Trips</center>
+            // }
             return null
         }
-        let trips
-        if (this.props.bookings){
+        
+        let tripCount
+        let saveCount
+        
+        // if(!this.state.get){
             
-            const bookings = Object.values(this.props.bookings).map(booking => booking.spot_id)
-            if (bookings.length > 0 && Object.values(this.props.spots).length === 0){
-                this.props.filterSpots({bookings: bookings})
-            }
-            debugger
+            const bookings = this.state.user.bookings
+            let saves = this.state.user.saved
+            // const allSpots = this.state.spots
             
-           
-            
-        } else{
-            trips = <center>No current Trips</center>
-        }
-        if(Object.values(this.props.spots).length > 0){
-            const bookings = this.props.bookings
-            const allSpots = this.props.spots
+            tripCount = Object.values(bookings).length
+            saveCount = Object.values(saves).length
             trips = (
                 Object.values(bookings).map(booking => {
                     const path = `/spots/${booking.spot_id}`
                     const path2 = `/bookings/${booking.id}`
-                    const spot = allSpots[booking.spot_id]
+                    const spot = booking.spot
+                    
                     const bookingId = booking.id
                     const start = new Date(booking.start_date).toDateString()
                     const end = new Date(booking.end_date).toDateString()
                     const replace = true
 
-
-                    return (<div key={booking.id} id={booking.id} className="w-600 booking-single">
+                    
+                    return (
+                        
+                        
+                    <div key={booking.id} id={booking.id} className="w-600 booking-single">
 
                         <div className="flex-col center">
                             <div className="spot-img">
 
-                                <img src={spot.photoUrls[0]} className="spots-img" alt="" />
+                                <img src={spot.photo[0]} className="spots-img" alt="" />
                             </div>
                             <br />
                             <h4>{spot.title}</h4>
@@ -108,21 +142,66 @@ class Profile extends React.Component {
                             <Link to={path}> View Spot</Link>
                             <Link to={path2}> View Booking Details</Link>
                             <br />
+                            <center>
                             <button onClick={() => this.cancelReservation(booking)} className="btn-search instant view-booking"> Cancel Reservation</button>
 
-
+                            </center>
                         </div>
-                    </div>)
+                    </div>
+                    )
                 })
             )
-        }
+        // }
         
+        
+        const saveContainer = (
+            Object.values(saves).map(save => {
+                const path = `/spots/${save.spot_id}`
+                
+                return (
+                    <div key={save.id} className="booking-single w-600" >
+                        {/* map through activities to put them on the splash with a limit */}
+                        {/* have a single acitivty-item that will render a list item with the picture
+            and link to the specific search content page */}
+                        {/* place inside a ul */}
+                        <div className="spots-img">
+                            <img src={save.photoUrls[0]} className="spots-img" alt="" />
+                        </div>
+                        
+                        <div className="flex-col">
+                       
+                            <div className="">
+                                <h3 className="spot-title">{save.title}</h3>
+                                <p> {save.planet}</p>
+                                <div className="spot-data">
+                                    {/* this.props.reviews and whatever */}
+                                    <p>59 reviews</p>
+                                    <p>{save.price}/day</p>
+                                </div>
+                                <Link to={path} > View Spot</Link>
+                                <br/>
+                                <button onClick={() => this.removeSave(save)} className=""> Remove Save</button>
+                            </div>
+                        </div>
 
-        
+                    </div>
+                )
+
+            })
+
+        )
         
         const user = this.state.user
+        const saveLink = `/users/${user.id}/saves`
+        const tripLink = `/users/${user.id}/trips`
         
-        
+        let content
+        if(this.props.location.pathname.includes('saves')){
+            content = saveContainer
+        }else {
+            
+            content = trips
+        }
         return (
             <>
             <div className="profile-wrapper">
@@ -132,6 +211,7 @@ class Profile extends React.Component {
                 <div className="sidebar-profile">
                     <div className="sidebar-container">
                     <h3> {user.firstname}</h3>
+                    
 
 
                     </div>
@@ -139,9 +219,39 @@ class Profile extends React.Component {
                 </div>
 
                 <div className="content-container">
-                    <h1>TRIPS</h1>
+                    <ul className="profile-links">
+                        <li className="">
+                            
+                            <NavLink to={tripLink} isActive={(match, location) => {
+                                if(!match){
+                                    return false
+                                }
+                                return true
+                            }}
+                            activeStyle={{
+                                borderBottom: "3px solid #75ebb4"
+                            }}
+                            > Trips {tripCount}</NavLink>
+                            
+                        </li>
+                        <li>
+
+                                    <NavLink to={saveLink} isActive={(match, location) => {
+                                        if (!match) {
+                                            return false
+                                        }
+                                        return true
+                                    }}
+                                        activeStyle={{
+                                            borderBottom: "3px solid #75ebb4"
+                                        }}
+                                    > Saves {saveCount}</NavLink>
+                        </li>
+
+                    </ul>
                     
-                    {trips}
+                    
+                    {content}
                 </div>
 
 

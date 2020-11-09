@@ -7,9 +7,11 @@ import { openModal } from '../../actions/modal_actions';
 const Greeting = ({ currentUser, logout, demo , openModal }) => {
         
         let path
+        let path2
         if(currentUser != undefined){
 
-            path = `users/${currentUser.id}`
+            path = `users/${currentUser.id}/trips`
+            path2 = `/users/${currentUser.id}/saves`
         }
         const loginOrSignup = () => {
         // debugger
@@ -46,8 +48,9 @@ const Greeting = ({ currentUser, logout, demo , openModal }) => {
         </Link>
         <nav className="links ">
             <Link to={path}><button className="user-button">Trips</button></Link>
+            <Link to={path2}><button className="user-button">Saves</button></Link>
 
-            <button className="user-button">Saves</button>
+            
             {/* <button className="user-button">Messages</button> */}
 
 
