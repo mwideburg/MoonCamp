@@ -10,7 +10,7 @@ export const recieveAmenities = (amenities) => {
 
 
 export const getAmenities = () => dispatch => {
-    // debugger
+    // 
     return (
 
         APIUtil.getAmenities().then(amenities => (

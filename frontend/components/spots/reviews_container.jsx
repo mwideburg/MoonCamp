@@ -2,7 +2,7 @@ import React from 'react';
 
 
 const ReviewsContinaer = ({ host, spot }) => {
-    // debugger
+    // 
     
     return (
         <div className="details-spot clearfix">

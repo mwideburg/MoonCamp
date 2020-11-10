@@ -5,7 +5,7 @@ import { getAmenities } from '../../actions/amenities_actions'
 import SearchSpotsMars from "./search_spots_mars";
 
 const mapSTP = (state) => {
-    // debugger
+    // 
     return{
         
         spots: state.entities.spots,
@@ -14,7 +14,7 @@ const mapSTP = (state) => {
     }
 }
 const mapDTP = dispatch => {
-    // debugger
+    // 
     return{
         
         getAmenities: () => dispatch(getAmenities()),

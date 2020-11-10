@@ -5,10 +5,10 @@ const defaultFilters = Object.freeze({
 });
 const filterReducer = (state = defaultFilters, action) => {
     Object.freeze(state)
-    // debugger
+    // 
     switch (action.type) {
         case UPDATE_BOUNDS:
-            // debugger
+            // 
             return Object.assign({}, state, action.bounds)
         case UPDATE_FILTERS:
             const newFilter = {
@@ -23,7 +23,7 @@ const filterReducer = (state = defaultFilters, action) => {
             
             return Object.assign({}, copy);
         case FILTER_SPOTS:
-            // debugger
+            // 
             return Object.assign({}, state, action.filter)
         default:
             return state

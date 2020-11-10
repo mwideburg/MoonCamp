@@ -8,7 +8,7 @@ class DemoUser extends React.Component {
             email: 'enterprise@startrek.com',
             password: 'earlgrayhot'
         };
-        // debugger
+        // 
         // this.handleSubmit = this.handleSubmit.bind(this);
         
     }

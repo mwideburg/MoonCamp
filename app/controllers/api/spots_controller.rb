@@ -1,14 +1,14 @@
 class Api::SpotsController < ApplicationController
     def index
-        # debugger
+        # 
         # @allSpots = Spot.all
         # @spots =  Spot.all
-        # debugger
+        # 
         
         # @spots = []
         
         # if params[:bounds]
-        #     # debugger
+        #     # 
         #     @allSpots.each do |spot| 
         #         if spot.in_bounds(bounds)
         #              @spots << spot
@@ -47,9 +47,9 @@ class Api::SpotsController < ApplicationController
         # if params[:filters]
         #     # Spot.findByAmenities(params[:filters][:amenities])
         #     #  @spots =  Spot.includes(:amenities).where('amenities = ?' => params[:filters][:amenities])
-        #     # debugger
+        #     # 
         #     if params[:filters][:bounds]
-        #     # debugger
+        #     # 
         #     bounds = params[:filters][:bounds]
         #     @allSpots.each do |spot| 
         #             if spot.in_bounds(bounds)
@@ -93,7 +93,7 @@ class Api::SpotsController < ApplicationController
 
 
         
-        # debugger
+        # 
 
         
  
@@ -102,12 +102,12 @@ class Api::SpotsController < ApplicationController
 
 
     def show
-        # debugger
+        # 
         @spot = Spot.find(params[:id])
         
         @bookings = @spot.bookings
         @reviews = @spot.reviews
-        # debugger
+        # 
         
 
         # if @show

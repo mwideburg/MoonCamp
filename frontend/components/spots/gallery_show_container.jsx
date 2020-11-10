@@ -12,14 +12,14 @@ class GalleryContainer extends React.Component {
 
 
     render() {
-        // debugger
+        // 
         if (!this.props.spot) {
             return null
         }
         const photos = this.props.spot.photoUrls
         const spot = this.props.spot
 
-        // debugger
+        // 
 
         return (
             <div className="gallery-img">
@@ -43,10 +43,10 @@ import SpotShow from "./spot_show";
 
 const mapSTP = (state, prevProps) => {
     const spotId = parseInt(prevProps.location.pathname.slice(7))
-    // debugger
+    // 
 
     const spot = state.entities.spots[spotId]
-    // debugger
+    // 
     // const host = state.entities.host[spot.host_id]
 
     return {
@@ -55,7 +55,7 @@ const mapSTP = (state, prevProps) => {
     }
 }
 const mapDTP = dispatch => {
-    // debugger
+    // 
     return {
        
 

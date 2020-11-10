@@ -8,14 +8,14 @@ export const REMOVE_FILTER = 'REMOVE_FILTER'
 export const REMOVE_FILTERS = 'REMOVE_FILTERS'
 
 export const updateBounds = (bounds) => {
-    // debugger
+    // 
     return {
         type: UPDATE_BOUNDS,
         bounds
     }
 }
 export const updateFilters = (filter, value) => {
-    // debugger
+    // 
     return {
         type: UPDATE_FILTERS,
         filter,
@@ -26,7 +26,7 @@ export const clearFilters = () => {
     return{type: REMOVE_FILTERS}
 }
 export const removeAFilter = (filter, value) => {
-    // debugger
+    // 
     return {
         type: REMOVE_FILTER,
         filter,
@@ -42,7 +42,7 @@ export const recieveFilterSpots = (filter) => {
 
 
 export const updateSpots = (bounds) => dispatch => {
-    // debugger
+    // 
     APIUtil.getSpots(bounds).then(spots => dispatch(recieveSpots(spots)))
 }
 

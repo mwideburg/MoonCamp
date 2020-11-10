@@ -22,29 +22,29 @@ export const receiveErrors = errors => ({
 });
 
 export const removeErrors = () => {
-    // debugger
+    // 
     return{type: REMOVE_ERRORS}
 }
 
 
 
 export const login = user => dispatch => {
-    // debugger
+    // 
     return APIUtil.login(user).then(user => {
-        // debugger
+        // 
         return dispatch(receiveCurrentUser(user))
     }, err => {
-        // debugger
+        // 
         return dispatch(receiveErrors(err.responseJSON))
     })
 };
 export const signup = user => dispatch => {
-    // debugger
+    // 
     return APIUtil.signup(user).then(user => {
-        // debugger
+        // 
         return dispatch(receiveCurrentUser(user))
     }, err => {
-        // debugger
+        // 
         return dispatch(receiveErrors(err.responseJSON))
     })
 };

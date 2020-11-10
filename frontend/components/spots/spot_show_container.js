@@ -6,13 +6,13 @@ import { openModal, closeModal } from '../../actions/modal_actions'
 import SpotShow from "./spot_show";
 
 const mapSTP = (state, ownProps) => {
-    // debugger
+    // 
     const spotId = ownProps.match.params.spotId
     const spot = state.entities.spots[spotId]
     const booking = state.entities.bookings
     const user_id = state.session.id
     const user = state.entities.users[user_id]
-    // debugger
+    // 
     // const host = state.entities.host[spot.host_id]
     
     return {
@@ -25,7 +25,7 @@ const mapSTP = (state, ownProps) => {
     }
 }
 const mapDTP = dispatch => {
-    // debugger
+    // 
     return {
         getSpot: (spotId) => dispatch(getSpot(spotId)),
         getHost: (hostId) => dispatch(getHost(hostId)),

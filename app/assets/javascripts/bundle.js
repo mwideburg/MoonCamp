@@ -109,7 +109,7 @@ var recieveAmenities = function recieveAmenities(amenities) {
 };
 var getAmenities = function getAmenities() {
   return function (dispatch) {
-    // debugger
+    // 
     return _util_amenities_util__WEBPACK_IMPORTED_MODULE_0__["getAmenities"]().then(function (amenities) {
       return dispatch(recieveAmenities(amenities));
     });
@@ -151,14 +151,14 @@ var FILTER_SPOTS = 'FILTER_SPOTS';
 var REMOVE_FILTER = 'REMOVE_FILTER';
 var REMOVE_FILTERS = 'REMOVE_FILTERS';
 var updateBounds = function updateBounds(bounds) {
-  // debugger
+  // 
   return {
     type: UPDATE_BOUNDS,
     bounds: bounds
   };
 };
 var updateFilters = function updateFilters(filter, value) {
-  // debugger
+  // 
   return {
     type: UPDATE_FILTERS,
     filter: filter,
@@ -171,7 +171,7 @@ var clearFilters = function clearFilters() {
   };
 };
 var removeAFilter = function removeAFilter(filter, value) {
-  // debugger
+  // 
   return {
     type: REMOVE_FILTER,
     filter: filter,
@@ -186,7 +186,7 @@ var recieveFilterSpots = function recieveFilterSpots(filter) {
 };
 var updateSpots = function updateSpots(bounds) {
   return function (dispatch) {
-    // debugger
+    // 
     _util_spot_api_util__WEBPACK_IMPORTED_MODULE_0__["getSpots"](bounds).then(function (spots) {
       return dispatch(Object(_spot_actions__WEBPACK_IMPORTED_MODULE_1__["recieveSpots"])(spots));
     });
@@ -246,7 +246,7 @@ var SWITCH_LOGIN = 'SWITCH_LOGIN';
 var SWITCH_SIGNUP = 'SWITCH_SIGNUP';
 var openModal = function openModal(modalType) {
   var photos = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
-  // debugger
+  // 
   return {
     type: OPEN_MODAL,
     modalType: modalType,
@@ -254,14 +254,14 @@ var openModal = function openModal(modalType) {
   };
 };
 var switchLogin = function switchLogin(modalType) {
-  // debugger
+  // 
   return {
     type: SWITCH_LOGIN,
     modalType: modalType
   };
 };
 var switchSignup = function switchSignup(modalType) {
-  // debugger
+  // 
   return {
     type: SWITCH_SIGNUP,
     modalType: modalType
@@ -321,31 +321,31 @@ var receiveErrors = function receiveErrors(errors) {
   };
 };
 var removeErrors = function removeErrors() {
-  // debugger
+  // 
   return {
     type: REMOVE_ERRORS
   };
 };
 var login = function login(user) {
   return function (dispatch) {
-    // debugger
+    // 
     return _util_session_api_util__WEBPACK_IMPORTED_MODULE_0__["login"](user).then(function (user) {
-      // debugger
+      // 
       return dispatch(receiveCurrentUser(user));
     }, function (err) {
-      // debugger
+      // 
       return dispatch(receiveErrors(err.responseJSON));
     });
   };
 };
 var signup = function signup(user) {
   return function (dispatch) {
-    // debugger
+    // 
     return _util_session_api_util__WEBPACK_IMPORTED_MODULE_0__["signup"](user).then(function (user) {
-      // debugger
+      // 
       return dispatch(receiveCurrentUser(user));
     }, function (err) {
-      // debugger
+      // 
       return dispatch(receiveErrors(err.responseJSON));
     });
   };
@@ -408,7 +408,7 @@ var RECIEVE_SAVE = 'RECIEVE_SAVE';
 var REMOVE_SAVE = 'REMOVE_SAVE';
 var REMOVE_BOOKING = 'REMOVE_BOOKING';
 var recieveSpots = function recieveSpots(spots) {
-  // debugger
+  // 
   return {
     type: RECEIVE_SPOTS,
     spots: spots
@@ -421,7 +421,7 @@ var recieveSpot = function recieveSpot(spot) {
   };
 };
 var recieveHost = function recieveHost(host) {
-  // debugger
+  // 
   return {
     type: RECIEVE_HOST,
     host: host
@@ -459,7 +459,7 @@ var deleteBooking = function deleteBooking(booking) {
 };
 var getSpots = function getSpots(bounds) {
   return function (dispatch) {
-    // debugger
+    // 
     return _util_spot_api_util__WEBPACK_IMPORTED_MODULE_0__["filterSpots"](bounds).then(function (spots) {
       return dispatch(recieveSpots(spots));
     });
@@ -467,7 +467,7 @@ var getSpots = function getSpots(bounds) {
 };
 var filterSpots = function filterSpots(filter) {
   return function (dispatch) {
-    // debugger
+    // 
     return _util_spot_api_util__WEBPACK_IMPORTED_MODULE_0__["filterAmenSpots"](filter).then(function (spots) {
       return dispatch(recieveSpots(spots));
     });
@@ -475,7 +475,7 @@ var filterSpots = function filterSpots(filter) {
 };
 var getHost = function getHost(hostId) {
   return function (dispatch) {
-    // debugger
+    // 
     return _util_spot_api_util__WEBPACK_IMPORTED_MODULE_0__["getHost"](hostId).then(function (host) {
       return dispatch(recieveHost(host));
     });
@@ -484,16 +484,16 @@ var getHost = function getHost(hostId) {
 var getSpot = function getSpot(spotId) {
   return function (dispatch) {
     return _util_spot_api_util__WEBPACK_IMPORTED_MODULE_0__["getSpot"](spotId).then(function (spot) {
-      // debugger
+      // 
       return dispatch(recieveSpot(spot));
     });
   };
 };
 var getUserSpots = function getUserSpots(bookings) {
   return function (dispatch) {
-    // debugger
+    // 
     return _util_spot_api_util__WEBPACK_IMPORTED_MODULE_0__["getUserSpots"](bookings).then(function (spots) {
-      // debugger
+      // 
       return dispatch(recieveSpots(spots));
     });
   };
@@ -1119,7 +1119,7 @@ var mapSTP = function mapSTP(state, ownProps) {
 };
 
 var mapDTP = function mapDTP(dispatch) {
-  // debugger
+  // 
   return {
     getSpot: function getSpot(spotId) {
       return dispatch(Object(_actions_spot_actions__WEBPACK_IMPORTED_MODULE_1__["getSpot"])(spotId));
@@ -1285,7 +1285,7 @@ var Greeting = function Greeting(_ref) {
   }
 
   var loginOrSignup = function loginOrSignup() {
-    // debugger
+    // 
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
       className: "navbar"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
@@ -1310,7 +1310,7 @@ var Greeting = function Greeting(_ref) {
   };
 
   var hello = function hello() {
-    // debugger
+    // 
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
       className: "navbar"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
@@ -1378,7 +1378,7 @@ __webpack_require__.r(__webpack_exports__);
 var mapStateToProps = function mapStateToProps(_ref) {
   var session = _ref.session,
       users = _ref.entities.users;
-  // debugger
+  // 
   return {
     currentUser: users[session.id]
   };
@@ -1484,7 +1484,7 @@ function Modal(modalType, closeModal) {
       break;
 
     case 'switch_signup':
-      // debugger
+      // 
       noClick = "";
       component = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_session_form_signup_form_container__WEBPACK_IMPORTED_MODULE_6__["default"], null);
       background = "switch-background";
@@ -1494,7 +1494,7 @@ function Modal(modalType, closeModal) {
       break;
 
     case 'gallery':
-      // debugger
+      // 
       background = "can-he-do-it blackish-modal";
       noClick = modalType.closeModal;
       modalChild = "gallery-modal-child";
@@ -1657,7 +1657,7 @@ var navContainer = function navContainer(_ref) {
 var mapStateToProps = function mapStateToProps(_ref2) {
   var session = _ref2.session,
       users = _ref2.entities.users;
-  // debugger
+  // 
   return {
     currentUser: users[session.id]
   };
@@ -2265,7 +2265,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
  // const RecentView = ({ currentUser, logout }) => {
 //     const loginOrSignup = () => {
-//         // debugger
+//         // 
 //         return (
 //             <nav className="links">
 //                 {/* <button onClick={showLoginModal} className="user-button logout">MODAL</button> */}
@@ -2275,7 +2275,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 //         )
 //     }
 //     const hello = () => {
-//         // debugger
+//         // 
 //         return (
 //             <div className="recent-views-wrapper">
 //                 <h2>Recenetly viewed space camp:</h2>
@@ -2341,7 +2341,7 @@ __webpack_require__.r(__webpack_exports__);
 var mapStateToProps = function mapStateToProps(_ref) {
   var session = _ref.session,
       users = _ref.entities.users;
-  // debugger
+  // 
   return {
     currentUser: users[session.id]
   };
@@ -2646,7 +2646,7 @@ var DemoUser = /*#__PURE__*/function (_React$Component) {
     _this.state = {
       email: 'enterprise@startrek.com',
       password: 'earlgrayhot'
-    }; // debugger
+    }; // 
     // this.handleSubmit = this.handleSubmit.bind(this);
 
     return _this;
@@ -2696,7 +2696,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var mapStateToProps = function mapStateToProps(_ref) {
   var errors = _ref.errors;
-  // debugger
+  // 
   return {
     errors: errors.session,
     formType: 'Log in' // navLink: <Link to="/signup">sign up instead</Link>,
@@ -2705,7 +2705,7 @@ var mapStateToProps = function mapStateToProps(_ref) {
 };
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-  // debugger
+  // 
   return {
     processForm: function processForm(user) {
       return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_3__["login"])(user));
@@ -3033,7 +3033,7 @@ var SignUpForm = /*#__PURE__*/function (_React$Component) {
     value: function update(field) {
       var _this2 = this;
 
-      // debugger
+      // 
       return function (e) {
         return _this2.setState(_defineProperty({}, field, e.currentTarget.value));
       };
@@ -3065,7 +3065,7 @@ var SignUpForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      // debugger
+      // 
       var buttonType = this.props.modalType === 'switch_signup' ? this.props.otherButton : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         onClick: this.props.closeModal,
         className: "modal-close"
@@ -3168,7 +3168,7 @@ __webpack_require__.r(__webpack_exports__);
 var mapStateToProps = function mapStateToProps(_ref) {
   var ui = _ref.ui,
       errors = _ref.errors;
-  // debugger
+  // 
   return {
     errors: errors.session,
     formType: 'Sign Up',
@@ -3178,7 +3178,7 @@ var mapStateToProps = function mapStateToProps(_ref) {
 };
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-  // debugger
+  // 
   return {
     processForm: function processForm(user) {
       return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_3__["signup"])(user));
@@ -3461,7 +3461,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mapStateToProps = function mapStateToProps(state) {
-  // debugger
+  // 
   return {
     spots: state.entities.spots,
     amenities: state.entities.amenities
@@ -3474,7 +3474,7 @@ var mapStateToProps = function mapStateToProps(state) {
 
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-  // debugger
+  // 
   return {
     getAmenities: function getAmenities() {
       return dispatch(Object(_actions_amenities_actions__WEBPACK_IMPORTED_MODULE_3__["getAmenities"])());
@@ -3509,7 +3509,7 @@ __webpack_require__.r(__webpack_exports__);
 var CampsiteInfo = function CampsiteInfo(_ref) {
   var host = _ref.host,
       spot = _ref.spot;
-  // debugger
+  // 
   var livePlush = Object.values(spot.amenities);
   var amenList = livePlush.map(function (amen) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
@@ -3521,7 +3521,7 @@ var CampsiteInfo = function CampsiteInfo(_ref) {
       className: "list-icon"
     }), amen.name);
   });
-  var activities = Object.values(spot.activities); // debugger
+  var activities = Object.values(spot.activities); // 
 
   var actList = activities.map(function (act) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
@@ -3727,15 +3727,12 @@ var mapSTP = function mapSTP(state) {
 };
 
 var mapDTP = function mapDTP(dispatch) {
-  // debugger
+  // 
   return {
     // getSpots: () => dispatch(getSpots()),
     // updateBounds : (bounds) => dispatch(updateBounds(bounds)),
     getAmenities: function getAmenities() {
       return dispatch(Object(_actions_amenities_actions__WEBPACK_IMPORTED_MODULE_2__["getAmenities"])());
-    },
-    removeFilters: function removeFilters() {
-      return dispatch(Object(_actions_filter_actions__WEBPACK_IMPORTED_MODULE_1__["removeFilters"])());
     },
     updateSpots: function updateSpots(bounds) {
       return dispatch(Object(_actions_filter_actions__WEBPACK_IMPORTED_MODULE_1__["updateSpots"])(bounds));
@@ -3809,13 +3806,13 @@ var GalleryContainer = /*#__PURE__*/function (_React$Component) {
   _createClass(GalleryContainer, [{
     key: "render",
     value: function render() {
-      // debugger
+      // 
       if (!this.props.spot) {
         return null;
       }
 
       var photos = this.props.spot.photoUrls;
-      var spot = this.props.spot; // debugger
+      var spot = this.props.spot; // 
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "gallery-img"
@@ -3837,9 +3834,9 @@ var GalleryContainer = /*#__PURE__*/function (_React$Component) {
 
 
 var mapSTP = function mapSTP(state, prevProps) {
-  var spotId = parseInt(prevProps.location.pathname.slice(7)); // debugger
+  var spotId = parseInt(prevProps.location.pathname.slice(7)); // 
 
-  var spot = state.entities.spots[spotId]; // debugger
+  var spot = state.entities.spots[spotId]; // 
   // const host = state.entities.host[spot.host_id]
 
   return {
@@ -3848,7 +3845,7 @@ var mapSTP = function mapSTP(state, prevProps) {
 };
 
 var mapDTP = function mapDTP(dispatch) {
-  // debugger
+  // 
   return {};
 };
 
@@ -4042,9 +4039,9 @@ var MarsMap = /*#__PURE__*/function (_React$Component) {
       this.map.setMapTypeId("mars_elevation");
       var updateSpots = this.props.updateSpots;
       this.map.addListener('bounds_changed', function () {
-        // debugger
+        // 
         var northeast = this.getBounds().getNorthEast();
-        var southwest = this.getBounds().getSouthWest(); // debugger
+        var southwest = this.getBounds().getSouthWest(); // 
 
         var bounds = this.getBounds();
         var lat = bounds.getNorthEast().lat();
@@ -4056,7 +4053,7 @@ var MarsMap = /*#__PURE__*/function (_React$Component) {
             lat: [lat, lat2],
             lng: [lng, lng2]
           }
-        }; // debugger
+        }; // 
 
         console.log('updated'); // updateBounds(bounds)
 
@@ -4074,7 +4071,7 @@ var MarsMap = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this = this;
 
-      // debugger
+      // 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "map-container2",
         ref: function ref(map) {
@@ -4230,17 +4227,17 @@ var MoonMap = /*#__PURE__*/function (_React$Component) {
             lat: south,
             lng: west
           }
-        }; // debugger
+        }; // 
         // let northeast = this.getBounds().getNorthEast();
         // let southwest = this.getBounds().getSouthWest();
-        // // debugger
+        // // 
         // let bounds = this.getBounds()
         // let lat = bounds.getNorthEast().lat();
         // let lat2 = bounds.getSouthWest().lat();
         // let lng = bounds.getNorthEast().lng();
         // let lng2 = bounds.getSouthWest().lng();
         // let positions = { lat: [lat, lat2], lng: [lng, lng2] }
-        // debugger
+        // 
 
         console.log('updated'); // updateBounds(bounds)
 
@@ -4258,7 +4255,7 @@ var MoonMap = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this = this;
 
-      // debugger
+      // 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "fix-to-screen"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -4293,7 +4290,7 @@ __webpack_require__.r(__webpack_exports__);
 var ReviewsContinaer = function ReviewsContinaer(_ref) {
   var host = _ref.host,
       spot = _ref.spot;
-  // debugger
+  // 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "details-spot clearfix"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Reviews"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -4439,7 +4436,7 @@ var mapSTP = function mapSTP(state) {
 };
 
 var mapDTP = function mapDTP(dispatch) {
-  // debugger
+  // 
   return {
     // getSpots: () => dispatch(getSpots()),
     // updateBounds : (bounds) => dispatch(updateBounds(bounds)),
@@ -4479,7 +4476,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mapSTP = function mapSTP(state) {
-  // debugger
+  // 
   return {
     spots: state.entities.spots,
     amenities: state.entities.amenities
@@ -4487,7 +4484,7 @@ var mapSTP = function mapSTP(state) {
 };
 
 var mapDTP = function mapDTP(dispatch) {
-  // debugger
+  // 
   return {
     getAmenities: function getAmenities() {
       return dispatch(Object(_actions_amenities_actions__WEBPACK_IMPORTED_MODULE_2__["getAmenities"])());
@@ -4611,10 +4608,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var SpotActivityIcons = function SpotActivityIcons(spot) {
-  var activities = Object.values(spot.spot.activities); // debugger
+  var activities = Object.values(spot.spot.activities); // 
 
   var actList = activities.map(function (act) {
-    // debugger
+    // 
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
       key: act.id,
       className: "activity-descrition"
@@ -4734,14 +4731,14 @@ var SpotMap = /*#__PURE__*/function (_React$Component) {
       }; // wrap this.mapNode in a Google Map
 
       this.map = new google.maps.Map(this.mapNode, mapOptions);
-      this.MarkerManager = new _util_marker_manager__WEBPACK_IMPORTED_MODULE_3__["default"](this.map); // debugger
+      this.MarkerManager = new _util_marker_manager__WEBPACK_IMPORTED_MODULE_3__["default"](this.map); // 
       // const updateBounds = this.props.updateBounds
 
       var updateSpots = this.props.updateSpots;
       this.map.addListener('bounds_changed', function () {
-        // debugger
+        // 
         var northeast = this.getBounds().getNorthEast();
-        var southwest = this.getBounds().getSouthWest(); // debugger
+        var southwest = this.getBounds().getSouthWest(); // 
 
         var bounds = this.getBounds();
         var lat = bounds.getNorthEast().lat();
@@ -4753,7 +4750,7 @@ var SpotMap = /*#__PURE__*/function (_React$Component) {
             lat: [lat, lat2],
             lng: [lng, lng2]
           }
-        }; // debugger
+        }; // 
 
         console.log('updated'); // updateBounds(bounds)
 
@@ -4887,7 +4884,7 @@ var SpotShow = /*#__PURE__*/function (_React$Component) {
       showEnd: "close",
       total: 0,
       days: 0
-    }, _defineProperty(_this$state, "guests", 1), _defineProperty(_this$state, "submit", false), _defineProperty(_this$state, "saved", ''), _this$state); // debugger
+    }, _defineProperty(_this$state, "guests", 1), _defineProperty(_this$state, "submit", false), _defineProperty(_this$state, "saved", ''), _this$state); // 
 
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     _this.updateState = _this.updateState.bind(_assertThisInitialized(_this));
@@ -4903,9 +4900,9 @@ var SpotShow = /*#__PURE__*/function (_React$Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      // debugger
+      // 
       this.props.getSpot(this.props.match.params.spotId).then(function (spot) {
-        // debugger
+        // 
         _this2.props.getHost(spot.spot.spot.host_id);
 
         var saved = Object.values(_this2.props.user.saved).map(function (save) {
@@ -5038,7 +5035,7 @@ var SpotShow = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this4 = this;
 
-      // debugger
+      // 
       if (!this.props.spot) {
         return null;
       }
@@ -5050,7 +5047,7 @@ var SpotShow = /*#__PURE__*/function (_React$Component) {
         return _this4.props.openModal('gallery', photos);
       };
 
-      var bookBtn; // debugger
+      var bookBtn; // 
 
       if (!this.state.submit) {
         bookBtn = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -5234,12 +5231,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mapSTP = function mapSTP(state, ownProps) {
-  // debugger
+  // 
   var spotId = ownProps.match.params.spotId;
   var spot = state.entities.spots[spotId];
   var booking = state.entities.bookings;
   var user_id = state.session.id;
-  var user = state.entities.users[user_id]; // debugger
+  var user = state.entities.users[user_id]; // 
   // const host = state.entities.host[spot.host_id]
 
   return {
@@ -5252,7 +5249,7 @@ var mapSTP = function mapSTP(state, ownProps) {
 };
 
 var mapDTP = function mapDTP(dispatch) {
-  // debugger
+  // 
   return {
     getSpot: function getSpot(spotId) {
       return dispatch(Object(_actions_spot_actions__WEBPACK_IMPORTED_MODULE_1__["getSpot"])(spotId));
@@ -5388,7 +5385,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mapStateToProps = function mapStateToProps(state) {
-  // debugger
+  // 
   return {
     spots: state.entities.spots,
     amenities: state.entities.amenities
@@ -5401,11 +5398,8 @@ var mapStateToProps = function mapStateToProps(state) {
 
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-  // debugger
+  // 
   return {
-    removeFilters: function removeFilters() {
-      return dispatch(Object(_actions_spot_actions__WEBPACK_IMPORTED_MODULE_2__["removeFilters"])());
-    },
     getAmenities: function getAmenities() {
       return dispatch(Object(_actions_amenities_actions__WEBPACK_IMPORTED_MODULE_4__["getAmenities"])());
     },
@@ -5477,13 +5471,13 @@ var SpotsIndexContainer = /*#__PURE__*/function (_React$Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.props.getAmenities(); // this.props.removeFilters()
-      // debugger
+      // 
       // this.props.getSpots();
     }
   }, {
     key: "componentWillUnmount",
     value: function componentWillUnmount() {} // componentDidMount() {
-    //     // debugger
+    //     // 
     //     this.props.getSpots();
     // }
 
@@ -5606,11 +5600,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 document.addEventListener("DOMContentLoaded", function () {
   // attach current user to window for preloadedstate to not loose info
-  // debugger
+  // 
   var store;
 
   if (window.currentUser) {
-    // debugger
+    // 
     var preloadedState = {
       entities: {
         users: _defineProperty({}, window.currentUser.id, window.currentUser)
@@ -5630,7 +5624,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   window.getState = store.getState;
   window.dispatch = store.dispatch;
-  window.getSpots = Object(_actions_spot_actions__WEBPACK_IMPORTED_MODULE_4__["getSpots"])(); // debugger
+  window.getSpots = Object(_actions_spot_actions__WEBPACK_IMPORTED_MODULE_4__["getSpots"])(); // 
 
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_root__WEBPACK_IMPORTED_MODULE_5__["default"], {
     store: store
@@ -5686,7 +5680,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 var spotsReducer = function spotsReducer() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
   var action = arguments.length > 1 ? arguments[1] : undefined;
-  // debugger
+  // 
   Object.freeze(state);
 
   switch (action.type) {
@@ -5785,11 +5779,11 @@ var defaultFilters = Object.freeze({
 var filterReducer = function filterReducer() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : defaultFilters;
   var action = arguments.length > 1 ? arguments[1] : undefined;
-  Object.freeze(state); // debugger
+  Object.freeze(state); // 
 
   switch (action.type) {
     case _actions_filter_actions__WEBPACK_IMPORTED_MODULE_0__["UPDATE_BOUNDS"]:
-      // debugger
+      // 
       return Object.assign({}, state, action.bounds);
 
     case _actions_filter_actions__WEBPACK_IMPORTED_MODULE_0__["UPDATE_FILTERS"]:
@@ -5806,7 +5800,7 @@ var filterReducer = function filterReducer() {
       return Object.assign({}, copy);
 
     case _actions_filter_actions__WEBPACK_IMPORTED_MODULE_0__["FILTER_SPOTS"]:
-      // debugger
+      // 
       return Object.assign({}, state, action.filter);
 
     default:
@@ -5833,12 +5827,12 @@ __webpack_require__.r(__webpack_exports__);
 var hostReducer = function hostReducer() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
   var action = arguments.length > 1 ? arguments[1] : undefined;
-  // debugger
+  // 
   Object.freeze(state);
 
   switch (action.type) {
     case _actions_spot_actions__WEBPACK_IMPORTED_MODULE_0__["RECIEVE_HOST"]:
-      // debugger
+      // 
       return Object.assign({}, action.host);
 
     default:

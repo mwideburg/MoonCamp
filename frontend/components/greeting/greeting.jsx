@@ -14,7 +14,7 @@ const Greeting = ({ currentUser, logout, demo , openModal }) => {
             path2 = `/users/${currentUser.id}/saves`
         }
         const loginOrSignup = () => {
-        // debugger
+        // 
         return (
             <header className="navbar">
 
@@ -37,7 +37,7 @@ const Greeting = ({ currentUser, logout, demo , openModal }) => {
         )
     }
     const hello = () => {
-        // debugger
+        // 
         
         return (
             <header className="navbar">

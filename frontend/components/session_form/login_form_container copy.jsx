@@ -7,7 +7,7 @@ import { openModal, closeModal, switchLogin, switchSignup } from '../../actions/
 import SessionForm from './session_form';
 
 const mapStateToProps = ({ errors }) => {
-    // debugger
+    // 
     return {
         errors: errors.session,
         formType: 'Log in',
@@ -16,7 +16,7 @@ const mapStateToProps = ({ errors }) => {
 };
 
 const mapDispatchToProps = dispatch => {
-    // debugger
+    // 
     return {
         processForm: (user) => dispatch(login(user)),
         removeErrors: () => dispatch(removeErrors()),

@@ -13,7 +13,7 @@ const mapSTP = (state) => {
     }
 }
 const mapDTP = dispatch => {
-    // debugger
+    // 
     return{
         
         

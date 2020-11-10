@@ -4,7 +4,7 @@ import { getSpots, getSpot, removeFilters } from '../../actions/spot_actions'
 import SpotIndex from "./spots_index";
 import { getAmenities } from '../../actions/amenities_actions'
 const mapStateToProps = (state) => {
-    // debugger
+    // 
     return {
         spots: state.entities.spots,
         amenities: state.entities.amenities
@@ -21,9 +21,8 @@ const mapStateToProps = (state) => {
 
 
 const mapDispatchToProps = dispatch => {
-    // debugger
+    // 
     return {
-        removeFilters: () => dispatch(removeFilters()),
         getAmenities: () => dispatch(getAmenities()),
         getSpots: () => dispatch(getSpots())
     };

@@ -13,14 +13,13 @@ const mapSTP = (state) => {
     }
 }
 const mapDTP = dispatch => {
-    // debugger
+    // 
     return {
 
 
         // getSpots: () => dispatch(getSpots()),
         // updateBounds : (bounds) => dispatch(updateBounds(bounds)),
         getAmenities: () => dispatch(getAmenities()),
-        removeFilters: () => dispatch(removeFilters()),
         updateSpots: (bounds) => dispatch(updateSpots(bounds)),
         updateSpotsFilters: (filter, value) => dispatch(updateSpotsFilters( filter, value ))
     }

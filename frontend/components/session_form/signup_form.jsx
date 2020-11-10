@@ -16,7 +16,7 @@ class SignUpForm extends React.Component {
     }
 
     update(field) {
-        // debugger
+        // 
         return e => this.setState({
             [field]: e.currentTarget.value
         });
@@ -45,7 +45,7 @@ class SignUpForm extends React.Component {
 
 
     render() {
-        // debugger
+        // 
         let buttonType = (this.props.modalType === 'switch_signup') ? this.props.otherButton: (<a onClick={this.props.closeModal} className="modal-close">X</a>)
         return (
             <div className="login-form-container ">

@@ -41,7 +41,7 @@ function Modal(modalType, closeModal){
             loginButton = <Link to="/login" className="logout-button-fix hover-btn"> LOG IN</Link>
             break;
         case 'switch_signup':
-            // debugger
+            // 
             noClick = ""
             component = <SignupFormContainer/>
             
@@ -52,7 +52,7 @@ function Modal(modalType, closeModal){
             // button = "show-logout-button"
             break;
         case 'gallery':
-            // debugger
+            // 
             background = "can-he-do-it blackish-modal"
             noClick = modalType.closeModal
             modalChild = "gallery-modal-child"

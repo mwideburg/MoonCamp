@@ -29,7 +29,7 @@ const mapSTP = (state, ownProps) => {
     }
 }
 const mapDTP = dispatch => {
-    // debugger
+    // 
     return {
         getSpot: (spotId) => dispatch(getSpot(spotId)),
         getHost: (hostId) => dispatch(getHost(hostId)),

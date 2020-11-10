@@ -11,10 +11,10 @@ import { updateSpotsFilters, updateFilters } from "./actions/filter_actions";
 
 document.addEventListener("DOMContentLoaded", () => {
     // attach current user to window for preloadedstate to not loose info
-    // debugger
+    // 
     let store;
     if (window.currentUser) {
-        // debugger
+        // 
         
         const preloadedState = {
             entities: {
@@ -39,6 +39,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     
     
-    // debugger
+    // 
     ReactDOM.render(<Root store={store}/>, root);
 });

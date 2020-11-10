@@ -6,7 +6,7 @@ class Api::ReviewsController < ApplicationController
             
             render "api/reviews/show"
         else
-            # debugger
+            
              render json: [" Invalid Credentials "], status: 404
         end
     end
@@ -17,7 +17,7 @@ class Api::ReviewsController < ApplicationController
             
             render "api/spots/show"
         else
-            # debugger
+          
              render json: [" Invalid Credentials "], status: 404
         end
     end

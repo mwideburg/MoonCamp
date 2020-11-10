@@ -98,10 +98,10 @@ class MarsMap extends React.Component {
 
         const updateSpots = this.props.updateSpots
         this.map.addListener('bounds_changed', function () {
-            // debugger
+            // 
             let northeast = this.getBounds().getNorthEast();
             let southwest = this.getBounds().getSouthWest();
-            // debugger
+            // 
             let bounds = this.getBounds()
 
             let lat = bounds.getNorthEast().lat();
@@ -111,7 +111,7 @@ class MarsMap extends React.Component {
 
             let positions = { bounds: { lat: [lat, lat2], lng: [lng, lng2] } }
 
-            // debugger
+            // 
             console.log('updated')
             // updateBounds(bounds)
             updateSpots(positions)
@@ -132,7 +132,7 @@ class MarsMap extends React.Component {
 
 
     render() {
-        // debugger
+        // 
         return (
             
             <div >

@@ -1,6 +1,6 @@
-# debugger
+# 
 @spots.each do |spot|
-# debugger
+# 
 if @spots.length == 0
     return
 end

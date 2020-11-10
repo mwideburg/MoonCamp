@@ -11,7 +11,7 @@ export const REMOVE_SAVE = 'REMOVE_SAVE';
 export const REMOVE_BOOKING = 'REMOVE_BOOKING';
 
 export const recieveSpots = (spots) => {
-    // debugger
+    // 
     return {
         type: RECEIVE_SPOTS,
         spots
@@ -25,7 +25,7 @@ export const recieveSpot = (spot) => {
     }
 }
 export const recieveHost = (host) => {
-    // debugger
+    // 
     return {
         type: RECIEVE_HOST,
         host
@@ -66,7 +66,7 @@ export const deleteBooking = (booking) => {
 }
 
 export const getSpots = (bounds) => dispatch => {
-    // debugger
+    // 
     return (
         
         APIUtil.filterSpots(bounds).then(spots => (
@@ -75,7 +75,7 @@ export const getSpots = (bounds) => dispatch => {
     )
 };
 export const filterSpots = (filter) => dispatch => {
-    // debugger
+    // 
     return (
         
         APIUtil.filterAmenSpots(filter).then(spots => (
@@ -84,7 +84,7 @@ export const filterSpots = (filter) => dispatch => {
     )
 };
 export const getHost = (hostId) => dispatch => {
-    // debugger
+    // 
     return (
         
         APIUtil.getHost(hostId).then(host => (
@@ -95,14 +95,14 @@ export const getHost = (hostId) => dispatch => {
 export const getSpot = (spotId) => dispatch => {
     
     return APIUtil.getSpot(spotId).then(spot => {
-        // debugger
+        // 
         return dispatch(recieveSpot(spot))
     })
 };
 export const getUserSpots = (bookings) => dispatch => {
-    // debugger
+    // 
     return APIUtil.getUserSpots(bookings).then(spots => {
-        // debugger
+        // 
         return dispatch(recieveSpots(spots))
     })
 };

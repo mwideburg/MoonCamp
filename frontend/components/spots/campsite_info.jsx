@@ -4,7 +4,7 @@ import { faStreetView, faIgloo, faSpaceShuttle, faGasPump, faAtom } from '@forta
 
 
 const CampsiteInfo = ({host, spot}) => {
-    // debugger
+    // 
     let livePlush = Object.values(spot.amenities)
     const amenList = livePlush.map(amen => {
         return(
@@ -18,7 +18,7 @@ const CampsiteInfo = ({host, spot}) => {
         
     })
     let activities = Object.values(spot.activities)
-    // debugger
+    // 
     const actList = activities.map(act => {
        return (
            <li key={act.id}>

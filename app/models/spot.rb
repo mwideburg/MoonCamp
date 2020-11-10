@@ -60,7 +60,7 @@ class Spot < ApplicationRecord
         source: :user
 
     def findByAmenities(name)
-        debugger
+        
         data = QuestionsDatabase.instance.execute(<<-SQL, name)
         SELECT
           *
@@ -109,13 +109,13 @@ class Spot < ApplicationRecord
             .where("lat > ?", bounds[:southWest][:lat])
             .where("lng > ?", bounds[:southWest][:lng])
             .where("lng < ?", bounds[:northEast][:lng])
-        # debugger
+        # 
         # if( self.lat.to_f > lat[0].to_f || self.lat.to_f < lat[1].to_f)
-        #     # debugger
+        #     # 
         #     return false
         # end
         # if ( self.lng.to_f > lng[0].to_f || self.lng.to_f < lng[1].to_f)
-        #     # debugger
+        #     # 
         #     return false
         # end
         # return true

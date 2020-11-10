@@ -32,7 +32,7 @@ class SpotShow extends React.Component {
   
             
         }
-        // debugger
+        // 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.updateState = this.updateState.bind(this);
         this.checkDays = this.checkDays.bind(this);
@@ -43,9 +43,9 @@ class SpotShow extends React.Component {
     }
 
     componentDidMount(){
-        // debugger
+        // 
         this.props.getSpot(this.props.match.params.spotId).then(spot => {
-            // debugger
+            // 
             this.props.getHost(spot.spot.spot.host_id)
             let saved = Object.values(this.props.user.saved).map(save => save.spot_id).includes(spot.spot.spot.id)
             
@@ -151,7 +151,7 @@ class SpotShow extends React.Component {
 
 
     render() {
-        // debugger
+        // 
         if(!this.props.spot){
             return null
         }
@@ -160,7 +160,7 @@ class SpotShow extends React.Component {
         const spot = this.props.spot
         const openModal = (photos) => this.props.openModal('gallery', photos)
         let bookBtn
-        // debugger
+        // 
         if(!this.state.submit){
             bookBtn = <button type="submit" className="btn-search instant" id="booking-btn"> {this.state.bookContent}</button>
         }else{

@@ -84,10 +84,10 @@ class MoonMap extends React.Component {
                 northEast: { lat: north, lng: east },
                 southWest: { lat: south, lng: west }
             };
-            // debugger
+            // 
             // let northeast = this.getBounds().getNorthEast();
             // let southwest = this.getBounds().getSouthWest();
-            // // debugger
+            // // 
             // let bounds = this.getBounds()
 
             // let lat = bounds.getNorthEast().lat();
@@ -97,7 +97,7 @@ class MoonMap extends React.Component {
 
             // let positions = { lat: [lat, lat2], lng: [lng, lng2] }
 
-            // debugger
+            // 
             console.log('updated')
             // updateBounds(bounds)
             updateSpots('bounds', bounds)
@@ -117,7 +117,7 @@ class MoonMap extends React.Component {
 
 
     render() {
-        // debugger
+        // 
         return (
             
             <div className="fix-to-screen">

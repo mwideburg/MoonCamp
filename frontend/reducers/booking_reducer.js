@@ -3,7 +3,7 @@ import { RECIEVE_BOOKING, REMOVE_BOOKING, RECIEVE_BOOKINGS } from '../actions/sp
 
 
 const spotsReducer = (state = {}, action) => {
-    // debugger
+    // 
     Object.freeze(state);
     switch (action.type) {
         case RECIEVE_BOOKING:

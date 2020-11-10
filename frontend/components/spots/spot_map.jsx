@@ -16,15 +16,15 @@ class SpotMap extends React.Component {
         // wrap this.mapNode in a Google Map
         this.map = new google.maps.Map(this.mapNode, mapOptions);
         this.MarkerManager = new MarkerManager(this.map)
-        // debugger
+        // 
         
         // const updateBounds = this.props.updateBounds
         const updateSpots = this.props.updateSpots
         this.map.addListener('bounds_changed', function () {
-            // debugger
+            // 
             let northeast = this.getBounds().getNorthEast();
             let southwest = this.getBounds().getSouthWest();
-            // debugger
+            // 
             let bounds = this.getBounds()
 
             let lat = bounds.getNorthEast().lat();
@@ -34,7 +34,7 @@ class SpotMap extends React.Component {
            
             let positions = { bounds: {lat: [lat, lat2], lng: [lng, lng2]} }
         
-            // debugger
+            // 
             console.log('updated')
             // updateBounds(bounds)
             updateSpots(positions)

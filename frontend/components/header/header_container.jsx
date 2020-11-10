@@ -7,7 +7,7 @@ import { openModal } from '../../actions/modal_actions';
 const Greeting = ({ currentUser, logout, demo, openModal }) => {
 
     const loginOrSignup = () => {
-        // debugger
+        // 
         return (
             <header className="navbar">
 
@@ -30,7 +30,7 @@ const Greeting = ({ currentUser, logout, demo, openModal }) => {
         )
     }
     const hello = () => {
-        // debugger
+        // 
 
         return (
             <header className="navbar">

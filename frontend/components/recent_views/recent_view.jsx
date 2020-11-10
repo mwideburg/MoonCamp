@@ -5,7 +5,7 @@ import Spot from './spots_placeholder'
 // const RecentView = ({ currentUser, logout }) => {
 
 //     const loginOrSignup = () => {
-//         // debugger
+//         // 
 
 
 //         return (
@@ -17,7 +17,7 @@ import Spot from './spots_placeholder'
 //         )
 //     }
 //     const hello = () => {
-//         // debugger
+//         // 
 //         return (
 //             <div className="recent-views-wrapper">
 //                 <h2>Recenetly viewed space camp:</h2>

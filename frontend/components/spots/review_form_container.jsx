@@ -7,14 +7,14 @@ import SignUpForm from './signup_form';
 
 
 const mapStateToProps = ({ session }) => {
-    // debugger
+    // 
     return {
         userId: session.id,
     };
 };
 
 const mapDispatchToProps = dispatch => {
-    // debugger
+    // 
     return {
         createReview: (review) => dispatch(createReview(review)),
         deleteReview: (review) => dispatch(deleteReview(review)),

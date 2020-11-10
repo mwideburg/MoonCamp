@@ -16,7 +16,7 @@ class SpotsIndexContainer extends React.Component{
         
         this.props.getAmenities()
         // this.props.removeFilters()
-        // debugger
+        // 
         // this.props.getSpots();
     }
     componentWillUnmount() {
@@ -24,7 +24,7 @@ class SpotsIndexContainer extends React.Component{
         
     }
     // componentDidMount() {
-    //     // debugger
+    //     // 
     //     this.props.getSpots();
     // }
     handleOnClick() {
