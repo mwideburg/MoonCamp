@@ -32,7 +32,8 @@ class User < ApplicationRecord
     has_many :reviews
     has_many :saved,
         class_name: :Save,
-        foreign_key: :user_id
+        foreign_key: :user_id,
+        dependent: :destroy
 
 
     

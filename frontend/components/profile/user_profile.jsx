@@ -172,15 +172,16 @@ class Profile extends React.Component {
                        
                             <div className="">
                                 <h3 className="spot-title">{save.title}</h3>
-                                <p> {save.planet}</p>
+                                <p> Planet: {save.planet}</p>
                                 <div className="spot-data">
                                     {/* this.props.reviews and whatever */}
                                     <p>59 reviews</p>
+             
                                     <p>{save.price}/day</p>
                                 </div>
                                 <Link to={path} > View Spot</Link>
                                 <br/>
-                                <button onClick={() => this.removeSave(save)} className=""> Remove Save</button>
+                                <button onClick={() => this.removeSave(save)} className="save-btn"> Remove Save</button>
                             </div>
                         </div>
 

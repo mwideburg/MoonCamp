@@ -53,7 +53,8 @@ class Spot < ApplicationRecord
         class_name: :Review,
         foreign_key: :spot_id
         
-    has_many :saves
+    has_many :saves,
+    dependent: :destroy
     has_many :saved_users,
         through: :saves,
         source: :user

@@ -21,8 +21,8 @@ class Api::SavesController < ApplicationController
 
     def destroy
         
-        @save = Save.find(params[:id])
-        @delSave = @save.dup
+        @delSave = Save.find(params[:id])
+        @save = @delSave
         @delSave.destroy
         
         render 'api/saves/show'

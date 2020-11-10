@@ -9,7 +9,8 @@ import SpotActivityIcons from './spot_activity_icons'
 import PageFooter from '../footer/pages_footer'
 import ReviewsContinaer from './reviews_container'
 import { removeSave } from '../../actions/spot_actions';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHeart, farHeart, faSpaceShuttle, faGasPump, faAtom } from '@fortawesome/free-solid-svg-icons';
 class SpotShow extends React.Component {
     constructor(props){
         
@@ -187,10 +188,10 @@ class SpotShow extends React.Component {
         if (this.state.saved){
             
           
-            saveBtn = <button id="save-btn" className='saved' onClick={() => this.removeSave()}> Spot Saved </button>
+            saveBtn = <button id="save-btn" className='save-btn saved' onClick={() => this.removeSave()}> <FontAwesomeIcon icon={faHeart} color="red" /> Saved  </button>
         }else{
-
-            saveBtn = <button id="save-btn" className='' onClick={() => this.saveSpot()}> Save Spot </button>
+            
+            saveBtn = <button id="save-btn" className='save-btn' onClick={() => this.saveSpot()}> <FontAwesomeIcon icon={faHeart} color="black" /> Save </button>
         }
 
         

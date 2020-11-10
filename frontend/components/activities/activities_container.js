@@ -4,12 +4,15 @@ import { connect } from 'react-redux';
 
 import Activities from './activities';
 
-const mapStateToProps = state => ({
-
-});
+const mapStateToProps = state => {
+   
+    return {
+        spots: state.entities.spots
+    }
+};
 
 const mapDispatchToProps = dispatch => {
     return () => dispatch();
 };
 
-export default connect(null, null)(Activities);
+export default connect(mapStateToProps, null)(Activities);

@@ -13,7 +13,7 @@ class Api::BookingsController < ApplicationController
     end
 
     def index
-        debugger
+        
         @user = User.find(params[:user_id])
         render 'api/users/show'
 

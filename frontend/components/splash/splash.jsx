@@ -11,7 +11,14 @@ import RecentViewConatiner from '../recent_views/recent_view_container';
 import Spot from '../recent_views/spots_placeholder'
 import PageFooter from '../footer/pages_footer'
 class Splash extends React.Component {
+    componentDidMount(){
+        this.props.getSpots()
+    }
     render(){
+        if(Object.values(this.props.spots).length === 0){
+            return null
+        }
+        
         return(
             <div>
             <div className="splash-container">

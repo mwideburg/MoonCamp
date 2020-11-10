@@ -408,9 +408,30 @@ font-size: 15px;
 .open{
     display: flex;
 }
+.save-btn{
+    height: 40px;
+    width: 90px;
+    border: 1px solid gray;
+    color: black;
+    background: transparent;
+    margin-top: 10px;
+    transition: .2s;
+    transition-timing-function: ease-in-out;
 
+}
+.save-btn:hover{
+    border: 1px solid lightgray;
+    color: lightgray;
+    cursor: pointer;
+}
 .saved{
+    border: 1px red solid;
     color: red;
+}
+.saved:hover{
+    cursor: pointer;
+    color: rgb(255, 171, 171);
+    border: 1px rgb(255, 171, 171) solid;
 }
 
 @keyframes fadeinout{

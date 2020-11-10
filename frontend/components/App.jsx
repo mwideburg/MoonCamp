@@ -23,7 +23,7 @@ import SignupSplashContainer from './session_form/signup_page_container';
 // import { CSSTransitionGroup } from 'react-transition-group'// ES6
 // import PlanetContainer from './planets/planet_container'
 import RecentViewConatiner from './recent_views/recent_view_container';
-import Splash from './splash/spash_conatiner';
+import Splash from './splash/splash_container';
 import Modal from './modal/modal'
 // import ReactCSSTransitionGroup from 'react-transition-group';
 // import SpotPlaceHolder from "./recent_views/spots_placeholder";

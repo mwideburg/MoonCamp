@@ -15,6 +15,10 @@ class Api::SpotsController < ApplicationController
         #         end
         #     end
         # end
+        if !params[:filters]
+
+            spots = Spot.all
+        else
         bounds = params[:filters][:bounds]
         spots = params[:filters][:bounds] ? Spot.in_bounds(bounds) : Spot.all
         # spots = spots.includes(:amenities)
@@ -36,6 +40,7 @@ class Api::SpotsController < ApplicationController
             
             name = params[:filters][:phasers]
             spots = spots.joins(:amenities).where(amenities: {name: name})
+        end
         end
          @spots = spots
          @spots.includes(:saves)

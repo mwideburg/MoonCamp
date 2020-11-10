@@ -37,7 +37,7 @@ class Booking extends React.Component {
     }
     getBookings(){
         
-        debugger
+      
         this.props.getBookings(this.state.booking.user_id).then(this.props.history.replace(`/users/${this.props.user_id}/trips`))
     }
     
@@ -61,7 +61,7 @@ class Booking extends React.Component {
             <div className="booking-wrapper">
                 <h1 className="booking-title"> Your trip to: {this.state.spot.title}</h1>
                 <div className="flex w-1000">
-                    <div className="w-600 flex-col">
+                <div className="w-600 flex-col">
                 <h3> Amenities Available</h3>
 
                 <AmenityChecklist spot={this.props.spot}/>
@@ -75,8 +75,8 @@ class Booking extends React.Component {
 
                     <div className="w-300">
 
-                    <div className="spots-img">
-                        <img src={photo} className="spots-img" alt="" />
+                    <div className="obj-fit-fill">
+                        <img src={photo} className="obj-fill" alt="" />
                     </div>
                     
                     <h4>

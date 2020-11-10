@@ -6,7 +6,7 @@ const TripContainer = (props) => {
     if(Object.values(props.props.bookings).length === 0){
         return null
     }
-    debugger
+    
     const bookings = props.props.bookings
     const allSpots = props.props.spots
     return Object.values(bookings).map(booking => {
