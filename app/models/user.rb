@@ -46,10 +46,10 @@ class User < ApplicationRecord
     end
 
     def checkEmail
-        # 
+        # debugger
        
         if self.email.split('@').length != 2
-        # 
+        # debugger
             errors.add(:email, 'must be valid')
         end
 
@@ -73,13 +73,13 @@ class User < ApplicationRecord
         
         @password = password 
         self.password_digest = BCrypt::Password.create(password)
-        # 
+        # debugger
     end
 
     def is_password?(password)
         
         BCrypt::Password.new(self.password_digest).is_password?(password)
-        # 
+        # debugger
     end
 
     def reset_session_token! 
