@@ -5,8 +5,10 @@ import {Link} from 'react-router-dom'
 // import { updateBounds } from '../../actions/filter_actions';
 class FiltersContainer extends React.Component{
     componentDidMount(){
-        
+        this.props.getAmenities()
     }
+
+    
 
     handleClick(e, name, filter){
         
@@ -23,13 +25,19 @@ class FiltersContainer extends React.Component{
     }
     
     render(){
-       
+        if(this.props.amenities.length === 0){
+            return null
+        }
+        
+        const phaserPhoto = this.props.amenities.filter(amen => amen.name === "Phasers")[0].photo
+        const oxyPhoto = this.props.amenities.filter(amen => amen.name === "Oxygen")[0].photo
+        const holoPhoto = this.props.amenities.filter(amen => amen.name === "Holodeck")[0].photo
         return(
             <div key="search" className="search-form-container filter-form">
                 
-                <button id="oxy" className="filter-btn" onClick={(e) => this.handleClick(e, "oxygen", "Oxygen")}> <img src='/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBa29CIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--812b04871f94d5c78d953ea08b0b66486812bdfc/02.png' className="button-icon" />Oxygen </button>
-                <button id="holo" className="filter-btn" onClick={(e) => this.handleClick(e, "holodeck", "Holodeck")} ><img src='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTq3gQwuK1OSjedG1uPy8uZ3utVBU35voUFZg&usqp=CAU' className="button-icon" /> Holodeck  </button>
-                <button id="phas" className="filter-btn" onClick={(e) => this.handleClick(e, "phasers", "Phasers")}> <img src='/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBa2dCIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--cdcd3b6cfc7c797bdd1cf1c5059b76af3d3774be/phaser.png' className="button-icon" />Phasers </button>
+                <button id="oxy" className="filter-btn" onClick={(e) => this.handleClick(e, "oxygen", "Oxygen")}> <img src={oxyPhoto} className="button-icon" />Oxygen </button>
+                <button id="holo" className="filter-btn" onClick={(e) => this.handleClick(e, "holodeck", "Holodeck")} ><img src={holoPhoto}  className="button-icon" /> Holodeck  </button>
+                <button id="phas" className="filter-btn" onClick={(e) => this.handleClick(e, "phasers", "Phasers")}> <img src={phaserPhoto} className="button-icon" />Phasers </button>
                
                 
                 

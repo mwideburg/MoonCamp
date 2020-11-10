@@ -8,7 +8,8 @@ const mapSTP = (state) => {
     // debugger
     return{
         
-        spots: state.entities.spots
+        spots: state.entities.spots,
+        amenities: state.entities.amenities
         
     }
 }

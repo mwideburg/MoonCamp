@@ -9,7 +9,7 @@ import { updateFilters } from '../../actions/filter_actions';
 // import { updateBounds } from '../../actions/filter_actions';
 
 
-const SearchSpotsMars = ( {spots, updateSpotsFilters, updateBounds, updateSpots} ) => {
+const SearchSpotsMars = ( {spots, updateSpotsFilters, updateBounds, updateSpots, amenities} ) => {
 
       
                 
@@ -18,7 +18,7 @@ const SearchSpotsMars = ( {spots, updateSpotsFilters, updateBounds, updateSpots}
             <>
             <div className="splash-container spot-search-index">
                     <div className="search filter-top">
-                        <FiltersContainer updateSpotsFilter={updateSpotsFilters} spots={spots}/>
+                        <FiltersContainer updateSpotsFilter={updateSpotsFilters} spots={spots} amenities={amenities}/>
                     </div>
             <div className="spots-search-wrapper">
                 <div className="spots-search-container">

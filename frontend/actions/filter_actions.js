@@ -5,6 +5,7 @@ export const UPDATE_BOUNDS = 'UPDATE_BOUNDS'
 export const UPDATE_FILTERS = 'UPDATE_FILTERS'
 export const FILTER_SPOTS = 'FILTER_SPOTS'
 export const REMOVE_FILTER = 'REMOVE_FILTER'
+export const REMOVE_FILTERS = 'REMOVE_FILTERS'
 
 export const updateBounds = (bounds) => {
     // debugger
@@ -20,6 +21,9 @@ export const updateFilters = (filter, value) => {
         filter,
         value
     }
+}
+export const clearFilters = () => {
+    return{type: REMOVE_FILTERS}
 }
 export const removeAFilter = (filter, value) => {
     // debugger

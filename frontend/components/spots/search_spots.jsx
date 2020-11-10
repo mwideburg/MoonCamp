@@ -6,19 +6,19 @@ import MarsMap from './mars_map'
 import FiltersContainer from './filters_container'
 import SpotsIndexContainer from "./spots_container";
 import { updateFilters, updateSpotsFilters, removeFilter } from '../../actions/filter_actions';
+import { getAmenities } from '../../actions/amenities_actions';
 // import { updateBounds } from '../../actions/filter_actions';
 
 
-const SearchSpots = ( {spots, updateSpotsFilters, updateBounds, updateSpots, removeFilter} ) => {
-
-      
+const SearchSpots = ( {spots, updateSpotsFilters, updateBounds, updateSpots, removeFilter, amenities} ) => {
+        
                 
-
+        
         return(
             <>
             <div className="splash-container spot-search-index">
                     <div className="search filter-top">
-                        <FiltersContainer updateSpotsFilter={updateSpotsFilters} spots={spots} removeFilter={removeFilter}/>
+                        <FiltersContainer updateSpotsFilter={updateSpotsFilters} spots={spots} removeFilter={removeFilter} amenities={amenities}/>
                     </div>
             <div className="spots-search-wrapper">
                 <div className="spots-search-container">

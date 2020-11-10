@@ -5,7 +5,8 @@ import { getAmenities } from '../../actions/amenities_actions'
 const mapStateToProps = (state) => {
     // debugger
     return {
-        spots: state.entities.spots
+        spots: state.entities.spots,
+        amenities: state.entities.amenities
     }
 }
 // const mapDispatchToProps = dispatch => {

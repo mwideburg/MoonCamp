@@ -6,6 +6,7 @@ if @amenities.length == 0
 end
 json.set! amenity.id do
     json.extract! amenity, :id, :name, :description
+    json.photo url_for(amenity.photo)
 end
   
 end

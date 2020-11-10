@@ -4,10 +4,11 @@ import { updateSpotsFilters, updateSpots, removeFilter } from '../../actions/fil
 import SearchSpots from "./search_spots";
 
 const mapSTP = (state) => {
-    // debugger
+    
     return{
         
-        spots: state.entities.spots
+        spots: state.entities.spots,
+        amenities: state.entities.amenities
         
     }
 }

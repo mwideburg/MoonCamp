@@ -15,8 +15,13 @@ class SpotsIndexContainer extends React.Component{
     componentDidMount() {
         
         this.props.getAmenities()
+        // this.props.removeFilters()
         // debugger
         // this.props.getSpots();
+    }
+    componentWillUnmount() {
+        
+        
     }
     // componentDidMount() {
     //     // debugger
@@ -26,6 +31,7 @@ class SpotsIndexContainer extends React.Component{
         this.props.updateSpotsFilter(231)
     }
     render(){
+        
         
         let count = 0
         const spots = Object.values(this.props.spots).map(spot =>

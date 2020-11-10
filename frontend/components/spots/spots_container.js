@@ -1,11 +1,13 @@
 import { connect } from 'react-redux';
-import { getSpots, getSpot } from '../../actions/spot_actions'
+import {withRouter} from 'react-router-dom'
+import { getSpots, getSpot, removeFilters } from '../../actions/spot_actions'
 import SpotIndex from "./spots_index";
 import { getAmenities } from '../../actions/amenities_actions'
 const mapStateToProps = (state) => {
     // debugger
     return {
-        spots: state.entities.spots
+        spots: state.entities.spots,
+        amenities: state.entities.amenities
     }
 }
 // const mapDispatchToProps = dispatch => {
@@ -21,9 +23,10 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = dispatch => {
     // debugger
     return {
+        removeFilters: () => dispatch(removeFilters()),
         getAmenities: () => dispatch(getAmenities()),
         getSpots: () => dispatch(getSpots())
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SpotIndex)
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(SpotIndex))
