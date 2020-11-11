@@ -6002,7 +6002,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/session_actions */ "./frontend/actions/session_actions.js");
 
 var _nullUser = {
-  currentUser: null
+  id: null
 };
 
 var sessionReducer = function sessionReducer() {
