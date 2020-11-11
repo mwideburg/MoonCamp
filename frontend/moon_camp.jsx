@@ -12,6 +12,7 @@ import { updateSpotsFilters, updateFilters } from "./actions/filter_actions";
 document.addEventListener("DOMContentLoaded", () => {
     // attach current user to window for preloadedstate to not loose info
     // 
+    
     let store;
     if (window.currentUser) {
         // 

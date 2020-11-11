@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {Link} from 'react-router-dom'
-
+import {Example} from '../spots/date_picker'
 // import { updateBounds } from '../../actions/filter_actions';
 class Search extends React.Component{
    

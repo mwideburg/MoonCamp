@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 class Activities extends React.Component {
-    render(){
 
+    render(){
+        // const tea = Object.values(this.props.spots).filter(spot => spot.title === "Alien History")[0].id
+        const teaPath = `/`
         return(
             
         <div className="activities-container">
@@ -11,7 +13,7 @@ class Activities extends React.Component {
             and link to the specific search content page */}
             {/* place inside a ul */}
 
-                <Link to={'/'} className="img-links" id="img-1">
+                <Link to={teaPath} className="img-links" id="img-1">
             <div className="activity-link-image" id="picard-img">
                         
              

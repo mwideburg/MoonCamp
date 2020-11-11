@@ -727,10 +727,12 @@ var Activities = /*#__PURE__*/function (_React$Component) {
   _createClass(Activities, [{
     key: "render",
     value: function render() {
+      // const tea = Object.values(this.props.spots).filter(spot => spot.title === "Alien History")[0].id
+      var teaPath = "/";
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "activities-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        to: '/',
+        to: teaPath,
         className: "img-links",
         id: "img-1"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2435,6 +2437,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _spots_date_picker__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../spots/date_picker */ "./frontend/components/spots/date_picker.jsx");
+/* harmony import */ var _spots_date_picker__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_spots_date_picker__WEBPACK_IMPORTED_MODULE_2__);
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -2456,6 +2460,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
 
 
  // import { updateBounds } from '../../actions/filter_actions';
@@ -3556,6 +3561,27 @@ var CampsiteInfo = function CampsiteInfo(_ref) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (CampsiteInfo);
+
+/***/ }),
+
+/***/ "./frontend/components/spots/date_picker.jsx":
+/*!***************************************************!*\
+  !*** ./frontend/components/spots/date_picker.jsx ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// import React, { useState } from "react";
+// import DatePicker from "react-datepicker";
+// import "react-datepicker/dist/react-datepicker.css";
+// // CSS Modules, react-datepicker-cssmodules.css
+// // import 'react-datepicker/dist/react-datepicker-cssmodules.css';
+// export const Example = () => {
+//     const [startDate, setStartDate] = useState(new Date());
+//     return (
+//         <DatePicker selected={startDate} onChange={date => setStartDate(date)} />
+//     );
+// };
 
 /***/ }),
 
@@ -4857,6 +4883,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+ // import {Example} from "./date_picker";
 
 
 
@@ -5005,6 +5032,11 @@ var SpotShow = /*#__PURE__*/function (_React$Component) {
         bookContent: 'View Booking Details',
         submit: true
       }));
+    }
+  }, {
+    key: "handleDate",
+    value: function handleDate(e) {
+      debugger;
     }
   }, {
     key: "saveSpot",

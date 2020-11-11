@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import { useParams, Link } from 'react-router-dom';
 import HostDetail from './host_details'
@@ -10,6 +10,10 @@ import PageFooter from '../footer/pages_footer'
 import ReviewsContinaer from './reviews_container'
 import { removeSave } from '../../actions/spot_actions';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
+// import {Example} from "./date_picker";
+
+
 import { faHeart, farHeart, faSpaceShuttle, faGasPump, faAtom } from '@fortawesome/free-solid-svg-icons';
 class SpotShow extends React.Component {
     constructor(props){
@@ -133,6 +137,9 @@ class SpotShow extends React.Component {
        this.props.requestBooking(booking).then(this.setState({bookContent: 'View Booking Details', submit: true}))
 
     }
+    handleDate(e){
+        debugger
+    }
 
     saveSpot(e){
         
@@ -183,6 +190,7 @@ class SpotShow extends React.Component {
 
             )
         }
+        
     
     let saveBtn
         if (this.state.saved){
@@ -238,6 +246,7 @@ class SpotShow extends React.Component {
 
                         
                     </div>
+                    {/* <Example onChange={() => this.handleDate()}/> */}
                     <HostDetail host={this.props.host} spot={this.props.spot}/>
                     <CampsiteInfo host={this.props.host} spot={this.props.spot}/>
                     
@@ -259,7 +268,7 @@ class SpotShow extends React.Component {
 
                                 per night
                             </div>
-                                
+                               
                                 <form onSubmit={this.handleSubmit} className="">
                                     <div className="num-guests">
                                         <label htmlFor="quantity">Number of Guests </label>
