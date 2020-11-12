@@ -8,6 +8,7 @@ import LoginFormContainer from '../session_form/login_fix_container';
 import SignupFormContainer from '../session_form/signup_form_container';
 import GalleryContainer from '../spots/gallery_show_container';
 import SignupSplashContainer from '../session_form/signup_page_container';
+import HostFormContainer from '../hosts/host_signup';
 
 function Modal(modalType, closeModal){
     // if(!modalType.modalType){
@@ -43,7 +44,7 @@ function Modal(modalType, closeModal){
         case 'switch_signup':
             // 
             noClick = ""
-            component = <SignupFormContainer/>
+            component = <SignupFormContainer />
             
             background = "switch-background"
 
@@ -57,6 +58,14 @@ function Modal(modalType, closeModal){
             noClick = modalType.closeModal
             modalChild = "gallery-modal-child"
             component = <GalleryContainer />
+            break;
+        case 'host':
+            // 
+            
+            component = <HostFormContainer closeModal={modalType.closeModal}/>
+            background = "can-he-do-it"
+            noClick = modalType.closeModal
+            modalChild = "modal-child"
             break;
         default:
             background = "modal"

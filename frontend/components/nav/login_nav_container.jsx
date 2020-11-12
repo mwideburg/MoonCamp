@@ -28,6 +28,7 @@ const navContainer = ({ currentUser, demo, logout, openModal }) => {
             </nav>
             )
         }else{
+            
             navbar = (
                 <nav className="links">
                     <Link to={path} ><button className="user-button">Trips</button></Link>
@@ -42,13 +43,10 @@ const navContainer = ({ currentUser, demo, logout, openModal }) => {
 
                             <ul>
                                 <li>
-                                    <a href="">Account</a>
+                                    <Link to={path}>Account</Link>
                                 </li>
                                 <li>
-                                    <a href="">Earn MoonCash</a>
-                                </li>
-                                <li>
-                                    <a href="">Become A Host</a>
+                                    <a onClick={() => openModal('host')}>Become A Host</a>
                                 </li>
                                 <li>
                                     <a href="">Help FAQ</a>

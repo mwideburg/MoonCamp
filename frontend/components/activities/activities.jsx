@@ -3,8 +3,12 @@ import { Link } from 'react-router-dom';
 class Activities extends React.Component {
 
     render(){
-        // const tea = Object.values(this.props.spots).filter(spot => spot.title === "Alien History")[0].id
-        const teaPath = `/`
+        const tea = Object.values(this.props.spots).filter(spot => spot.title === "Alien History")[0].id
+        const teaPath = `spots/${tea}`
+        const rover = Object.values(this.props.spots).filter(spot => spot.title === "Mars's Europa")[0].id
+        const roverLink = `spots/${rover}`
+        const golf = Object.values(this.props.spots).filter(spot => spot.title === "Zues's Overwatch")[0].id
+        const golfLink = `spots/${golf}`
         return(
             
         <div className="activities-container">
@@ -25,14 +29,14 @@ class Activities extends React.Component {
                     
             </div>
             </Link>
-                <Link to={'/'} className="img-links" id="img-2">
+                <Link to={roverLink} className="img-links" id="img-2">
             <div className="activity-link-image" id="rover-img">
                     {/* <img src="https://i.pinimg.com/originals/65/67/07/656707ea1e9fad2b5b9111a06045fcb8.jpg"  alt=""/> */}
                     <h2>ROVERING ON EUROPA</h2>
                     <h3>the only way to travel</h3>
             </div>
             </Link>
-                <Link to={'/'} className="img-links" id="img-3">
+                <Link to={golfLink} className="img-links" id="img-3">
                     <div className="activity-link-image" id="golf-img">
                         
                     {/* <img className="link-bg"src="https://i.pinimg.com/originals/65/67/07/656707ea1e9fad2b5b9111a06045fcb8.jpg"  alt=""/> */}

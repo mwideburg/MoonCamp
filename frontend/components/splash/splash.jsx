@@ -16,10 +16,11 @@ class Splash extends React.Component {
         this.props.getAmenities()
     }
     render(){
-        if(Object.values(this.props.spots).length === 0){
+        if(Object.values(this.props.spots).length < 14){
             return null
         }
-        
+        const ender = Object.values(this.props.spots).filter(spot => spot.title === "Buggers Cave")[0].id
+        const enderLink = `spots/${ender}`
         return(
             <div>
             <div className="splash-container">
@@ -77,10 +78,10 @@ class Splash extends React.Component {
                     <div className="space-image">
                         <img src="" alt=""/>
                         <div className="detail-container">
-                            <h3>MEET THE PEQUENINOS ON TITAN</h3>
+                            <h3>MEET THE PEQUENINOS ON CASTILLO</h3>
                             <p>Ender gives tours of the tree creatures</p>
                             <br />
-                            <><button className=""> ENDERS GAME</button></>
+                            <Link to={enderLink}><button className=""> ENDERS GAME</button></Link>
                         </div>
                     </div>
                 </div>
@@ -116,7 +117,7 @@ class Splash extends React.Component {
                             <br />
                             </div>
                             <button id="offset-btn"> CAMP OUT WITH WORF</button>
-                            <button id="offset-btn-2"> START SEARCHING </button>
+                            <Link to='/spots'><button id="offset-btn-2"> START SEARCHING </button></Link>
                         </div>
                     </div>
 

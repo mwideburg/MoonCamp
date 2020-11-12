@@ -64,9 +64,7 @@ const Greeting = ({ currentUser, logout, demo , openModal }) => {
                                 <li>
                                     <a href="">Account</a>
                                 </li>
-                                <li>
-                                    <a href="">Earn MoonCash</a>
-                                </li>
+                               
                                 <li>
                                     <a href="">Become A Host</a>
                                 </li>

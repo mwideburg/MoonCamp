@@ -47,7 +47,7 @@ class SpotShow extends React.Component {
     }
 
     componentDidMount(){
-        // 
+        window.scrollTo(0, 0)
         this.props.getSpot(this.props.match.params.spotId).then(spot => {
             // 
             this.props.getHost(spot.spot.spot.host_id)
@@ -113,6 +113,10 @@ class SpotShow extends React.Component {
 
     handleSubmit(e){
         e.preventDefault();
+        if (this.props.user === undefined) {
+            this.props.openModal('login')
+            return null
+        }
         if (this.state.start === ''){
             document.getElementById("startDate").classList.add("red")
             return null
@@ -142,7 +146,10 @@ class SpotShow extends React.Component {
     }
 
     saveSpot(e){
-        
+        if(this.props.user === undefined){
+            this.props.openModal('login')
+            return null
+        }
         this.props.saveSpot({spot_id: this.props.spot.id, user_id: this.props.user_id})
         this.setState({ saved: true })
     }

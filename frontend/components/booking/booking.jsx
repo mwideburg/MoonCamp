@@ -20,7 +20,7 @@ class Booking extends React.Component {
     }
     componentDidMount(){
         
-        
+        window.scrollTo(0, 0)
         this.props.getSpot(this.props.booking.spot_id).then(spot => {
             this.props.getHost(spot.spot.spot.host_id)
             

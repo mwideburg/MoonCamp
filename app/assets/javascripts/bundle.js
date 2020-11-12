@@ -727,8 +727,18 @@ var Activities = /*#__PURE__*/function (_React$Component) {
   _createClass(Activities, [{
     key: "render",
     value: function render() {
-      // const tea = Object.values(this.props.spots).filter(spot => spot.title === "Alien History")[0].id
-      var teaPath = "/";
+      var tea = Object.values(this.props.spots).filter(function (spot) {
+        return spot.title === "Alien History";
+      })[0].id;
+      var teaPath = "spots/".concat(tea);
+      var rover = Object.values(this.props.spots).filter(function (spot) {
+        return spot.title === "Mars's Europa";
+      })[0].id;
+      var roverLink = "spots/".concat(rover);
+      var golf = Object.values(this.props.spots).filter(function (spot) {
+        return spot.title === "Zues's Overwatch";
+      })[0].id;
+      var golfLink = "spots/".concat(golf);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "activities-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
@@ -739,14 +749,14 @@ var Activities = /*#__PURE__*/function (_React$Component) {
         className: "activity-link-image",
         id: "picard-img"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "EARL GRAY WITH PICARD"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "and it's always hot"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        to: '/',
+        to: roverLink,
         className: "img-links",
         id: "img-2"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "activity-link-image",
         id: "rover-img"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "ROVERING ON EUROPA"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "the only way to travel"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        to: '/',
+        to: golfLink,
         className: "img-links",
         id: "img-3"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1007,6 +1017,7 @@ var Booking = /*#__PURE__*/function (_React$Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
+      window.scrollTo(0, 0);
       this.props.getSpot(this.props.booking.spot_id).then(function (spot) {
         _this2.props.getHost(spot.spot.spot.host_id);
       }); //    this.props.getHost(this.state.host.id)
@@ -1340,8 +1351,6 @@ var Greeting = function Greeting(_ref) {
       href: ""
     }, "Account")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
       href: ""
-    }, "Earn MoonCash")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-      href: ""
     }, "Become A Host")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
       href: ""
     }, "Help FAQ")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -1417,6 +1426,84 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 
 /***/ }),
 
+/***/ "./frontend/components/hosts/host_signup.jsx":
+/*!***************************************************!*\
+  !*** ./frontend/components/hosts/host_signup.jsx ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+var Host = /*#__PURE__*/function (_React$Component) {
+  _inherits(Host, _React$Component);
+
+  var _super = _createSuper(Host);
+
+  function Host() {
+    _classCallCheck(this, Host);
+
+    return _super.apply(this, arguments);
+  }
+
+  _createClass(Host, [{
+    key: "render",
+    value: function render() {
+      var _this = this;
+
+      debugger;
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "login-form-container host-signup-container "
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("center", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, " Currently not accepting any more hosts ")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Hosting in space is really hard to accomplish, but if you would like to be on our waitig list please check box to sign up."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "row"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "checkbox",
+        name: "email",
+        id: "email-subscribe"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "font-small-gray"
+      }, " I am ready to host")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "btn-submit",
+        onClick: function onClick() {
+          return _this.props.closeModal();
+        }
+      }, " Sign up to Host "));
+    }
+  }]);
+
+  return Host;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (Host);
+
+/***/ }),
+
 /***/ "./frontend/components/modal/modal.jsx":
 /*!*********************************************!*\
   !*** ./frontend/components/modal/modal.jsx ***!
@@ -1437,12 +1524,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _session_form_signup_form_container__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../session_form/signup_form_container */ "./frontend/components/session_form/signup_form_container.jsx");
 /* harmony import */ var _spots_gallery_show_container__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../spots/gallery_show_container */ "./frontend/components/spots/gallery_show_container.jsx");
 /* harmony import */ var _session_form_signup_page_container__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../session_form/signup_page_container */ "./frontend/components/session_form/signup_page_container.jsx");
+/* harmony import */ var _hosts_host_signup__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../hosts/host_signup */ "./frontend/components/hosts/host_signup.jsx");
 
 
 
 
 
  // ES6
+
 
 
 
@@ -1501,6 +1590,16 @@ function Modal(modalType, closeModal) {
       noClick = modalType.closeModal;
       modalChild = "gallery-modal-child";
       component = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_spots_gallery_show_container__WEBPACK_IMPORTED_MODULE_7__["default"], null);
+      break;
+
+    case 'host':
+      // 
+      component = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_hosts_host_signup__WEBPACK_IMPORTED_MODULE_9__["default"], {
+        closeModal: modalType.closeModal
+      });
+      background = "can-he-do-it";
+      noClick = modalType.closeModal;
+      modalChild = "modal-child";
       break;
 
     default:
@@ -1621,12 +1720,12 @@ var navContainer = function navContainer(_ref) {
       alt: ""
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "dropdown-user"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-      href: ""
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      to: path
     }, "Account")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-      href: ""
-    }, "Earn MoonCash")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-      href: ""
+      onClick: function onClick() {
+        return openModal('host');
+      }
     }, "Become A Host")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
       href: ""
     }, "Help FAQ")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -2033,7 +2132,7 @@ var Profile = /*#__PURE__*/function (_React$Component) {
   _createClass(Profile, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      // this.props.getAmenities()
+      window.scrollTo(0, 0); // this.props.getAmenities()
       // this.props.getBookings(this.state.user).then((bookings) => 
       // {   
       //     const filters = Object.values(bookings.bookings.bookings).map(booking => booking.spot_id)
@@ -2042,6 +2141,7 @@ var Profile = /*#__PURE__*/function (_React$Component) {
       // )
       // }
       // ).then(spots => this.setState({get: false}))
+
       this.setState({
         wait: false
       });
@@ -3381,10 +3481,14 @@ var Splash = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      if (Object.values(this.props.spots).length === 0) {
+      if (Object.values(this.props.spots).length < 14) {
         return null;
       }
 
+      var ender = Object.values(this.props.spots).filter(function (spot) {
+        return spot.title === "Buggers Cave";
+      })[0].id;
+      var enderLink = "spots/".concat(ender);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "splash-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -3412,7 +3516,9 @@ var Splash = /*#__PURE__*/function (_React$Component) {
         alt: ""
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "detail-container"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "MEET THE PEQUENINOS ON TITAN"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Ender gives tours of the tree creatures"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "MEET THE PEQUENINOS ON CASTILLO"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Ender gives tours of the tree creatures"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: enderLink
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: ""
       }, " ENDERS GAME"))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "AVAILABLE NEXT WEEK"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "available-container"
@@ -3434,9 +3540,11 @@ var Splash = /*#__PURE__*/function (_React$Component) {
         className: "offset-text"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "MEET THE BEST HOST... WORF"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "\"I am known to be a fierce warrior, but a dosile host. Come stay with me and enjoy Gagh: A Klingon delicacy, live serpent worms. Or maybe you would like to battle it out in my customized holodeck...\""), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         id: "offset-btn"
-      }, " CAMP OUT WITH WORF"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, " CAMP OUT WITH WORF"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/spots"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         id: "offset-btn-2"
-      }, " START SEARCHING ")))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_footer_pages_footer__WEBPACK_IMPORTED_MODULE_11__["default"], null));
+      }, " START SEARCHING "))))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_footer_pages_footer__WEBPACK_IMPORTED_MODULE_11__["default"], null));
     }
   }]);
 
@@ -4927,7 +5035,7 @@ var SpotShow = /*#__PURE__*/function (_React$Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      // 
+      window.scrollTo(0, 0);
       this.props.getSpot(this.props.match.params.spotId).then(function (spot) {
         // 
         _this2.props.getHost(spot.spot.spot.host_id);
@@ -4999,6 +5107,11 @@ var SpotShow = /*#__PURE__*/function (_React$Component) {
     value: function handleSubmit(e) {
       e.preventDefault();
 
+      if (this.props.user === undefined) {
+        this.props.openModal('login');
+        return null;
+      }
+
       if (this.state.start === '') {
         document.getElementById("startDate").classList.add("red");
         return null;
@@ -5041,6 +5154,11 @@ var SpotShow = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "saveSpot",
     value: function saveSpot(e) {
+      if (this.props.user === undefined) {
+        this.props.openModal('login');
+        return null;
+      }
+
       this.props.saveSpot({
         spot_id: this.props.spot.id,
         user_id: this.props.user_id
@@ -5502,6 +5620,7 @@ var SpotsIndexContainer = /*#__PURE__*/function (_React$Component) {
   _createClass(SpotsIndexContainer, [{
     key: "componentDidMount",
     value: function componentDidMount() {
+      window.scrollTo(0, 0);
       this.props.getAmenities(); // this.props.removeFilters()
       // 
       // this.props.getSpots();

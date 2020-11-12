@@ -24,7 +24,7 @@ class Profile extends React.Component {
         this.removeSave = this.removeSave.bind(this);
     }
     componentDidMount(){
-        
+        window.scrollTo(0, 0)
         // this.props.getAmenities()
         // this.props.getBookings(this.state.user).then((bookings) => 
         // {   
