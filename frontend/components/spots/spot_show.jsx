@@ -10,14 +10,15 @@ import PageFooter from '../footer/pages_footer'
 import ReviewsContinaer from './reviews_container'
 import { removeSave } from '../../actions/spot_actions';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
+
 import PhotoGallery from './photo_gallery'
 import PhotoSection from './photo_section'
 
+import { faAngleLeft, faAngleRight, faThumbsUp, faThumbsDown, faHeart } from '@fortawesome/free-solid-svg-icons';
 // import {Example} from "./date_picker";
 
 
-import { faHeart, farHeart, faSpaceShuttle, faGasPump, faAtom } from '@fortawesome/free-solid-svg-icons';
+
 class SpotShow extends React.Component {
     constructor(props){
         
@@ -211,6 +212,15 @@ class SpotShow extends React.Component {
             
             saveBtn = <button id="save-btn" className='save-btn' onClick={() => this.saveSpot()}> <FontAwesomeIcon icon={faHeart} color="black" /> Save </button>
         }
+        let color
+        let icon
+        if (this.props.spot.rating < 85) {
+            icon = <FontAwesomeIcon icon={faThumbsDown} />
+            color = 'red'
+        } else {
+            icon = <FontAwesomeIcon icon={faThumbsUp} />
+            color = 'green'
+        }
 
         
         
@@ -248,6 +258,8 @@ class SpotShow extends React.Component {
                                     </p>
                                     <h1> {spot.title}  </h1> 
                                     Nearby: <Link to="/spots/"> Jupiter's Europa  </Link>
+                                 <p className={color}>{icon} {this.props.spot.rating}% </p>
+                                {this.props.spot.num_reviews} Reviews
                                 </div>
                                 <div className="showpage-details-footer">
                                     {saveBtn}

@@ -48,6 +48,7 @@ class Spot < ApplicationRecord
         source: :amenity
         
     has_many :bookings
+    
 
     has_many :reviews,
         class_name: :Review,

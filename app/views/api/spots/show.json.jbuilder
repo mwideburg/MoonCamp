@@ -3,7 +3,7 @@
 
 json.spot do
 
-  json.extract! @spot, :id, :description, :title, :lng, :lat, :price, :moon, :planet, :host_id, :max_guests
+  json.extract! @spot, :id, :description, :title, :lng, :lat, :price, :moon, :planet, :host_id, :max_guests, :rating, :num_reviews
   json.photoUrls @spot.photos.map { |file| url_for(file) }
   json.amenities do 
     @spot.amenities.each do |amenity|
