@@ -14,6 +14,8 @@ function Modal(modalType, closeModal){
     // if(!modalType.modalType){
     //     return null
     // }
+
+    
     let component
     let background = "modal"
     let noClick = modalType.closeModal
@@ -57,7 +59,8 @@ function Modal(modalType, closeModal){
             background = "can-he-do-it blackish-modal"
             noClick = modalType.closeModal
             modalChild = "gallery-modal-child"
-            component = <GalleryContainer />
+            debugger
+            component = <GalleryContainer photo={modalType.modalType.photos}/>
             break;
         case 'host':
             // 

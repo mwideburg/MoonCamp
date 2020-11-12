@@ -29,7 +29,7 @@ const mapDTP = dispatch => {
     return {
         getSpot: (spotId) => dispatch(getSpot(spotId)),
         getHost: (hostId) => dispatch(getHost(hostId)),
-        openModal: (ModalType) => dispatch(openModal(ModalType)),
+        openModal: (ModalType, photo) => dispatch(openModal(ModalType, photo)),
         requestBooking: (booking) => dispatch(requestBooking(booking)),
         saveSpot: (save) => dispatch(saveSpot(save)),
         removeSave: (save) => dispatch(removeSave(save))

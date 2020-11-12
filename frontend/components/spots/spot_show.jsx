@@ -10,6 +10,9 @@ import PageFooter from '../footer/pages_footer'
 import ReviewsContinaer from './reviews_container'
 import { removeSave } from '../../actions/spot_actions';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
+import PhotoGallery from './photo_gallery'
+import PhotoSection from './photo_section'
 
 // import {Example} from "./date_picker";
 
@@ -214,12 +217,14 @@ class SpotShow extends React.Component {
         return (
             <div className="show-wrapper">
                    <div className="show-img-container">
-                       
-                        <div className="galery-container" onClick={() => openModal('gallery')}>
+                    <button className='gallery-button next' onClick={() => openModal('gallery')}><FontAwesomeIcon icon={faAngleLeft} /></button>
+                       <PhotoGallery photos={photos} openModal={this.props.openModal}/>
+                        {/* <div className="galery-container" onClick={() => openModal('gallery')}>
 
                             <img src={photos[0]} alt="" className="show-img-full" />
 
-                        </div>
+                        </div> */}
+                    <button className='gallery-button later' onClick={() => openModal('gallery')}><FontAwesomeIcon icon={faAngleRight} /></button>
                     </div>
                   
                    
@@ -261,6 +266,10 @@ class SpotShow extends React.Component {
                     <SpotActivityIcons spot={this.props.spot} />
                       
                     <TerrainContainer spot={this.props.spot} />
+                    <center>
+                        <h3>PHOTOS</h3>
+                    <PhotoSection photos={photos} openModal={this.props.openModal}/>
+                    </center>
                     <ReviewsContinaer spot={this.props.spot} />
                     
                     
