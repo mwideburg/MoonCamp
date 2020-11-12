@@ -220,7 +220,7 @@ header{
     height: 300px;
     overflow: hidden;
     background-color: black;
-    border: 1px black solid;
+    // border: 1px black solid;
     box-shadow: black;
     transition: 0.25s;
     transition-timing-function: ease-in-out;
@@ -447,4 +447,11 @@ header{
     background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url('https://cdn.mos.cms.futurecdn.net/yyvvM9kwaVGySFE6aXXoJL.jpg');
     background-size: cover;
     background-position-x: -30px;
+}
+
+.availble-conatiner{
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+
 }

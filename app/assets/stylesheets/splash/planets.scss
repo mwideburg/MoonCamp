@@ -22,3 +22,20 @@
 .img-links .planet-link-image:hover{
     margin-bottom: 10px;
 }
+
+.available-spot{
+    height: 390px;
+    border: 1px solid black;
+    color: black;
+    transition: 0.25s;
+    h2{
+        margin-bottom: 2px;
+    }
+    div img {
+        object-fit: cover;
+    }
+    transition-timing-function: ease-in-out;
+}
+.available-spot:hover{
+    margin-bottom: 10px;
+}

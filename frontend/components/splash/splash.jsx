@@ -116,7 +116,7 @@ class Splash extends React.Component {
                                 Or maybe you would like to battle it out in my customized holodeck..."</p>
                             <br />
                             </div>
-                            <button id="offset-btn"> CAMP OUT WITH WORF</button>
+                                    <button id="offset-btn"> <a href="https://www.youtube.com/watch?v=edflm7Hh3hs&feature=youtu.be" target="#">CAMP OUT WITH WORF</a></button>
                             <Link to='/spots'><button id="offset-btn-2"> START SEARCHING </button></Link>
                         </div>
                     </div>

@@ -13,12 +13,21 @@
 #offset-btn{
     position: absolute;
     bottom: 45px;
+    height: 60px;
     color: white;
     border: rgb(43, 206, 152) 2px solid;
+    a{
+        text-decoration: none;
+        color: white;
+    }
 }
 #offset-btn:hover{
     position: absolute;
     bottom: 45px;
+    a{
+        
+        color: rgb(43, 206, 152);
+    }
     background-color: white;
     border: rgb(43, 206, 152) 2px solid;
     color: rgb(43, 206, 152);
