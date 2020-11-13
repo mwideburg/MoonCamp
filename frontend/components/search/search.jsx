@@ -14,8 +14,8 @@ class Search extends React.Component{
                     <label htmlFor="search"></label>
                     <input type="search" id="search" className="search-input" placeholder="Try Jupiter or Europa"/>
                     <label htmlFor="date"></label>
-                    <input type="date" name="date" id="date-btn" className="date-btn" />
-  
+                    
+                    <Example />
                     <select className="btn-search btn-dropdown">
                         <option value="planets">Planets</option>
                         <option value="jupiter">jupiter</option>

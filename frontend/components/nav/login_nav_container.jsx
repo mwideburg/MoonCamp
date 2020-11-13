@@ -4,7 +4,7 @@ import { openModal } from '../../actions/modal_actions';
 // import { SHOW_MODAL, HIDE_MODAL } from '../../actions/modal_actions'
 
 
-const navContainer = ({ currentUser, demo, logout, openModal }) => {
+const navContainer = ({ currentUser, demo, logout, openModal, ownProps }) => {
         let navbar
         let path
         let path2
@@ -13,7 +13,10 @@ const navContainer = ({ currentUser, demo, logout, openModal }) => {
         path = `/users/${currentUser.id}/trips`
         path2 = `/users/${currentUser.id}/saves`
         }
-        
+        const handleSubmit = (e) => {
+            debugger
+            return <Redirect to="/spots"/>
+        }
         if(!currentUser){
             navbar = (
             <nav className="links">
@@ -75,12 +78,12 @@ const navContainer = ({ currentUser, demo, logout, openModal }) => {
                     <h2 >Moon Camp</h2>
                 </Link>
             <div className="search-nav-bar unfixed">
-                    <form >
+                        <form >
                         
                         <i className="fa fa-search"></i>
                         <input type="search" className="search-nav-form" placeholder="Moon, jups..."/>
-                        
-                </form>
+                        <Link to='/spots'><input type="submit" className="hide" /></Link>
+                    </form>
             </div>
             {navbar}
 
@@ -99,7 +102,8 @@ import { logout, login } from '../../actions/session_actions';
 const mapStateToProps = ({ session, entities: { users } }) => {
     // 
     return {
-        currentUser: users[session.id]
+        currentUser: users[session.id],
+        
     };
 };
 
