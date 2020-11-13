@@ -10,6 +10,9 @@ import PageFooter from '../footer/pages_footer'
 import ReviewsContinaer from './reviews_container'
 import { removeSave } from '../../actions/spot_actions';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import DatePicker from "react-datepicker";
+import subDays from "date-fns/subDays";
+import "react-datepicker/dist/react-datepicker.css";
 
 import PhotoGallery from './photo_gallery'
 import PhotoSection from './photo_section'
@@ -37,6 +40,8 @@ class SpotShow extends React.Component {
             guests: 1,
             submit: false,
             saved: '',
+            startDate: '',
+            endDate: ''
   
             
         }
@@ -47,6 +52,8 @@ class SpotShow extends React.Component {
         this.checkTotal = this.checkTotal.bind(this);
         this.saveSpot = this.saveSpot.bind(this);
         this.removeSave = this.removeSave.bind(this);
+        this.handleStartDate = this.handleStartDate.bind(this);
+        this.handleEndDate = this.handleEndDate.bind(this);
 
     }
 
@@ -92,9 +99,9 @@ class SpotShow extends React.Component {
 
     }
      checkDays(){
-         if (this.state.start != '' && this.state.end != '') {
-             const end = new Date(this.state.end)
-             const start = new Date(this.state.start)
+         if (this.state.startDate != '' && this.state.endDate != '') {
+             const end = new Date(this.state.endDate)
+             const start = new Date(this.state.startDate)
              const days = parseInt((end - start) / (24 * 3600 * 1000))
 
              return days
@@ -103,9 +110,9 @@ class SpotShow extends React.Component {
             }
      }
      checkTotal(){
-         if (this.state.start != '' && this.state.end != '') {
-             const end = new Date(this.state.end)
-             const start = new Date(this.state.start)
+         if (this.state.startDate != '' && this.state.endDate != '') {
+             const end = new Date(this.state.endDate)
+             const start = new Date(this.state.startDate)
              const days = parseInt((end - start) / (24 * 3600 * 1000))
             
 
@@ -121,21 +128,21 @@ class SpotShow extends React.Component {
             this.props.openModal('login')
             return null
         }
-        if (this.state.start === ''){
+        if (this.state.startDate === ''){
             document.getElementById("startDate").classList.add("red")
             return null
         }
-        if(this.state.end === ''){
+        if(this.state.endDate === ''){
             document.getElementById("endDate").classList.add("red")
             
             return null
         }
-        const end = new Date(this.state.end)
-        const start = new Date(this.state.start)
+        const end = new Date(this.state.endDate)
+        const start = new Date(this.state.startDate)
         const days = parseInt((end - start) / (24 * 3600 * 1000))
         const total = days * this.props.spot.price
         const price = this.state.guests / 3 
-       const booking = {spot_id: this.props.spot.id, host_id: this.props.host.id, start_date: this.state.start, end_date: this.state.end, user_id: this.props.user_id, total: total, guests: this.state.guests}
+       const booking = {spot_id: this.props.spot.id, host_id: this.props.host.id, start_date: this.state.startDate, end_date: this.state.endDate, user_id: this.props.user_id, total: total, guests: this.state.guests}
         const dateform = document.getElementById("date-form")
         dateform.classList.add('close')
         document.getElementById("max").classList.remove("fade-inout")
@@ -145,8 +152,13 @@ class SpotShow extends React.Component {
        this.props.requestBooking(booking).then(this.setState({bookContent: 'View Booking Details', submit: true}))
 
     }
-    handleDate(e){
+    handleStartDate(date){
         debugger
+        this.setState({startDate: date})
+    }
+    handleEndDate(date){
+        // debugger
+        this.setState({endDate: date})
     }
 
     saveSpot(e){
@@ -173,7 +185,7 @@ class SpotShow extends React.Component {
         if(!this.props.spot){
             return null
         }
-    
+        
         const photos = this.props.spot.photoUrls
         const spot = this.props.spot
         const openModal = (photos) => this.props.openModal('gallery', photos)
@@ -222,7 +234,8 @@ class SpotShow extends React.Component {
             color = 'green'
         }
 
-        
+        const startDate = this.state.startDate
+        const endDate = this.state.endDate
         
         return (
             <div className="show-wrapper">
@@ -271,6 +284,7 @@ class SpotShow extends React.Component {
                         
                     </div>
                     {/* <Example onChange={() => this.handleDate()}/> */}
+                        
                     <HostDetail host={this.props.host} spot={this.props.spot}/>
                     <CampsiteInfo host={this.props.host} spot={this.props.spot}/>
                     
@@ -313,8 +327,27 @@ class SpotShow extends React.Component {
                                     </div>
                                     <div className="instant-book" id="date-form">
                                         <div className="dates-guests" >
-
-                                            <label htmlFor="startDate"></label>
+                                            <DatePicker 
+                                            selected={startDate}
+                                            onChange={date => this.handleStartDate(date)}
+                                            selectsStart
+                                            startDate={startDate}
+                                            endDate={endDate}
+                                            minDate={subDays(new Date(), 0)}
+                                            className="instant-book-btn" 
+                                            placeholderText="Check In" />
+                                            <DatePicker
+                                            selected={this.state.endDate}
+                                            onChange={date => this.handleEndDate(date)}
+                                            selectsEnd
+                                            startDate={this.state.startDate}
+                                            endDate={this.state.endDate}
+                                            minDate={this.state.startDate}
+                                            
+                                            className="instant-book-btn" 
+                                            
+                                            placeholderText="Check Out"/>
+                                            {/* <label htmlFor="startDate"></label>
                                             <br />
 
                                             <input type="date"
@@ -331,7 +364,7 @@ class SpotShow extends React.Component {
                                                 id="endDate"
                                                 className="instant-book-btn"
                                                 placeholder="Check Out"
-                                                onChange={this.updateState('end')} />
+                                                onChange={this.updateState('end')} /> */}
 
                                             
 
