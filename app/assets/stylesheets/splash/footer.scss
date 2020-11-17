@@ -84,3 +84,19 @@ footer{
     background-color: lightgray;
     cursor: pointer;
 }
+
+.icon-list{
+    
+    color: white;
+    a{
+        padding-right: 10px;
+        text-decoration: none;
+        color: white;
+        transition: .2s;
+        transition-timing-function: ease-in-out;
+    }
+    a:hover{
+        color: lightgray;
+    }
+    font-size: 20px;
+}
