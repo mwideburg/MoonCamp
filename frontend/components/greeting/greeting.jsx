@@ -62,11 +62,10 @@ const Greeting = ({ currentUser, logout, demo , openModal }) => {
 
                             <ul>
                                 <li>
-                                    <a href="">Account</a>
+                                    <Link to={path}>Account</Link>
                                 </li>
-                               
                                 <li>
-                                    <a href="">Become A Host</a>
+                                    <a onClick={() => openModal('host')}>Become A Host</a>
                                 </li>
                                 <li>
                                     <a href="">Help FAQ</a>

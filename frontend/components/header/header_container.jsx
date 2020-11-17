@@ -47,19 +47,16 @@ const Greeting = ({ currentUser, logout, demo, openModal }) => {
 
                             <ul>
                                 <li>
-                                    <a href="">Account</a>
+                                    <Link to={path}>Account</Link>
                                 </li>
                                 <li>
-                                    <a href="">Earn MoonCash</a>
+                                    <a onClick={() => openModal('host')}>Become A Host</a>
                                 </li>
                                 <li>
-                                    <a href="">Become A Host</a>
+                                    <a href="https://mwideburg.github.io/">Help FAQ</a>
                                 </li>
                                 <li>
-                                    <a href="">Help FAQ</a>
-                                </li>
-                                <li>
-                                    <a href="">About</a>
+                                    <a href="https://github.com/mwideburg/MoonCamp">About</a>
                                 </li>
                                 <li >
                                     <a href="" onClick={logout}>Log Out</a>
