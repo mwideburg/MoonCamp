@@ -5,10 +5,13 @@ import "react-datepicker/dist/react-datepicker.css";
 
 // CSS Modules, react-datepicker-cssmodules.css
 import 'react-datepicker/dist/react-datepicker-cssmodules.css';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCalendar } from "@fortawesome/free-solid-svg-icons";
 
 export const Example = () => {
     const [startDate, setStartDate] = useState(null);
     const [endDate, setEndDate] = useState(null);
+    const placeHolder = <FontAwesomeIcon icon={faCalendar}/> 
     const onChange = dates => {
         const [start, end] = dates;
         setStartDate(start);
@@ -29,7 +32,7 @@ export const Example = () => {
                 endDate={endDate}
                 minDate={new Date()}
                 selectsRange
-                placeholderText="Select Dates"
+                placeholderText="Enter Dates"
                 showDisabledMonthNavigation
                 className="btn-dropdown"
             />
