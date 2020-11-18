@@ -19,9 +19,9 @@ const PageFooter = () => {
                         Here at moon camp we always take health first, that's why we are giving any moon campers free space suits, to ensure no cross contamination during this rought time.
                     </p>
 
-                    <button className="warning-btn">
+                        <a href="https://www.cdc.gov/coronavirus/2019-ncov/index.html" target="_blank" className="warning-btn">
                                 learn more
-                    </button>
+                    </a>
                 </div>
 
             </div>
