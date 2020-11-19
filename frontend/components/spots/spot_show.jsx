@@ -153,11 +153,11 @@ class SpotShow extends React.Component {
 
     }
     handleStartDate(date){
-        debugger
+        
         this.setState({startDate: date})
     }
     handleEndDate(date){
-        // debugger
+        // 
         this.setState({endDate: date})
     }
 
@@ -270,9 +270,12 @@ class SpotShow extends React.Component {
                                         {spot.planet} -- {spot.moon}
                                     </p>
                                     <h1> {spot.title}  </h1> 
-                                    Nearby: <Link to="/spots/"> Jupiter's Europa  </Link>
+                                    Nearby:  Jupiter's Europa 
+                                    <div className='flex left'>
                                  <p className={color}>{icon} {this.props.spot.rating}% </p>
+                                       
                                 {this.props.spot.num_reviews} Reviews
+                                    </div> 
                                 </div>
                                 <div className="showpage-details-footer">
                                     {saveBtn}

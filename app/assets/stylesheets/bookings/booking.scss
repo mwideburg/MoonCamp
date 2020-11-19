@@ -92,15 +92,36 @@
     margin: 20px;
     
 }
-
+.pd-r-10{
+padding-right: 10px;
+}
+.w-700{
+    align-items: center;
+    width: 600px;
+}
 .sidebar-container{
+    h3{
+        font-size: 20px;
+    }
+    ul{
+        list-style: none;
+        margin: 0px;
+        padding: 0px;
+        padding-left: 10px;
+        text-align: left;
+       
+    }
+    li{
+        margin-bottom: 20px;
+    }
     flex-direction: column;
     align-items: center;
-    background-color: rgb(187, 184, 179);
+    text-align: center;
     left: 10px;
     border: lightgray 1px solid;
     padding: 10px;
     width: 250px;
+    font-size: 13px;
     
     
 }

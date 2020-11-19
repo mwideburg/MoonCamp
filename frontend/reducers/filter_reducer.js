@@ -16,7 +16,7 @@ const filterReducer = (state = defaultFilters, action) => {
             };
             return Object.assign({}, state, newFilter);
         case ONE_FILTER:
-            debugger
+            
             const one_filter = {
                 [action.filter]: action.value
             };

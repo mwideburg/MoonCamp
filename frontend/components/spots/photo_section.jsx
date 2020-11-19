@@ -12,7 +12,7 @@ class PhotoSection extends React.Component {
 
             </div>)
         })
-        debugger
+        
         return (
             <div className="photo-info ">
                 

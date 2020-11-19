@@ -14,7 +14,7 @@ const navContainer = ({ currentUser, demo, logout, openModal, ownProps }) => {
         path2 = `/users/${currentUser.id}/saves`
         }
         const handleSubmit = (e) => {
-            debugger
+            
             return <Redirect to="/spots"/>
         }
         if(!currentUser){

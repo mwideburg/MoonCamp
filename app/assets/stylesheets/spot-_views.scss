@@ -35,6 +35,9 @@
     /* background-color: lightslategrey; */
     /* box-sizing: border-box; */
 }
+.profile-spots-img{
+    width: 250px
+}
 
 
 .spot-details{
@@ -47,6 +50,7 @@
 }
 .spot-details h3,p{
     margin:0;
+    padding-left: 10px;
    
     
 
@@ -71,7 +75,11 @@ justify-content: space-between;
 align-items: flex-end;
 
 }
-
+.save-data{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 .green{
     font-weight: bold;
     color: rgb(12, 177, 127);

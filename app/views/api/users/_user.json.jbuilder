@@ -1,5 +1,5 @@
 
-json.extract! user, :id, :firstname, :zipcode, :lastname
+json.extract! user, :id, :firstname, :zipcode, :lastname, :created_at
 if user.photo.attached?
 json.photoUrl url_for(user.photo)
 json.saved do
@@ -7,7 +7,7 @@ json.saved do
     json.set! save.id do
        
         json.photoUrls save.spot.photos.map { |file| url_for(file) }
-        json.extract! save.spot, :id, :title, :description, :planet, :price
+        json.extract! save.spot, :id, :title, :description, :planet, :price, :rating, :num_reviews
         json.extract! save, :id, :spot_id, :user_id
         end
     end

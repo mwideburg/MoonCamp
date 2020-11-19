@@ -59,7 +59,7 @@ function Modal(modalType, closeModal){
             background = "can-he-do-it blackish-modal"
             noClick = modalType.closeModal
             modalChild = "gallery-modal-child"
-            debugger
+            
             component = <GalleryContainer photo={modalType.modalType.photos}/>
             break;
         case 'host':

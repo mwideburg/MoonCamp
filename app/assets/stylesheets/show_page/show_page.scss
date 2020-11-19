@@ -446,6 +446,15 @@ font-size: 15px;
     border: 1px rgb(255, 171, 171) solid;
 }
 
+.left{
+    justify-content: flex-start;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    p{
+        margin-right: 10px;
+    }
+}
+
 @keyframes fadeinout{
     0% {opacity: 0;}
     50% {opacity: 1;}

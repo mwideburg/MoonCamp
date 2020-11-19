@@ -23,7 +23,7 @@ class Search extends React.Component{
     
    }
    componentWillUnmount(){
-    //    this.props.updateOneFilter(this.state.selected, this.state.value)
+       this.props.updateOneFilter(this.state.selected, this.state.value)
    }
     showDropdown(e){
         

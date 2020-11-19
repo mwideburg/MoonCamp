@@ -1554,7 +1554,6 @@ var Host = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this = this;
 
-      debugger;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "login-form-container host-signup-container "
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("center", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, " Currently not accepting any more hosts ")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Hosting in space is really hard to accomplish, but if you would like to be on our waitig list please check box to sign up."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1666,7 +1665,6 @@ function Modal(modalType, closeModal) {
       background = "can-he-do-it blackish-modal";
       noClick = modalType.closeModal;
       modalChild = "gallery-modal-child";
-      debugger;
       component = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_spots_gallery_show_container__WEBPACK_IMPORTED_MODULE_7__["default"], {
         photo: modalType.modalType.photos
       });
@@ -1766,7 +1764,6 @@ var navContainer = function navContainer(_ref) {
   }
 
   var handleSubmit = function handleSubmit(e) {
-    debugger;
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Redirect"], {
       to: "/spots"
     });
@@ -2166,11 +2163,13 @@ var mapDTP = function mapDTP(dispatch) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _footer_pages_footer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../footer/pages_footer */ "./frontend/components/footer/pages_footer.jsx");
-/* harmony import */ var _spots_host_details__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../spots/host_details */ "./frontend/components/spots/host_details.jsx");
-/* harmony import */ var _booking_booking_single__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../booking/booking_single */ "./frontend/components/booking/booking_single.jsx");
-/* harmony import */ var _trips_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./trips_container */ "./frontend/components/profile/trips_container.jsx");
+/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
+/* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _footer_pages_footer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../footer/pages_footer */ "./frontend/components/footer/pages_footer.jsx");
+/* harmony import */ var _spots_host_details__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../spots/host_details */ "./frontend/components/spots/host_details.jsx");
+/* harmony import */ var _booking_booking_single__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../booking/booking_single */ "./frontend/components/booking/booking_single.jsx");
+/* harmony import */ var _trips_container__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./trips_container */ "./frontend/components/profile/trips_container.jsx");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -2192,6 +2191,8 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
 
 
 
@@ -2310,20 +2311,20 @@ var Profile = /*#__PURE__*/function (_React$Component) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           key: booking.id,
           id: booking.id,
-          className: "w-600 booking-single"
+          className: "w-700 booking-single"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "flex-col center"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "spot-img"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
           src: spot.photo[0],
-          className: "spots-img",
+          className: "spots-img profile-spots-img",
           alt: ""
         })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, spot.title)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "flex-col"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Check in: "), start), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Check out:"), " ", end), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Guests: ", booking.guests), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Check in: "), start), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Check out:"), " ", end), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Guests: ", booking.guests), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
           to: path
-        }, " View Spot"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        }, " View Spot"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
           to: path2
         }, " View Booking Details"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("center", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           onClick: function onClick() {
@@ -2335,14 +2336,29 @@ var Profile = /*#__PURE__*/function (_React$Component) {
 
       var saveContainer = Object.values(saves).map(function (save) {
         var path = "/spots/".concat(save.spot_id);
+        var icon;
+        var color;
+
+        if (save.rating < 85) {
+          icon = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesomeIcon"], {
+            icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faThumbsDown"],
+            color: "red"
+          }); // color = 'red'
+        } else {
+          icon = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesomeIcon"], {
+            icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faThumbsUp"],
+            color: "green"
+          }); // color = 'green'
+        }
+
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           key: save.id,
-          className: "booking-single w-600"
+          className: "booking-single w-700"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "spots-img"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
           src: save.photoUrls[0],
-          className: "spots-img",
+          className: "spots-img profile-spots-img",
           alt: ""
         })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "flex-col"
@@ -2351,8 +2367,8 @@ var Profile = /*#__PURE__*/function (_React$Component) {
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
           className: "spot-title"
         }, save.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, " Planet: ", save.planet), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "spot-data"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "59 reviews"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, save.price, "/day")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+          className: "spot-data save-data"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, icon, " ", save.rating, "%  ", save.num_reviews, " Reviews"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "$", save.price, "/day")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
           to: path
         }, " View Spot"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           onClick: function onClick() {
@@ -2364,6 +2380,10 @@ var Profile = /*#__PURE__*/function (_React$Component) {
       var user = this.state.user;
       var saveLink = "/users/".concat(user.id, "/saves");
       var tripLink = "/users/".concat(user.id, "/trips");
+      var created_at = new Date(user.created_at);
+      var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+      var month = months[created_at.getMonth()];
+      var year = created_at.getFullYear();
       var content;
 
       if (this.props.location.pathname.includes('saves')) {
@@ -2380,13 +2400,19 @@ var Profile = /*#__PURE__*/function (_React$Component) {
         className: "sidebar-profile"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "sidebar-container"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, " ", user.firstname))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, " Hey, ", user.firstname), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesomeIcon"], {
+        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faHeart"],
+        className: "pd-r-10"
+      }), "Camper since ", month, " ", year), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesomeIcon"], {
+        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faMapMarker"],
+        className: "pd-r-10"
+      }), " Located on Earth")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "MoonCampers: Campers have fun enjoying the sun in a whole new way")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "content-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "profile-links"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: ""
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["NavLink"], {
         to: tripLink,
         isActive: function isActive(match, location) {
           if (!match) {
@@ -2398,7 +2424,7 @@ var Profile = /*#__PURE__*/function (_React$Component) {
         activeStyle: {
           borderBottom: "3px solid #75ebb4"
         }
-      }, " Trips ", tripCount)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
+      }, " Trips ", tripCount)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["NavLink"], {
         to: saveLink,
         isActive: function isActive(match, location) {
           if (!match) {
@@ -2410,7 +2436,7 @@ var Profile = /*#__PURE__*/function (_React$Component) {
         activeStyle: {
           borderBottom: "3px solid #75ebb4"
         }
-      }, " Saves ", saveCount))), content))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_footer_pages_footer__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      }, " Saves ", saveCount))), content))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_footer_pages_footer__WEBPACK_IMPORTED_MODULE_4__["default"], {
         spot: this.props.spot
       }));
     }
@@ -2693,7 +2719,8 @@ var Search = /*#__PURE__*/function (_React$Component) {
     }
   }, {
     key: "componentWillUnmount",
-    value: function componentWillUnmount() {//    this.props.updateOneFilter(this.state.selected, this.state.value)
+    value: function componentWillUnmount() {
+      this.props.updateOneFilter(this.state.selected, this.state.value);
     }
   }, {
     key: "showDropdown",
@@ -4010,15 +4037,22 @@ var FiltersContainer = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "handleClick",
     value: function handleClick(e, name, filter) {
-      if (document.getElementById(e.currentTarget.id).classList.value === "filter-btn") {
-        document.getElementById(e.currentTarget.id).classList.add("filter-btn-selected");
-        document.getElementById(e.currentTarget.id).classList.remove("filter-btn");
-        this.props.updateSpotsFilters(name, filter);
-      } else if (document.getElementById(e.currentTarget.id).classList.value === "filter-btn-selected") {
-        document.getElementById(e.currentTarget.id).classList.add("filter-btn");
-        document.getElementById(e.currentTarget.id).classList.remove("filter-btn-selected");
+      if (this.props.filter[name] != undefined) {
         this.props.removeFilter(name, filter);
-      }
+        document.getElementById(e.currentTarget.id).classList.remove("filter-btn-selected");
+      } else {
+        this.props.updateSpotsFilters(name, filter);
+        document.getElementById(e.currentTarget.id).classList.add("filter-btn-selected");
+      } // if (document.getElementById(e.currentTarget.id).classList.value === "filter-btn"){
+      //     document.getElementById(e.currentTarget.id).classList.add("filter-btn-selected")
+      //     document.getElementById(e.currentTarget.id).classList.remove("filter-btn")
+      //     this.props.updateSpotsFilters(name, filter)
+      // } else if (document.getElementById(e.currentTarget.id).classList.value === "filter-btn-selected"){
+      //     document.getElementById(e.currentTarget.id).classList.add("filter-btn")
+      //     document.getElementById(e.currentTarget.id).classList.remove("filter-btn-selected")
+      //     this.props.removeFilter(name, filter)
+      // }
+
     }
   }, {
     key: "render",
@@ -4027,17 +4061,17 @@ var FiltersContainer = /*#__PURE__*/function (_React$Component) {
 
       if (this.props.amenities.length === 0) {
         return null;
-      } // if (document.getElementById('holo') != null){
-      //     if("holodeck" in this.props.filter){
-      //         document.getElementById('holo').classList.add("filter-btn-selected")
-      //     } else if ("phasers" in this.props.filter){
-      //         debugger
-      //         document.getElementById('phas').classList.add("filter-btn-selected")
-      //     } else if ("oxygen" in this.props.filter){
-      //         document.getElementById('oxy').classList.add("filter-btn-selected")
-      //     }
-      // }
+      }
 
+      if (document.getElementById('holodeck') != null) {
+        if ("holodeck" in this.props.filter) {
+          document.getElementById('holodeck').classList.add("filter-btn-selected");
+        } else if ("phasers" in this.props.filter) {
+          document.getElementById('phasers').classList.add("filter-btn-selected");
+        } else if ("oxygen" in this.props.filter) {
+          document.getElementById('oxygen').classList.add("filter-btn-selected");
+        }
+      }
 
       var phaserPhoto = this.props.amenities.filter(function (amen) {
         return amen.name === "Phasers";
@@ -4052,7 +4086,7 @@ var FiltersContainer = /*#__PURE__*/function (_React$Component) {
         key: "search",
         className: "search-form-container filter-form"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        id: "oxy",
+        id: "oxygen",
         className: "filter-btn",
         onClick: function onClick(e) {
           return _this.handleClick(e, "oxygen", "Oxygen");
@@ -4061,7 +4095,7 @@ var FiltersContainer = /*#__PURE__*/function (_React$Component) {
         src: oxyPhoto,
         className: "button-icon"
       }), "Oxygen "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        id: "holo",
+        id: "holodeck",
         className: "filter-btn",
         onClick: function onClick(e) {
           return _this.handleClick(e, "holodeck", "Holodeck");
@@ -4070,7 +4104,7 @@ var FiltersContainer = /*#__PURE__*/function (_React$Component) {
         src: holoPhoto,
         className: "button-icon"
       }), " Holodeck  "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        id: "phas",
+        id: "phasers",
         className: "filter-btn",
         onClick: function onClick(e) {
           return _this.handleClick(e, "phasers", "Phasers");
@@ -4262,8 +4296,7 @@ var GalleryContainer = /*#__PURE__*/function (_React$Component) {
       }
 
       var photos = this.props.spot.photoUrls;
-      var spot = this.props.spot;
-      debugger; // 
+      var spot = this.props.spot; // 
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "gallery-img"
@@ -4806,7 +4839,6 @@ var PhotoGallery = /*#__PURE__*/function (_React$Component) {
           className: "show-img-full"
         }));
       });
-      debugger;
       return photos;
     }
   }]);
@@ -4884,7 +4916,6 @@ var PhotoSection = /*#__PURE__*/function (_React$Component) {
           className: "photo-sec-img"
         }));
       });
-      debugger;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "photo-info "
       }, photos);
@@ -5651,7 +5682,6 @@ var SpotShow = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "handleStartDate",
     value: function handleStartDate(date) {
-      debugger;
       this.setState({
         startDate: date
       });
@@ -5659,7 +5689,7 @@ var SpotShow = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "handleEndDate",
     value: function handleEndDate(date) {
-      // debugger
+      // 
       this.setState({
         endDate: date
       });
@@ -5816,11 +5846,11 @@ var SpotShow = /*#__PURE__*/function (_React$Component) {
         className: "showpage-spot-details"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "showpage-title"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, spot.planet, " -- ", spot.moon), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, " ", spot.title, "  "), "Nearby: ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        to: "/spots/"
-      }, " Jupiter's Europa  "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, spot.planet, " -- ", spot.moon), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, " ", spot.title, "  "), "Nearby:  Jupiter's Europa", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "flex left"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: color
-      }, icon, " ", this.props.spot.rating, "% "), this.props.spot.num_reviews, " Reviews"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, icon, " ", this.props.spot.rating, "% "), this.props.spot.num_reviews, " Reviews")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "showpage-details-footer"
       }, saveBtn)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_host_details__WEBPACK_IMPORTED_MODULE_2__["default"], {
         host: this.props.host,
@@ -6571,8 +6601,6 @@ var filterReducer = function filterReducer() {
       return Object.assign({}, state, newFilter);
 
     case _actions_filter_actions__WEBPACK_IMPORTED_MODULE_0__["ONE_FILTER"]:
-      debugger;
-
       var one_filter = _defineProperty({}, action.filter, action.value);
 
       return Object.assign({}, one_filter);

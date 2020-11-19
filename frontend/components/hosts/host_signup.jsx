@@ -2,7 +2,7 @@ import React from 'react'
 
 class Host extends React.Component {
     render() {
-        debugger
+        
         return (
             <div className="login-form-container host-signup-container ">
                 

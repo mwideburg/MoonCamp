@@ -12,7 +12,7 @@ class PhotoGallery extends React.Component {
 
             </div>)
         })
-        debugger
+        
         return(
             photos
         )

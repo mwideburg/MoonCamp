@@ -1,10 +1,12 @@
 import React from 'react';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faAngleLeft, faAngleRight, faThumbsUp, faThumbsDown, faHeart, faMapMarker } from '@fortawesome/free-solid-svg-icons';
 import { useParams, Link, NavLink, Switch, Route} from 'react-router-dom';
 import PageFooter from '../footer/pages_footer'
 import HostDetail from '../spots/host_details'
 import BookingSingle from '../booking/booking_single'
 import TripsContainer from './trips_container'
+
 class Profile extends React.Component {
     constructor(props) {
         super(props)
@@ -118,12 +120,12 @@ class Profile extends React.Component {
                     return (
                         
                         
-                    <div key={booking.id} id={booking.id} className="w-600 booking-single">
+                    <div key={booking.id} id={booking.id} className="w-700 booking-single">
 
                         <div className="flex-col center">
                             <div className="spot-img">
 
-                                <img src={spot.photo[0]} className="spots-img" alt="" />
+                                <img src={spot.photo[0]} className="spots-img profile-spots-img" alt="" />
                             </div>
                             <br />
                             <h4>{spot.title}</h4>
@@ -157,15 +159,24 @@ class Profile extends React.Component {
         const saveContainer = (
             Object.values(saves).map(save => {
                 const path = `/spots/${save.spot_id}`
+                let icon
+                let color
+                if (save.rating < 85) {
+                    icon = <FontAwesomeIcon icon={faThumbsDown} color="red"/>
+                    // color = 'red'
+                } else {
+                    icon = <FontAwesomeIcon icon={faThumbsUp} color="green" />
+                    // color = 'green'
+                }
                 
                 return (
-                    <div key={save.id} className="booking-single w-600" >
+                    <div key={save.id} className="booking-single w-700" >
                         {/* map through activities to put them on the splash with a limit */}
                         {/* have a single acitivty-item that will render a list item with the picture
             and link to the specific search content page */}
                         {/* place inside a ul */}
                         <div className="spots-img">
-                            <img src={save.photoUrls[0]} className="spots-img" alt="" />
+                            <img src={save.photoUrls[0]} className="spots-img profile-spots-img" alt="" />
                         </div>
                         
                         <div className="flex-col">
@@ -173,11 +184,12 @@ class Profile extends React.Component {
                             <div className="">
                                 <h3 className="spot-title">{save.title}</h3>
                                 <p> Planet: {save.planet}</p>
-                                <div className="spot-data">
+                                <div className="spot-data save-data">
                                     {/* this.props.reviews and whatever */}
-                                    <p>59 reviews</p>
+                                    <p>{icon} {save.rating}%  {save.num_reviews} Reviews</p>
+                                    
              
-                                    <p>{save.price}/day</p>
+                                    <p>${save.price}/day</p>
                                 </div>
                                 <Link to={path} > View Spot</Link>
                                 <br/>
@@ -195,7 +207,10 @@ class Profile extends React.Component {
         const user = this.state.user
         const saveLink = `/users/${user.id}/saves`
         const tripLink = `/users/${user.id}/trips`
-        
+        const created_at = new Date(user.created_at)
+        var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        const month = months[created_at.getMonth()]
+        const year = created_at.getFullYear()
         let content
         if(this.props.location.pathname.includes('saves')){
             content = saveContainer
@@ -211,12 +226,21 @@ class Profile extends React.Component {
 
                 <div className="sidebar-profile">
                     <div className="sidebar-container">
-                    <h3> {user.firstname}</h3>
+                    <h3> Hey, {user.firstname}</h3>
+                    <ul>
+                        <li>
+                            <FontAwesomeIcon icon={faHeart}  className="pd-r-10"/>Camper since {month} {year}
+                        </li>
+                        <li>
+                            <FontAwesomeIcon icon={faMapMarker} className="pd-r-10"/> Located on Earth
+
+                        </li>
+                    </ul>
                     
-
-
+                    <br/>
+                    MoonCampers: Campers have fun enjoying the sun in a whole new way
                     </div>
-
+                    
                 </div>
 
                 <div className="content-container">
