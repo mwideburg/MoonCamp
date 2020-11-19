@@ -52,6 +52,7 @@
     justify-content: space-around;
 }
 .search-form-container input{
+    
     display: inline;
     height: 63px;
     font-size: 15px;
@@ -60,6 +61,15 @@
     text-align: center;
     box-shadow: 1px 2px 5px 0px rgba(0,0,0,0.1);
 
+}
+.search-input{
+    height: 63px;
+    font-size: 15px;
+    border-radius: 3px;
+    border: 1px solid #ebebeb;
+    padding-left: 10px;
+    text-align: left;
+    box-shadow: 1px 2px 5px 0px rgba(0,0,0,0.1);
 }
 #calendar-search{
     height: 63px;

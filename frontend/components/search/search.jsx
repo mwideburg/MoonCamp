@@ -57,7 +57,7 @@ class Search extends React.Component{
         }
         return(
             <div key="search" className="search-form-container">
-                <form action="" className="search-form">
+                <form action="" className="search-form" autocomplete="off">
                     <label htmlFor="search"></label>
                     <input type="search" id="search" className="search-input" placeholder="Try Jupiter or Europa"/>
                     <label htmlFor="date"></label>

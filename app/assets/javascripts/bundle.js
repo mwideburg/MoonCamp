@@ -2774,7 +2774,8 @@ var Search = /*#__PURE__*/function (_React$Component) {
         className: "search-form-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("form", {
         action: "",
-        className: "search-form"
+        className: "search-form",
+        autocomplete: "off"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("label", {
         htmlFor: "search"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("input", {
@@ -5875,7 +5876,8 @@ var SpotShow = /*#__PURE__*/function (_React$Component) {
         className: "price-title"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, " $", parseInt(this.state.guests) / 3 > 1 ? parseInt(this.state.guests / 3) * 5 + spot.price : spot.price), "per night"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSubmit,
-        className: ""
+        className: "",
+        autocomplete: "off"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "num-guests"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {

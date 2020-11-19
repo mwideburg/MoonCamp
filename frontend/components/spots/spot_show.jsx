@@ -314,7 +314,7 @@ class SpotShow extends React.Component {
                                 per night
                             </div>
                                
-                                <form onSubmit={this.handleSubmit} className="">
+                                <form onSubmit={this.handleSubmit} className="" autocomplete="off">
                                     <div className="num-guests">
                                         <label htmlFor="quantity">Number of Guests </label>
                                         <input type="number" id="quantity" 
