@@ -320,6 +320,7 @@ class SpotShow extends React.Component {
                                         max={this.props.spot.max_guests} 
                                         placeholder="1" 
                                         disabled={(this.state.submit) ? "disabled" : ""}
+                                        
                                         onChange={this.updateState('guests')}
                                             ></input> 
                                         <p id="max" className="opa-0">max</p>
@@ -333,6 +334,7 @@ class SpotShow extends React.Component {
                                             selectsStart
                                             startDate={startDate}
                                             endDate={endDate}
+                                            id="startDate"
                                             minDate={subDays(new Date(), 0)}
                                             className="instant-book-btn" 
                                             placeholderText="Check In" />
@@ -340,6 +342,7 @@ class SpotShow extends React.Component {
                                             selected={this.state.endDate}
                                             onChange={date => this.handleEndDate(date)}
                                             selectsEnd
+                                            id="endDate"
                                             startDate={this.state.startDate}
                                             endDate={this.state.endDate}
                                             minDate={this.state.startDate}

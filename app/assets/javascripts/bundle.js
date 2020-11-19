@@ -2698,7 +2698,8 @@ var Search = /*#__PURE__*/function (_React$Component) {
     }
   }, {
     key: "showDropdown",
-    value: function showDropdown() {
+    value: function showDropdown(e) {
+      e.preventDefault();
       document.getElementById('planet-dropdown').style.display = "block";
     }
   }, {
@@ -2759,8 +2760,8 @@ var Search = /*#__PURE__*/function (_React$Component) {
         htmlFor: "date"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_spots_date_picker__WEBPACK_IMPORTED_MODULE_4__["Example"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("button", {
         className: "btn-search btn-dropdown btn-dropdown-splash",
-        onClick: function onClick() {
-          return _this2.showDropdown();
+        onClick: function onClick(e) {
+          return _this2.showDropdown(e);
         }
       }, selectedIcon, " ", selectedText), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
         className: "dropdown-planet-search",
@@ -5877,6 +5878,7 @@ var SpotShow = /*#__PURE__*/function (_React$Component) {
         selectsStart: true,
         startDate: startDate,
         endDate: endDate,
+        id: "startDate",
         minDate: Object(date_fns_subDays__WEBPACK_IMPORTED_MODULE_12__["default"])(new Date(), 0),
         className: "instant-book-btn",
         placeholderText: "Check In"
@@ -5886,6 +5888,7 @@ var SpotShow = /*#__PURE__*/function (_React$Component) {
           return _this4.handleEndDate(date);
         },
         selectsEnd: true,
+        id: "endDate",
         startDate: this.state.startDate,
         endDate: this.state.endDate,
         minDate: this.state.startDate,

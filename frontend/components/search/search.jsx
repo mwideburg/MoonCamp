@@ -25,7 +25,9 @@ class Search extends React.Component{
    componentWillUnmount(){
        this.props.updateOneFilter(this.state.selected, this.state.value)
    }
-    showDropdown(){
+    showDropdown(e){
+        
+        e.preventDefault();
         document.getElementById('planet-dropdown').style.display="block"
     }
     render(){
@@ -61,7 +63,7 @@ class Search extends React.Component{
                     <label htmlFor="date"></label>
                     
                     <Example />
-                    <button className="btn-search btn-dropdown btn-dropdown-splash" onClick={() => this.showDropdown()} >
+                    <button className="btn-search btn-dropdown btn-dropdown-splash" onClick={(e) => this.showDropdown(e)} >
                         {selectedIcon} {selectedText}
                     </button>
                         <div className="dropdown-planet-search" id='planet-dropdown'>
