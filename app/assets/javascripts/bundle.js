@@ -2693,8 +2693,7 @@ var Search = /*#__PURE__*/function (_React$Component) {
     }
   }, {
     key: "componentWillUnmount",
-    value: function componentWillUnmount() {
-      this.props.updateOneFilter(this.state.selected, this.state.value);
+    value: function componentWillUnmount() {//    this.props.updateOneFilter(this.state.selected, this.state.value)
     }
   }, {
     key: "showDropdown",
@@ -4028,20 +4027,18 @@ var FiltersContainer = /*#__PURE__*/function (_React$Component) {
 
       if (this.props.amenities.length === 0) {
         return null;
-      }
+      } // if (document.getElementById('holo') != null){
+      //     if("holodeck" in this.props.filter){
+      //         document.getElementById('holo').classList.add("filter-btn-selected")
+      //     } else if ("phasers" in this.props.filter){
+      //         debugger
+      //         document.getElementById('phas').classList.add("filter-btn-selected")
+      //     } else if ("oxygen" in this.props.filter){
+      //         document.getElementById('oxy').classList.add("filter-btn-selected")
+      //     }
+      // }
 
-      if (document.getElementById('holo') != null) {
-        if ("holodeck" in this.props.filter) {
-          document.getElementById('holo').classList.add("filter-btn-selected");
-        } else if ("phasers" in this.props.filter) {
-          debugger;
-          document.getElementById('phas').classList.add("filter-btn-selected");
-        } else if ("oxygen" in this.props.filter) {
-          document.getElementById('oxy').classList.add("filter-btn-selected");
-        }
-      }
 
-      debugger;
       var phaserPhoto = this.props.amenities.filter(function (amen) {
         return amen.name === "Phasers";
       })[0].photo;
