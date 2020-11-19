@@ -9,7 +9,8 @@ const mapSTP = (state) => {
     
     return {
         amenities: Object.values(state.entities.amenities),
-        spots: state.entities.spots
+        spots: state.entities.spots,
+        filter: state.ui.filters
     }
 }
 const mapDTP = dispatch => {

@@ -122,7 +122,7 @@ var getAmenities = function getAmenities() {
 /*!********************************************!*\
   !*** ./frontend/actions/filter_actions.js ***!
   \********************************************/
-/*! exports provided: UPDATE_BOUNDS, UPDATE_FILTERS, FILTER_SPOTS, REMOVE_FILTER, REMOVE_FILTERS, updateBounds, updateFilters, clearFilters, removeAFilter, recieveFilterSpots, updateSpots, updateSpotsFilters, removeFilter */
+/*! exports provided: UPDATE_BOUNDS, UPDATE_FILTERS, FILTER_SPOTS, REMOVE_FILTER, REMOVE_FILTERS, ONE_FILTER, updateBounds, updateFilters, onlyOneFilter, clearFilters, removeAFilter, recieveFilterSpots, updateSpots, updateSpotsFilters, updateOneFilter, removeFilter */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -132,13 +132,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FILTER_SPOTS", function() { return FILTER_SPOTS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REMOVE_FILTER", function() { return REMOVE_FILTER; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REMOVE_FILTERS", function() { return REMOVE_FILTERS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ONE_FILTER", function() { return ONE_FILTER; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateBounds", function() { return updateBounds; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateFilters", function() { return updateFilters; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "onlyOneFilter", function() { return onlyOneFilter; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "clearFilters", function() { return clearFilters; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeAFilter", function() { return removeAFilter; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "recieveFilterSpots", function() { return recieveFilterSpots; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateSpots", function() { return updateSpots; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateSpotsFilters", function() { return updateSpotsFilters; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateOneFilter", function() { return updateOneFilter; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeFilter", function() { return removeFilter; });
 /* harmony import */ var _util_spot_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/spot_api_util */ "./frontend/util/spot_api_util.js");
 /* harmony import */ var _spot_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./spot_actions */ "./frontend/actions/spot_actions.js");
@@ -150,6 +153,7 @@ var UPDATE_FILTERS = 'UPDATE_FILTERS';
 var FILTER_SPOTS = 'FILTER_SPOTS';
 var REMOVE_FILTER = 'REMOVE_FILTER';
 var REMOVE_FILTERS = 'REMOVE_FILTERS';
+var ONE_FILTER = 'ONE_FILTER';
 var updateBounds = function updateBounds(bounds) {
   // 
   return {
@@ -161,6 +165,14 @@ var updateFilters = function updateFilters(filter, value) {
   // 
   return {
     type: UPDATE_FILTERS,
+    filter: filter,
+    value: value
+  };
+};
+var onlyOneFilter = function onlyOneFilter(filter, value) {
+  // 
+  return {
+    type: ONE_FILTER,
     filter: filter,
     value: value
   };
@@ -195,6 +207,12 @@ var updateSpots = function updateSpots(bounds) {
 function updateSpotsFilters(filter, value) {
   return function (dispatch, getState) {
     dispatch(updateFilters(filter, value));
+    return Object(_spot_actions__WEBPACK_IMPORTED_MODULE_1__["filterSpots"])(getState().ui.filters)(dispatch); // delicious curry!
+  };
+}
+function updateOneFilter(filter, value) {
+  return function (dispatch, getState) {
+    dispatch(onlyOneFilter(filter, value));
     return Object(_spot_actions__WEBPACK_IMPORTED_MODULE_1__["filterSpots"])(getState().ui.filters)(dispatch); // delicious curry!
   };
 }
@@ -2657,7 +2675,8 @@ var Search = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
     _this.state = {
-      selected: 'all'
+      selected: 'all',
+      value: ''
     };
     _this.updateSelected = _this.updateSelected.bind(_assertThisInitialized(_this));
     return _this;
@@ -2665,10 +2684,17 @@ var Search = /*#__PURE__*/function (_React$Component) {
 
   _createClass(Search, [{
     key: "updateSelected",
-    value: function updateSelected(field) {
+    value: function updateSelected(field, value) {
+      document.getElementById('planet-dropdown').style.display = "none";
       this.setState({
-        selected: field
+        selected: field,
+        value: value
       });
+    }
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      this.props.updateOneFilter(this.state.selected, this.state.value);
     }
   }, {
     key: "showDropdown",
@@ -2691,21 +2717,21 @@ var Search = /*#__PURE__*/function (_React$Component) {
           selectedText = "All Listings";
           break;
 
-        case "oxy":
+        case "oxygen":
           selectedIcon = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesomeIcon"], {
             icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_0__["faLungs"]
           });
           selectedText = "Oxygen";
           break;
 
-        case "vr":
+        case "holodeck":
           selectedIcon = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesomeIcon"], {
             icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_0__["faVrCardboard"]
           });
           selectedText = "Holodeck";
           break;
 
-        case "phase":
+        case "phasers":
           selectedIcon = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesomeIcon"], {
             icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_0__["faFire"]
           });
@@ -2732,8 +2758,11 @@ var Search = /*#__PURE__*/function (_React$Component) {
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("label", {
         htmlFor: "date"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_spots_date_picker__WEBPACK_IMPORTED_MODULE_4__["Example"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("button", {
-        className: "btn-search btn-dropdown btn-dropdown-splash"
-      }, selectedIcon, " ", selectedText, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+        className: "btn-search btn-dropdown btn-dropdown-splash",
+        onClick: function onClick() {
+          return _this2.showDropdown();
+        }
+      }, selectedIcon, " ", selectedText), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
         className: "dropdown-planet-search",
         id: "planet-dropdown"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("ul", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("li", {
@@ -2742,23 +2771,23 @@ var Search = /*#__PURE__*/function (_React$Component) {
         }
       }, "All Listings"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("li", {
         onClick: function onClick() {
-          return _this2.updateSelected('oxy');
+          return _this2.updateSelected('oxygen', 'Oxygen');
         }
       }, "Oxygen ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesomeIcon"], {
         icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_0__["faLungs"]
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("li", {
         onClick: function onClick() {
-          return _this2.updateSelected('vr');
+          return _this2.updateSelected('holodeck', 'Holodeck');
         }
       }, "Holodeck ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesomeIcon"], {
         icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_0__["faVrCardboard"]
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("li", {
         onClick: function onClick() {
-          return _this2.updateSelected('phase');
+          return _this2.updateSelected('phasers', 'Phasers');
         }
       }, "Phaser ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesomeIcon"], {
         icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_0__["faFire"]
-      }))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
+      })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
         to: "/spots",
         className: ""
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("button", {
@@ -2784,7 +2813,9 @@ var Search = /*#__PURE__*/function (_React$Component) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _search__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./search */ "./frontend/components/search/search.jsx");
+/* harmony import */ var _actions_filter_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/filter_actions */ "./frontend/actions/filter_actions.js");
+/* harmony import */ var _search__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./search */ "./frontend/components/search/search.jsx");
+
 
 
 
@@ -2795,10 +2826,14 @@ var mapStateToProps = function mapStateToProps(state) {
 };
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-  return {};
+  return {
+    updateOneFilter: function updateOneFilter(filter, value) {
+      return dispatch(Object(_actions_filter_actions__WEBPACK_IMPORTED_MODULE_1__["updateOneFilter"])(filter, value));
+    }
+  };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(null, null)(_search__WEBPACK_IMPORTED_MODULE_1__["default"]));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(null, mapDispatchToProps)(_search__WEBPACK_IMPORTED_MODULE_2__["default"]));
 
 /***/ }),
 
@@ -3900,7 +3935,18 @@ var Example = function Example() {
     endDate: endDate,
     minDate: new Date(),
     selectsRange: true,
-    placeholderText: "Enter Dates",
+    placeholderText: "Check In",
+    showDisabledMonthNavigation: true,
+    className: "btn-dropdown"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_datepicker__WEBPACK_IMPORTED_MODULE_1___default.a, {
+    selected: endDate,
+    id: "calendar-search",
+    onChange: onChange,
+    startDate: startDate,
+    endDate: endDate,
+    minDate: new Date(),
+    selectsRange: true,
+    placeholderText: "Check Out",
     showDisabledMonthNavigation: true,
     className: "btn-dropdown"
   }));
@@ -3983,6 +4029,18 @@ var FiltersContainer = /*#__PURE__*/function (_React$Component) {
         return null;
       }
 
+      if (document.getElementById('holo') != null) {
+        if ("holodeck" in this.props.filter) {
+          document.getElementById('holo').classList.add("filter-btn-selected");
+        } else if ("phasers" in this.props.filter) {
+          debugger;
+          document.getElementById('phas').classList.add("filter-btn-selected");
+        } else if ("oxygen" in this.props.filter) {
+          document.getElementById('oxy').classList.add("filter-btn-selected");
+        }
+      }
+
+      debugger;
       var phaserPhoto = this.props.amenities.filter(function (amen) {
         return amen.name === "Phasers";
       })[0].photo;
@@ -4071,7 +4129,8 @@ __webpack_require__.r(__webpack_exports__);
 var mapSTP = function mapSTP(state) {
   return {
     amenities: Object.values(state.entities.amenities),
-    spots: state.entities.spots
+    spots: state.entities.spots,
+    filter: state.ui.filters
   };
 };
 
@@ -6510,6 +6569,13 @@ var filterReducer = function filterReducer() {
       var newFilter = _defineProperty({}, action.filter, action.value);
 
       return Object.assign({}, state, newFilter);
+
+    case _actions_filter_actions__WEBPACK_IMPORTED_MODULE_0__["ONE_FILTER"]:
+      debugger;
+
+      var one_filter = _defineProperty({}, action.filter, action.value);
+
+      return Object.assign({}, one_filter);
 
     case _actions_filter_actions__WEBPACK_IMPORTED_MODULE_0__["REMOVE_FILTER"]:
       var copy = Object.assign({}, state);

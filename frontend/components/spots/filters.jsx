@@ -28,7 +28,21 @@ class FiltersContainer extends React.Component{
         if(this.props.amenities.length === 0){
             return null
         }
-        
+        if (document.getElementById('holo') != null){
+            if("holodeck" in this.props.filter){
+                document.getElementById('holo').classList.add("filter-btn-selected")
+                
+            } else if ("phasers" in this.props.filter){
+                debugger
+                document.getElementById('phas').classList.add("filter-btn-selected")
+                
+            } else if ("oxygen" in this.props.filter){
+                document.getElementById('oxy').classList.add("filter-btn-selected")
+                
+            }
+
+        }
+        debugger
         const phaserPhoto = this.props.amenities.filter(amen => amen.name === "Phasers")[0].photo
         const oxyPhoto = this.props.amenities.filter(amen => amen.name === "Oxygen")[0].photo
         const holoPhoto = this.props.amenities.filter(amen => amen.name === "Holodeck")[0].photo

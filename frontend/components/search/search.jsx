@@ -9,13 +9,21 @@ class Search extends React.Component{
    constructor(props){
        super(props)
        this.state = {
-           selected: 'all'
+           selected: 'all',
+           value: ''
        }
        this.updateSelected = this.updateSelected.bind(this)
    }
-   updateSelected(field){
-    this.setState({selected: field})
+   
+   updateSelected(field, value){
+    document.getElementById('planet-dropdown').style.display="none"
+    this.setState({selected: field, value: value})
     
+    
+    
+   }
+   componentWillUnmount(){
+       this.props.updateOneFilter(this.state.selected, this.state.value)
    }
     showDropdown(){
         document.getElementById('planet-dropdown').style.display="block"
@@ -23,20 +31,21 @@ class Search extends React.Component{
     render(){
         let selectedText
         let selectedIcon
+        
         switch (this.state.selected) {
             case "all":
                 selectedIcon = <FontAwesomeIcon icon={faSpaceShuttle}></FontAwesomeIcon>
                 selectedText = "All Listings"
                 break;
-            case "oxy":
+            case "oxygen":
                 selectedIcon = <FontAwesomeIcon icon={faLungs}></FontAwesomeIcon>
                 selectedText = "Oxygen"
                 break;
-            case "vr":
+            case "holodeck":
                 selectedIcon = <FontAwesomeIcon icon={faVrCardboard}></FontAwesomeIcon>
                 selectedText = "Holodeck"
                 break;
-            case "phase":
+            case "phasers":
                 selectedIcon = <FontAwesomeIcon icon={faFire}></FontAwesomeIcon>
                 selectedText = "Phasers"
                 break;
@@ -52,27 +61,30 @@ class Search extends React.Component{
                     <label htmlFor="date"></label>
                     
                     <Example />
-                    <button className="btn-search btn-dropdown btn-dropdown-splash" >
+                    <button className="btn-search btn-dropdown btn-dropdown-splash" onClick={() => this.showDropdown()} >
                         {selectedIcon} {selectedText}
+                    </button>
                         <div className="dropdown-planet-search" id='planet-dropdown'>
 
                             <ul>
+                                
+
                                 <li onClick={() => this.updateSelected('all')}>
                                      All Listings
                                 </li>
-                                <li onClick={() => this.updateSelected('oxy')}>
+                               
+                            <li onClick={() => this.updateSelected('oxygen', 'Oxygen')}>
                                     Oxygen <FontAwesomeIcon icon={faLungs}/>
                                 </li>
-                                <li onClick={() => this.updateSelected('vr')}>
+                            <li onClick={() => this.updateSelected('holodeck', 'Holodeck')}>
                                     Holodeck <FontAwesomeIcon icon={faVrCardboard} />
                                 </li>
-                                <li onClick={() => this.updateSelected('phase')}>
+                            <li onClick={() => this.updateSelected('phasers', 'Phasers')}>
                                     Phaser <FontAwesomeIcon icon={faFire} />
                                 </li>
                                 
                             </ul>
                         </div>
-                    </button>
                     <Link to="/spots" className="">
                     <button className="btn-search submit"> 
                         SEARCH

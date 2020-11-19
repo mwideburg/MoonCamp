@@ -108,17 +108,22 @@ align-items: flex-end;
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    height: 70px;
+    height: 60px;
+    box-shadow: none;
+    border: lightgray solid 1px;
+    background-color: rgb(252, 252, 252);
 
 }
 
 .filter-btn{
-    color: gray;
+        color: gray;
     display: flex;
     align-items: center;
-    padding:15px;
+    padding: 15px;
     background-color: white;
-   margin:10px;
+    margin: 10px;
+    font-size: 15px;
+    border-radius: 3px;
     border: 1px lightgray solid;
     height: 40px;
 }
@@ -132,28 +137,26 @@ align-items: flex-end;
 
 .filter-btn-selected{
     
+    color: gray;
     display: flex;
     align-items: center;
-    padding:15px;
+    padding: 15px;
     background-color: white;
-   margin: 10px;
-    border: 1px aquamarine solid;
-     color: aquamarine;
-     cursor: pointer;
+    margin: 10px;
+    font-size: 15px;
+    border-radius: 3px;
+    border: 1px lightgray solid;
+    height: 50px;
+    border: 1px rgb(104, 209, 174) solid;
+    color:  rgb(95, 187, 156);
+    background-color: rgba(95, 187, 156, .2);
+    cursor: pointer;
     height: 40px;
 }
 .filter-btn-selected:hover{
-    
-    display: flex;
-    align-items: center;
-    padding:15px;
-    background-color:aquamarine solid;
-     color: aquamarine;
-   margin: 10px;
-    border: 1px aquamarine solid;
-     color: gray;
+
      cursor: pointer;
-    height: 40px;
+
 }
 
 .gallery-container{

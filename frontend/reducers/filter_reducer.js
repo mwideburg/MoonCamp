@@ -1,4 +1,4 @@
-import { UPDATE_BOUNDS, UPDATE_FILTERS, FILTER_SPOTS, REMOVE_FILTER, REMOVE_FILTERS } from '../actions/filter_actions'
+import { UPDATE_BOUNDS, UPDATE_FILTERS, FILTER_SPOTS, REMOVE_FILTER, REMOVE_FILTERS, ONE_FILTER } from '../actions/filter_actions'
 const defaultFilters = Object.freeze({
     bounds: {},
     
@@ -15,6 +15,12 @@ const filterReducer = (state = defaultFilters, action) => {
                 [action.filter]: action.value
             };
             return Object.assign({}, state, newFilter);
+        case ONE_FILTER:
+            debugger
+            const one_filter = {
+                [action.filter]: action.value
+            };
+            return Object.assign({}, one_filter);
         case REMOVE_FILTER:
             const copy = Object.assign({}, state)
             delete copy[action.filter]

@@ -6,6 +6,7 @@ export const UPDATE_FILTERS = 'UPDATE_FILTERS'
 export const FILTER_SPOTS = 'FILTER_SPOTS'
 export const REMOVE_FILTER = 'REMOVE_FILTER'
 export const REMOVE_FILTERS = 'REMOVE_FILTERS'
+export const ONE_FILTER = 'ONE_FILTER'
 
 export const updateBounds = (bounds) => {
     // 
@@ -18,6 +19,14 @@ export const updateFilters = (filter, value) => {
     // 
     return {
         type: UPDATE_FILTERS,
+        filter,
+        value
+    }
+}
+export const onlyOneFilter = (filter, value) => {
+    // 
+    return {
+        type: ONE_FILTER,
         filter,
         value
     }
@@ -51,6 +60,15 @@ export function updateSpotsFilters(filter, value) {
     
     return (dispatch, getState) => {
         dispatch(updateFilters(filter, value));
+        return filterSpots(getState().ui.filters)(dispatch)
+        // delicious curry!
+    };
+}
+export function updateOneFilter(filter, value) {
+    
+    
+    return (dispatch, getState) => {
+        dispatch(onlyOneFilter(filter, value));
         return filterSpots(getState().ui.filters)(dispatch)
         // delicious curry!
     };

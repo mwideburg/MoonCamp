@@ -63,18 +63,26 @@
 }
 #calendar-search{
     height: 63px;
+    display: flex;
+   justify-content: center;
+   color: rgb(60, 158, 126);
+    .btn-dropdown:first-child{
+        width: 120px;
+        margin-right: 5px;
+        margin-left: 5px;
+    }
     box-sizing: border-box;
 }
 .dropdown-planet-search{
     height: 242px;
-    width: 150px;
+    width: 147px;
     display: none;
     position: absolute;
     top: 378px;
     border: 1px lightgray solid;
-    right: 142px;
+    right: 129px;
     color: gray;
-    
+    font-size: 15px;
     background-color: white;
    
     ul{
@@ -87,9 +95,11 @@
             border-top:none;
         }
         
-        
         li{
             margin: 0px;
+            border: none;
+            font-size: inherit;
+            color: inherit;
             padding-left: 20px;
             display: flex;
             align-items: center;
@@ -102,6 +112,7 @@
         }
         li:hover{
             background-color: lightgray;
+            cursor: pointer;
         }
     }
     
@@ -111,12 +122,12 @@
     display: block;
 }
 
-.btn-dropdown-splash:focus > .dropdown-planet-search{
-    display: block;
-}
-.btn-dropdown-splash:active > .dropdown-planet-search{
-    display: block;
-}
+// .btn-dropdown-splash:focus ~ .dropdown-planet-search{
+//     display: block;
+// }
+// .btn-dropdown-splash:active ~ .dropdown-planet-search{
+//     display: block;
+// }
 #calendar-search::placeholder{
     color: rgb(71, 71, 71);
 }
@@ -130,16 +141,19 @@
     margin-left: 40px ;
     padding-right:10px ;
 }
-
+.search-nav-bar{
+    margin-left: 20px;
+}
 .search-nav-form{
     
-
+    margin-left: 10px;
     /* border: 1px lightgray solid; */
     /* border-radius: 0; */
     display: inline;
     width: 250px;
     height: 44px;
     border-radius: 3px;
+    
     border: 1px solid lightgray;    
 }
 
@@ -192,6 +206,7 @@
 
 .btn-dropdown-splash{
     width: 150px;
+    border-radius: 3px;
     color: rgb(107, 107, 107);
     border: 1px solid #ebebeb;
     box-shadow: 1px 2px 5px 0px rgba(0,0,0,0.1);

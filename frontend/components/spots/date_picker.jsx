@@ -32,7 +32,19 @@ export const Example = () => {
                 endDate={endDate}
                 minDate={new Date()}
                 selectsRange
-                placeholderText="Enter Dates"
+                placeholderText="Check In"
+                showDisabledMonthNavigation
+                className="btn-dropdown"
+            />
+            <DatePicker
+                selected={endDate}
+                id="calendar-search"
+                onChange={onChange}
+                startDate={startDate}
+                endDate={endDate}
+                minDate={new Date()}
+                selectsRange
+                placeholderText="Check Out"
                 showDisabledMonthNavigation
                 className="btn-dropdown"
             />
