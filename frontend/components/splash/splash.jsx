@@ -15,6 +15,7 @@ class Splash extends React.Component {
         this.props.getSpots()
         this.props.getAmenities()
     }
+    
     render(){
         if(Object.values(this.props.spots).length < 14){
             return null

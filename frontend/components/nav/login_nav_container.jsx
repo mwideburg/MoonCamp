@@ -13,10 +13,10 @@ const navContainer = ({ currentUser, demo, logout, openModal, ownProps }) => {
         path = `/users/${currentUser.id}/trips`
         path2 = `/users/${currentUser.id}/saves`
         }
-        const handleSubmit = (e) => {
+        // const handleSubmit = (e) => {
             
-            return <Redirect to="/spots"/>
-        }
+        //     return <Redirect to="/spots"/>
+        // }
         if(!currentUser){
             navbar = (
             <nav className="links">
@@ -58,7 +58,7 @@ const navContainer = ({ currentUser, demo, logout, openModal, ownProps }) => {
                                     <a href="https://github.com/mwideburg/MoonCamp" target="_blank">About</a>
                                 </li>
                                 <li >
-                                    <a href="" onClick={logout}>Log Out</a>
+                                    <Link to="/" onClick={logout}>Log Out</Link>
                                 </li>
                             </ul>
                         </div>

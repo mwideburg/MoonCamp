@@ -1432,8 +1432,8 @@ var Greeting = function Greeting(_ref) {
     }, "Help FAQ")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
       href: "https://github.com/mwideburg/MoonCamp",
       target: "_blank"
-    }, "About")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-      href: "",
+    }, "About")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      to: "/",
       onClick: logout
     }, "Log Out")))))));
   };
@@ -1761,13 +1761,10 @@ var navContainer = function navContainer(_ref) {
   if (currentUser != undefined) {
     path = "/users/".concat(currentUser.id, "/trips");
     path2 = "/users/".concat(currentUser.id, "/saves");
-  }
+  } // const handleSubmit = (e) => {
+  //     return <Redirect to="/spots"/>
+  // }
 
-  var handleSubmit = function handleSubmit(e) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Redirect"], {
-      to: "/spots"
-    });
-  };
 
   if (!currentUser) {
     navbar = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
@@ -1817,8 +1814,8 @@ var navContainer = function navContainer(_ref) {
     }, "Help FAQ")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
       href: "https://github.com/mwideburg/MoonCamp",
       target: "_blank"
-    }, "About")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-      href: "",
+    }, "About")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      to: "/",
       onClick: logout
     }, "Log Out"))))));
   }
@@ -2775,7 +2772,7 @@ var Search = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("form", {
         action: "",
         className: "search-form",
-        autocomplete: "off"
+        autoComplete: "off"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("label", {
         htmlFor: "search"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("input", {
@@ -3905,6 +3902,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_datepicker_dist_react_datepicker_cssmodules_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-datepicker/dist/react-datepicker-cssmodules.css */ "./node_modules/react-datepicker/dist/react-datepicker-cssmodules.css");
 /* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
 /* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -3925,6 +3924,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 var Example = function Example() {
+  var _React$createElement;
+
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null),
       _useState2 = _slicedToArray(_useState, 2),
       startDate = _useState2[0],
@@ -3939,18 +3940,18 @@ var Example = function Example() {
     icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__["faCalendar"]
   });
 
-  var onChange = function onChange(dates) {
+  var _onChange = function onChange(dates) {
     var _dates = _slicedToArray(dates, 2),
-        start = _dates[0],
-        end = _dates[1];
+        startDate = _dates[0],
+        endDate = _dates[1];
 
-    setStartDate(start);
+    setStartDate(startDate);
 
     if (startDate === null) {
       return null;
     }
 
-    setEndDate(end);
+    setEndDate(endDate);
   };
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -3958,7 +3959,9 @@ var Example = function Example() {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_datepicker__WEBPACK_IMPORTED_MODULE_1___default.a, {
     selected: startDate,
     id: "calendar-search",
-    onChange: onChange,
+    onChange: function onChange(dates) {
+      return _onChange(dates);
+    },
     startDate: startDate,
     endDate: endDate,
     minDate: new Date(),
@@ -3966,18 +3969,17 @@ var Example = function Example() {
     placeholderText: "Check In",
     showDisabledMonthNavigation: true,
     className: "btn-dropdown"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_datepicker__WEBPACK_IMPORTED_MODULE_1___default.a, {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_datepicker__WEBPACK_IMPORTED_MODULE_1___default.a, (_React$createElement = {
     selected: endDate,
     id: "calendar-search",
-    onChange: onChange,
+    onChange: function onChange(dates) {
+      return _onChange(dates);
+    },
     startDate: startDate,
     endDate: endDate,
     minDate: new Date(),
-    selectsRange: true,
-    placeholderText: "Check Out",
-    showDisabledMonthNavigation: true,
-    className: "btn-dropdown"
-  }));
+    selectsRange: true
+  }, _defineProperty(_React$createElement, "minDate", startDate), _defineProperty(_React$createElement, "placeholderText", "Check Out"), _defineProperty(_React$createElement, "showDisabledMonthNavigation", true), _defineProperty(_React$createElement, "className", "btn-dropdown"), _React$createElement)));
 };
 
 /***/ }),
@@ -5877,7 +5879,7 @@ var SpotShow = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, " $", parseInt(this.state.guests) / 3 > 1 ? parseInt(this.state.guests / 3) * 5 + spot.price : spot.price), "per night"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSubmit,
         className: "",
-        autocomplete: "off"
+        autoComplete: "off"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "num-guests"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
@@ -7151,21 +7153,17 @@ var Auth = function Auth(_ref) {
       }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Component, props);
     }
   });
-};
+}; // const Protected = ({ loggedIn, path, component: Component }) => {
+//     return (
+//         <Route
+//             path={path}
+//             render={props => (
+//                 loggedIn ? <Component {...props} /> : <Redirect to="/" />
+//             )}
+//         />
+//     )
+// }
 
-var Protected = function Protected(_ref2) {
-  var loggedIn = _ref2.loggedIn,
-      path = _ref2.path,
-      Component = _ref2.component;
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
-    path: path,
-    render: function render(props) {
-      return loggedIn ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Component, props) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Redirect"], {
-        to: "/"
-      });
-    }
-  });
-};
 
 var AuthRoute = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps)(Auth)); // export const ProtectedRoute = withRouter(connect(mapStateToProps)(Protected))
 

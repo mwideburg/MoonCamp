@@ -48,8 +48,14 @@ export const signup = user => dispatch => {
         return dispatch(receiveErrors(err.responseJSON))
     })
 };
-export const logout = () => dispatch => APIUtil.logout()
-    .then(() => dispatch(logoutCurrentUser()));
+export const logout = () => dispatch => {
+    return (
+        APIUtil.logout().then(() => {
+            return (
+                dispatch(logoutCurrentUser())
+                )})
+        );
+}
 
 
 

@@ -74,7 +74,7 @@ const Greeting = ({ currentUser, logout, demo , openModal }) => {
                                     <a href="https://github.com/mwideburg/MoonCamp" target="_blank">About</a>
                                 </li>
                                 <li >
-                                    <a href="" onClick={logout}>Log Out</a>
+                                    <Link to="/" onClick={logout}>Log Out</Link>
                                 </li>
                             </ul>
                         </div>

@@ -13,13 +13,13 @@ export const Example = () => {
     const [endDate, setEndDate] = useState(null);
     const placeHolder = <FontAwesomeIcon icon={faCalendar}/> 
     const onChange = dates => {
-        const [start, end] = dates;
-        setStartDate(start);
+        const [startDate, endDate] = dates;
+        setStartDate(startDate);
         
         if(startDate === null){
             return null
         }
-        setEndDate(end);
+        setEndDate(endDate);
         
     };
     return (
@@ -27,7 +27,7 @@ export const Example = () => {
             <DatePicker
                 selected={startDate}
                 id="calendar-search"
-                onChange={onChange}
+                onChange={dates => onChange(dates)}
                 startDate={startDate}
                 endDate={endDate}
                 minDate={new Date()}
@@ -39,11 +39,12 @@ export const Example = () => {
             <DatePicker
                 selected={endDate}
                 id="calendar-search"
-                onChange={onChange}
+                onChange={dates => onChange(dates)}
                 startDate={startDate}
                 endDate={endDate}
                 minDate={new Date()}
                 selectsRange
+                minDate={startDate}
                 placeholderText="Check Out"
                 showDisabledMonthNavigation
                 className="btn-dropdown"
