@@ -3751,7 +3751,7 @@ var Splash = /*#__PURE__*/function (_React$Component) {
         id: "offset-btn"
       }, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "https://www.youtube.com/watch?v=edflm7Hh3hs&feature=youtu.be",
-        target: "#"
+        target: "_blank"
       }, "CAMP OUT WITH WORF")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/spots"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
