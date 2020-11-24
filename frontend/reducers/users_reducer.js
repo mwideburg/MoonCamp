@@ -2,7 +2,8 @@ import { RECEIVE_CURRENT_USER } from '../actions/session_actions'
 import { RECIEVE_BOOKING, RECIEVE_BOOKINGS, REMOVE_BOOKING, RECIEVE_SAVE, REMOVE_SAVE } from '../actions/spot_actions'
 
 const startState = {
-    
+    saved: {},
+    bookings: {}
 }
 const usersReducer = (state = startState, action) => {
     const user = action.currentUser

@@ -6912,7 +6912,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-var startState = {};
+var startState = {
+  saved: {},
+  bookings: {}
+};
 
 var usersReducer = function usersReducer() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : startState;
