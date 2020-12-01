@@ -22,7 +22,7 @@ class Planets extends React.Component {
                 <Link to={'/spots'} className="img-links">
                     <div className="planet-link-image" id="europa">
                         {/* <img src="https://i.pinimg.com/originals/65/67/07/656707ea1e9fad2b5b9111a06045fcb8.jpg" alt="" /> */}
-                        <h2>ERUOPA</h2>
+                        <h2>EUROPA</h2>
                         
                     </div>
                 </Link>
