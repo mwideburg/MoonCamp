@@ -2,6 +2,7 @@
 json.extract! user, :id, :firstname, :zipcode, :lastname, :created_at
 if user.photo.attached?
 json.photoUrl url_for(user.photo)
+end
 json.saved do
     user.saved.each do |save|
     json.set! save.id do
@@ -32,5 +33,4 @@ json.bookings do
                 json.extract! booking, :id, :start_date, :end_date, :spot_id, :host_id, :guests
             end
     end
-end
 end

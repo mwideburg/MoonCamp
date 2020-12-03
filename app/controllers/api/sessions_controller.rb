@@ -5,6 +5,9 @@ class Api::SessionsController < ApplicationController
             params[:user][:password]
         )
         
+        @bookings = @user.bookings
+        @save = @user.saved
+        
         if @user 
             login(@user)
             render "api/users/show"

@@ -346,9 +346,7 @@ var removeErrors = function removeErrors() {
 };
 var login = function login(user) {
   return function (dispatch) {
-    // 
     return _util_session_api_util__WEBPACK_IMPORTED_MODULE_0__["login"](user).then(function (user) {
-      // 
       return dispatch(receiveCurrentUser(user));
     }, function (err) {
       // 
@@ -358,7 +356,6 @@ var login = function login(user) {
 };
 var signup = function signup(user) {
   return function (dispatch) {
-    // 
     return _util_session_api_util__WEBPACK_IMPORTED_MODULE_0__["signup"](user).then(function (user) {
       // 
       return dispatch(receiveCurrentUser(user));
@@ -2006,7 +2003,7 @@ var Planets = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "planet-link-image",
         id: "europa"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "ERUOPA"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "EUROPA"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: '/spots',
         className: "img-links"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {

@@ -29,9 +29,9 @@ export const removeErrors = () => {
 
 
 export const login = user => dispatch => {
-    // 
+    
     return APIUtil.login(user).then(user => {
-        // 
+       
         return dispatch(receiveCurrentUser(user))
     }, err => {
         // 
@@ -39,7 +39,7 @@ export const login = user => dispatch => {
     })
 };
 export const signup = user => dispatch => {
-    // 
+    
     return APIUtil.signup(user).then(user => {
         // 
         return dispatch(receiveCurrentUser(user))

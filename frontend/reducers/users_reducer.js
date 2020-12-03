@@ -11,7 +11,7 @@ const usersReducer = (state = startState, action) => {
     Object.freeze(state);
     switch (action.type) {
         case RECEIVE_CURRENT_USER:
-            
+           
             
             if(user.bookings === undefined){
                 
