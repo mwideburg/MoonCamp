@@ -4710,7 +4710,7 @@ var MoonMap = /*#__PURE__*/function (_React$Component) {
       this.map.mapTypes.set("moon", moonMapType);
       this.map.setMapTypeId("moon");
       var updateSpots = this.props.updateSpotsFilter;
-      this.map.addListener('bounds_changed', function () {
+      this.map.addListener('idle', function () {
         var _this$getBounds$toJSO = this.getBounds().toJSON(),
             north = _this$getBounds$toJSO.north,
             south = _this$getBounds$toJSO.south,

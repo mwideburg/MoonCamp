@@ -78,7 +78,7 @@ class MoonMap extends React.Component {
         this.map.setMapTypeId("moon");
 
         const updateSpots = this.props.updateSpotsFilter
-        this.map.addListener('bounds_changed', function () {
+        this.map.addListener('idle', function () {
             const { north, south, east, west } = this.getBounds().toJSON();
             const bounds = {
                 northEast: { lat: north, lng: east },
