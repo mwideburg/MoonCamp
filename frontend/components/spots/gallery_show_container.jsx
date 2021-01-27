@@ -4,9 +4,7 @@ import React from 'react';
 
 
 
-import { useParams, Link, withRouter } from 'react-router-dom';
-import HostDetail from './host_details'
-import CampsiteInfo from './campsite_info'
+import { withRouter } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 class GalleryContainer extends React.Component {
@@ -61,30 +59,13 @@ class GalleryContainer extends React.Component {
 
 import { connect } from 'react-redux';
 
-import { getSpot, getHost } from '../../actions/spot_actions'
-import { openModal, closeModal } from '../../actions/modal_actions'
-// import getSpots from '../../actions/spot_actions'
-import SpotShow from "./spot_show";
-
 const mapSTP = (state, prevProps) => {
     const spotId = parseInt(prevProps.location.pathname.slice(7))
-    // 
-
     const spot = state.entities.spots[spotId]
-    // 
-    // const host = state.entities.host[spot.host_id]
-
     return {
         spot: spot,
-
-    }
-}
-const mapDTP = dispatch => {
-    // 
-    return {
-       
-
     }
 }
 
-export default withRouter(connect(mapSTP, mapDTP)(GalleryContainer))
+
+export default withRouter(connect(mapSTP, null)(GalleryContainer))

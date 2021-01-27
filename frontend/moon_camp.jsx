@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
     let store;
     if (window.currentUser) {
-        // 
+        // store user and remove to stay logged in
        
         const preloadedState = {
             entities: {

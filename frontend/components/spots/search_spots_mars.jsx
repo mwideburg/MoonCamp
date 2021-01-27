@@ -1,12 +1,8 @@
 import React from 'react';
-import { Link, Switch, Route } from 'react-router-dom';
-import SpotMap from './spot_map'
-import MoonMap from './moon_map'
 import MarsMap from './mars_map'
 import FiltersContainer from './filters_container'
 import SpotsIndexContainer from "./spots_container";
-import { updateFilters } from '../../actions/filter_actions';
-// import { updateBounds } from '../../actions/filter_actions';
+
 
 
 const SearchSpotsMars = ( {spots, updateSpotsFilters, updateBounds, updateSpots, amenities} ) => {

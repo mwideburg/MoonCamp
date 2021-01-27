@@ -13,20 +13,12 @@ const navContainer = ({ currentUser, demo, logout, openModal, ownProps }) => {
         path = `/users/${currentUser.id}/trips`
         path2 = `/users/${currentUser.id}/saves`
         }
-        // const handleSubmit = (e) => {
-            
-        //     return <Redirect to="/spots"/>
-        // }
+
         if(!currentUser){
             navbar = (
             <nav className="links">
                 <button onClick={() => openModal('login')} className="user-button">Log in</button>
                 <button onClick={() => openModal('signup')} className="user-button">Sign up</button>
-
-                
-                {/* <Link to="/login" className="user-button" onClick={() =>openModal}>Log In</Link>
-                <Link to="/signup" className="user-button">Sign Up</Link> */}
-                {/* <Link to="/demo" className="user-button"> DEMO</Link> */}
                 <button onClick={demo} className="user-button demo-btn">DEMO</button>
             </nav>
             )
@@ -107,12 +99,6 @@ const mapStateToProps = ({ session, entities: { users } }) => {
     };
 };
 
-// const mapStateToProps = (state) => {
-//     console.log(state);
-//     return state;
-
-// }
-
 const mapDispatchToProps = dispatch => ({
     demo: () => dispatch(login({ email: "michael@mooncamp.com", password: "michael" })),
     logout: () => dispatch(logout()),
@@ -122,16 +108,3 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(navContainer);
-
-
-// <nav className="links">
-//     <button onClick={demoUser({email: "michael", password:"michael"})} className="user-button logout">MODAL</button>
-//     <button onClick={() => openModal('signup')} className="user-button">Sign Up</button>
-
-//     <button onClick={() => openModal('login')} className="user-button">Log in</button>
-//     {/* <Link to="/login" className="user-button" onClick={() =>openModal}>Log In</Link>
-//                 <Link to="/signup" className="user-button">Sign Up</Link> */}
-//     <Link to="/">
-//         <button onClick={demo} className="user-button demo-btn">DEMO</button>
-//     </Link>
-// </nav>

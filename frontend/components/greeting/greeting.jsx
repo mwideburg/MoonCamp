@@ -17,49 +17,34 @@ const Greeting = ({ currentUser, logout, demo , openModal }) => {
         // 
         return (
             <header className="navbar">
-
-
-            <Link to="/" className="nav-bar-logo">
-            <h2 >Moon Camp</h2>
-            </Link>
-            <nav className="links">
-                <button onClick={() => openModal('login')} className="user-button">Log in</button>
-                <button onClick={() => openModal('signup')} className="user-button">Sign up</button>
-                
-                
-                {/* <Link to="/login" className="user-button" onClick={() =>openModal}>Log In</Link>
-                <Link to="/signup" className="user-button">Sign Up</Link> */}
-                {/* <Link to="/demo" className="user-button"> DEMO</Link> */}
-                <button onClick={demo} className="user-button demo-btn">DEMO</button>
-            </nav>
+                <Link to="/" className="nav-bar-logo">
+                <h2 >Moon Camp</h2>
+                </Link>
+                <nav className="links">
+                    <button onClick={() => openModal('login')} className="user-button">Log in</button>
+                    <button onClick={() => openModal('signup')} className="user-button">Sign up</button>
+                    <button onClick={demo} className="user-button demo-btn">DEMO</button>
+                </nav>
 
             </header>
         )
     }
     const hello = () => {
-        // 
-        
+
         return (
-            <header className="navbar">
+        <header className="navbar">
+            <Link to="/" className="nav-bar-logo">
+                <h2 >Moon Camp</h2>
+            </Link>
+            <nav className="links ">
+                <Link to={path}><button className="user-button">Trips</button></Link>
+                <Link to={path2}><button className="user-button">Saves</button></Link>
 
+                <div className="logged-in-dropdown">
 
-        <Link to="/" className="nav-bar-logo">
-            <h2 >Moon Camp</h2>
-        </Link>
-        <nav className="links ">
-            <Link to={path}><button className="user-button">Trips</button></Link>
-            <Link to={path2}><button className="user-button">Saves</button></Link>
-
+                    <img className="moon" src="https://pngimg.com/uploads/moon/moon_PNG20.png" alt=""/>
             
-            {/* <button className="user-button">Messages</button> */}
-
-
-            <div className="logged-in-dropdown">
-
-            <img className="moon" src="https://pngimg.com/uploads/moon/moon_PNG20.png" alt=""/>
-            
-                        <div className="dropdown-user">
-
+                    <div className="dropdown-user">
                             <ul>
                                 <li>
                                     <Link to={path}>Account</Link>
@@ -77,13 +62,10 @@ const Greeting = ({ currentUser, logout, demo , openModal }) => {
                                     <Link to="/" onClick={logout}>Log Out</Link>
                                 </li>
                             </ul>
-                        </div>
-            </div>
-
-            
-        </nav>
-                
-            </header>
+                    </div>
+                </div>
+            </nav>      
+        </header>
         )
     }
 

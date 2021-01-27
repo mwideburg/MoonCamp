@@ -1,7 +1,4 @@
 import React from 'react';
-import { Link, Route } from 'react-router-dom';
-import SpotMap from './spot_map'
-import SpotsIndexContainer from "./spots_container";
 import MarkerManager from '../../util/marker_manager'
 
 
@@ -84,22 +81,7 @@ class MoonMap extends React.Component {
                 northEast: { lat: north, lng: east },
                 southWest: { lat: south, lng: west }
             };
-            // 
-            // let northeast = this.getBounds().getNorthEast();
-            // let southwest = this.getBounds().getSouthWest();
-            // // 
-            // let bounds = this.getBounds()
-
-            // let lat = bounds.getNorthEast().lat();
-            // let lat2 = bounds.getSouthWest().lat();
-            // let lng = bounds.getNorthEast().lng();
-            // let lng2 = bounds.getSouthWest().lng();
-
-            // let positions = { lat: [lat, lat2], lng: [lng, lng2] }
-
-            // 
             console.log('updated')
-            // updateBounds(bounds)
             updateSpots('bounds', bounds)
         })
 

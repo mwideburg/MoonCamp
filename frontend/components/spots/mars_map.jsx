@@ -1,7 +1,4 @@
 import React from 'react';
-import { Link, Route } from 'react-router-dom';
-import SpotMap from './spot_map'
-import SpotsIndexContainer from "./spots_container";
 import MarkerManager from '../../util/marker_manager'
 
 
@@ -96,25 +93,15 @@ class MarsMap extends React.Component {
         this.map.mapTypes.set("mars_elevation", moonMapType);
         this.map.setMapTypeId("mars_elevation");
 
-        const updateSpots = this.props.updateSpots
-        this.map.addListener('bounds_changed', function () {
-            // 
-            let northeast = this.getBounds().getNorthEast();
-            let southwest = this.getBounds().getSouthWest();
-            // 
-            let bounds = this.getBounds()
-
-            let lat = bounds.getNorthEast().lat();
-            let lat2 = bounds.getSouthWest().lat();
-            let lng = bounds.getNorthEast().lng();
-            let lng2 = bounds.getSouthWest().lng();
-
-            let positions = { bounds: { lat: [lat, lat2], lng: [lng, lng2] } }
-
-            // 
+        const updateSpots = this.props.updateSpotsFilter
+        this.map.addListener('idle', function () {
+            const { north, south, east, west } = this.getBounds().toJSON();
+            const bounds = {
+                northEast: { lat: north, lng: east },
+                southWest: { lat: south, lng: west }
+            };
             console.log('updated')
-            // updateBounds(bounds)
-            updateSpots(positions)
+            updateSpots('bounds', bounds)
         })
 
 

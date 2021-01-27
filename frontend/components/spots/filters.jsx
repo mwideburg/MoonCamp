@@ -4,9 +4,9 @@ import {Link} from 'react-router-dom'
 
 // import { updateBounds } from '../../actions/filter_actions';
 class FiltersContainer extends React.Component{
-    componentDidMount(){
-        this.props.getAmenities()
-    }
+    // componentDidMount(){
+    //     this.props.getAmenities()
+    // }
 
     
 
@@ -20,15 +20,6 @@ class FiltersContainer extends React.Component{
             this.props.updateSpotsFilters(name, filter)
             document.getElementById(e.currentTarget.id).classList.add("filter-btn-selected")
         }
-        // if (document.getElementById(e.currentTarget.id).classList.value === "filter-btn"){
-        //     document.getElementById(e.currentTarget.id).classList.add("filter-btn-selected")
-        //     document.getElementById(e.currentTarget.id).classList.remove("filter-btn")
-        //     this.props.updateSpotsFilters(name, filter)
-        // } else if (document.getElementById(e.currentTarget.id).classList.value === "filter-btn-selected"){
-        //     document.getElementById(e.currentTarget.id).classList.add("filter-btn")
-        //     document.getElementById(e.currentTarget.id).classList.remove("filter-btn-selected")
-        //     this.props.removeFilter(name, filter)
-        // }
 
     }
     

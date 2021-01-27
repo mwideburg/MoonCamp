@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { getSpots, getSpot } from '../../actions/spot_actions'
+import { getSpots } from '../../actions/spot_actions'
 import Splash from "./splash";
 import { getAmenities } from '../../actions/amenities_actions'
 const mapStateToProps = (state) => {

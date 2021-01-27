@@ -1,13 +1,10 @@
 import React from 'react';
-import { Link, Switch, Route } from 'react-router-dom';
-import SpotMap from './spot_map'
+
 import MoonMap from './moon_map'
-import MarsMap from './mars_map'
+
 import FiltersContainer from './filters_container'
 import SpotsIndexContainer from "./spots_container";
-import { updateFilters, updateSpotsFilters, removeFilter } from '../../actions/filter_actions';
-import { getAmenities } from '../../actions/amenities_actions';
-// import { updateBounds } from '../../actions/filter_actions';
+
 
 
 const SearchSpots = ( {spots, updateSpotsFilters, updateBounds, updateSpots, removeFilter, amenities} ) => {
@@ -27,8 +24,7 @@ const SearchSpots = ( {spots, updateSpotsFilters, updateBounds, updateSpots, rem
                     </div>
                     
                     <div className="maps-search-view">
-                            {/* <SpotMap spots={spots} updateBounds={updateBounds} updateSpots={updateSpots}/> */}
-                                {/* <MarsMap spots={spots} updateBounds={updateBounds} updateSpots={updateSpots} /> */}
+                          
                                 <MoonMap spots={spots} updateBounds={updateBounds} updateSpots={updateSpots} updateSpotsFilter={updateSpotsFilters}/>
                            
                     </div>
@@ -56,11 +52,4 @@ const SearchSpots = ( {spots, updateSpotsFilters, updateBounds, updateSpots, rem
             )
 }
 
-
-
-const mapDispatchToProps = dispatch => {
-    return {
-        updateSpotsFilter: (planet) => dispatch(updateSpotsFilter({ amenities: planet }))
-    }
-};
 export default SearchSpots

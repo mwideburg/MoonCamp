@@ -23,7 +23,6 @@
     "react-router-dom": "^5.2.0",
     "react-transition-group": "^1.2.1",
     "redux": "^4.0.5",
-    "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
     "style-loader": "^2.0.0",
     "webpack": "^4.44.2",
@@ -31,7 +30,8 @@
   },
   "version": "0.1.0",
   "devDependencies": {
-    "webpack-dev-server": "^3.11.0"
+    "webpack-dev-server": "^3.11.0",
+    "redux-logger": "^3.0.6"
   },
   "description": "This README would normally document whatever steps are necessary to get the application up and running.",
   "main": "babel.config.js",

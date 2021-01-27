@@ -1,6 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import Spot from './spot_single_view'
 import MarkerManager from '../../util/marker_manager'
 
 class SpotMap extends React.Component {

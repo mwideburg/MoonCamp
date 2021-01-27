@@ -1,5 +1,5 @@
 import * as APIUtil from '../util/spot_api_util'
-import { recieveSpot, recieveSpots } from './spot_actions'
+import { recieveSpots } from './spot_actions'
 import {filterSpots} from './spot_actions'
 export const UPDATE_BOUNDS = 'UPDATE_BOUNDS'
 export const UPDATE_FILTERS = 'UPDATE_FILTERS'
@@ -82,19 +82,3 @@ export function removeFilter(filter, value) {
         // delicious curry!
     };
 }
-// export const updateFilters = () => {
-//     return(dispatch, getState) => {
-//         return dispatch()
-//     }
-// }
-// export const updateFilters = bounds => dispatch => {
-//     return APIUtil.updateFilters(spots => dispatch())
-// }
-
-// export function updateFilters(filter) {
-//     return (dispatch, getState) => {
-//         dispatch(changeFilters(filter));
-//         return fetchBenches(getState().filters)(dispatch);
-//         // delicious curry!
-//     };
-// }

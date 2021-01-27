@@ -1,14 +1,12 @@
-import React, {useState} from 'react';
-
-import { useParams, Link } from 'react-router-dom';
+import React from 'react';
 import HostDetail from './host_details'
 import CampsiteInfo from './campsite_info'
 import TerrainContainer from './terrain_icons'
-import CategoryActivityContainer from './spot_instructions'
+
 import SpotActivityIcons from './spot_activity_icons'
 import PageFooter from '../footer/pages_footer'
 import ReviewsContinaer from './reviews_container'
-import { removeSave } from '../../actions/spot_actions';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import DatePicker from "react-datepicker";
 import subDays from "date-fns/subDays";
@@ -18,7 +16,7 @@ import PhotoGallery from './photo_gallery'
 import PhotoSection from './photo_section'
 
 import { faAngleLeft, faAngleRight, faThumbsUp, faThumbsDown, faHeart } from '@fortawesome/free-solid-svg-icons';
-// import {Example} from "./date_picker";
+
 
 
 
@@ -148,8 +146,6 @@ class SpotShow extends React.Component {
         dateform.classList.add('close')
         document.getElementById("max").classList.remove("fade-inout")
         document.getElementById("quantity").classList.add("disable-inner")
-        // document.getElementById("booking-btn").classList.add("view-booking")
-        
        this.props.requestBooking(booking).then(this.setState({bookContent: 'View Booking Details', submit: true}))
 
     }

@@ -14,8 +14,6 @@ class Booking extends React.Component {
             host: this.props.host,
             amenities: this.props.amenities
         }
-        
-
         this.cancelReservation = this.cancelReservation.bind(this);
     }
     componentDidMount(){
@@ -25,30 +23,17 @@ class Booking extends React.Component {
             this.props.getHost(spot.spot.spot.host_id)
             
         })
-    //    this.props.getHost(this.state.host.id)
-        
-        
-
     }
+
     cancelReservation(){
-        
-        
         this.props.cancelReservation(this.state.booking).then(this.props.history.replace('/spots'))
     }
     getBookings(){
-        
-      
         this.props.getBookings(this.state.booking.user_id).then(this.props.history.replace(`/users/${this.props.user_id}/trips`))
     }
     
-
-
     render() {
-        
-
         if (this.props.spot === undefined){
-            
-            
             return null
         }
         

@@ -1,4 +1,4 @@
-import { RECEIVE_HOST, RECIEVE_HOST } from '../actions/spot_actions'
+import { RECIEVE_HOST } from '../actions/spot_actions'
 
 
 const hostReducer = (state = {}, action) => {

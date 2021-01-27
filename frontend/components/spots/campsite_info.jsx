@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faStreetView, faIgloo, faSpaceShuttle, faGasPump, faAtom } from '@fortawesome/free-solid-svg-icons';
+import {faIgloo, faSpaceShuttle, faGasPump, faAtom } from '@fortawesome/free-solid-svg-icons';
 
 
 const CampsiteInfo = ({host, spot}) => {
@@ -52,30 +52,25 @@ const CampsiteInfo = ({host, spot}) => {
 
 
             </div>
-        <div className="spot-info-list">
-            <h3> Amenities</h3>
-            <div >
-                    <ul>
-                        
-                        {amenList}
-                   
-                    </ul>
-            </div>
-            
-
-        </div>
-        <div className="spot-info-list">
-            
-                <h3> Activities</h3>
+            <div className="spot-info-list">
+                <h3> Amenities</h3>
                 <div >
-                    <ul>
-                        {actList}
-                    </ul>
-
-
+                        <ul>
+                            {amenList}
+                        </ul>
                 </div>
+                
 
-        </div>
+            </div>
+            <div className="spot-info-list">
+                    <h3> Activities</h3>
+                    <div >
+                        <ul>
+                            {actList}
+                        </ul>
+                    </div>
+
+            </div>
 
         </div>
 

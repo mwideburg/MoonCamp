@@ -9,13 +9,6 @@ const mapStateToProps = ({ session, entities: { users } }) => {
         currentUser: users[session.id]
     };
 };
-
-// const mapStateToProps = (state) => {
-//     console.log(state);
-//     return state;
-
-// }
-
 const mapDispatchToProps = dispatch => ({
     demo: () => dispatch(login({ email: "michael@mooncamp.com", password: "michael" })),
     logout: () => dispatch(logout()),
