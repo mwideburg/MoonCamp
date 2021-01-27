@@ -65,14 +65,11 @@ class SpotShow extends React.Component {
             
             this.setState({saved: saved})
         })
-        // this.setState({spot: this.props.getSpot(this.props.spotId)})
         
     }
     componentDidUpdate(prevProps) {
-        // `prevProps` is passed in by React
         if (this.props.match.params.spotId !== prevProps.match.params.spotId) {
-            this.props.getSpot(this.props.match.params.spotId);}
-            
+            this.props.getSpot(this.props.match.params.spotId);}    
     }
     
     updateState(field){

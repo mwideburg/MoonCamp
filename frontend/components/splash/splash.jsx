@@ -8,6 +8,7 @@ import PageFooter from '../footer/pages_footer'
 
 class Splash extends React.Component {
     componentDidMount(){
+        
         this.props.getSpots()
         this.props.getAmenities()
     }

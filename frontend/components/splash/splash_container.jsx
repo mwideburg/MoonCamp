@@ -9,14 +9,6 @@ const mapStateToProps = (state) => {
         amenities: state.entities.amenities
     }
 }
-// const mapDispatchToProps = dispatch => {
-
-//     return ({
-//         getSpots: () => dispatch(getSpots()),
-
-//     })
-// }
-
 
 
 const mapDispatchToProps = dispatch => {

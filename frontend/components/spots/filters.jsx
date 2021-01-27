@@ -1,13 +1,16 @@
+
 import React from 'react';
 
 import {Link} from 'react-router-dom'
 
 // import { updateBounds } from '../../actions/filter_actions';
 class FiltersContainer extends React.Component{
-    // componentDidMount(){
-    //     this.props.getAmenities()
-    // }
-
+    componentDidMount(){
+        this.props.getAmenities()
+    }
+    componentWillUnmount(){
+        this.props.removeFilters()
+    }
     
 
     handleClick(e, name, filter){

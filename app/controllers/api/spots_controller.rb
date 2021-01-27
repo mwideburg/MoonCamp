@@ -5,27 +5,74 @@ class Api::SpotsController < ApplicationController
             spots = Spot.all
         else
             bounds = params[:filters][:bounds]
-            spots = params[:filters][:bounds] ? Spot.in_bounds(bounds) : Spot.all
-            # spots = spots.includes(:amenities)
+            spots = Spot.in_bounds(bounds)
             
-            if params[:filters][:holodeck]
-                # spots = spots.map(spot => spot.amenities)
-                name = params[:filters][:holodeck]
-                filter = spots.joins(:amenities).where(amenities: {name: name})
-                
+            keys = params[:filters].keys
+            if keys.length > 1
+                if keys.include?("holodeck") && keys.include?("phasers") && keys.include?("oxygen")
+                    spots = (spots.joins(:amenities).where(amenities: {name: "Holodeck"})).merge(spots.joins(:amenities).where(amenities: {name: "Phasers"})).merge(spots.joins(:amenities).where(amenities: {name: "Oxygen"}))
+                    
+                elsif keys.include?("holodeck") && keys.include?("phasers") 
+                    spots = (spots.joins(:amenities).where(amenities: {name: "Holodeck"})).merge(spots.joins(:amenities).where(amenities: {name: "Phasers"}))
+                    
+                elsif keys.include?("holodeck") && keys.include?("oxygen") 
+                    spots = (spots.joins(:amenities).where(amenities: {name: "Holodeck"})).merge(spots.joins(:amenities).where(amenities: {name: "Oxygen"}))
+                    
+                elsif keys.include?("oxygen") && keys.include?("phasers") 
+                    spots = (spots.joins(:amenities).where(amenities: {name: "Oxygen"})).merge(spots.joins(:amenities).where(amenities: {name: "Phasers"}))
+                    
+                else
+                        if keys[-1] == "holodeck"
+                        name = params[:filters][:holodeck]
+                        spots = (spots.joins(:amenities).where(amenities: {name: name}))
+                        end
+                        if keys[-1] == "oxygen"
+                            name = params[:filters][:oxygen]
+                            spots = (spots.joins(:amenities).where(amenities: {name: name}))
+                        end
+                        if keys[-1] == "phasers"
+                            name = params[:filters][:phasers]
+                            spots = (spots.joins(:amenities).where(amenities: {name: name}))
+                        end
+                end
             end
+            # params[:filters].keys.each do |filter|
+                
+            #     if filter == "holodeck"
+            #         name = params[:filters][:holodeck]
+            #         spots = (spots.joins(:amenities).where(amenities: {name: name}))
+            #     end
+            #     if filter == "oxygen"
+            #         name = params[:filters][:oxygen]
+            #         spots = (spots.joins(:amenities).where(amenities: {name: name}))
+            #     end
+            #     if filter == "phasers"
+            #         name = params[:filters][:phasers]
+            #         spots = (spots.joins(:amenities).where(amenities: {name: name}))
+            #     end
+                 
+            # end
+            
+
+           
+            # if params[:filters][:holodeck]
+            #     name = params[:filters][:holodeck]
+            #     spots = spots.joins(:amenities).where(amenities: {name: name})  
+            # end
 
             
-            if params[:filters][:oxygen]
+            # if params[:filters][:oxygen]
                 
-                name = params[:filters][:oxygen]
-                spots = spots.joins(:amenities).where(amenities: {name: name})
-            end
-            if params[:filters][:phasers]
+            #     name = params[:filters][:oxygen]
+            #     spots = spots.joins(:amenities).where(amenities: {name: name})
+            # end
+            # if params[:filters][:phasers]
                     
-                name = params[:filters][:phasers]
-                spots = spots.joins(:amenities).where(amenities: {name: name})
-            end
+            #     name = params[:filters][:phasers]
+            #     spots = spots.joins(:amenities).where(amenities: {name: name})
+            # end
+            
+            
         end
         
          @spots = spots

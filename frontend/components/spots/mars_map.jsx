@@ -93,7 +93,7 @@ class MarsMap extends React.Component {
         this.map.mapTypes.set("mars_elevation", moonMapType);
         this.map.setMapTypeId("mars_elevation");
 
-        const updateSpots = this.props.updateSpotsFilter
+        const updateSpotsFilter = this.props.updateSpotsFilter
         this.map.addListener('idle', function () {
             const { north, south, east, west } = this.getBounds().toJSON();
             const bounds = {
@@ -101,7 +101,7 @@ class MarsMap extends React.Component {
                 southWest: { lat: south, lng: west }
             };
             console.log('updated')
-            updateSpots('bounds', bounds)
+            updateSpotsFilter('bounds', bounds)
         })
 
 

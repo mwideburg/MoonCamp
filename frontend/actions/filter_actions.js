@@ -51,13 +51,14 @@ export const recieveFilterSpots = (filter) => {
 
 
 export const updateSpots = (bounds) => dispatch => {
-    // 
+    console.log("UpdateSpots")
     APIUtil.getSpots(bounds).then(spots => dispatch(recieveSpots(spots)))
 }
 
 export function updateSpotsFilters(filter, value) {
     
-    
+
+    console.log("updateFilters")
     return (dispatch, getState) => {
         dispatch(updateFilters(filter, value));
         return filterSpots(getState().ui.filters)(dispatch)
@@ -81,4 +82,10 @@ export function removeFilter(filter, value) {
         return filterSpots(getState().ui.filters)(dispatch)
         // delicious curry!
     };
+}
+export function removeFilters() {
+    
+    
+        dispatch(clearFilters());
+
 }

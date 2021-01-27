@@ -5,7 +5,7 @@ import SpotsIndexContainer from "./spots_container";
 
 
 
-const SearchSpotsMars = ( {spots, updateSpotsFilters, updateBounds, updateSpots, amenities} ) => {
+const SearchSpotsMars = ({ spots, updateSpotsFilters, updateBounds, updateSpots, removeFilter, amenities } ) => {
 
       
                 
@@ -14,7 +14,7 @@ const SearchSpotsMars = ( {spots, updateSpotsFilters, updateBounds, updateSpots,
             <>
             <div className="splash-container spot-search-index">
                     <div className="search filter-top">
-                        <FiltersContainer updateSpotsFilter={updateSpotsFilters} spots={spots} amenities={amenities}/>
+                        <FiltersContainer updateSpotsFilter={updateSpotsFilters} spots={spots} removeFilter={removeFilter} amenities={amenities} />
                     </div>
             <div className="spots-search-wrapper">
                 <div className="spots-search-container">
@@ -23,9 +23,9 @@ const SearchSpotsMars = ( {spots, updateSpotsFilters, updateBounds, updateSpots,
                     </div>
                     
                     <div className="maps-search-view">
-                            {/* <SpotMap spots={spots} updateBounds={updateBounds} updateSpots={updateSpots}/> */}
-                                <MarsMap spots={spots} updateBounds={updateBounds} updateSpots={updateSpots} />
-                            {/* <MoonMap spots={spots} updateBounds={updateBounds} updateSpots={updateSpots} /> */}
+                         
+                                <MarsMap spots={spots} updateBounds={updateBounds} updateSpots={updateSpots} updateSpotsFilter={updateSpotsFilters}/>
+                           
                            
                     </div>
                 </div>

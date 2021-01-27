@@ -7,7 +7,7 @@ import SpotsIndexContainer from "./spots_container";
 
 
 
-const SearchSpots = ( {spots, updateSpotsFilters, updateBounds, updateSpots, removeFilter, amenities} ) => {
+const SearchSpots = ({ spots, updateSpotsFilters, updateBounds, updateSpots, removeFilter, amenities, updateSpotsFiltersNoBack} ) => {
         
                 
         
@@ -15,7 +15,7 @@ const SearchSpots = ( {spots, updateSpotsFilters, updateBounds, updateSpots, rem
             <>
             <div className="splash-container spot-search-index">
                     <div className="search filter-top">
-                        <FiltersContainer updateSpotsFilter={updateSpotsFilters} spots={spots} removeFilter={removeFilter} amenities={amenities}/>
+                        <FiltersContainer updateSpotsFilter={updateSpotsFiltersNoBack} spots={spots} removeFilter={removeFilter} amenities={amenities}/>
                     </div>
             <div className="spots-search-wrapper">
                 <div className="spots-search-container">

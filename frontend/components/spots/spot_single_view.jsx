@@ -46,10 +46,6 @@ class Spot extends React.Component {
         }
         return(
             <div className="recent-views-container" >
-                {/* map through activities to put them on the splash with a limit */}
-                {/* have a single acitivty-item that will render a list item with the picture
-            and link to the specific search content page */}
-                {/* place inside a ul */}
                 <div className="spots-img">
                     <img src={photos[this.state.photoNum]} className="spots-img img-hover" alt=""/>
                     <button className='gallery-button single-btn-left' onClick={() => this.lastPhoto()}><FontAwesomeIcon icon={faAngleLeft} /></button>
@@ -77,12 +73,4 @@ class Spot extends React.Component {
     
     
 }
-
-
-    // < h2 > { spot.title }</h2> 
-    //             <p>{spot.description}</p>
-    //             <p>{spot.price}</p>
-    //             <p>{spot.moon}</p>
-    //             <p>{spot.planet}</p>
-
 export default Spot;

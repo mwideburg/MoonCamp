@@ -6,9 +6,7 @@ class SpotsIndexContainer extends React.Component{
         window.scrollTo(0, 0)
 
     }
-    // handleOnClick() {
-    //     this.props.updateSpotsFilter(231)
-    // }
+
 
     render(){
         const spots = Object.values(this.props.spots).map(spot =>

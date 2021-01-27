@@ -109,7 +109,7 @@ var recieveAmenities = function recieveAmenities(amenities) {
 };
 var getAmenities = function getAmenities() {
   return function (dispatch) {
-    // 
+    console.log("GetEmenities");
     return _util_amenities_util__WEBPACK_IMPORTED_MODULE_0__["getAmenities"]().then(function (amenities) {
       return dispatch(recieveAmenities(amenities));
     });
@@ -122,7 +122,7 @@ var getAmenities = function getAmenities() {
 /*!********************************************!*\
   !*** ./frontend/actions/filter_actions.js ***!
   \********************************************/
-/*! exports provided: UPDATE_BOUNDS, UPDATE_FILTERS, FILTER_SPOTS, REMOVE_FILTER, REMOVE_FILTERS, ONE_FILTER, updateBounds, updateFilters, onlyOneFilter, clearFilters, removeAFilter, recieveFilterSpots, updateSpots, updateSpotsFilters, updateOneFilter, removeFilter */
+/*! exports provided: UPDATE_BOUNDS, UPDATE_FILTERS, FILTER_SPOTS, REMOVE_FILTER, REMOVE_FILTERS, ONE_FILTER, updateBounds, updateFilters, onlyOneFilter, clearFilters, removeAFilter, recieveFilterSpots, updateSpots, updateSpotsFilters, updateOneFilter, removeFilter, removeFilters */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -143,6 +143,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateSpotsFilters", function() { return updateSpotsFilters; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateOneFilter", function() { return updateOneFilter; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeFilter", function() { return removeFilter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeFilters", function() { return removeFilters; });
 /* harmony import */ var _util_spot_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/spot_api_util */ "./frontend/util/spot_api_util.js");
 /* harmony import */ var _spot_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./spot_actions */ "./frontend/actions/spot_actions.js");
 
@@ -198,13 +199,14 @@ var recieveFilterSpots = function recieveFilterSpots(filter) {
 };
 var updateSpots = function updateSpots(bounds) {
   return function (dispatch) {
-    // 
+    console.log("UpdateSpots");
     _util_spot_api_util__WEBPACK_IMPORTED_MODULE_0__["getSpots"](bounds).then(function (spots) {
       return dispatch(Object(_spot_actions__WEBPACK_IMPORTED_MODULE_1__["recieveSpots"])(spots));
     });
   };
 };
 function updateSpotsFilters(filter, value) {
+  console.log("updateFilters");
   return function (dispatch, getState) {
     dispatch(updateFilters(filter, value));
     return Object(_spot_actions__WEBPACK_IMPORTED_MODULE_1__["filterSpots"])(getState().ui.filters)(dispatch); // delicious curry!
@@ -221,6 +223,9 @@ function removeFilter(filter, value) {
     dispatch(removeAFilter(filter, value));
     return Object(_spot_actions__WEBPACK_IMPORTED_MODULE_1__["filterSpots"])(getState().ui.filters)(dispatch); // delicious curry!
   };
+}
+function removeFilters() {
+  dispatch(clearFilters());
 }
 
 /***/ }),
@@ -405,7 +410,6 @@ var RECIEVE_SAVE = 'RECIEVE_SAVE';
 var REMOVE_SAVE = 'REMOVE_SAVE';
 var REMOVE_BOOKING = 'REMOVE_BOOKING';
 var recieveSpots = function recieveSpots(spots) {
-  // 
   return {
     type: RECEIVE_SPOTS,
     spots: spots
@@ -456,7 +460,7 @@ var deleteBooking = function deleteBooking(booking) {
 };
 var getSpots = function getSpots(bounds) {
   return function (dispatch) {
-    // 
+    console.log("GetSpots");
     return _util_spot_api_util__WEBPACK_IMPORTED_MODULE_0__["filterSpots"](bounds).then(function (spots) {
       return dispatch(recieveSpots(spots));
     });
@@ -464,7 +468,7 @@ var getSpots = function getSpots(bounds) {
 };
 var filterSpots = function filterSpots(filter) {
   return function (dispatch) {
-    // 
+    console.log("FilterSpots");
     return _util_spot_api_util__WEBPACK_IMPORTED_MODULE_0__["filterAmenSpots"](filter).then(function (spots) {
       return dispatch(recieveSpots(spots));
     });
@@ -488,9 +492,8 @@ var getSpot = function getSpot(spotId) {
 };
 var getUserSpots = function getUserSpots(bookings) {
   return function (dispatch) {
-    // 
+    console.log("GETUSERSPOTS");
     return _util_spot_api_util__WEBPACK_IMPORTED_MODULE_0__["getUserSpots"](bookings).then(function (spots) {
-      // 
       return dispatch(recieveSpots(spots));
     });
   };
@@ -3389,12 +3392,7 @@ var mapStateToProps = function mapStateToProps(state) {
     spots: state.entities.spots,
     amenities: state.entities.amenities
   };
-}; // const mapDispatchToProps = dispatch => {
-//     return ({
-//         getSpots: () => dispatch(getSpots()),
-//     })
-// }
-
+};
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   // 
@@ -3630,10 +3628,17 @@ var FiltersContainer = /*#__PURE__*/function (_React$Component) {
   }
 
   _createClass(FiltersContainer, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.getAmenities();
+    }
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      this.props.removeFilters();
+    }
+  }, {
     key: "handleClick",
-    // componentDidMount(){
-    //     this.props.getAmenities()
-    // }
     value: function handleClick(e, name, filter) {
       if (this.props.filter[name] != undefined) {
         this.props.removeFilter(name, filter);
@@ -3757,8 +3762,14 @@ var mapSTP = function mapSTP(state) {
 var mapDTP = function mapDTP(dispatch) {
   // 
   return {
+    updateSpotsFiltersNoBack: function updateSpotsFiltersNoBack(filter, value) {
+      return dispatch(Object(_actions_filter_actions__WEBPACK_IMPORTED_MODULE_1__["updateSpotsFiltersNoBack"])(filter, value));
+    },
     getAmenities: function getAmenities() {
       return dispatch(Object(_actions_amenities_actions__WEBPACK_IMPORTED_MODULE_2__["getAmenities"])());
+    },
+    removeFilters: function removeFilters() {
+      return dispatch(_actions_filter_actions__WEBPACK_IMPORTED_MODULE_1__["removeFilters"]);
     },
     updateSpots: function updateSpots(bounds) {
       return dispatch(Object(_actions_filter_actions__WEBPACK_IMPORTED_MODULE_1__["updateSpots"])(bounds));
@@ -4097,7 +4108,7 @@ var MarsMap = /*#__PURE__*/function (_React$Component) {
       });
       this.map.mapTypes.set("mars_elevation", moonMapType);
       this.map.setMapTypeId("mars_elevation");
-      var updateSpots = this.props.updateSpotsFilter;
+      var updateSpotsFilter = this.props.updateSpotsFilter;
       this.map.addListener('idle', function () {
         var _this$getBounds$toJSO = this.getBounds().toJSON(),
             north = _this$getBounds$toJSO.north,
@@ -4116,7 +4127,7 @@ var MarsMap = /*#__PURE__*/function (_React$Component) {
           }
         };
         console.log('updated');
-        updateSpots('bounds', bounds);
+        updateSpotsFilter('bounds', bounds);
       });
       this.MarkerManager.updateMarker(this.props.spots);
     }
@@ -4542,13 +4553,14 @@ var SearchSpots = function SearchSpots(_ref) {
       updateBounds = _ref.updateBounds,
       updateSpots = _ref.updateSpots,
       removeFilter = _ref.removeFilter,
-      amenities = _ref.amenities;
+      amenities = _ref.amenities,
+      updateSpotsFiltersNoBack = _ref.updateSpotsFiltersNoBack;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "splash-container spot-search-index"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "search filter-top"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filters_container__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    updateSpotsFilter: updateSpotsFilters,
+    updateSpotsFilter: updateSpotsFiltersNoBack,
     spots: spots,
     removeFilter: removeFilter,
     amenities: amenities
@@ -4591,7 +4603,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_filter_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/filter_actions */ "./frontend/actions/filter_actions.js");
 /* harmony import */ var _search_spots__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./search_spots */ "./frontend/components/spots/search_spots.jsx");
 
- // import getSpots from '../../actions/spot_actions'
 
 
 
@@ -4605,13 +4616,14 @@ var mapSTP = function mapSTP(state) {
 var mapDTP = function mapDTP(dispatch) {
   // 
   return {
-    // getSpots: () => dispatch(getSpots()),
-    // updateBounds : (bounds) => dispatch(updateBounds(bounds)),
     updateSpots: function updateSpots(bounds) {
       return dispatch(Object(_actions_filter_actions__WEBPACK_IMPORTED_MODULE_1__["updateSpots"])(bounds));
     },
     updateSpotsFilters: function updateSpotsFilters(filter, value) {
       return dispatch(Object(_actions_filter_actions__WEBPACK_IMPORTED_MODULE_1__["updateSpotsFilters"])(filter, value));
+    },
+    updateSpotsFiltersNoBack: function updateSpotsFiltersNoBack(filter, value) {
+      return dispatch(Object(_actions_filter_actions__WEBPACK_IMPORTED_MODULE_1__["updateSpotsFiltersNoBack"])(filter, value));
     },
     removeFilter: function removeFilter(filter, value) {
       return dispatch(Object(_actions_filter_actions__WEBPACK_IMPORTED_MODULE_1__["removeFilter"])(filter, value));
@@ -4638,7 +4650,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _search_spots_mars__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./search_spots_mars */ "./frontend/components/spots/search_spots_mars.jsx");
 
 
- // import getSpots from '../../actions/spot_actions'
 
 
 
@@ -4656,13 +4667,14 @@ var mapDTP = function mapDTP(dispatch) {
     getAmenities: function getAmenities() {
       return dispatch(Object(_actions_amenities_actions__WEBPACK_IMPORTED_MODULE_2__["getAmenities"])());
     },
-    // getSpots: () => dispatch(getSpots()),
-    // updateBounds : (bounds) => dispatch(updateBounds(bounds)),
     updateSpots: function updateSpots(bounds) {
       return dispatch(Object(_actions_filter_actions__WEBPACK_IMPORTED_MODULE_1__["updateSpots"])(bounds));
     },
     updateSpotsFilters: function updateSpotsFilters(filter, value) {
       return dispatch(Object(_actions_filter_actions__WEBPACK_IMPORTED_MODULE_1__["updateSpotsFilters"])(filter, value));
+    },
+    removeFilter: function removeFilter(filter, value) {
+      return dispatch(Object(_actions_filter_actions__WEBPACK_IMPORTED_MODULE_1__["removeFilter"])(filter, value));
     }
   };
 };
@@ -4695,6 +4707,7 @@ var SearchSpotsMars = function SearchSpotsMars(_ref) {
       updateSpotsFilters = _ref.updateSpotsFilters,
       updateBounds = _ref.updateBounds,
       updateSpots = _ref.updateSpots,
+      removeFilter = _ref.removeFilter,
       amenities = _ref.amenities;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "splash-container spot-search-index"
@@ -4703,6 +4716,7 @@ var SearchSpotsMars = function SearchSpotsMars(_ref) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_filters_container__WEBPACK_IMPORTED_MODULE_2__["default"], {
     updateSpotsFilter: updateSpotsFilters,
     spots: spots,
+    removeFilter: removeFilter,
     amenities: amenities
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "spots-search-wrapper"
@@ -4715,7 +4729,8 @@ var SearchSpotsMars = function SearchSpotsMars(_ref) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_mars_map__WEBPACK_IMPORTED_MODULE_1__["default"], {
     spots: spots,
     updateBounds: updateBounds,
-    updateSpots: updateSpots
+    updateSpots: updateSpots,
+    updateSpotsFilter: updateSpotsFilters
   }))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("footer", {
     className: "stick-bottom"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -4758,12 +4773,8 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
-
-
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 
 
 var SpotActivityIcons = function SpotActivityIcons(spot) {
@@ -4771,18 +4782,18 @@ var SpotActivityIcons = function SpotActivityIcons(spot) {
 
   var actList = activities.map(function (act) {
     // 
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       key: act.id,
       className: "activity-descrition"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("img", {
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
       src: act.photo,
       alt: "",
       className: "icon-activities"
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h2", null, act.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", null, act.description));
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, act.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, act.description));
   });
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "details-spot clearfix"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h2", null, " Activities"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", null, " On moons, you don't have to do anything, but you could if you wanted to..."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null), actList);
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, " Activities"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, " On moons, you don't have to do anything, but you could if you wanted to..."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), actList);
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (SpotActivityIcons);
@@ -4907,12 +4918,11 @@ var SpotShow = /*#__PURE__*/function (_React$Component) {
         _this2.setState({
           saved: saved
         });
-      }); // this.setState({spot: this.props.getSpot(this.props.spotId)})
+      });
     }
   }, {
     key: "componentDidUpdate",
     value: function componentDidUpdate(prevProps) {
-      // `prevProps` is passed in by React
       if (this.props.match.params.spotId !== prevProps.match.params.spotId) {
         this.props.getSpot(this.props.match.params.spotId);
       }
@@ -5488,12 +5498,7 @@ var Spot = /*#__PURE__*/function (_React$Component) {
   }]);
 
   return Spot;
-}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component); // < h2 > { spot.title }</h2> 
-//             <p>{spot.description}</p>
-//             <p>{spot.price}</p>
-//             <p>{spot.moon}</p>
-//             <p>{spot.planet}</p>
-
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["default"] = (Spot);
 
@@ -5523,7 +5528,8 @@ var mapStateToProps = function mapStateToProps(state) {
   // 
   return {
     spots: state.entities.spots,
-    amenities: state.entities.amenities
+    amenities: state.entities.amenities,
+    filters: state.ui.filters
   };
 };
 
@@ -5595,10 +5601,7 @@ var SpotsIndexContainer = /*#__PURE__*/function (_React$Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       window.scrollTo(0, 0);
-    } // handleOnClick() {
-    //     this.props.updateSpotsFilter(231)
-    // }
-
+    }
   }, {
     key: "render",
     value: function render() {
@@ -5690,16 +5693,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./store/store */ "./frontend/store/store.js");
-/* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./actions/session_actions */ "./frontend/actions/session_actions.js");
-/* harmony import */ var _actions_spot_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./actions/spot_actions */ "./frontend/actions/spot_actions.js");
-/* harmony import */ var _components_root__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/root */ "./frontend/components/root.jsx");
-/* harmony import */ var _actions_modal_actions__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./actions/modal_actions */ "./frontend/actions/modal_actions.js");
-/* harmony import */ var _actions_filter_actions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./actions/filter_actions */ "./frontend/actions/filter_actions.js");
+/* harmony import */ var _actions_spot_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./actions/spot_actions */ "./frontend/actions/spot_actions.js");
+/* harmony import */ var _components_root__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/root */ "./frontend/components/root.jsx");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
-
- // import { login, logout, signup} from './util/session_api_util';
 
 
 
@@ -5732,9 +5728,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   window.getState = store.getState;
   window.dispatch = store.dispatch;
-  window.getSpots = Object(_actions_spot_actions__WEBPACK_IMPORTED_MODULE_4__["getSpots"])(); // 
+  window.getSpots = Object(_actions_spot_actions__WEBPACK_IMPORTED_MODULE_3__["getSpots"])(); // 
 
-  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_root__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_root__WEBPACK_IMPORTED_MODULE_4__["default"], {
     store: store
   }), root);
 });

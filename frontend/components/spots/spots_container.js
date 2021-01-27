@@ -7,7 +7,8 @@ const mapStateToProps = (state) => {
     // 
     return {
         spots: state.entities.spots,
-        amenities: state.entities.amenities
+        amenities: state.entities.amenities,
+        filters: state.ui.filters
     }
 }
 

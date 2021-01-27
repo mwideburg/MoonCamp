@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { updateSpotsFilters, updateSpots, removeFilters } from '../../actions/filter_actions'
+import { updateSpotsFilters, updateSpots, removeFilters, updateSpotsFiltersNoBack } from '../../actions/filter_actions'
 import { getAmenities } from '../../actions/amenities_actions';
 import FiltersContainer from "./filters";
 
@@ -15,7 +15,9 @@ const mapSTP = (state) => {
 const mapDTP = dispatch => {
     // 
     return {
+        updateSpotsFiltersNoBack: (filter, value) => dispatch(updateSpotsFiltersNoBack(filter, value)),
         getAmenities: () => dispatch(getAmenities()),
+        removeFilters: () => dispatch(removeFilters),
         updateSpots: (bounds) => dispatch(updateSpots(bounds)),
         updateSpotsFilters: (filter, value) => dispatch(updateSpotsFilters( filter, value ))
     }
