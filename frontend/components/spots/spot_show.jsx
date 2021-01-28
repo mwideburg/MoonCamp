@@ -61,9 +61,12 @@ class SpotShow extends React.Component {
         this.props.getSpot(this.props.match.params.spotId).then(spot => {
             // 
             this.props.getHost(spot.spot.spot.host_id)
-            
-            let saved = Object.values(this.props.user.saved).map(save => save.spot_id).includes(spot.spot.spot.id)
-            
+            let saved = false
+            if (this.props.user.saved != undefined){
+
+                saved = Object.values(this.props.user.saved).map(save => save.spot_id).includes(spot.spot.spot.id)
+                
+            }
             this.setState({saved: saved})
         })
         

@@ -81,7 +81,7 @@ class MoonMap extends React.Component {
                 northEast: { lat: north, lng: east },
                 southWest: { lat: south, lng: west }
             };
-            console.log('updated')
+        
             updateSpots('bounds', bounds)
         })
 

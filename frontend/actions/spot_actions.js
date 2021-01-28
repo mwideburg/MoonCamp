@@ -67,7 +67,7 @@ export const deleteBooking = (booking) => {
 }
 
 export const getSpots = (bounds) => dispatch => {
-    console.log("GetSpots")
+   
 
     return (
         
@@ -77,7 +77,7 @@ export const getSpots = (bounds) => dispatch => {
     )
 };
 export const filterSpots = (filter) => dispatch => {
-    console.log("FilterSpots")
+    
 
     return (
         
@@ -102,7 +102,7 @@ export const getSpot = (spotId) => dispatch => {
     })
 };
 export const getUserSpots = (bookings) => dispatch => {
-    console.log("GETUSERSPOTS")
+   
     return APIUtil.getUserSpots(bookings).then(spots => {
        
         return dispatch(recieveSpots(spots))
