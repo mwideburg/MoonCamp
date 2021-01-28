@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import CampsiteInfo from './campsite_info'
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleLeft, faAngleRight, faThumbsUp, faThumbsDown, faHeart } from '@fortawesome/free-solid-svg-icons';
 class Spot extends React.Component {

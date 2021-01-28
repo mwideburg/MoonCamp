@@ -2,7 +2,8 @@ import React from "react";
 import {
     Route,
     Switch,
-    withRouter
+    withRouter,
+    connect
 } from 'react-router-dom';
 
 import { AuthRoute } from '../util/route_util'

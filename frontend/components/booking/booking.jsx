@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { useParams, Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import AmenityChecklist from './amenities_checklist'
 import PageFooter from '../footer/pages_footer'
 import HostDetail from '../spots/host_details'

@@ -1,9 +1,9 @@
 import React from 'react';
-import Link from 'react-router-dom'
+
 import HostDetail from './host_details'
 import CampsiteInfo from './campsite_info'
 import TerrainContainer from './terrain_icons'
-
+import { useParams, Link, connect } from 'react-router-dom';
 import SpotActivityIcons from './spot_activity_icons'
 import PageFooter from '../footer/pages_footer'
 import ReviewsContinaer from './reviews_container'
@@ -134,6 +134,8 @@ class SpotShow extends React.Component {
             
             return null
         }
+
+        debugger
         const end = new Date(this.state.endDate)
         const start = new Date(this.state.startDate)
         const days = parseInt((end - start) / (24 * 3600 * 1000))
@@ -200,7 +202,7 @@ class SpotShow extends React.Component {
             }else{
                 path ='/'
             }
-            
+            debugger
             bookBtn = (
             <Link to={path}>
                     <button type="submit" className="btn-search instant view-booking" id="booking-btn"> {this.state.bookContent}</button>

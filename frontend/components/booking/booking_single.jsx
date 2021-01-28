@@ -1,7 +1,7 @@
 
 
 import React from 'react';
-import { Link } from 'react-router-dom'
+import Link from 'react-router-dom'
 
 const BookingSingle = ({bookings, spots, cancelReservation}) => {
     if(!bookings || Object.values(spots).length === 0){

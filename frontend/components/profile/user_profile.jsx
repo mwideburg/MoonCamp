@@ -1,11 +1,9 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAngleLeft, faAngleRight, faThumbsUp, faThumbsDown, faHeart, faMapMarker } from '@fortawesome/free-solid-svg-icons';
-import { useParams, Link, NavLink, Switch, Route} from 'react-router-dom';
+import {faThumbsUp, faThumbsDown, faHeart, faMapMarker } from '@fortawesome/free-solid-svg-icons';
+import {Link, NavLink} from 'react-router-dom';
 import PageFooter from '../footer/pages_footer'
-import HostDetail from '../spots/host_details'
-import BookingSingle from '../booking/booking_single'
-import TripsContainer from './trips_container'
+
 
 class Profile extends React.Component {
     constructor(props) {
