@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'react-router-dom'
 import HostDetail from './host_details'
 import CampsiteInfo from './campsite_info'
 import TerrainContainer from './terrain_icons'
@@ -236,51 +237,35 @@ class SpotShow extends React.Component {
                    <div className="show-img-container">
                     <button className='gallery-button next' onClick={() => openModal('gallery')}><FontAwesomeIcon icon={faAngleLeft} /></button>
                        <PhotoGallery photos={photos} openModal={this.props.openModal}/>
-                        {/* <div className="galery-container" onClick={() => openModal('gallery')}>
-
-                            <img src={photos[0]} alt="" className="show-img-full" />
-
-                        </div> */}
                     <button className='gallery-button later' onClick={() => openModal('gallery')}><FontAwesomeIcon icon={faAngleRight} /></button>
                     </div>
-                  
-                   
-
-
-
                 <div className="showpage-columns">
                     <div className="wrapper-1000">
-                    <div className="wrapper-600">
-                            
-                            
-                         
-                    <div className="show-page-container">
+                        <div className="wrapper-600"> 
+                            <div className="show-page-container">
 
 
-                        <div className="show-details-contianer">
-                            <div className="showpage-spot-details">
-                                <div className="showpage-title">
-                                    <p>     
-                                        {spot.planet} -- {spot.moon}
-                                    </p>
-                                    <h1> {spot.title}  </h1> 
-                                    Nearby:  Jupiter's Europa 
-                                    <div className='flex left'>
-                                 <p className={color}>{icon} {this.props.spot.rating}% </p>
-                                       
-                                {this.props.spot.num_reviews} Reviews
-                                    </div> 
-                                </div>
-                                <div className="showpage-details-footer">
-                                    {saveBtn}
+                                <div className="show-details-contianer">
+                                    <div className="showpage-spot-details">
+                                        <div className="showpage-title">
+                                            <p>     
+                                                {spot.planet} -- {spot.moon}
+                                            </p>
+                                            <h1> {spot.title}  </h1> 
+                                            Nearby:  Jupiter's Europa 
+                                            <div className='flex left'>
+                                        <p className={color}>{icon} {this.props.spot.rating}% </p>
+                                            
+                                        {this.props.spot.num_reviews} Reviews
+                                            </div> 
+                                        </div>
+                                        <div className="showpage-details-footer">
+                                            {saveBtn}
+                                        </div>
                                 </div>
                             </div>
-                        </div>
-
-
-                        
                     </div>
-                    {/* <Example onChange={() => this.handleDate()}/> */}
+                    
                         
                     <HostDetail host={this.props.host} spot={this.props.spot}/>
                     <CampsiteInfo host={this.props.host} spot={this.props.spot}/>
@@ -297,17 +282,13 @@ class SpotShow extends React.Component {
                     
                     
                     </div>  
-                    
-
                         <div className="column-filler">
                             <div className="price-show-container">
 
                                 <div className="price-title">
                                     <h2> ${(parseInt(this.state.guests) / 3 > 1) ? ((parseInt(this.state.guests / 3)) * 5) + spot.price : spot.price}</h2>
-
-                                per night
+                                    per night
                             </div>
-                               
                                 <form onSubmit={this.handleSubmit} className="" autoComplete="off">
                                     <div className="num-guests">
                                         <label htmlFor="quantity">Number of Guests </label>
@@ -347,41 +328,16 @@ class SpotShow extends React.Component {
                                             className="instant-book-btn" 
                                             
                                             placeholderText="Check Out"/>
-                                            {/* <label htmlFor="startDate"></label>
-                                            <br />
-
-                                            <input type="date"
-                                                name="startDate"
-                                                id="startDate"
-                                                className="instant-book-btn"
-                                                placeholder="Check In"
-                                                onChange={this.updateState('start')}
-                                            />
-                                            <label htmlFor="endDate" ></label>
-                                            <br />
-
-                                            <input type="date" name="endDate"
-                                                id="endDate"
-                                                className="instant-book-btn"
-                                                placeholder="Check Out"
-                                                onChange={this.updateState('end')} /> */}
-
-                                            
-
                                         </div>
                                     </div>
                                     
                                     <div className="sub-total">
                                     <p>
-                                    Number of Days: {this.checkDays()}
+                                        Number of Days: {this.checkDays()}
                                     </p>
                                     <p>
-                                    Subtotal: ${this.checkTotal()}
-
+                                        Subtotal: ${this.checkTotal()}
                                     </p>
-
-
-
                                     </div>
                                     <div className="instant-book">
                                         <div className="dates-guests" >
@@ -390,20 +346,9 @@ class SpotShow extends React.Component {
                                     </div>
                                 </form>
                             </div>
-
-                        </div>
-
-                        
-                        
-
-                        
+                        </div> 
                     </div>
-
-                   
-                    
                 </div>
-                
-
                 <PageFooter spot={this.props.spot} />
             </div>
         )

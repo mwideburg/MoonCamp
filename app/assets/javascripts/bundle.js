@@ -4811,20 +4811,21 @@ var SpotActivityIcons = function SpotActivityIcons(spot) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _host_details__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./host_details */ "./frontend/components/spots/host_details.jsx");
-/* harmony import */ var _campsite_info__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./campsite_info */ "./frontend/components/spots/campsite_info.jsx");
-/* harmony import */ var _terrain_icons__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./terrain_icons */ "./frontend/components/spots/terrain_icons.jsx");
-/* harmony import */ var _spot_activity_icons__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./spot_activity_icons */ "./frontend/components/spots/spot_activity_icons.jsx");
-/* harmony import */ var _footer_pages_footer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../footer/pages_footer */ "./frontend/components/footer/pages_footer.jsx");
-/* harmony import */ var _reviews_container__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./reviews_container */ "./frontend/components/spots/reviews_container.jsx");
-/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
-/* harmony import */ var react_datepicker__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-datepicker */ "./node_modules/react-datepicker/dist/react-datepicker.min.js");
-/* harmony import */ var react_datepicker__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(react_datepicker__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var date_fns_subDays__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! date-fns/subDays */ "./node_modules/date-fns/esm/subDays/index.js");
-/* harmony import */ var react_datepicker_dist_react_datepicker_css__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-datepicker/dist/react-datepicker.css */ "./node_modules/react-datepicker/dist/react-datepicker.css");
-/* harmony import */ var _photo_gallery__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./photo_gallery */ "./frontend/components/spots/photo_gallery.jsx");
-/* harmony import */ var _photo_section__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./photo_section */ "./frontend/components/spots/photo_section.jsx");
-/* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _host_details__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./host_details */ "./frontend/components/spots/host_details.jsx");
+/* harmony import */ var _campsite_info__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./campsite_info */ "./frontend/components/spots/campsite_info.jsx");
+/* harmony import */ var _terrain_icons__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./terrain_icons */ "./frontend/components/spots/terrain_icons.jsx");
+/* harmony import */ var _spot_activity_icons__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./spot_activity_icons */ "./frontend/components/spots/spot_activity_icons.jsx");
+/* harmony import */ var _footer_pages_footer__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../footer/pages_footer */ "./frontend/components/footer/pages_footer.jsx");
+/* harmony import */ var _reviews_container__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./reviews_container */ "./frontend/components/spots/reviews_container.jsx");
+/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
+/* harmony import */ var react_datepicker__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-datepicker */ "./node_modules/react-datepicker/dist/react-datepicker.min.js");
+/* harmony import */ var react_datepicker__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(react_datepicker__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var date_fns_subDays__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! date-fns/subDays */ "./node_modules/date-fns/esm/subDays/index.js");
+/* harmony import */ var react_datepicker_dist_react_datepicker_css__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-datepicker/dist/react-datepicker.css */ "./node_modules/react-datepicker/dist/react-datepicker.css");
+/* harmony import */ var _photo_gallery__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./photo_gallery */ "./frontend/components/spots/photo_gallery.jsx");
+/* harmony import */ var _photo_section__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./photo_section */ "./frontend/components/spots/photo_section.jsx");
+/* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -4848,6 +4849,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
 
 
 
@@ -5095,7 +5097,7 @@ var SpotShow = /*#__PURE__*/function (_React$Component) {
           path = '/';
         }
 
-        bookBtn = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Link, {
+        bookBtn = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["default"], {
           to: path
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           type: "submit",
@@ -5113,8 +5115,8 @@ var SpotShow = /*#__PURE__*/function (_React$Component) {
           onClick: function onClick() {
             return _this4.removeSave();
           }
-        }, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_7__["FontAwesomeIcon"], {
-          icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_13__["faHeart"],
+        }, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_8__["FontAwesomeIcon"], {
+          icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_14__["faHeart"],
           color: "red"
         }), " Saved  ");
       } else {
@@ -5124,8 +5126,8 @@ var SpotShow = /*#__PURE__*/function (_React$Component) {
           onClick: function onClick() {
             return _this4.saveSpot();
           }
-        }, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_7__["FontAwesomeIcon"], {
-          icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_13__["faHeart"],
+        }, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_8__["FontAwesomeIcon"], {
+          icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_14__["faHeart"],
           color: "black"
         }), " Save ");
       }
@@ -5134,13 +5136,13 @@ var SpotShow = /*#__PURE__*/function (_React$Component) {
       var icon;
 
       if (this.props.spot.rating < 85) {
-        icon = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_7__["FontAwesomeIcon"], {
-          icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_13__["faThumbsDown"]
+        icon = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_8__["FontAwesomeIcon"], {
+          icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_14__["faThumbsDown"]
         });
         color = 'red';
       } else {
-        icon = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_7__["FontAwesomeIcon"], {
-          icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_13__["faThumbsUp"]
+        icon = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_8__["FontAwesomeIcon"], {
+          icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_14__["faThumbsUp"]
         });
         color = 'green';
       }
@@ -5156,9 +5158,9 @@ var SpotShow = /*#__PURE__*/function (_React$Component) {
         onClick: function onClick() {
           return openModal('gallery');
         }
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_7__["FontAwesomeIcon"], {
-        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_13__["faAngleLeft"]
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_photo_gallery__WEBPACK_IMPORTED_MODULE_11__["default"], {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_8__["FontAwesomeIcon"], {
+        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_14__["faAngleLeft"]
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_photo_gallery__WEBPACK_IMPORTED_MODULE_12__["default"], {
         photos: photos,
         openModal: this.props.openModal
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -5166,8 +5168,8 @@ var SpotShow = /*#__PURE__*/function (_React$Component) {
         onClick: function onClick() {
           return openModal('gallery');
         }
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_7__["FontAwesomeIcon"], {
-        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_13__["faAngleRight"]
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_8__["FontAwesomeIcon"], {
+        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_14__["faAngleRight"]
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "showpage-columns"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -5188,20 +5190,20 @@ var SpotShow = /*#__PURE__*/function (_React$Component) {
         className: color
       }, icon, " ", this.props.spot.rating, "% "), this.props.spot.num_reviews, " Reviews")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "showpage-details-footer"
-      }, saveBtn)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_host_details__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      }, saveBtn)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_host_details__WEBPACK_IMPORTED_MODULE_2__["default"], {
         host: this.props.host,
         spot: this.props.spot
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_campsite_info__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_campsite_info__WEBPACK_IMPORTED_MODULE_3__["default"], {
         host: this.props.host,
         spot: this.props.spot
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_spot_activity_icons__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_spot_activity_icons__WEBPACK_IMPORTED_MODULE_5__["default"], {
         spot: this.props.spot
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_terrain_icons__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_terrain_icons__WEBPACK_IMPORTED_MODULE_4__["default"], {
         spot: this.props.spot
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("center", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "PHOTOS"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_photo_section__WEBPACK_IMPORTED_MODULE_12__["default"], {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("center", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "PHOTOS"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_photo_section__WEBPACK_IMPORTED_MODULE_13__["default"], {
         photos: photos,
         openModal: this.props.openModal
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_reviews_container__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_reviews_container__WEBPACK_IMPORTED_MODULE_7__["default"], {
         spot: this.props.spot
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "column-filler"
@@ -5234,7 +5236,7 @@ var SpotShow = /*#__PURE__*/function (_React$Component) {
         id: "date-form"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "dates-guests"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_datepicker__WEBPACK_IMPORTED_MODULE_8___default.a, {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_datepicker__WEBPACK_IMPORTED_MODULE_9___default.a, {
         selected: startDate,
         onChange: function onChange(date) {
           return _this4.handleStartDate(date);
@@ -5243,10 +5245,10 @@ var SpotShow = /*#__PURE__*/function (_React$Component) {
         startDate: startDate,
         endDate: endDate,
         id: "startDate",
-        minDate: Object(date_fns_subDays__WEBPACK_IMPORTED_MODULE_9__["default"])(new Date(), 0),
+        minDate: Object(date_fns_subDays__WEBPACK_IMPORTED_MODULE_10__["default"])(new Date(), 0),
         className: "instant-book-btn",
         placeholderText: "Check In"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_datepicker__WEBPACK_IMPORTED_MODULE_8___default.a, {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_datepicker__WEBPACK_IMPORTED_MODULE_9___default.a, {
         selected: this.state.endDate,
         onChange: function onChange(date) {
           return _this4.handleEndDate(date);
@@ -5264,7 +5266,7 @@ var SpotShow = /*#__PURE__*/function (_React$Component) {
         className: "instant-book"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "dates-guests"
-      }, bookBtn))))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_footer_pages_footer__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      }, bookBtn))))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_footer_pages_footer__WEBPACK_IMPORTED_MODULE_6__["default"], {
         spot: this.props.spot
       }));
     }
