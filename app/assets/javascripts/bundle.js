@@ -4220,8 +4220,8 @@ var MoonMap = /*#__PURE__*/function (_React$Component) {
           lat: 0,
           lng: 0
         },
-        zoom: 3,
-        minZoom: 2,
+        zoom: 4,
+        minZoom: 3,
         restriction: {
           latLngBounds: MOON_BOUNDS,
           strictBounds: false

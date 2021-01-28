@@ -15,8 +15,8 @@ class MoonMap extends React.Component {
         };
         this.map = new google.maps.Map(this.mapNode, {
             center: { lat: 0, lng: 0 },
-            zoom: 3,
-            minZoom: 2,
+            zoom: 4,
+            minZoom: 3,
             restriction: {
                 latLngBounds:MOON_BOUNDS,
                 strictBounds: false,
