@@ -52,7 +52,7 @@ export const getHost = (hostId) => {
 }
 
 export const requestBooking = (booking) => {
-    debugger
+    
     return $.ajax({
         method: "POST",
         url: '/api/bookings',

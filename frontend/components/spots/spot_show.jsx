@@ -30,7 +30,6 @@ class SpotShow extends React.Component {
             bookings: {},
             start: '',
             end: '',
-            guests: 0,
             bookContent: 'Instant Book',
             showStart: "close",
             showEnd: "close",
@@ -111,12 +110,12 @@ class SpotShow extends React.Component {
      }
      checkTotal(){
          if (this.state.startDate != '' && this.state.endDate != '') {
-             const end = new Date(this.state.endDate)
-             const start = new Date(this.state.startDate)
-             const days = parseInt((end - start) / (24 * 3600 * 1000))
-            
+            const end = new Date(this.state.endDate)
+            const start = new Date(this.state.startDate)
+            const days = parseInt((end - start) / (24 * 3600 * 1000))
+            const guestTotal =  (parseInt(this.state.guests / 3)) * 5 + this.props.spot.price
 
-             return (days * this.props.spot.price)
+             return (days * guestTotal)
             }else{
             return 0
             }
@@ -138,7 +137,7 @@ class SpotShow extends React.Component {
             return null
         }
 
-        debugger
+        
         const end = new Date(this.state.endDate)
         const start = new Date(this.state.startDate)
         const days = parseInt((end - start) / (24 * 3600 * 1000))
@@ -205,7 +204,7 @@ class SpotShow extends React.Component {
             }else{
                 path ='/'
             }
-            debugger
+            
             bookBtn = (
             <Link to={path}>
                     <button type="submit" className="btn-search instant view-booking" id="booking-btn"> {this.state.bookContent}</button>

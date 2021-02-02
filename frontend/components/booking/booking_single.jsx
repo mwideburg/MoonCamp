@@ -40,6 +40,7 @@ const BookingSingle = ({bookings, spots, cancelReservation}) => {
                 <h4>
                     Guests: {booking.guests}
                 </h4>
+                
                 <Link to={{pathname: path, state: spot.id}} > View Spot</Link>
                 <br />
             

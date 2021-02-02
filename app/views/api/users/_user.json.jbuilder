@@ -19,7 +19,7 @@ json.bookings do
             json.set! booking.id do
             json.spot do
                 json.photo booking.spot.photos.map { |file| url_for(file) }
-                json.extract! booking.spot, :id, :title, :description 
+                json.extract! booking.spot, :id, :title, :description
                 json.amenities do
 
                     booking.spot.amenities.each do |amen|
@@ -30,7 +30,7 @@ json.bookings do
                     end
                 end
             end
-                json.extract! booking, :id, :start_date, :end_date, :spot_id, :host_id, :guests
+                json.extract! booking, :id, :start_date, :end_date, :spot_id, :host_id, :guests, :total
             end
     end
 end

@@ -21,6 +21,7 @@ class Api::BookingsController < ApplicationController
 
     def show
         @booking_request = Booking.find(params[:id])
+        debugger
         render 'api/bookings/show'
     end
 

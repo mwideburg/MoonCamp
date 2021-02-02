@@ -33,7 +33,7 @@ export const recieveHost = (host) => {
 }
 
 export const recieveBooking = (booking) => {
-    debugger
+    
     return{
         type: RECIEVE_BOOKING,
         booking
@@ -110,7 +110,7 @@ export const getUserSpots = (bookings) => dispatch => {
 };
 
 export const requestBooking = (booking) => dispatch => {
-    debugger
+    
     return APIUtil.requestBooking(booking).then(booking => {
         
         return dispatch(recieveBooking(booking))

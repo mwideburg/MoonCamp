@@ -41,6 +41,7 @@ const TripContainer = (props) => {
                 </h4>
 
                 <h4>Guests: {booking.guests}</h4>
+                
                 <Link to={path}> View Spot</Link>
                 <Link to={path2}> View Booking Details</Link>
                 <br />

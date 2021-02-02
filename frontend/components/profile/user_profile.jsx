@@ -132,12 +132,12 @@ class Profile extends React.Component {
 
                             <h4>
                                 <b>Check in: </b>{start}
-                            </h4>
-
-                            <h4>
+                                <br/>
                                 <b>Check out:</b> {end}
                             </h4>
-
+                                
+                                <b>Total: ${booking.total}</b>
+                                
                             <h4>Guests: {booking.guests}</h4>
                             <Link to={path}> View Spot</Link>
                             <Link to={path2}> View Booking Details</Link>

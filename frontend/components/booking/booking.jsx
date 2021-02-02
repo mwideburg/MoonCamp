@@ -33,6 +33,7 @@ class Booking extends React.Component {
     }
     
     render() {
+        debugger
         if (this.props.spot === undefined){
             return null
         }
@@ -65,14 +66,17 @@ class Booking extends React.Component {
                     </div>
                     
                     <h4>
-                            <b>Check in: </b>{start}
+                        <b>Check in: </b>{start}
                     </h4>
                     
                     <h4>
                         <b>Check out:</b> {end}
                     </h4>
-                    
+                        
                     <h4>Guests: {this.state.booking.guests}</h4>
+                    <h4>
+                            <b>Total:</b> ${this.state.booking.total}
+                    </h4>
                     <Link to={path}> View Spot</Link>
                     <br/>
                         <button onClick={() => this.cancelReservation()} className="btn-search instant view-booking"> Cancel Reservation</button>
