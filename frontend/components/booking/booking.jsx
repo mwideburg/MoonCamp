@@ -33,7 +33,7 @@ class Booking extends React.Component {
     }
     
     render() {
-        debugger
+        
         if (this.props.spot === undefined){
             return null
         }
