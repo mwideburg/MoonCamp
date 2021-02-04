@@ -5,13 +5,14 @@ footer{
     justify-content: center;
     background-color: black;
     width: 100%;
+    min-width: 1200px;
     
 }
 .footer-container{
     display: flex;
     /* position: absolute; */
     /* bottom: 0px;; */
-    width: 1000px;
+    width: 1200px;
     padding-left:100px;
     display:flex;
     justify-content: space-between;
@@ -56,6 +57,7 @@ footer{
     justify-content: center;
     align-items: center;
     width: 100%;
+    min-width: 1200px;
     height: 400px;
     background-color: rgb(199, 175, 131);
 }
