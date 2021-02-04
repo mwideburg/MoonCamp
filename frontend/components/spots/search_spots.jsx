@@ -4,7 +4,7 @@ import MoonMap from './moon_map'
 
 import FiltersContainer from './filters_container'
 import SpotsIndexContainer from "./spots_container";
-
+import PageFooter from '../footer/pages_footer'
 
 
 const SearchSpots = ({ spots, updateSpotsFilters, updateBounds, updateSpots, removeFilter, amenities, updateSpotsFiltersNoBack} ) => {
@@ -34,18 +34,7 @@ const SearchSpots = ({ spots, updateSpotsFilters, updateBounds, updateSpots, rem
             </div>
                 
             </div>
-                <footer className="stick-bottom">
-
-                    <div className="footer-container">
-
-
-                        made by michael wideburg with a lot of love and guidance from app academy
-                    <button className="help-button"> ? Help </button>
-
-                    </div>
-
-
-                </footer>
+                <PageFooter />
 
 
             </>

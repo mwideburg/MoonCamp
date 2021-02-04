@@ -9,7 +9,7 @@ const PageFooter = () => {
         <>
         
         <div className="covid">
-            <div className="wrapper-600">
+            <div className="wrapper-800">
                 <div className="warning">
                     <FontAwesomeIcon icon={faExclamationTriangle} /> Safety First
                     <h1>

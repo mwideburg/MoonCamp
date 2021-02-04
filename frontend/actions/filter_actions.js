@@ -50,10 +50,10 @@ export const recieveFilterSpots = (filter) => {
 }
 
 
-export const updateSpots = (bounds) => dispatch => {
+// export const updateSpots = (bounds) => dispatch => {
    
-    APIUtil.getSpots(bounds).then(spots => dispatch(recieveSpots(spots)))
-}
+//     APIUtil.getSpots(bounds).then(spots => dispatch(recieveSpots(spots)))
+// }
 
 export function updateSpotsFilters(filter, value) {
     
@@ -65,6 +65,7 @@ export function updateSpotsFilters(filter, value) {
         // delicious curry!
     };
 }
+
 export function updateOneFilter(filter, value) {
     
     

@@ -244,8 +244,8 @@ class SpotShow extends React.Component {
                     <button className='gallery-button later' onClick={() => openModal('gallery')}><FontAwesomeIcon icon={faAngleRight} /></button>
                     </div>
                 <div className="showpage-columns">
-                    <div className="wrapper-1000">
-                        <div className="wrapper-600"> 
+                    <div className="wrapper-1200">
+                        <div className="wrapper-800"> 
                             <div className="show-page-container">
 
 
