@@ -1,33 +1,44 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+
 import LoginContainer from './login_fix_container'
 
-class LoginSplash extends React.Component{
-    render(){
+function LoginSplash(){
+        const [email, setEmail] = useState('')
+        const [password, setPassword] = useState('')
+
+        const submit = (e) => {
+            e.preventDefault()
+            
+        }
+
+
+        
         return(
             <>
             <div className="splash-container">
                 <div className="login-splash">
-                    <div>
-                        {/* <center>
-                            <h1>WELCOME BACK</h1>
-                            <h3>
-                                Space... the final frontier... time to explore
-                            </h3>
-                            <br />
 
+                    <div className="login-form">
+                        <label for="email">Email: </label>
+                        <input 
+                        type='text'
+                        name="email"
+                        onChange={e => setEmail(e.target.value)}
+                        ></input>
+                        <br/>
+                        <label for="password">Password: </label>
 
-                        </center> */}
-                        
-                    </div>
-                    <div className="log-splash-form">
-                        
-                            
-                        <LoginContainer />
+                        <input 
+                                type='password'
+                                name="password"
+                                onChange={e => setPassword(e.target.value)}
+                        ></input>
+
                     </div>
                 </div>
 
-                <hr/>
+
                 <div className="host-review-container">
 
                     <div className="offset-frame picard">
@@ -72,6 +83,6 @@ class LoginSplash extends React.Component{
                 </>
         )
     }
-}
+
 
 export default LoginSplash

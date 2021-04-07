@@ -290,7 +290,7 @@ class SpotShow extends React.Component {
                             <div className="price-show-container">
 
                                 <div className="price-title">
-                                    <h2> ${(parseInt(this.state.guests) / 3 > 1) ? ((parseInt(this.state.guests / 3)) * 5) + spot.price : spot.price}</h2>
+                                    <h2> ${(parseInt(this.state.guests) / 3 >= 1) ? ((parseInt(this.state.guests / 3)) * 5) + spot.price : spot.price}</h2>
                                     per night
                             </div>
                                 <form onSubmit={this.handleSubmit} className="" autoComplete="off">
