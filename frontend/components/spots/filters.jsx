@@ -8,12 +8,12 @@ class FiltersContainer extends React.Component{
     componentDidMount(){
         this.props.getAmenities()
     }
-    componentWillUnmount(){
-        this.props.removeFilters()
+    async componentWillUnmount(){
+        await this.props.removeFilters()
     }
     
 
-    handleClick(e, name, filter){
+    async handleClick(e, name, filter){
         
         
         if(this.props.filter[name] != undefined){

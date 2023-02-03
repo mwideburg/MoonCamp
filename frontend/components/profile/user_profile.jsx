@@ -13,6 +13,7 @@ class Profile extends React.Component {
             user: this.props.user,
             bookings: {},
             spots: this.props.spots,
+            // saves: {},
             wait: true,
             get: true
             
@@ -23,19 +24,13 @@ class Profile extends React.Component {
         this.linkTo = this.linkTo.bind(this);
         this.removeSave = this.removeSave.bind(this);
     }
-    componentDidMount(){
+    async componentDidMount(){
         window.scrollTo(0, 0)
         // this.props.getAmenities()
-        // this.props.getBookings(this.state.user).then((bookings) => 
-        // {   
-        //     const filters = Object.values(bookings.bookings.bookings).map(booking => booking.spot_id)
-        //     return (
-        //     this.props.filterSpots({ bookings: filters })
-        // )
-        // }
-        // ).then(spots => this.setState({get: false}))
+        console.log(":::::: USER ID :::::::::::", this.props)
+        const bookings = await this.props.getBookings(this.props.user.id)
    
-        this.setState({wait: false})
+        await this.setState({wait: false, bookings, saves: {}})
         
         
     }
@@ -74,21 +69,6 @@ class Profile extends React.Component {
 
         let trips
         if (this.state.wait) {
-            // if (this.props.bookings) {
-
-            //     const bookings = Object.values(this.props.bookings).map(booking => booking.spot_id)
-            //     if (this.state.get) {
-            //         this.props.filterSpots({ bookings: bookings })
-
-            //         return null
-            //     }
-
-
-
-
-            // } else {
-            //     trips = <center>No current Trips</center>
-            // }
             return null
         }
         
@@ -98,7 +78,7 @@ class Profile extends React.Component {
         // if(!this.state.get){
             
             const bookings = this.state.user.bookings
-            let saves = this.state.user.saved
+            const saves = this.state.user.saved
             // const allSpots = this.state.spots
             
             tripCount = Object.values(bookings).length

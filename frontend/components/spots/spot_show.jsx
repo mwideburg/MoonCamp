@@ -143,7 +143,7 @@ class SpotShow extends React.Component {
         const days = parseInt((end - start) / (24 * 3600 * 1000))
         const total = days * this.props.spot.price
         const price = this.state.guests / 3 
-       const booking = {spot_id: this.props.spot.id, host_id: this.props.host.id, start_date: this.state.startDate, end_date: this.state.endDate, user_id: this.props.user_id, total: total, guests: this.state.guests}
+       const booking = {spot_id: this.props.spot.id, host_id: this.props.host.id, start_date: this.state.startDate, end_date: this.state.endDate, user_id: this.props.user_id, total: this.checkTotal(), guests: this.state.guests}
         const dateform = document.getElementById("date-form")
         dateform.classList.add('close')
         document.getElementById("max").classList.remove("fade-inout")
@@ -198,7 +198,7 @@ class SpotShow extends React.Component {
             let booking = Object.values(this.props.booking)
             if (booking.length != 0){
                 
-                let bookingId = Object.values(this.props.booking)[0].id
+                let bookingId = Object.values(this.props.booking)[booking.length - 1].id
                 path = `/bookings/${bookingId}`
 
             }else{

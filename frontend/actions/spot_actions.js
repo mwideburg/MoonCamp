@@ -142,4 +142,9 @@ export const getBookings = (user) => dispatch => {
         return dispatch(recieveBookings(user))
     })
 }
+export const getSaved = (user) => dispatch => {
+    return APIUtil.getBookings(user).then(user => {
+        return dispatch(recieveBookings(user))
+    })
+}
 

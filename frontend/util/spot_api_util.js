@@ -84,6 +84,13 @@ export const createSave = (save) => {
     })
 }
 
+export const getSaves = (save) => {
+    return $.ajax({
+        method: 'get',
+        url: `/api/users/${userId}/saves`,
+    })
+}
+
 export const deleteSave = (save) => {
     
     return $.ajax({

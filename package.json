@@ -11,8 +11,9 @@
     "@rails/actioncable": "^6.0.0",
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
-    "@rails/webpacker": "4.3.0",
+    "@rails/webpacker": "^5.4.3",
     "babel-loader": "^8.1.0",
+    "babel-plugin-macros": "^3.1.0",
     "css-loader": "^5.0.1",
     "date-fns": "^2.16.1",
     "prop-types": "^15.7.2",
@@ -30,8 +31,8 @@
   },
   "version": "0.1.0",
   "devDependencies": {
-    "webpack-dev-server": "^3.11.0",
-    "redux-logger": "^3.0.6"
+    "redux-logger": "^3.0.6",
+    "webpack-dev-server": "^4.11.1"
   },
   "description": "This README would normally document whatever steps are necessary to get the application up and running.",
   "main": "babel.config.js",
@@ -41,13 +42,13 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack --mode=production --watch",
-    "dev": "webpack --mode=development --watch",
-    "postinstall": "webpack"
+    "start": "export NODE_OPTIONS=--openssl-legacy-provider && webpack --openssl-legacy-provider --mode=production --watch",
+    "dev": "export NODE_OPTIONS=--openssl-legacy-provider && webpack --mode=development --watch",
+    "postinstall": "export NODE_OPTIONS=--openssl-legacy-provider && webpack"
   },
   "engines": {
-    "node": "14.7.0",
-    "npm": "6.14.8"
+    "node": "v18.11.0",
+    "npm": "9.4.1"
   },
   "repository": {
     "type": "git",

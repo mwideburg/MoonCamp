@@ -22,13 +22,18 @@ class Search extends React.Component{
     
     
    }
-   componentWillUnmount(){
-       this.props.updateOneFilter(this.state.selected, this.state.value)
+   async componentWillUnmount(){
+       await this.props.updateOneFilter(this.state.selected, this.state.value)
    }
-    showDropdown(e){
-        
+    async showDropdown(e){
         e.preventDefault();
-        document.getElementById('planet-dropdown').style.display="block"
+        try{
+            const drowpdown =  await document.getElementById('planet-dropdown')
+            drowpdown.style.display="block"
+
+        }catch(ex){
+            throw new Error("Dropdown is throwing an error")
+        }
     }
     render(){
         let selectedText

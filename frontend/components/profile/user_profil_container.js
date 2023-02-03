@@ -34,7 +34,8 @@ const mapDTP = dispatch => {
         getUserSpots: (bookings) => dispatch(getUserSpots(bookings)),
         cancelReservation: (booking) => dispatch(cancelBooking(booking)),
         getAmenities: () => dispatch(getAmenities()),
-        removeSave: (save) => dispatch(removeSave(save))
+        removeSave: (save) => dispatch(removeSave(save)),
+        getSaved: (userId) => dispatch(getSaved(userId))
 
     }
 }
