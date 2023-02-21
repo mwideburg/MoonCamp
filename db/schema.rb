@@ -61,7 +61,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_13_173338) do
     t.integer "spot_id", null: false
     t.date "end_date", null: false
     t.date "start_date", null: false
-    # t.datetime "created_at", precision: nil, null: false
+
     t.datetime "updated_at", precision: nil, null: false
     t.integer "user_id", null: false
     t.integer "host_id"
