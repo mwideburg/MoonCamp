@@ -30,7 +30,7 @@ export const removeErrors = () => {
 export const login = user => dispatch => {
     
     return APIUtil.login(user).then(user => {
-        console.log(":::::::: ACTION USER", user)
+
         return dispatch(receiveCurrentUser(user))
     }, err => {
         // 

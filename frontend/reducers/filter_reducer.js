@@ -34,7 +34,6 @@ const filterReducer = (state = defaultFilters, action) => {
         case FILTER_SPOTS:
             // 
             const filterSpotCopy = Object.assign({}, state, action.filter)
-            console.log("::::::::::::: FILTER SPOTS :::::::::::", filterSpotCopy)
             return Object.assign({}, filterSpotCopy)
         default:
             return state

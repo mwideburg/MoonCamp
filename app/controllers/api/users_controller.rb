@@ -21,7 +21,6 @@ class Api::UsersController < ApplicationController
         
         
         if @user
-            # console.log("::::::::::::: USER", @user)
             @bookings = @user.bookings
             @save = @user.saved
             render "api/users/show"

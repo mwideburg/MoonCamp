@@ -23,7 +23,7 @@ const usersReducer = (state = startState, action) => {
             }
             return Object.assign({}, state, { [action.currentUser.id]: user });
         case RECIEVE_BOOKINGS:
-            console.log("action.bookings.bookings", action.bookings)
+
             let newBookings = Object.assign({}, state)
            
             
@@ -31,9 +31,6 @@ const usersReducer = (state = startState, action) => {
             return Object.assign({}, state, newBookings);
         case RECIEVE_BOOKING:
             let updateState = Object.assign({}, state)
-            
-            
-            console.log("action.bookings.booking", action.bookings.booking)
             updateState[action.booking.user_id].bookings[action.booking.id] =  action.booking
             return updateState;
         case RECIEVE_SAVE:

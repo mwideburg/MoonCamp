@@ -121,7 +121,7 @@ class SpotShow extends React.Component {
             }
      }
 
-    handleSubmit(e){
+    async handleSubmit(e){
         e.preventDefault();
         if (this.props.user === undefined) {
             this.props.openModal('login')
@@ -148,7 +148,7 @@ class SpotShow extends React.Component {
         dateform.classList.add('close')
         document.getElementById("max").classList.remove("fade-inout")
         document.getElementById("quantity").classList.add("disable-inner")
-       this.props.requestBooking(booking).then(this.setState({bookContent: 'View Booking Details', submit: true}))
+       await this.props.requestBooking(booking).then(this.setState({bookContent: 'View Booking Details', submit: true}))
 
     }
     handleStartDate(date){
@@ -170,7 +170,6 @@ class SpotShow extends React.Component {
     }
     removeSave(e){
         const spotId = this.props.spot.id
-        console.log("REMOVE SAVES", this.props)
         let saves = Object.values(this.props.user.saved).filter(save => save.spot_id === spotId)
         
         let save = saves[0].id

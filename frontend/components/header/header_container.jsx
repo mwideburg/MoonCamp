@@ -26,7 +26,6 @@ const Greeting = ({ currentUser, logout, demo, openModal }) => {
     }
     const hello = () => {
         // 
-        console.log("CURRENT USER", curren)
         return (
             <header className="navbar">
 

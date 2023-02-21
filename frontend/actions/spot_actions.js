@@ -60,7 +60,7 @@ export const deleteSave = (save) => {
 }
 
 export const recieveBookings = (bookings) => {
-    console.log("RECIEVING BOOKINGS", bookings)
+
     return{
         type: RECIEVE_BOOKINGS,
         bookings

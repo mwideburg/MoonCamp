@@ -2,7 +2,7 @@ class Api::SavesController < ApplicationController
 
     def index
         @user = User.find(params[:user_id])
-        console.log("::::: SAVED SPOT", )
+
         render 'api/saves'
 
     end

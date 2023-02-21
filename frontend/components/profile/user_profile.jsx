@@ -27,13 +27,10 @@ class Profile extends React.Component {
     async componentDidMount(){
         window.scrollTo(0, 0)
         // this.props.getAmenities()
-        console.log(":::::: USER ID :::::::::::", this.props)
-        const gatherUser = await this.props.getBookings(this.props.user.id)
+
+        // const gatherUser = await this.props.getBookings(this.props.user.id)
         const saves = this.props.user.saved
         const bookings = this.props.user.bookings
-        console.log(":::::: SAVES", this.props.user.saved)
-        console.log(":::::: SAVES", this.props.user.bookings)
-        console.log("BOOOOKINGS", bookings)
         await this.setState({wait: false, bookings, saves})
         
         
@@ -81,7 +78,6 @@ class Profile extends React.Component {
             const bookings = this.state.bookings
             const saves = this.state.saves
             // const allSpots = this.state.spots
-            console.log("BOOKINGS", bookings)
             tripCount = Object.values(bookings).length
             saveCount = Object.values(saves).length
             trips = (
