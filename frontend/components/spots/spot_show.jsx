@@ -170,6 +170,7 @@ class SpotShow extends React.Component {
     }
     removeSave(e){
         const spotId = this.props.spot.id
+        console.log("REMOVE SAVES", this.props)
         let saves = Object.values(this.props.user.saved).filter(save => save.spot_id === spotId)
         
         let save = saves[0].id

@@ -1,9 +1,9 @@
 import { RECEIVE_CURRENT_USER } from '../actions/session_actions'
-import { RECIEVE_BOOKING, RECIEVE_BOOKINGS, REMOVE_BOOKING, RECIEVE_SAVE, REMOVE_SAVE } from '../actions/spot_actions'
+import { RECIEVE_BOOKING, RECIEVE_BOOKINGS, REMOVE_BOOKING, RECIEVE_SAVE, RECIEVE_SAVES, REMOVE_SAVE } from '../actions/spot_actions'
 
 const startState = {
     saved: {},
-    bookings: {}
+    bookings: {},
 }
 const usersReducer = (state = startState, action) => {
     const user = action.currentUser
@@ -23,7 +23,7 @@ const usersReducer = (state = startState, action) => {
             }
             return Object.assign({}, state, { [action.currentUser.id]: user });
         case RECIEVE_BOOKINGS:
-         
+            console.log("action.bookings.bookings", action.bookings)
             let newBookings = Object.assign({}, state)
            
             
@@ -33,7 +33,7 @@ const usersReducer = (state = startState, action) => {
             let updateState = Object.assign({}, state)
             
             
-            
+            console.log("action.bookings.booking", action.bookings.booking)
             updateState[action.booking.user_id].bookings[action.booking.id] =  action.booking
             return updateState;
         case RECIEVE_SAVE:
@@ -41,6 +41,12 @@ const usersReducer = (state = startState, action) => {
             let newSave = Object.assign({}, state)
             
             newSave[action.save.user_id].saved[action.save.id] =  action.save
+            return newSave;
+        case RECIEVE_SAVES:
+            
+            let newSaves = Object.assign({}, state)
+            
+            newSave[action.save.user_id].saved =  action.saves
             return newSave;
         case REMOVE_SAVE:
             

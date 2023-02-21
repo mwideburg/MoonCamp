@@ -84,7 +84,7 @@ export const createSave = (save) => {
     })
 }
 
-export const getSaves = (save) => {
+export const getSaves = (userId) => {
     return $.ajax({
         method: 'get',
         url: `/api/users/${userId}/saves`,

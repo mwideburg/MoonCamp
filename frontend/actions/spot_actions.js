@@ -8,6 +8,7 @@ export const RECIEVE_BOOKING = 'RECIEVE_BOOKING';
 export const RECIEVE_BOOKINGS = 'RECIEVE_BOOKINGS';
 export const RECIEVE_SAVE = 'RECIEVE_SAVE';
 export const REMOVE_SAVE = 'REMOVE_SAVE';
+export const REMOVE_SAVES = 'REMOVE_SAVES';
 export const REMOVE_BOOKING = 'REMOVE_BOOKING';
 
 export const recieveSpots = (spots) => {
@@ -45,6 +46,12 @@ export const recieveSave = (save) => {
         save
     }
 }
+export const recieveSaves = (saves) => {
+    return{
+        type: RECIEVE_SAVES,
+        saves
+    }
+}
 export const deleteSave = (save) => {
     return{
         type: REMOVE_SAVE,
@@ -53,6 +60,7 @@ export const deleteSave = (save) => {
 }
 
 export const recieveBookings = (bookings) => {
+    console.log("RECIEVING BOOKINGS", bookings)
     return{
         type: RECIEVE_BOOKINGS,
         bookings
@@ -143,8 +151,8 @@ export const getBookings = (user) => dispatch => {
     })
 }
 export const getSaved = (user) => dispatch => {
-    return APIUtil.getBookings(user).then(user => {
-        return dispatch(recieveBookings(user))
+    return APIUtil.getSaves(user).then(user => {
+        return dispatch(recieveSaves(user))
     })
 }
 

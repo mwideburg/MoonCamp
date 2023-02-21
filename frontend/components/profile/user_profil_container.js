@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import {withRouter} from 'react-router-dom'
 
-import { cancelBooking, getBookings, getUserSpots, getSpots, filterSpots, removeSave } from '../../actions/spot_actions'
+import { cancelBooking, getBookings, getSaved, getUserSpots, getSpots, filterSpots, removeSave } from '../../actions/spot_actions'
 import { getAmenities} from '../../actions/amenities_actions'
 
 import Profile from "./user_profile";
@@ -11,6 +11,7 @@ const mapSTP = (state, ownProps) => {
 
     const bookings = state.entities.users[state.session.id].bookings
     const user = state.entities.users[state.session.id]
+    // const saves = []
     const spots = state.entities.spots
     const amenities = Object.values(state.entities.amenities)
     
@@ -21,6 +22,7 @@ const mapSTP = (state, ownProps) => {
         user: user,
         bookings: bookings,
         spots: spots,
+        saves: [],
         amenities: amenities
 
     }

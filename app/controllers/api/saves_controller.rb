@@ -1,9 +1,16 @@
 class Api::SavesController < ApplicationController
 
     def index
-        @saves = @current_user.saved
+        @user = User.find(params[:user_id])
+        console.log("::::: SAVED SPOT", )
         render 'api/saves'
 
+    end
+
+    def show
+        @saves = Booking.find(params[:id])
+        
+        render 'api/saves/show'
     end
     def create 
         @save = current_user.saved.new(save_params)

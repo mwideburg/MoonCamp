@@ -1,16 +1,15 @@
 json.extract! @user, :id, :firstname, :zipcode, :lastname, :created_at
 json.current_user @user, :id, :firstname, :zipcode, :lastname, :created_at
 
-
-if @user.photo.attached?
-  json.photoUrl url_for(@user.photo)
+if user.photo.attached?
+  json.photoUrl url_for(user.photo)
 end
 
 json.user do
-  json.set! @user.id do
-    json.extract! @user, :id, :firstname, :zipcode, :lastname, :created_at
+  json.set! user.id do
+    json.extract! user.info, :id, :firstname, :zipcode, :lastname, :created_at
   end
-  puts @user.id
+  puts user.id
 end
 
 json.saved do

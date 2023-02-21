@@ -10,6 +10,9 @@ class Api::SessionsController < ApplicationController
         
         if @user 
             login(@user)
+            @user = current_user
+            puts "::::::::::::::: @USER ::::::::::::::::"
+            puts @user.saved
             render "api/users/show"
         else
             

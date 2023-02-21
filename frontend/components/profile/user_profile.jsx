@@ -13,7 +13,7 @@ class Profile extends React.Component {
             user: this.props.user,
             bookings: {},
             spots: this.props.spots,
-            // saves: {},
+            saves: {},
             wait: true,
             get: true
             
@@ -28,23 +28,22 @@ class Profile extends React.Component {
         window.scrollTo(0, 0)
         // this.props.getAmenities()
         console.log(":::::: USER ID :::::::::::", this.props)
-        const bookings = await this.props.getBookings(this.props.user.id)
-   
-        await this.setState({wait: false, bookings, saves: {}})
+        const gatherUser = await this.props.getBookings(this.props.user.id)
+        const saves = this.props.user.saved
+        const bookings = this.props.user.bookings
+        console.log(":::::: SAVES", this.props.user.saved)
+        console.log(":::::: SAVES", this.props.user.bookings)
+        console.log("BOOOOKINGS", bookings)
+        await this.setState({wait: false, bookings, saves})
         
         
     }
-    componentDidUpdate(){
+    async removeSave(save) {
         
-
-    }
-    removeSave(save) {
-        
-        this.props.removeSave(save.id)
+        await this.props.removeSave(save.id)
         
     }
     cancelReservation(booking) {
-
         const bookingId = booking.id
         this.props.cancelReservation(booking).then(this.removeBooking(bookingId))
     }
@@ -71,16 +70,18 @@ class Profile extends React.Component {
         if (this.state.wait) {
             return null
         }
-        
-        let tripCount
-        let saveCount
+        if(!this.state.bookings){
+            return
+        }
+        let tripCount = {}
+        let saveCount = {}
         
         // if(!this.state.get){
             
-            const bookings = this.state.user.bookings
-            const saves = this.state.user.saved
+            const bookings = this.state.bookings
+            const saves = this.state.saves
             // const allSpots = this.state.spots
-            
+            console.log("BOOKINGS", bookings)
             tripCount = Object.values(bookings).length
             saveCount = Object.values(saves).length
             trips = (

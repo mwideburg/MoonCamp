@@ -28,8 +28,9 @@ const filterReducer = (state = defaultFilters, action) => {
             delete copy[action.filter]
             return Object.assign({}, copy);
         case REMOVE_FILTERS:
+             const filterCopy = Object.assign({}, {})
             
-            return Object.assign({}, copy);
+            return Object.assign({}, filterCopy);
         case FILTER_SPOTS:
             // 
             const filterSpotCopy = Object.assign({}, state, action.filter)

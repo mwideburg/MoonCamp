@@ -19,10 +19,11 @@ class Api::UsersController < ApplicationController
         
         @user = User.find(params[:id])
         
-        @bookings = @user.bookings
-        @save = @user.saved
         
-         if @user
+        if @user
+            # console.log("::::::::::::: USER", @user)
+            @bookings = @user.bookings
+            @save = @user.saved
             render "api/users/show"
         else
             # flash.now[:error] = @user.errors.full_messages

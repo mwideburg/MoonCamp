@@ -26,7 +26,7 @@ const Greeting = ({ currentUser, logout, demo, openModal }) => {
     }
     const hello = () => {
         // 
-
+        console.log("CURRENT USER", curren)
         return (
             <header className="navbar">
 
@@ -43,6 +43,7 @@ const Greeting = ({ currentUser, logout, demo, openModal }) => {
                             <ul>
                                 <li>
                                     <Link to={path}>Account</Link>
+                                    
                                 </li>
                                 <li>
                                     <a onClick={() => openModal('host')}>Become A Host</a>

@@ -84,12 +84,12 @@ class Splash extends React.Component {
                     
                 </div>
                 <br />
-                <div className="host-review-container">
+                {/* <div className="host-review-container">
 
                     <div className="offset-frame">
 
                         <div className="worf">
-                            <img className="worf" src="https://cnet4.cbsistatic.com/img/r-p-OqNgNZMOl62QZqWFWkgaQa0=/940x0/2016/09/02/41f02b67-d8ff-4179-8c32-a0f0c5bdfd7f/tng-worf00000993d.jpg" alt=""/>
+                            <img className="worf" src="worf.jpg" alt=""/>
                         </div>
 
                         <div className="worf-container">
@@ -106,7 +106,7 @@ class Splash extends React.Component {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> */}
             </div>
                 <PageFooter />
         </div>

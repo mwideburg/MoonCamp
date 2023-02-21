@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import configureStore from "./store/store";
+import configureAppStore from "./store/store";
 import { getSpots } from './actions/spot_actions'
 import Root from './components/root'
 
@@ -11,7 +11,6 @@ document.addEventListener("DOMContentLoaded", () => {
     let store;
     if (window.currentUser) {
         // store user and remove to stay logged in
-       
         const preloadedState = {
             entities: {
                 users: { [window.currentUser.id]: window.currentUser}
@@ -19,10 +18,10 @@ document.addEventListener("DOMContentLoaded", () => {
             session: { id: window.currentUser.id }
         };
         
-        store = configureStore(preloadedState);
+        store = configureAppStore(preloadedState);
         delete window.currentUser;
     } else {
-        store = configureStore();
+        store = configureAppStore();
     }
     // grab the root element
     const root = document.getElementById('root');

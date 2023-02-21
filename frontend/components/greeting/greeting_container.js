@@ -5,6 +5,8 @@ import Greeting from './greeting';
 
 const mapStateToProps = ({ session, entities: { users } }) => {
     // 
+
+    console.log("GREEETINGS CONTAINER", users, session)
     return {
         currentUser: users[session.id]
     };
