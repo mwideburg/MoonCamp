@@ -43,7 +43,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "export NODE_OPTIONS=--openssl-legacy-provider && webpack --openssl-legacy-provider --mode=production --watch",
+    "start": "export NODE_OPTIONS=--openssl-legacy-provider && webpack --openssl-legacy-provider --mode=production --watch && node start",
     "dev": "export NODE_OPTIONS=--openssl-legacy-provider && webpack --mode=development --watch",
     "postinstall": "export NODE_OPTIONS=--openssl-legacy-provider && webpack"
   },
